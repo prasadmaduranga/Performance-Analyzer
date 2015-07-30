@@ -1,0 +1,86 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="StudentMaster.master.cs" Inherits="PerformanceAnalyzer2.PresentationLayer.Student.StudentMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    
+</head>
+<body>
+   <form id="form1" runat="server">
+        <table style="width: 100%;">
+            <tr>
+                <td colspan="2">
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+                            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+
+                                <ContentTemplate>
+                                    <asp:ScriptManager ID="ScriptManager1" runat="server">
+                                    </asp:ScriptManager>
+                                </ContentTemplate>
+
+                            </asp:UpdatePanel>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </td>
+
+            </tr>
+            <tr>
+
+
+                <td rowspan="2">
+                    <div style="border: solid">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            <br />
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </td>
+
+
+
+                <td style="border: solid">
+
+                    <asp:Menu ID="Menu1" runat="server" StaticMenuItemStyle-BorderStyle="Solid" Orientation="Horizontal">
+                        <Items>
+                            <asp:MenuItem Text="Profile"></asp:MenuItem>
+                            <asp:MenuItem Text="My Course"></asp:MenuItem>
+                            <asp:MenuItem Text="Compare"></asp:MenuItem>
+                            <asp:MenuItem Text="My Performance"></asp:MenuItem>
+                            <asp:MenuItem Text="Statistics"></asp:MenuItem>
+
+
+
+
+
+                        </Items>
+
+                    </asp:Menu>
+                </td>
+
+            </tr>
+            <tr>
+
+                <td>
+                    <div style="border: solid">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                            <p>
+                                <br />
+                            </p>
+                        </asp:ContentPlaceHolder>
+                    </div>
+
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <br />
+                </td>
+
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,7 @@
+C:\Users\User\Desktop\MVC\PerformanceAnalyzer2\PerformanceAnalyzer2\bin\PerformanceAnalyzer2.dll
+C:\Users\User\Desktop\MVC\PerformanceAnalyzer2\PerformanceAnalyzer2\bin\PerformanceAnalyzer2.pdb
+C:\Users\User\Desktop\MVC\PerformanceAnalyzer2\PerformanceAnalyzer2\bin\EntityFramework.dll
+C:\Users\User\Desktop\MVC\PerformanceAnalyzer2\PerformanceAnalyzer2\bin\EntityFramework.xml
+C:\Users\User\Desktop\MVC\PerformanceAnalyzer2\PerformanceAnalyzer2\obj\Debug\PerformanceAnalyzer2.dll
+C:\Users\User\Desktop\MVC\PerformanceAnalyzer2\PerformanceAnalyzer2\obj\Debug\PerformanceAnalyzer2.pdb
+C:\Users\User\Desktop\MVC\PerformanceAnalyzer2\PerformanceAnalyzer2\obj\Debug\PerformanceAnalyzer2.csprojResolveAssemblyReference.cache

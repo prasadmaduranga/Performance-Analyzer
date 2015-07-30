@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PerformanceAnalyzerModelStoreContainer" CdmEntityContainer="PerformanceAnalyzerDataContext">
+    <EntitySetMapping Name="AcedemicYears">
+      <EntityTypeMapping TypeName="PerformanceAnalyzerModel.AcedemicYear">
+        <MappingFragment StoreEntitySet="AcedemicYear">
+          <ScalarProperty Name="yearID" ColumnName="yearID" />
+          <ScalarProperty Name="courseID" ColumnName="courseID" />
+          <ScalarProperty Name="yearNumber" ColumnName="yearNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="PerformanceAnalyzerModel.Course">
+        <MappingFragment StoreEntitySet="Course">
+          <ScalarProperty Name="courseID" ColumnName="courseID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="batch" ColumnName="batch" />
+          <ScalarProperty Name="universityID" ColumnName="universityID" />
+          <ScalarProperty Name="facultyID" ColumnName="facultyID" />
+          <ScalarProperty Name="departmentID" ColumnName="departmentID" />
+          <ScalarProperty Name="adminID" ColumnName="adminID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="PerformanceAnalyzerModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="departmentID" ColumnName="departmentID" />
+          <ScalarProperty Name="facultyID" ColumnName="facultyID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Enrollments">
+      <EntityTypeMapping TypeName="PerformanceAnalyzerModel.Enrollment">
+        <MappingFragment StoreEntitySet="Enrollment">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="moduleCode" ColumnName="moduleCode" />
+          <ScalarProperty Name="result" ColumnName="result" />
+          <ScalarProperty Name="dateOfResult" ColumnName="dateOfResult" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Faculties">
+      <EntityTypeMapping TypeName="PerformanceAnalyzerModel.Faculty">
+        <MappingFragment StoreEntitySet="Faculty">
+          <ScalarProperty Name="facultyID" ColumnName="facultyID" />
+          <ScalarProperty Name="universityID" ColumnName="universityID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="IsTypeOf(PerformanceAnalyzerModel.Member)">
+        <MappingFragment StoreEntitySet="Member">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="lastMessageView" ColumnName="lastMessageView" />
+          <ScalarProperty Name="lastLoginDate" ColumnName="lastLoginDate" />
+          <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+          <ScalarProperty Name="linkedin" ColumnName="linkedin" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(PerformanceAnalyzerModel.Lecturer)">
+        <MappingFragment StoreEntitySet="Lecturer">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="departmentID" ColumnName="departmentID" />
+          <ScalarProperty Name="facultyID" ColumnName="facultyID" />
+          <ScalarProperty Name="universityID" ColumnName="universityID" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+        </MappingFragment>
+        <MappingFragment StoreEntitySet="Member">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <Condition ColumnName="userType" Value="&quot;Lecturer&quot;" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(PerformanceAnalyzerModel.IndustryProfessional)">
+        <MappingFragment StoreEntitySet="IndustryProfessional">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="companyName" ColumnName="companyName" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+        </MappingFragment>
+        <MappingFragment StoreEntitySet="Member">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <Condition ColumnName="userType" Value="&quot;IndustryProfessional&quot;" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(PerformanceAnalyzerModel.Student)">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="skills" ColumnName="skills" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="departmentID" ColumnName="departmentID" />
+          <ScalarProperty Name="facultyID" ColumnName="facultyID" />
+          <ScalarProperty Name="universityID" ColumnName="universityID" />
+          <ScalarProperty Name="courseID" ColumnName="courseID" />
+          <ScalarProperty Name="indexNo" ColumnName="indexNo" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+        </MappingFragment>
+        <MappingFragment StoreEntitySet="Member">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <Condition ColumnName="userType" Value="&quot;Student&quot;" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(PerformanceAnalyzerModel.CourseAdmin)">
+        <MappingFragment StoreEntitySet="CourseAdmin">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+        </MappingFragment>
+        <MappingFragment StoreEntitySet="Member">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <Condition ColumnName="userType" Value="&quot;CourseAdmin&quot;" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="PerformanceAnalyzerModel.Message">
+        <MappingFragment StoreEntitySet="Message">
+          <ScalarProperty Name="senderID" ColumnName="senderID" />
+          <ScalarProperty Name="recieverID" ColumnName="recieverID" />
+          <ScalarProperty Name="messageText" ColumnName="messageText" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modules">
+      <EntityTypeMapping TypeName="PerformanceAnalyzerModel.Module">
+        <MappingFragment StoreEntitySet="Module">
+          <ScalarProperty Name="moduleCode" ColumnName="moduleCode" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="GPA" ColumnName="GPA" />
+          <ScalarProperty Name="credits" ColumnName="credits" />
+          <ScalarProperty Name="compulary" ColumnName="compulary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResultMappings">
+      <EntityTypeMapping TypeName="PerformanceAnalyzerModel.ResultMapping">
+        <MappingFragment StoreEntitySet="ResultMapping">
+          <ScalarProperty Name="result" ColumnName="result" />
+          <ScalarProperty Name="GPA" ColumnName="GPA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Semesters">
+      <EntityTypeMapping TypeName="PerformanceAnalyzerModel.Semester">
+        <MappingFragment StoreEntitySet="Semester">
+          <ScalarProperty Name="semesterID" ColumnName="semesterID" />
+          <ScalarProperty Name="yearID" ColumnName="yearID" />
+          <ScalarProperty Name="semesterNumber" ColumnName="semesterNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Semester_Module">
+      <EntityTypeMapping TypeName="PerformanceAnalyzerModel.Semester_Module">
+        <MappingFragment StoreEntitySet="Semester_Module">
+          <ScalarProperty Name="semesterID" ColumnName="semesterID" />
+          <ScalarProperty Name="moduleCode" ColumnName="moduleCode" />
+          <ScalarProperty Name="lecturerName" ColumnName="lecturerName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TelephoneNumbers">
+      <EntityTypeMapping TypeName="PerformanceAnalyzerModel.TelephoneNumber">
+        <MappingFragment StoreEntitySet="TelephoneNumber">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="telephoneNumber1" ColumnName="telephoneNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Universities">
+      <EntityTypeMapping TypeName="PerformanceAnalyzerModel.University">
+        <MappingFragment StoreEntitySet="University">
+          <ScalarProperty Name="universityID" ColumnName="universityID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Lecture_Course" TypeName="PerformanceAnalyzerModel.Lecture_Course" StoreEntitySet="Lecture_Course">
+      <EndProperty Name="Course">
+        <ScalarProperty Name="courseID" ColumnName="courseID" />
+      </EndProperty>
+      <EndProperty Name="Member">
+        <ScalarProperty Name="userID" ColumnName="userID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Prerequisite" TypeName="PerformanceAnalyzerModel.Prerequisite" StoreEntitySet="Prerequisite">
+      <EndProperty Name="Module">
+        <ScalarProperty Name="moduleCode" ColumnName="moduleCode" />
+      </EndProperty>
+      <EndProperty Name="Module1">
+        <ScalarProperty Name="moduleCode" ColumnName="preRequisiteCode" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="spGetAdminProfileInfo" FunctionName="PerformanceAnalyzerModel.Store.spGetAdminProfileInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetAdminProfileInfo_Result">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="linkedin" ColumnName="linkedin" />
+          <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetIndustryProfessionalData" FunctionName="PerformanceAnalyzerModel.Store.spGetIndustryProfessionalData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetIndustryProfessionalData_Result">
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="linkedin" ColumnName="linkedin" />
+          <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+          <ScalarProperty Name="companyName" ColumnName="companyName" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetLectureData" FunctionName="PerformanceAnalyzerModel.Store.spGetLectureData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetLectureData_Result">
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="linkedin" ColumnName="linkedin" />
+          <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+          <ScalarProperty Name="universityName" ColumnName="universityName" />
+          <ScalarProperty Name="facultyName" ColumnName="facultyName" />
+          <ScalarProperty Name="departmentName" ColumnName="departmentName" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetStudentData" FunctionName="PerformanceAnalyzerModel.Store.spGetStudentData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetStudentData_Result">
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="linkedin" ColumnName="linkedin" />
+          <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+          <ScalarProperty Name="universityName" ColumnName="universityName" />
+          <ScalarProperty Name="facultyName" ColumnName="facultyName" />
+          <ScalarProperty Name="departmentName" ColumnName="departmentName" />
+          <ScalarProperty Name="indexNo" ColumnName="indexNo" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="skills" ColumnName="skills" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetAdminData" FunctionName="PerformanceAnalyzerModel.Store.spGetAdminData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetAdminData_Result">
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="linkedin" ColumnName="linkedin" />
+          <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spUpdateAdmin" FunctionName="PerformanceAnalyzerModel.Store.spUpdateAdmin" />
+    <FunctionImportMapping FunctionImportName="spGetAdminDataNew" FunctionName="PerformanceAnalyzerModel.Store.spGetAdminDataNew">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetAdminDataNew_Result">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="linkedin" ColumnName="linkedin" />
+          <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spUpdateBasicCourseInfo" FunctionName="PerformanceAnalyzerModel.Store.spUpdateBasicCourseInfo" />
+    <FunctionImportMapping FunctionImportName="spInsertBasicCourseInfo" FunctionName="PerformanceAnalyzerModel.Store.spInsertBasicCourseInfo" />
+    <FunctionImportMapping FunctionImportName="spGetMaxCourseID" FunctionName="PerformanceAnalyzerModel.Store.spGetMaxCourseID" />
+    <FunctionImportMapping FunctionImportName="spGetSemeterInfo" FunctionName="PerformanceAnalyzerModel.Store.spGetSemeterInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetSemeterInfo_Result">
+          <ScalarProperty Name="yearID" ColumnName="yearID" />
+          <ScalarProperty Name="courseID" ColumnName="courseID" />
+          <ScalarProperty Name="yearNumber" ColumnName="yearNumber" />
+          <ScalarProperty Name="semesterID" ColumnName="semesterID" />
+          <ScalarProperty Name="yearID1" ColumnName="yearID1" />
+          <ScalarProperty Name="semesterNumber" ColumnName="semesterNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetSemeterInfoNew" FunctionName="PerformanceAnalyzerModel.Store.spGetSemeterInfoNew">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetSemeterInfoNew_Result">
+          <ScalarProperty Name="semesterID" ColumnName="semesterID" />
+          <ScalarProperty Name="yearNumber" ColumnName="yearNumber" />
+          <ScalarProperty Name="semesterNumber" ColumnName="semesterNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spDeleteModuleBySemester" FunctionName="PerformanceAnalyzerModel.Store.spDeleteModuleBySemester" />
+    <FunctionImportMapping FunctionImportName="spGetModuleInfoBySemester" FunctionName="PerformanceAnalyzerModel.Store.spGetModuleInfoBySemester">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetModuleInfoBySemester_Result">
+          <ScalarProperty Name="semesterID" ColumnName="semesterID" />
+          <ScalarProperty Name="moduleCode" ColumnName="moduleCode" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="GPA" ColumnName="GPA" />
+          <ScalarProperty Name="credits" ColumnName="credits" />
+          <ScalarProperty Name="compulary" ColumnName="compulary" />
+          <ScalarProperty Name="lecturerName" ColumnName="lecturerName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spInsertModuleBySemester" FunctionName="PerformanceAnalyzerModel.Store.spInsertModuleBySemester" />
+    <FunctionImportMapping FunctionImportName="spGetModuleInfoBySemesterNew" FunctionName="PerformanceAnalyzerModel.Store.spGetModuleInfoBySemesterNew">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetModuleInfoBySemesterNew_Result">
+          <ScalarProperty Name="semesterID" ColumnName="semesterID" />
+          <ScalarProperty Name="moduleCode" ColumnName="moduleCode" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="GPA" ColumnName="GPA" />
+          <ScalarProperty Name="credits" ColumnName="credits" />
+          <ScalarProperty Name="compulary" ColumnName="compulary" />
+          <ScalarProperty Name="lecturerName" ColumnName="lecturerName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

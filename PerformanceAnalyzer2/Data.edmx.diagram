@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fef76b271fa34803b390033382696454" Name="Diagram1">
+        <EntityTypeShape EntityType="PerformanceAnalyzerModel.AcedemicYear" Width="1.5" PointX="9.5" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerformanceAnalyzerModel.Course" Width="1.5" PointX="7.5" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerformanceAnalyzerModel.CourseAdmin" Width="1.5" PointX="5.875" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerformanceAnalyzerModel.Department" Width="1.5" PointX="5.75" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerformanceAnalyzerModel.Enrollment" Width="1.5" PointX="12.75" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerformanceAnalyzerModel.Faculty" Width="1.5" PointX="3.125" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerformanceAnalyzerModel.IndustryProfessional" Width="1.5" PointX="12.25" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerformanceAnalyzerModel.Lecturer" Width="1.5" PointX="10.125" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerformanceAnalyzerModel.Member" Width="1.5" PointX="9.25" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerformanceAnalyzerModel.Message" Width="1.5" PointX="11.375" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerformanceAnalyzerModel.Module" Width="1.5" PointX="15.875" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerformanceAnalyzerModel.ResultMapping" Width="1.5" PointX="15.125" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerformanceAnalyzerModel.Semester" Width="1.5" PointX="11.625" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerformanceAnalyzerModel.Semester_Module" Width="1.5" PointX="13.875" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerformanceAnalyzerModel.Student" Width="1.5" PointX="7.75" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerformanceAnalyzerModel.TelephoneNumber" Width="1.5" PointX="8.75" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerformanceAnalyzerModel.University" Width="1.5" PointX="3.75" PointY="20.125" IsExpanded="true" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.FK__AcedemicY__cours__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.FK__Semester__yearID__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.FK__Course__adminID__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.FK__Course__departme__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.FK__Course__facultyI__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.FK__Course__universi__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.FK__Student__courseI__3864608B" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.FK__Departmen__facul__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.FK__Lecturer__depart__32AB8735" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.FK__Student__departm__3B40CD36" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.FK__Enrollmen__modul__14270015" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.FK__Enrollmen__resul__151B244E" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.FK__Enrollmen__userI__1332DBDC" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.FK__Faculty__univers__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.FK__Lecturer__facult__31B762FC" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.FK__Student__faculty__3A4CA8FD" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.FK__Lecturer__univer__30C33EC3" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.FK__Message__recieve__208CD6FA" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.FK__Message__senderI__1F98B2C1" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.FK__Telephone__userI__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.FK__Semester___modul__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.FK__Semester___semes__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.FK__Student__univeri__395884C4" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.Lecture_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="PerformanceAnalyzerModel.Prerequisite" ManuallyRouted="false" />
+        <InheritanceConnector EntityType="PerformanceAnalyzerModel.Lecturer" />
+        <InheritanceConnector EntityType="PerformanceAnalyzerModel.IndustryProfessional" />
+        <InheritanceConnector EntityType="PerformanceAnalyzerModel.Student" />
+        <InheritanceConnector EntityType="PerformanceAnalyzerModel.CourseAdmin" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

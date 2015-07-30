@@ -1,0 +1,1912 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PerformanceAnalyzerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="PerformanceAnalyzerModelStoreContainer">
+          <EntitySet Name="AcedemicYear" EntityType="PerformanceAnalyzerModel.Store.AcedemicYear" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Course" EntityType="PerformanceAnalyzerModel.Store.Course" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CourseAdmin" EntityType="PerformanceAnalyzerModel.Store.CourseAdmin" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Department" EntityType="PerformanceAnalyzerModel.Store.Department" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Enrollment" EntityType="PerformanceAnalyzerModel.Store.Enrollment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Faculty" EntityType="PerformanceAnalyzerModel.Store.Faculty" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="IndustryProfessional" EntityType="PerformanceAnalyzerModel.Store.IndustryProfessional" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Lecture_Course" EntityType="PerformanceAnalyzerModel.Store.Lecture_Course" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Lecturer" EntityType="PerformanceAnalyzerModel.Store.Lecturer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Member" EntityType="PerformanceAnalyzerModel.Store.Member" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Message" EntityType="PerformanceAnalyzerModel.Store.Message" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Module" EntityType="PerformanceAnalyzerModel.Store.Module" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Prerequisite" EntityType="PerformanceAnalyzerModel.Store.Prerequisite" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ResultMapping" EntityType="PerformanceAnalyzerModel.Store.ResultMapping" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Semester" EntityType="PerformanceAnalyzerModel.Store.Semester" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Semester_Module" EntityType="PerformanceAnalyzerModel.Store.Semester_Module" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Student" EntityType="PerformanceAnalyzerModel.Store.Student" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TelephoneNumber" EntityType="PerformanceAnalyzerModel.Store.TelephoneNumber" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="University" EntityType="PerformanceAnalyzerModel.Store.University" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__AcedemicY__cours__3D5E1FD2" Association="PerformanceAnalyzerModel.Store.FK__AcedemicY__cours__3D5E1FD2">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="AcedemicYear" EntitySet="AcedemicYear" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Course__adminID__286302EC" Association="PerformanceAnalyzerModel.Store.FK__Course__adminID__286302EC">
+            <End Role="CourseAdmin" EntitySet="CourseAdmin" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Course__departme__276EDEB3" Association="PerformanceAnalyzerModel.Store.FK__Course__departme__276EDEB3">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Course__facultyI__267ABA7A" Association="PerformanceAnalyzerModel.Store.FK__Course__facultyI__267ABA7A">
+            <End Role="Faculty" EntitySet="Faculty" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Course__universi__25869641" Association="PerformanceAnalyzerModel.Store.FK__Course__universi__25869641">
+            <End Role="University" EntitySet="University" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CourseAdm__userI__1BFD2C07" Association="PerformanceAnalyzerModel.Store.FK__CourseAdm__userI__1BFD2C07">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="CourseAdmin" EntitySet="CourseAdmin" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Departmen__facul__173876EA" Association="PerformanceAnalyzerModel.Store.FK__Departmen__facul__173876EA">
+            <End Role="Faculty" EntitySet="Faculty" />
+            <End Role="Department" EntitySet="Department" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Enrollmen__modul__14270015" Association="PerformanceAnalyzerModel.Store.FK__Enrollmen__modul__14270015">
+            <End Role="Module" EntitySet="Module" />
+            <End Role="Enrollment" EntitySet="Enrollment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Enrollmen__resul__151B244E" Association="PerformanceAnalyzerModel.Store.FK__Enrollmen__resul__151B244E">
+            <End Role="ResultMapping" EntitySet="ResultMapping" />
+            <End Role="Enrollment" EntitySet="Enrollment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Enrollmen__userI__1332DBDC" Association="PerformanceAnalyzerModel.Store.FK__Enrollmen__userI__1332DBDC">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Enrollment" EntitySet="Enrollment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Faculty__univers__1273C1CD" Association="PerformanceAnalyzerModel.Store.FK__Faculty__univers__1273C1CD">
+            <End Role="University" EntitySet="University" />
+            <End Role="Faculty" EntitySet="Faculty" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IndustryP__userI__2B0A656D" Association="PerformanceAnalyzerModel.Store.FK__IndustryP__userI__2B0A656D">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="IndustryProfessional" EntitySet="IndustryProfessional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Lecture_C__cours__2645B050" Association="PerformanceAnalyzerModel.Store.FK__Lecture_C__cours__2645B050">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Lecture_Course" EntitySet="Lecture_Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Lecture_C__userI__25518C17" Association="PerformanceAnalyzerModel.Store.FK__Lecture_C__userI__25518C17">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Lecture_Course" EntitySet="Lecture_Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Lecturer__depart__32AB8735" Association="PerformanceAnalyzerModel.Store.FK__Lecturer__depart__32AB8735">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Lecturer" EntitySet="Lecturer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Lecturer__facult__31B762FC" Association="PerformanceAnalyzerModel.Store.FK__Lecturer__facult__31B762FC">
+            <End Role="Faculty" EntitySet="Faculty" />
+            <End Role="Lecturer" EntitySet="Lecturer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Lecturer__univer__30C33EC3" Association="PerformanceAnalyzerModel.Store.FK__Lecturer__univer__30C33EC3">
+            <End Role="University" EntitySet="University" />
+            <End Role="Lecturer" EntitySet="Lecturer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Lecturer__userID__2FCF1A8A" Association="PerformanceAnalyzerModel.Store.FK__Lecturer__userID__2FCF1A8A">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Lecturer" EntitySet="Lecturer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Message__recieve__208CD6FA" Association="PerformanceAnalyzerModel.Store.FK__Message__recieve__208CD6FA">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Message__senderI__1F98B2C1" Association="PerformanceAnalyzerModel.Store.FK__Message__senderI__1F98B2C1">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Prerequis__modul__787EE5A0" Association="PerformanceAnalyzerModel.Store.FK__Prerequis__modul__787EE5A0">
+            <End Role="Module" EntitySet="Module" />
+            <End Role="Prerequisite" EntitySet="Prerequisite" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Prerequis__preRe__797309D9" Association="PerformanceAnalyzerModel.Store.FK__Prerequis__preRe__797309D9">
+            <End Role="Module" EntitySet="Module" />
+            <End Role="Prerequisite" EntitySet="Prerequisite" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Semester___modul__5CD6CB2B" Association="PerformanceAnalyzerModel.Store.FK__Semester___modul__5CD6CB2B">
+            <End Role="Module" EntitySet="Module" />
+            <End Role="Semester_Module" EntitySet="Semester_Module" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Semester___semes__5BE2A6F2" Association="PerformanceAnalyzerModel.Store.FK__Semester___semes__5BE2A6F2">
+            <End Role="Semester" EntitySet="Semester" />
+            <End Role="Semester_Module" EntitySet="Semester_Module" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Semester__yearID__4222D4EF" Association="PerformanceAnalyzerModel.Store.FK__Semester__yearID__4222D4EF">
+            <End Role="AcedemicYear" EntitySet="AcedemicYear" />
+            <End Role="Semester" EntitySet="Semester" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Student__courseI__3864608B" Association="PerformanceAnalyzerModel.Store.FK__Student__courseI__3864608B">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Student__departm__3B40CD36" Association="PerformanceAnalyzerModel.Store.FK__Student__departm__3B40CD36">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Student__faculty__3A4CA8FD" Association="PerformanceAnalyzerModel.Store.FK__Student__faculty__3A4CA8FD">
+            <End Role="Faculty" EntitySet="Faculty" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Student__univeri__395884C4" Association="PerformanceAnalyzerModel.Store.FK__Student__univeri__395884C4">
+            <End Role="University" EntitySet="University" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Student__userID__37703C52" Association="PerformanceAnalyzerModel.Store.FK__Student__userID__37703C52">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Telephone__userI__20C1E124" Association="PerformanceAnalyzerModel.Store.FK__Telephone__userI__20C1E124">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="TelephoneNumber" EntitySet="TelephoneNumber" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AcedemicYear">
+          <Key>
+            <PropertyRef Name="yearID" />
+          </Key>
+          <Property Name="yearID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="courseID" Type="int" />
+          <Property Name="yearNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="courseID" />
+          </Key>
+          <Property Name="courseID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" MaxLength="80" />
+          <Property Name="batch" Type="nvarchar" MaxLength="15" />
+          <Property Name="universityID" Type="int" />
+          <Property Name="facultyID" Type="int" />
+          <Property Name="departmentID" Type="int" />
+          <Property Name="adminID" Type="int" />
+        </EntityType>
+        <EntityType Name="CourseAdmin">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="2500" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="departmentID" />
+          </Key>
+          <Property Name="departmentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="facultyID" Type="int" />
+          <Property Name="name" Type="nvarchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="Enrollment">
+          <Key>
+            <PropertyRef Name="userID" />
+            <PropertyRef Name="moduleCode" />
+          </Key>
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="moduleCode" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="result" Type="nvarchar" MaxLength="5" />
+          <Property Name="dateOfResult" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Faculty">
+          <Key>
+            <PropertyRef Name="facultyID" />
+          </Key>
+          <Property Name="facultyID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="universityID" Type="int" />
+          <Property Name="name" Type="nvarchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="IndustryProfessional">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="companyName" Type="nvarchar" MaxLength="60" />
+          <Property Name="description" Type="nvarchar" MaxLength="2500" />
+        </EntityType>
+        <EntityType Name="Lecture_Course">
+          <Key>
+            <PropertyRef Name="userID" />
+            <PropertyRef Name="courseID" />
+          </Key>
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="courseID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lecturer">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="universityID" Type="int" />
+          <Property Name="facultyID" Type="int" />
+          <Property Name="departmentID" Type="int" />
+          <Property Name="description" Type="nvarchar" MaxLength="2500" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="nvarchar" MaxLength="60" />
+          <Property Name="email" Type="nvarchar" MaxLength="60" />
+          <Property Name="userType" Type="nvarchar" MaxLength="30" />
+          <Property Name="linkedin" Type="nvarchar" MaxLength="80" />
+          <Property Name="imageURL" Type="nvarchar" MaxLength="250" />
+          <Property Name="lastLoginDate" Type="datetime" />
+          <Property Name="lastMessageView" Type="datetime" />
+          <Property Name="password" Type="nvarchar" MaxLength="130" />
+          <Property Name="DOB" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="senderID" />
+            <PropertyRef Name="recieverID" />
+            <PropertyRef Name="date" />
+          </Key>
+          <Property Name="senderID" Type="int" Nullable="false" />
+          <Property Name="recieverID" Type="int" Nullable="false" />
+          <Property Name="messageText" Type="nvarchar" MaxLength="2500" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Module">
+          <Key>
+            <PropertyRef Name="moduleCode" />
+          </Key>
+          <Property Name="moduleCode" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="name" Type="nvarchar" MaxLength="80" />
+          <Property Name="GPA" Type="nvarchar" MaxLength="4" />
+          <Property Name="credits" Type="int" />
+          <Property Name="compulary" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Prerequisite">
+          <Key>
+            <PropertyRef Name="moduleCode" />
+            <PropertyRef Name="preRequisiteCode" />
+          </Key>
+          <Property Name="moduleCode" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="preRequisiteCode" Type="nvarchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="ResultMapping">
+          <Key>
+            <PropertyRef Name="result" />
+          </Key>
+          <Property Name="result" Type="nvarchar" Nullable="false" MaxLength="5" />
+          <Property Name="GPA" Type="float" />
+        </EntityType>
+        <EntityType Name="Semester">
+          <Key>
+            <PropertyRef Name="semesterID" />
+          </Key>
+          <Property Name="semesterID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="yearID" Type="int" />
+          <Property Name="semesterNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="Semester_Module">
+          <Key>
+            <PropertyRef Name="semesterID" />
+            <PropertyRef Name="moduleCode" />
+            <PropertyRef Name="lecturerName" />
+          </Key>
+          <Property Name="semesterID" Type="int" Nullable="false" />
+          <Property Name="moduleCode" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="lecturerName" Type="nvarchar" Nullable="false" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="indexNo" Type="nvarchar" MaxLength="120" />
+          <Property Name="courseID" Type="int" />
+          <Property Name="universityID" Type="int" />
+          <Property Name="facultyID" Type="int" />
+          <Property Name="departmentID" Type="int" />
+          <Property Name="description" Type="nvarchar" MaxLength="2500" />
+          <Property Name="skills" Type="nvarchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="TelephoneNumber">
+          <Key>
+            <PropertyRef Name="userID" />
+            <PropertyRef Name="telephoneNumber" />
+          </Key>
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="telephoneNumber" Type="nvarchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="University">
+          <Key>
+            <PropertyRef Name="universityID" />
+          </Key>
+          <Property Name="universityID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" MaxLength="60" />
+        </EntityType>
+        <Association Name="FK__AcedemicY__cours__3D5E1FD2">
+          <End Role="Course" Type="PerformanceAnalyzerModel.Store.Course" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AcedemicYear" Type="PerformanceAnalyzerModel.Store.AcedemicYear" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="courseID" />
+            </Principal>
+            <Dependent Role="AcedemicYear">
+              <PropertyRef Name="courseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Course__adminID__286302EC">
+          <End Role="CourseAdmin" Type="PerformanceAnalyzerModel.Store.CourseAdmin" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Course" Type="PerformanceAnalyzerModel.Store.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseAdmin">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="adminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Course__departme__276EDEB3">
+          <End Role="Department" Type="PerformanceAnalyzerModel.Store.Department" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Course" Type="PerformanceAnalyzerModel.Store.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="departmentID" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="departmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Course__facultyI__267ABA7A">
+          <End Role="Faculty" Type="PerformanceAnalyzerModel.Store.Faculty" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Course" Type="PerformanceAnalyzerModel.Store.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty">
+              <PropertyRef Name="facultyID" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="facultyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Course__universi__25869641">
+          <End Role="University" Type="PerformanceAnalyzerModel.Store.University" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Course" Type="PerformanceAnalyzerModel.Store.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="universityID" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="universityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CourseAdm__userI__1BFD2C07">
+          <End Role="Member" Type="PerformanceAnalyzerModel.Store.Member" Multiplicity="1" />
+          <End Role="CourseAdmin" Type="PerformanceAnalyzerModel.Store.CourseAdmin" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="CourseAdmin">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Departmen__facul__173876EA">
+          <End Role="Faculty" Type="PerformanceAnalyzerModel.Store.Faculty" Multiplicity="0..1" />
+          <End Role="Department" Type="PerformanceAnalyzerModel.Store.Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty">
+              <PropertyRef Name="facultyID" />
+            </Principal>
+            <Dependent Role="Department">
+              <PropertyRef Name="facultyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Enrollmen__modul__14270015">
+          <End Role="Module" Type="PerformanceAnalyzerModel.Store.Module" Multiplicity="1" />
+          <End Role="Enrollment" Type="PerformanceAnalyzerModel.Store.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="moduleCode" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="moduleCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Enrollmen__resul__151B244E">
+          <End Role="ResultMapping" Type="PerformanceAnalyzerModel.Store.ResultMapping" Multiplicity="0..1" />
+          <End Role="Enrollment" Type="PerformanceAnalyzerModel.Store.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ResultMapping">
+              <PropertyRef Name="result" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="result" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Enrollmen__userI__1332DBDC">
+          <End Role="Member" Type="PerformanceAnalyzerModel.Store.Member" Multiplicity="1" />
+          <End Role="Enrollment" Type="PerformanceAnalyzerModel.Store.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Faculty__univers__1273C1CD">
+          <End Role="University" Type="PerformanceAnalyzerModel.Store.University" Multiplicity="0..1" />
+          <End Role="Faculty" Type="PerformanceAnalyzerModel.Store.Faculty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="universityID" />
+            </Principal>
+            <Dependent Role="Faculty">
+              <PropertyRef Name="universityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IndustryP__userI__2B0A656D">
+          <End Role="Member" Type="PerformanceAnalyzerModel.Store.Member" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="IndustryProfessional" Type="PerformanceAnalyzerModel.Store.IndustryProfessional" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="IndustryProfessional">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Lecture_C__cours__2645B050">
+          <End Role="Course" Type="PerformanceAnalyzerModel.Store.Course" Multiplicity="1" />
+          <End Role="Lecture_Course" Type="PerformanceAnalyzerModel.Store.Lecture_Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="courseID" />
+            </Principal>
+            <Dependent Role="Lecture_Course">
+              <PropertyRef Name="courseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Lecture_C__userI__25518C17">
+          <End Role="Member" Type="PerformanceAnalyzerModel.Store.Member" Multiplicity="1" />
+          <End Role="Lecture_Course" Type="PerformanceAnalyzerModel.Store.Lecture_Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Lecture_Course">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Lecturer__depart__32AB8735">
+          <End Role="Department" Type="PerformanceAnalyzerModel.Store.Department" Multiplicity="0..1" />
+          <End Role="Lecturer" Type="PerformanceAnalyzerModel.Store.Lecturer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="departmentID" />
+            </Principal>
+            <Dependent Role="Lecturer">
+              <PropertyRef Name="departmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Lecturer__facult__31B762FC">
+          <End Role="Faculty" Type="PerformanceAnalyzerModel.Store.Faculty" Multiplicity="0..1" />
+          <End Role="Lecturer" Type="PerformanceAnalyzerModel.Store.Lecturer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty">
+              <PropertyRef Name="facultyID" />
+            </Principal>
+            <Dependent Role="Lecturer">
+              <PropertyRef Name="facultyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Lecturer__univer__30C33EC3">
+          <End Role="University" Type="PerformanceAnalyzerModel.Store.University" Multiplicity="0..1" />
+          <End Role="Lecturer" Type="PerformanceAnalyzerModel.Store.Lecturer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="universityID" />
+            </Principal>
+            <Dependent Role="Lecturer">
+              <PropertyRef Name="universityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Lecturer__userID__2FCF1A8A">
+          <End Role="Member" Type="PerformanceAnalyzerModel.Store.Member" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Lecturer" Type="PerformanceAnalyzerModel.Store.Lecturer" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Lecturer">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Message__recieve__208CD6FA">
+          <End Role="Member" Type="PerformanceAnalyzerModel.Store.Member" Multiplicity="1" />
+          <End Role="Message" Type="PerformanceAnalyzerModel.Store.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="recieverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Message__senderI__1F98B2C1">
+          <End Role="Member" Type="PerformanceAnalyzerModel.Store.Member" Multiplicity="1" />
+          <End Role="Message" Type="PerformanceAnalyzerModel.Store.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="senderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Prerequis__modul__787EE5A0">
+          <End Role="Module" Type="PerformanceAnalyzerModel.Store.Module" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Prerequisite" Type="PerformanceAnalyzerModel.Store.Prerequisite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="moduleCode" />
+            </Principal>
+            <Dependent Role="Prerequisite">
+              <PropertyRef Name="moduleCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Prerequis__preRe__797309D9">
+          <End Role="Module" Type="PerformanceAnalyzerModel.Store.Module" Multiplicity="1" />
+          <End Role="Prerequisite" Type="PerformanceAnalyzerModel.Store.Prerequisite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="moduleCode" />
+            </Principal>
+            <Dependent Role="Prerequisite">
+              <PropertyRef Name="preRequisiteCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Semester___modul__5CD6CB2B">
+          <End Role="Module" Type="PerformanceAnalyzerModel.Store.Module" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Semester_Module" Type="PerformanceAnalyzerModel.Store.Semester_Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="moduleCode" />
+            </Principal>
+            <Dependent Role="Semester_Module">
+              <PropertyRef Name="moduleCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Semester___semes__5BE2A6F2">
+          <End Role="Semester" Type="PerformanceAnalyzerModel.Store.Semester" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Semester_Module" Type="PerformanceAnalyzerModel.Store.Semester_Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semester">
+              <PropertyRef Name="semesterID" />
+            </Principal>
+            <Dependent Role="Semester_Module">
+              <PropertyRef Name="semesterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Semester__yearID__4222D4EF">
+          <End Role="AcedemicYear" Type="PerformanceAnalyzerModel.Store.AcedemicYear" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Semester" Type="PerformanceAnalyzerModel.Store.Semester" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AcedemicYear">
+              <PropertyRef Name="yearID" />
+            </Principal>
+            <Dependent Role="Semester">
+              <PropertyRef Name="yearID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Student__courseI__3864608B">
+          <End Role="Course" Type="PerformanceAnalyzerModel.Store.Course" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Student" Type="PerformanceAnalyzerModel.Store.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="courseID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="courseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Student__departm__3B40CD36">
+          <End Role="Department" Type="PerformanceAnalyzerModel.Store.Department" Multiplicity="0..1" />
+          <End Role="Student" Type="PerformanceAnalyzerModel.Store.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="departmentID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="departmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Student__faculty__3A4CA8FD">
+          <End Role="Faculty" Type="PerformanceAnalyzerModel.Store.Faculty" Multiplicity="0..1" />
+          <End Role="Student" Type="PerformanceAnalyzerModel.Store.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty">
+              <PropertyRef Name="facultyID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="facultyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Student__univeri__395884C4">
+          <End Role="University" Type="PerformanceAnalyzerModel.Store.University" Multiplicity="0..1" />
+          <End Role="Student" Type="PerformanceAnalyzerModel.Store.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="universityID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="universityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Student__userID__37703C52">
+          <End Role="Member" Type="PerformanceAnalyzerModel.Store.Member" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Student" Type="PerformanceAnalyzerModel.Store.Student" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Telephone__userI__20C1E124">
+          <End Role="Member" Type="PerformanceAnalyzerModel.Store.Member" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TelephoneNumber" Type="PerformanceAnalyzerModel.Store.TelephoneNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="TelephoneNumber">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="spDeleteModuleBySemester" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="semesterID" Type="int" Mode="In" />
+          <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spGetAdminData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spGetAdminDataNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spGetAdminProfileInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spGetIndustryProfessionalData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spGetLectureData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spGetMaxCourseID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spGetModuleInfoBySemester" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="semesterID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spGetModuleInfoBySemesterNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="semesterID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spGetSemeterInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="courseID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spGetSemeterInfoNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="courseID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spGetStudentData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spInsertBasicCourseInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="batch" Type="nvarchar" Mode="In" />
+          <Parameter Name="universityID" Type="int" Mode="In" />
+          <Parameter Name="facultyID" Type="int" Mode="In" />
+          <Parameter Name="departmentID" Type="int" Mode="In" />
+          <Parameter Name="adminID" Type="int" Mode="In" />
+          <Parameter Name="semesterCount" Type="int" Mode="In" />
+          <Parameter Name="studentCount" Type="int" Mode="In" />
+          <Parameter Name="yearCount" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spInsertModuleBySemester" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="semesterID" Type="int" Mode="In" />
+          <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="lecturerName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spUpdateAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userID" Type="int" Mode="In" />
+          <Parameter Name="userName" Type="nvarchar" Mode="In" />
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+          <Parameter Name="linkedin" Type="nvarchar" Mode="In" />
+          <Parameter Name="description" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spUpdateBasicCourseInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="batch" Type="nvarchar" Mode="In" />
+          <Parameter Name="universityID" Type="int" Mode="In" />
+          <Parameter Name="facultyID" Type="int" Mode="In" />
+          <Parameter Name="departmentID" Type="int" Mode="In" />
+          <Parameter Name="adminID" Type="int" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PerformanceAnalyzerModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PerformanceAnalyzerDataContext" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="AcedemicYears" EntityType="PerformanceAnalyzerModel.AcedemicYear" />
+          <EntitySet Name="Courses" EntityType="PerformanceAnalyzerModel.Course" />
+          <EntitySet Name="Departments" EntityType="PerformanceAnalyzerModel.Department" />
+          <EntitySet Name="Enrollments" EntityType="PerformanceAnalyzerModel.Enrollment" />
+          <EntitySet Name="Faculties" EntityType="PerformanceAnalyzerModel.Faculty" />
+          <EntitySet Name="Members" EntityType="PerformanceAnalyzerModel.Member" />
+          <EntitySet Name="Messages" EntityType="PerformanceAnalyzerModel.Message" />
+          <EntitySet Name="Modules" EntityType="PerformanceAnalyzerModel.Module" />
+          <EntitySet Name="ResultMappings" EntityType="PerformanceAnalyzerModel.ResultMapping" />
+          <EntitySet Name="Semesters" EntityType="PerformanceAnalyzerModel.Semester" />
+          <EntitySet Name="Semester_Module" EntityType="PerformanceAnalyzerModel.Semester_Module" />
+          <EntitySet Name="TelephoneNumbers" EntityType="PerformanceAnalyzerModel.TelephoneNumber" />
+          <EntitySet Name="Universities" EntityType="PerformanceAnalyzerModel.University" />
+          <AssociationSet Name="FK__AcedemicY__cours__3D5E1FD2" Association="PerformanceAnalyzerModel.FK__AcedemicY__cours__3D5E1FD2">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="AcedemicYear" EntitySet="AcedemicYears" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Semester__yearID__4222D4EF" Association="PerformanceAnalyzerModel.FK__Semester__yearID__4222D4EF">
+            <End Role="AcedemicYear" EntitySet="AcedemicYears" />
+            <End Role="Semester" EntitySet="Semesters" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Course__adminID__286302EC" Association="PerformanceAnalyzerModel.FK__Course__adminID__286302EC">
+            <End Role="CourseAdmin" EntitySet="Members" />
+            <End Role="Course" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Course__departme__276EDEB3" Association="PerformanceAnalyzerModel.FK__Course__departme__276EDEB3">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Course" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Course__facultyI__267ABA7A" Association="PerformanceAnalyzerModel.FK__Course__facultyI__267ABA7A">
+            <End Role="Faculty" EntitySet="Faculties" />
+            <End Role="Course" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Course__universi__25869641" Association="PerformanceAnalyzerModel.FK__Course__universi__25869641">
+            <End Role="University" EntitySet="Universities" />
+            <End Role="Course" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Student__courseI__3864608B" Association="PerformanceAnalyzerModel.FK__Student__courseI__3864608B">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="Student" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Departmen__facul__173876EA" Association="PerformanceAnalyzerModel.FK__Departmen__facul__173876EA">
+            <End Role="Faculty" EntitySet="Faculties" />
+            <End Role="Department" EntitySet="Departments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Lecturer__depart__32AB8735" Association="PerformanceAnalyzerModel.FK__Lecturer__depart__32AB8735">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Lecturer" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Student__departm__3B40CD36" Association="PerformanceAnalyzerModel.FK__Student__departm__3B40CD36">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Student" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Enrollmen__modul__14270015" Association="PerformanceAnalyzerModel.FK__Enrollmen__modul__14270015">
+            <End Role="Module" EntitySet="Modules" />
+            <End Role="Enrollment" EntitySet="Enrollments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Enrollmen__resul__151B244E" Association="PerformanceAnalyzerModel.FK__Enrollmen__resul__151B244E">
+            <End Role="ResultMapping" EntitySet="ResultMappings" />
+            <End Role="Enrollment" EntitySet="Enrollments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Enrollmen__userI__1332DBDC" Association="PerformanceAnalyzerModel.FK__Enrollmen__userI__1332DBDC">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="Enrollment" EntitySet="Enrollments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Faculty__univers__1273C1CD" Association="PerformanceAnalyzerModel.FK__Faculty__univers__1273C1CD">
+            <End Role="University" EntitySet="Universities" />
+            <End Role="Faculty" EntitySet="Faculties" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Lecturer__facult__31B762FC" Association="PerformanceAnalyzerModel.FK__Lecturer__facult__31B762FC">
+            <End Role="Faculty" EntitySet="Faculties" />
+            <End Role="Lecturer" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Student__faculty__3A4CA8FD" Association="PerformanceAnalyzerModel.FK__Student__faculty__3A4CA8FD">
+            <End Role="Faculty" EntitySet="Faculties" />
+            <End Role="Student" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Lecturer__univer__30C33EC3" Association="PerformanceAnalyzerModel.FK__Lecturer__univer__30C33EC3">
+            <End Role="University" EntitySet="Universities" />
+            <End Role="Lecturer" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Message__recieve__208CD6FA" Association="PerformanceAnalyzerModel.FK__Message__recieve__208CD6FA">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="Message" EntitySet="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Message__senderI__1F98B2C1" Association="PerformanceAnalyzerModel.FK__Message__senderI__1F98B2C1">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="Message" EntitySet="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Telephone__userI__20C1E124" Association="PerformanceAnalyzerModel.FK__Telephone__userI__20C1E124">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="TelephoneNumber" EntitySet="TelephoneNumbers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Semester___modul__5CD6CB2B" Association="PerformanceAnalyzerModel.FK__Semester___modul__5CD6CB2B">
+            <End Role="Module" EntitySet="Modules" />
+            <End Role="Semester_Module" EntitySet="Semester_Module" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Semester___semes__5BE2A6F2" Association="PerformanceAnalyzerModel.FK__Semester___semes__5BE2A6F2">
+            <End Role="Semester" EntitySet="Semesters" />
+            <End Role="Semester_Module" EntitySet="Semester_Module" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Student__univeri__395884C4" Association="PerformanceAnalyzerModel.FK__Student__univeri__395884C4">
+            <End Role="University" EntitySet="Universities" />
+            <End Role="Student" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="Lecture_Course" Association="PerformanceAnalyzerModel.Lecture_Course">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="Member" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="Prerequisite" Association="PerformanceAnalyzerModel.Prerequisite">
+            <End Role="Module" EntitySet="Modules" />
+            <End Role="Module1" EntitySet="Modules" />
+          </AssociationSet>
+          <FunctionImport Name="spGetAdminProfileInfo" ReturnType="Collection(PerformanceAnalyzerModel.spGetAdminProfileInfo_Result)">
+          <Parameter Name="email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spGetIndustryProfessionalData" ReturnType="Collection(PerformanceAnalyzerModel.spGetIndustryProfessionalData_Result)">
+          <Parameter Name="userID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetLectureData" ReturnType="Collection(PerformanceAnalyzerModel.spGetLectureData_Result)">
+          <Parameter Name="userID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetStudentData" ReturnType="Collection(PerformanceAnalyzerModel.spGetStudentData_Result)">
+          <Parameter Name="userID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetAdminData" ReturnType="Collection(PerformanceAnalyzerModel.spGetAdminData_Result)">
+          <Parameter Name="userID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdateAdmin">
+            <Parameter Name="userID" Mode="In" Type="Int32" />
+            <Parameter Name="userName" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="linkedin" Mode="In" Type="String" />
+            <Parameter Name="description" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spGetAdminDataNew" ReturnType="Collection(PerformanceAnalyzerModel.spGetAdminDataNew_Result)">
+          <Parameter Name="userID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdateBasicCourseInfo">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="batch" Mode="In" Type="String" />
+            <Parameter Name="universityID" Mode="In" Type="Int32" />
+            <Parameter Name="facultyID" Mode="In" Type="Int32" />
+            <Parameter Name="departmentID" Mode="In" Type="Int32" />
+            <Parameter Name="adminID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spInsertBasicCourseInfo">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="batch" Mode="In" Type="String" />
+            <Parameter Name="universityID" Mode="In" Type="Int32" />
+            <Parameter Name="facultyID" Mode="In" Type="Int32" />
+            <Parameter Name="departmentID" Mode="In" Type="Int32" />
+            <Parameter Name="adminID" Mode="In" Type="Int32" />
+            <Parameter Name="semesterCount" Mode="In" Type="Int32" />
+            <Parameter Name="studentCount" Mode="In" Type="Int32" />
+            <Parameter Name="yearCount" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetMaxCourseID" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="spGetSemeterInfo" ReturnType="Collection(PerformanceAnalyzerModel.spGetSemeterInfo_Result)">
+          <Parameter Name="courseID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetSemeterInfoNew" ReturnType="Collection(PerformanceAnalyzerModel.spGetSemeterInfoNew_Result)">
+          <Parameter Name="courseID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spDeleteModuleBySemester">
+            <Parameter Name="semesterID" Mode="In" Type="Int32" />
+            <Parameter Name="moduleCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spGetModuleInfoBySemester" ReturnType="Collection(PerformanceAnalyzerModel.spGetModuleInfoBySemester_Result)">
+          <Parameter Name="semesterID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spInsertModuleBySemester">
+            <Parameter Name="semesterID" Mode="In" Type="Int32" />
+            <Parameter Name="moduleCode" Mode="In" Type="String" />
+            <Parameter Name="lecturerName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spGetModuleInfoBySemesterNew" ReturnType="Collection(PerformanceAnalyzerModel.spGetModuleInfoBySemesterNew_Result)">
+            <Parameter Name="semesterID" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="AcedemicYear">
+          <Key>
+            <PropertyRef Name="yearID" />
+          </Key>
+          <Property Name="yearID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="courseID" Type="Int32" />
+          <Property Name="yearNumber" Type="Int32" />
+          <NavigationProperty Name="Course" Relationship="PerformanceAnalyzerModel.FK__AcedemicY__cours__3D5E1FD2" FromRole="AcedemicYear" ToRole="Course" />
+          <NavigationProperty Name="Semesters" Relationship="PerformanceAnalyzerModel.FK__Semester__yearID__4222D4EF" FromRole="AcedemicYear" ToRole="Semester" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="courseID" />
+          </Key>
+          <Property Name="courseID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="80" Unicode="true" FixedLength="false" />
+          <Property Name="batch" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="universityID" Type="Int32" />
+          <Property Name="facultyID" Type="Int32" />
+          <Property Name="departmentID" Type="Int32" />
+          <Property Name="adminID" Type="Int32" />
+          <NavigationProperty Name="AcedemicYears" Relationship="PerformanceAnalyzerModel.FK__AcedemicY__cours__3D5E1FD2" FromRole="Course" ToRole="AcedemicYear" />
+          <NavigationProperty Name="CourseAdmin" Relationship="PerformanceAnalyzerModel.FK__Course__adminID__286302EC" FromRole="Course" ToRole="CourseAdmin" />
+          <NavigationProperty Name="Department" Relationship="PerformanceAnalyzerModel.FK__Course__departme__276EDEB3" FromRole="Course" ToRole="Department" />
+          <NavigationProperty Name="Faculty" Relationship="PerformanceAnalyzerModel.FK__Course__facultyI__267ABA7A" FromRole="Course" ToRole="Faculty" />
+          <NavigationProperty Name="University" Relationship="PerformanceAnalyzerModel.FK__Course__universi__25869641" FromRole="Course" ToRole="University" />
+          <NavigationProperty Name="Students" Relationship="PerformanceAnalyzerModel.FK__Student__courseI__3864608B" FromRole="Course" ToRole="Student" />
+          <NavigationProperty Name="Members" Relationship="PerformanceAnalyzerModel.Lecture_Course" FromRole="Course" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="CourseAdmin" BaseType="PerformanceAnalyzerModel.Member">
+          <Property Name="description" Type="String" MaxLength="2500" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Courses" Relationship="PerformanceAnalyzerModel.FK__Course__adminID__286302EC" FromRole="CourseAdmin" ToRole="Course" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="departmentID" />
+          </Key>
+          <Property Name="departmentID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="facultyID" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Courses" Relationship="PerformanceAnalyzerModel.FK__Course__departme__276EDEB3" FromRole="Department" ToRole="Course" />
+          <NavigationProperty Name="Faculty" Relationship="PerformanceAnalyzerModel.FK__Departmen__facul__173876EA" FromRole="Department" ToRole="Faculty" />
+          <NavigationProperty Name="Lecturers" Relationship="PerformanceAnalyzerModel.FK__Lecturer__depart__32AB8735" FromRole="Department" ToRole="Lecturer" />
+          <NavigationProperty Name="Students" Relationship="PerformanceAnalyzerModel.FK__Student__departm__3B40CD36" FromRole="Department" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Enrollment">
+          <Key>
+            <PropertyRef Name="userID" />
+            <PropertyRef Name="moduleCode" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="moduleCode" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="result" Type="String" MaxLength="5" Unicode="true" FixedLength="false" />
+          <Property Name="dateOfResult" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Module" Relationship="PerformanceAnalyzerModel.FK__Enrollmen__modul__14270015" FromRole="Enrollment" ToRole="Module" />
+          <NavigationProperty Name="ResultMapping" Relationship="PerformanceAnalyzerModel.FK__Enrollmen__resul__151B244E" FromRole="Enrollment" ToRole="ResultMapping" />
+          <NavigationProperty Name="Member" Relationship="PerformanceAnalyzerModel.FK__Enrollmen__userI__1332DBDC" FromRole="Enrollment" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="Faculty">
+          <Key>
+            <PropertyRef Name="facultyID" />
+          </Key>
+          <Property Name="facultyID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="universityID" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Courses" Relationship="PerformanceAnalyzerModel.FK__Course__facultyI__267ABA7A" FromRole="Faculty" ToRole="Course" />
+          <NavigationProperty Name="Departments" Relationship="PerformanceAnalyzerModel.FK__Departmen__facul__173876EA" FromRole="Faculty" ToRole="Department" />
+          <NavigationProperty Name="University" Relationship="PerformanceAnalyzerModel.FK__Faculty__univers__1273C1CD" FromRole="Faculty" ToRole="University" />
+          <NavigationProperty Name="Lecturers" Relationship="PerformanceAnalyzerModel.FK__Lecturer__facult__31B762FC" FromRole="Faculty" ToRole="Lecturer" />
+          <NavigationProperty Name="Students" Relationship="PerformanceAnalyzerModel.FK__Student__faculty__3A4CA8FD" FromRole="Faculty" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="IndustryProfessional" BaseType="PerformanceAnalyzerModel.Member">
+          <Property Name="companyName" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+          <Property Name="description" Type="String" MaxLength="2500" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Lecturer" BaseType="PerformanceAnalyzerModel.Member">
+          <Property Name="universityID" Type="Int32" />
+          <Property Name="facultyID" Type="Int32" />
+          <Property Name="departmentID" Type="Int32" />
+          <Property Name="description" Type="String" MaxLength="2500" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Department" Relationship="PerformanceAnalyzerModel.FK__Lecturer__depart__32AB8735" FromRole="Lecturer" ToRole="Department" />
+          <NavigationProperty Name="Faculty" Relationship="PerformanceAnalyzerModel.FK__Lecturer__facult__31B762FC" FromRole="Lecturer" ToRole="Faculty" />
+          <NavigationProperty Name="University" Relationship="PerformanceAnalyzerModel.FK__Lecturer__univer__30C33EC3" FromRole="Lecturer" ToRole="University" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+          <Property Name="linkedin" Type="String" MaxLength="80" Unicode="true" FixedLength="false" />
+          <Property Name="imageURL" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="lastLoginDate" Type="DateTime" Precision="3" />
+          <Property Name="lastMessageView" Type="DateTime" Precision="3" />
+          <Property Name="password" Type="String" MaxLength="130" Unicode="true" FixedLength="false" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Enrollments" Relationship="PerformanceAnalyzerModel.FK__Enrollmen__userI__1332DBDC" FromRole="Member" ToRole="Enrollment" />
+          <NavigationProperty Name="Messages" Relationship="PerformanceAnalyzerModel.FK__Message__recieve__208CD6FA" FromRole="Member" ToRole="Message" />
+          <NavigationProperty Name="Messages1" Relationship="PerformanceAnalyzerModel.FK__Message__senderI__1F98B2C1" FromRole="Member" ToRole="Message" />
+          <NavigationProperty Name="TelephoneNumbers" Relationship="PerformanceAnalyzerModel.FK__Telephone__userI__20C1E124" FromRole="Member" ToRole="TelephoneNumber" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="senderID" />
+            <PropertyRef Name="recieverID" />
+            <PropertyRef Name="date" />
+          </Key>
+          <Property Name="senderID" Type="Int32" Nullable="false" />
+          <Property Name="recieverID" Type="Int32" Nullable="false" />
+          <Property Name="messageText" Type="String" MaxLength="2500" Unicode="true" FixedLength="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Member" Relationship="PerformanceAnalyzerModel.FK__Message__recieve__208CD6FA" FromRole="Message" ToRole="Member" />
+          <NavigationProperty Name="Member1" Relationship="PerformanceAnalyzerModel.FK__Message__senderI__1F98B2C1" FromRole="Message" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="Module">
+          <Key>
+            <PropertyRef Name="moduleCode" />
+          </Key>
+          <Property Name="moduleCode" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="name" Type="String" MaxLength="80" Unicode="true" FixedLength="false" />
+          <Property Name="GPA" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
+          <Property Name="credits" Type="Int32" />
+          <Property Name="compulary" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Enrollments" Relationship="PerformanceAnalyzerModel.FK__Enrollmen__modul__14270015" FromRole="Module" ToRole="Enrollment" />
+          <NavigationProperty Name="Semester_Module" Relationship="PerformanceAnalyzerModel.FK__Semester___modul__5CD6CB2B" FromRole="Module" ToRole="Semester_Module" />
+          <NavigationProperty Name="Module1" Relationship="PerformanceAnalyzerModel.Prerequisite" FromRole="Module" ToRole="Module1" />
+          <NavigationProperty Name="Modules" Relationship="PerformanceAnalyzerModel.Prerequisite" FromRole="Module1" ToRole="Module" />
+        </EntityType>
+        <EntityType Name="ResultMapping">
+          <Key>
+            <PropertyRef Name="result" />
+          </Key>
+          <Property Name="result" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="false" />
+          <Property Name="GPA" Type="Double" />
+          <NavigationProperty Name="Enrollments" Relationship="PerformanceAnalyzerModel.FK__Enrollmen__resul__151B244E" FromRole="ResultMapping" ToRole="Enrollment" />
+        </EntityType>
+        <EntityType Name="Semester">
+          <Key>
+            <PropertyRef Name="semesterID" />
+          </Key>
+          <Property Name="semesterID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="yearID" Type="Int32" />
+          <Property Name="semesterNumber" Type="Int32" />
+          <NavigationProperty Name="AcedemicYear" Relationship="PerformanceAnalyzerModel.FK__Semester__yearID__4222D4EF" FromRole="Semester" ToRole="AcedemicYear" />
+          <NavigationProperty Name="Semester_Module" Relationship="PerformanceAnalyzerModel.FK__Semester___semes__5BE2A6F2" FromRole="Semester" ToRole="Semester_Module" />
+        </EntityType>
+        <EntityType Name="Semester_Module">
+          <Key>
+            <PropertyRef Name="semesterID" />
+            <PropertyRef Name="moduleCode" />
+            <PropertyRef Name="lecturerName" />
+          </Key>
+          <Property Name="semesterID" Type="Int32" Nullable="false" />
+          <Property Name="moduleCode" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="lecturerName" Type="String" Nullable="false" MaxLength="60" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Module" Relationship="PerformanceAnalyzerModel.FK__Semester___modul__5CD6CB2B" FromRole="Semester_Module" ToRole="Module" />
+          <NavigationProperty Name="Semester" Relationship="PerformanceAnalyzerModel.FK__Semester___semes__5BE2A6F2" FromRole="Semester_Module" ToRole="Semester" />
+        </EntityType>
+        <EntityType Name="Student" BaseType="PerformanceAnalyzerModel.Member">
+          <Property Name="indexNo" Type="String" MaxLength="120" Unicode="true" FixedLength="false" />
+          <Property Name="courseID" Type="Int32" />
+          <Property Name="universityID" Type="Int32" />
+          <Property Name="facultyID" Type="Int32" />
+          <Property Name="departmentID" Type="Int32" />
+          <Property Name="description" Type="String" MaxLength="2500" Unicode="true" FixedLength="false" />
+          <Property Name="skills" Type="String" MaxLength="2000" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Course" Relationship="PerformanceAnalyzerModel.FK__Student__courseI__3864608B" FromRole="Student" ToRole="Course" />
+          <NavigationProperty Name="Department" Relationship="PerformanceAnalyzerModel.FK__Student__departm__3B40CD36" FromRole="Student" ToRole="Department" />
+          <NavigationProperty Name="Faculty" Relationship="PerformanceAnalyzerModel.FK__Student__faculty__3A4CA8FD" FromRole="Student" ToRole="Faculty" />
+          <NavigationProperty Name="University" Relationship="PerformanceAnalyzerModel.FK__Student__univeri__395884C4" FromRole="Student" ToRole="University" />
+        </EntityType>
+        <EntityType Name="TelephoneNumber">
+          <Key>
+            <PropertyRef Name="userID" />
+            <PropertyRef Name="telephoneNumber1" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="telephoneNumber1" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Member" Relationship="PerformanceAnalyzerModel.FK__Telephone__userI__20C1E124" FromRole="TelephoneNumber" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="University">
+          <Key>
+            <PropertyRef Name="universityID" />
+          </Key>
+          <Property Name="universityID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Courses" Relationship="PerformanceAnalyzerModel.FK__Course__universi__25869641" FromRole="University" ToRole="Course" />
+          <NavigationProperty Name="Faculties" Relationship="PerformanceAnalyzerModel.FK__Faculty__univers__1273C1CD" FromRole="University" ToRole="Faculty" />
+          <NavigationProperty Name="Lecturers" Relationship="PerformanceAnalyzerModel.FK__Lecturer__univer__30C33EC3" FromRole="University" ToRole="Lecturer" />
+          <NavigationProperty Name="Students" Relationship="PerformanceAnalyzerModel.FK__Student__univeri__395884C4" FromRole="University" ToRole="Student" />
+        </EntityType>
+        <Association Name="FK__AcedemicY__cours__3D5E1FD2">
+          <End Role="Course" Type="PerformanceAnalyzerModel.Course" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AcedemicYear" Type="PerformanceAnalyzerModel.AcedemicYear" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="courseID" />
+            </Principal>
+            <Dependent Role="AcedemicYear">
+              <PropertyRef Name="courseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Semester__yearID__4222D4EF">
+          <End Role="AcedemicYear" Type="PerformanceAnalyzerModel.AcedemicYear" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Semester" Type="PerformanceAnalyzerModel.Semester" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AcedemicYear">
+              <PropertyRef Name="yearID" />
+            </Principal>
+            <Dependent Role="Semester">
+              <PropertyRef Name="yearID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Course__adminID__286302EC">
+          <End Role="CourseAdmin" Type="PerformanceAnalyzerModel.CourseAdmin" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Course" Type="PerformanceAnalyzerModel.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseAdmin">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="adminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Course__departme__276EDEB3">
+          <End Role="Department" Type="PerformanceAnalyzerModel.Department" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Course" Type="PerformanceAnalyzerModel.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="departmentID" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="departmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Course__facultyI__267ABA7A">
+          <End Role="Faculty" Type="PerformanceAnalyzerModel.Faculty" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Course" Type="PerformanceAnalyzerModel.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty">
+              <PropertyRef Name="facultyID" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="facultyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Course__universi__25869641">
+          <End Role="University" Type="PerformanceAnalyzerModel.University" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Course" Type="PerformanceAnalyzerModel.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="universityID" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="universityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Student__courseI__3864608B">
+          <End Role="Course" Type="PerformanceAnalyzerModel.Course" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Student" Type="PerformanceAnalyzerModel.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="courseID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="courseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Departmen__facul__173876EA">
+          <End Role="Faculty" Type="PerformanceAnalyzerModel.Faculty" Multiplicity="0..1" />
+          <End Role="Department" Type="PerformanceAnalyzerModel.Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty">
+              <PropertyRef Name="facultyID" />
+            </Principal>
+            <Dependent Role="Department">
+              <PropertyRef Name="facultyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Lecturer__depart__32AB8735">
+          <End Role="Department" Type="PerformanceAnalyzerModel.Department" Multiplicity="0..1" />
+          <End Role="Lecturer" Type="PerformanceAnalyzerModel.Lecturer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="departmentID" />
+            </Principal>
+            <Dependent Role="Lecturer">
+              <PropertyRef Name="departmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Student__departm__3B40CD36">
+          <End Role="Department" Type="PerformanceAnalyzerModel.Department" Multiplicity="0..1" />
+          <End Role="Student" Type="PerformanceAnalyzerModel.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="departmentID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="departmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Enrollmen__modul__14270015">
+          <End Role="Module" Type="PerformanceAnalyzerModel.Module" Multiplicity="1" />
+          <End Role="Enrollment" Type="PerformanceAnalyzerModel.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="moduleCode" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="moduleCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Enrollmen__resul__151B244E">
+          <End Role="ResultMapping" Type="PerformanceAnalyzerModel.ResultMapping" Multiplicity="0..1" />
+          <End Role="Enrollment" Type="PerformanceAnalyzerModel.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ResultMapping">
+              <PropertyRef Name="result" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="result" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Enrollmen__userI__1332DBDC">
+          <End Role="Member" Type="PerformanceAnalyzerModel.Member" Multiplicity="1" />
+          <End Role="Enrollment" Type="PerformanceAnalyzerModel.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Faculty__univers__1273C1CD">
+          <End Role="University" Type="PerformanceAnalyzerModel.University" Multiplicity="0..1" />
+          <End Role="Faculty" Type="PerformanceAnalyzerModel.Faculty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="universityID" />
+            </Principal>
+            <Dependent Role="Faculty">
+              <PropertyRef Name="universityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Lecturer__facult__31B762FC">
+          <End Role="Faculty" Type="PerformanceAnalyzerModel.Faculty" Multiplicity="0..1" />
+          <End Role="Lecturer" Type="PerformanceAnalyzerModel.Lecturer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty">
+              <PropertyRef Name="facultyID" />
+            </Principal>
+            <Dependent Role="Lecturer">
+              <PropertyRef Name="facultyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Student__faculty__3A4CA8FD">
+          <End Role="Faculty" Type="PerformanceAnalyzerModel.Faculty" Multiplicity="0..1" />
+          <End Role="Student" Type="PerformanceAnalyzerModel.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty">
+              <PropertyRef Name="facultyID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="facultyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Lecturer__univer__30C33EC3">
+          <End Role="University" Type="PerformanceAnalyzerModel.University" Multiplicity="0..1" />
+          <End Role="Lecturer" Type="PerformanceAnalyzerModel.Lecturer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="universityID" />
+            </Principal>
+            <Dependent Role="Lecturer">
+              <PropertyRef Name="universityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Message__recieve__208CD6FA">
+          <End Role="Member" Type="PerformanceAnalyzerModel.Member" Multiplicity="1" />
+          <End Role="Message" Type="PerformanceAnalyzerModel.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="recieverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Message__senderI__1F98B2C1">
+          <End Role="Member" Type="PerformanceAnalyzerModel.Member" Multiplicity="1" />
+          <End Role="Message" Type="PerformanceAnalyzerModel.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="senderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Telephone__userI__20C1E124">
+          <End Role="Member" Type="PerformanceAnalyzerModel.Member" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TelephoneNumber" Type="PerformanceAnalyzerModel.TelephoneNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="TelephoneNumber">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Semester___modul__5CD6CB2B">
+          <End Role="Module" Type="PerformanceAnalyzerModel.Module" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Semester_Module" Type="PerformanceAnalyzerModel.Semester_Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="moduleCode" />
+            </Principal>
+            <Dependent Role="Semester_Module">
+              <PropertyRef Name="moduleCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Semester___semes__5BE2A6F2">
+          <End Role="Semester" Type="PerformanceAnalyzerModel.Semester" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Semester_Module" Type="PerformanceAnalyzerModel.Semester_Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semester">
+              <PropertyRef Name="semesterID" />
+            </Principal>
+            <Dependent Role="Semester_Module">
+              <PropertyRef Name="semesterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Student__univeri__395884C4">
+          <End Role="University" Type="PerformanceAnalyzerModel.University" Multiplicity="0..1" />
+          <End Role="Student" Type="PerformanceAnalyzerModel.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="universityID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="universityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Lecture_Course">
+          <End Role="Course" Type="PerformanceAnalyzerModel.Course" Multiplicity="*" />
+          <End Role="Member" Type="PerformanceAnalyzerModel.Member" Multiplicity="*" />
+        </Association>
+        <Association Name="Prerequisite">
+          <End Role="Module" Type="PerformanceAnalyzerModel.Module" Multiplicity="*" />
+          <End Role="Module1" Type="PerformanceAnalyzerModel.Module" Multiplicity="*" />
+        </Association>
+        <ComplexType Name="spGetAdminProfileInfo_Result">
+          <Property Type="String" Name="username" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="linkedin" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="imageURL" Nullable="true" MaxLength="250" />
+          <Property Type="DateTime" Name="DOB" Nullable="true" Precision="23" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="2500" />
+        </ComplexType>
+        <ComplexType Name="spGetIndustryProfessionalData_Result">
+          <Property Type="String" Name="userName" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="linkedin" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="imageURL" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="companyName" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="2500" />
+        </ComplexType>
+        <ComplexType Name="spGetLectureData_Result">
+          <Property Type="String" Name="userName" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="linkedin" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="imageURL" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="universityName" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="facultyName" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="departmentName" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="2500" />
+        </ComplexType>
+        <ComplexType Name="spGetStudentData_Result">
+          <Property Type="String" Name="userName" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="linkedin" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="imageURL" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="universityName" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="facultyName" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="departmentName" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="indexNo" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="2500" />
+          <Property Type="String" Name="skills" Nullable="true" MaxLength="2000" />
+        </ComplexType>
+        <ComplexType Name="spGetAdminData_Result">
+          <Property Type="String" Name="userName" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="linkedin" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="imageURL" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="2500" />
+        </ComplexType>
+        <ComplexType Name="spGetAdminDataNew_Result">
+          <Property Type="Int32" Name="userID" Nullable="false" />
+          <Property Type="String" Name="userName" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="linkedin" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="imageURL" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="2500" />
+        </ComplexType>
+        <ComplexType Name="spGetSemeterInfo_Result">
+          <Property Type="Int32" Name="yearID" Nullable="false" />
+          <Property Type="Int32" Name="courseID" Nullable="true" />
+          <Property Type="Int32" Name="yearNumber" Nullable="true" />
+          <Property Type="Int32" Name="semesterID" Nullable="false" />
+          <Property Type="Int32" Name="yearID1" Nullable="true" />
+          <Property Type="Int32" Name="semesterNumber" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spGetSemeterInfoNew_Result">
+          <Property Type="Int32" Name="semesterID" Nullable="false" />
+          <Property Type="Int32" Name="yearNumber" Nullable="true" />
+          <Property Type="Int32" Name="semesterNumber" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spGetModuleInfoBySemester_Result">
+          <Property Type="Int32" Name="semesterID" Nullable="false" />
+          <Property Type="String" Name="moduleCode" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="name" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="GPA" Nullable="true" MaxLength="4" />
+          <Property Type="Int32" Name="credits" Nullable="true" />
+          <Property Type="String" Name="compulary" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="lecturerName" Nullable="false" MaxLength="60" />
+        </ComplexType>
+        <ComplexType Name="spGetModuleInfoBySemesterNew_Result">
+          <Property Type="Int32" Name="semesterID" Nullable="false" />
+          <Property Type="String" Name="moduleCode" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="name" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="GPA" Nullable="true" MaxLength="4" />
+          <Property Type="Int32" Name="credits" Nullable="true" />
+          <Property Type="String" Name="compulary" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="lecturerName" Nullable="false" MaxLength="60" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PerformanceAnalyzerModelStoreContainer" CdmEntityContainer="PerformanceAnalyzerDataContext">
+          <EntitySetMapping Name="AcedemicYears">
+            <EntityTypeMapping TypeName="PerformanceAnalyzerModel.AcedemicYear">
+              <MappingFragment StoreEntitySet="AcedemicYear">
+                <ScalarProperty Name="yearID" ColumnName="yearID" />
+                <ScalarProperty Name="courseID" ColumnName="courseID" />
+                <ScalarProperty Name="yearNumber" ColumnName="yearNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="PerformanceAnalyzerModel.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="courseID" ColumnName="courseID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="batch" ColumnName="batch" />
+                <ScalarProperty Name="universityID" ColumnName="universityID" />
+                <ScalarProperty Name="facultyID" ColumnName="facultyID" />
+                <ScalarProperty Name="departmentID" ColumnName="departmentID" />
+                <ScalarProperty Name="adminID" ColumnName="adminID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="PerformanceAnalyzerModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="departmentID" ColumnName="departmentID" />
+                <ScalarProperty Name="facultyID" ColumnName="facultyID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Enrollments">
+            <EntityTypeMapping TypeName="PerformanceAnalyzerModel.Enrollment">
+              <MappingFragment StoreEntitySet="Enrollment">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="moduleCode" ColumnName="moduleCode" />
+                <ScalarProperty Name="result" ColumnName="result" />
+                <ScalarProperty Name="dateOfResult" ColumnName="dateOfResult" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Faculties">
+            <EntityTypeMapping TypeName="PerformanceAnalyzerModel.Faculty">
+              <MappingFragment StoreEntitySet="Faculty">
+                <ScalarProperty Name="facultyID" ColumnName="facultyID" />
+                <ScalarProperty Name="universityID" ColumnName="universityID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="IsTypeOf(PerformanceAnalyzerModel.Member)">
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="lastMessageView" ColumnName="lastMessageView" />
+                <ScalarProperty Name="lastLoginDate" ColumnName="lastLoginDate" />
+                <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+                <ScalarProperty Name="linkedin" ColumnName="linkedin" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(PerformanceAnalyzerModel.Lecturer)">
+              <MappingFragment StoreEntitySet="Lecturer">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="departmentID" ColumnName="departmentID" />
+                <ScalarProperty Name="facultyID" ColumnName="facultyID" />
+                <ScalarProperty Name="universityID" ColumnName="universityID" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <Condition ColumnName="userType" Value="&quot;Lecturer&quot;" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(PerformanceAnalyzerModel.IndustryProfessional)">
+              <MappingFragment StoreEntitySet="IndustryProfessional">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="companyName" ColumnName="companyName" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <Condition ColumnName="userType" Value="&quot;IndustryProfessional&quot;" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(PerformanceAnalyzerModel.Student)">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="skills" ColumnName="skills" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="departmentID" ColumnName="departmentID" />
+                <ScalarProperty Name="facultyID" ColumnName="facultyID" />
+                <ScalarProperty Name="universityID" ColumnName="universityID" />
+                <ScalarProperty Name="courseID" ColumnName="courseID" />
+                <ScalarProperty Name="indexNo" ColumnName="indexNo" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <Condition ColumnName="userType" Value="&quot;Student&quot;" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(PerformanceAnalyzerModel.CourseAdmin)">
+              <MappingFragment StoreEntitySet="CourseAdmin">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <Condition ColumnName="userType" Value="&quot;CourseAdmin&quot;" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="PerformanceAnalyzerModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="senderID" ColumnName="senderID" />
+                <ScalarProperty Name="recieverID" ColumnName="recieverID" />
+                <ScalarProperty Name="messageText" ColumnName="messageText" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modules">
+            <EntityTypeMapping TypeName="PerformanceAnalyzerModel.Module">
+              <MappingFragment StoreEntitySet="Module">
+                <ScalarProperty Name="moduleCode" ColumnName="moduleCode" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="GPA" ColumnName="GPA" />
+                <ScalarProperty Name="credits" ColumnName="credits" />
+                <ScalarProperty Name="compulary" ColumnName="compulary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResultMappings">
+            <EntityTypeMapping TypeName="PerformanceAnalyzerModel.ResultMapping">
+              <MappingFragment StoreEntitySet="ResultMapping">
+                <ScalarProperty Name="result" ColumnName="result" />
+                <ScalarProperty Name="GPA" ColumnName="GPA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Semesters">
+            <EntityTypeMapping TypeName="PerformanceAnalyzerModel.Semester">
+              <MappingFragment StoreEntitySet="Semester">
+                <ScalarProperty Name="semesterID" ColumnName="semesterID" />
+                <ScalarProperty Name="yearID" ColumnName="yearID" />
+                <ScalarProperty Name="semesterNumber" ColumnName="semesterNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Semester_Module">
+            <EntityTypeMapping TypeName="PerformanceAnalyzerModel.Semester_Module">
+              <MappingFragment StoreEntitySet="Semester_Module">
+                <ScalarProperty Name="semesterID" ColumnName="semesterID" />
+                <ScalarProperty Name="moduleCode" ColumnName="moduleCode" />
+                <ScalarProperty Name="lecturerName" ColumnName="lecturerName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TelephoneNumbers">
+            <EntityTypeMapping TypeName="PerformanceAnalyzerModel.TelephoneNumber">
+              <MappingFragment StoreEntitySet="TelephoneNumber">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="telephoneNumber1" ColumnName="telephoneNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Universities">
+            <EntityTypeMapping TypeName="PerformanceAnalyzerModel.University">
+              <MappingFragment StoreEntitySet="University">
+                <ScalarProperty Name="universityID" ColumnName="universityID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Lecture_Course" TypeName="PerformanceAnalyzerModel.Lecture_Course" StoreEntitySet="Lecture_Course">
+            <EndProperty Name="Course">
+              <ScalarProperty Name="courseID" ColumnName="courseID" />
+            </EndProperty>
+            <EndProperty Name="Member">
+              <ScalarProperty Name="userID" ColumnName="userID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Prerequisite" TypeName="PerformanceAnalyzerModel.Prerequisite" StoreEntitySet="Prerequisite">
+            <EndProperty Name="Module">
+              <ScalarProperty Name="moduleCode" ColumnName="moduleCode" />
+            </EndProperty>
+            <EndProperty Name="Module1">
+              <ScalarProperty Name="moduleCode" ColumnName="preRequisiteCode" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="spGetAdminProfileInfo" FunctionName="PerformanceAnalyzerModel.Store.spGetAdminProfileInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetAdminProfileInfo_Result">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="linkedin" ColumnName="linkedin" />
+                <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetIndustryProfessionalData" FunctionName="PerformanceAnalyzerModel.Store.spGetIndustryProfessionalData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetIndustryProfessionalData_Result">
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="linkedin" ColumnName="linkedin" />
+                <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+                <ScalarProperty Name="companyName" ColumnName="companyName" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetLectureData" FunctionName="PerformanceAnalyzerModel.Store.spGetLectureData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetLectureData_Result">
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="linkedin" ColumnName="linkedin" />
+                <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+                <ScalarProperty Name="universityName" ColumnName="universityName" />
+                <ScalarProperty Name="facultyName" ColumnName="facultyName" />
+                <ScalarProperty Name="departmentName" ColumnName="departmentName" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetStudentData" FunctionName="PerformanceAnalyzerModel.Store.spGetStudentData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetStudentData_Result">
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="linkedin" ColumnName="linkedin" />
+                <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+                <ScalarProperty Name="universityName" ColumnName="universityName" />
+                <ScalarProperty Name="facultyName" ColumnName="facultyName" />
+                <ScalarProperty Name="departmentName" ColumnName="departmentName" />
+                <ScalarProperty Name="indexNo" ColumnName="indexNo" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="skills" ColumnName="skills" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetAdminData" FunctionName="PerformanceAnalyzerModel.Store.spGetAdminData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetAdminData_Result">
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="linkedin" ColumnName="linkedin" />
+                <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spUpdateAdmin" FunctionName="PerformanceAnalyzerModel.Store.spUpdateAdmin" />
+          <FunctionImportMapping FunctionImportName="spGetAdminDataNew" FunctionName="PerformanceAnalyzerModel.Store.spGetAdminDataNew">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetAdminDataNew_Result">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="linkedin" ColumnName="linkedin" />
+                <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spUpdateBasicCourseInfo" FunctionName="PerformanceAnalyzerModel.Store.spUpdateBasicCourseInfo" />
+          <FunctionImportMapping FunctionImportName="spInsertBasicCourseInfo" FunctionName="PerformanceAnalyzerModel.Store.spInsertBasicCourseInfo" />
+          <FunctionImportMapping FunctionImportName="spGetMaxCourseID" FunctionName="PerformanceAnalyzerModel.Store.spGetMaxCourseID" />
+          <FunctionImportMapping FunctionImportName="spGetSemeterInfo" FunctionName="PerformanceAnalyzerModel.Store.spGetSemeterInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetSemeterInfo_Result">
+                <ScalarProperty Name="yearID" ColumnName="yearID" />
+                <ScalarProperty Name="courseID" ColumnName="courseID" />
+                <ScalarProperty Name="yearNumber" ColumnName="yearNumber" />
+                <ScalarProperty Name="semesterID" ColumnName="semesterID" />
+                <ScalarProperty Name="yearID1" ColumnName="yearID1" />
+                <ScalarProperty Name="semesterNumber" ColumnName="semesterNumber" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetSemeterInfoNew" FunctionName="PerformanceAnalyzerModel.Store.spGetSemeterInfoNew">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetSemeterInfoNew_Result">
+                <ScalarProperty Name="semesterID" ColumnName="semesterID" />
+                <ScalarProperty Name="yearNumber" ColumnName="yearNumber" />
+                <ScalarProperty Name="semesterNumber" ColumnName="semesterNumber" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spDeleteModuleBySemester" FunctionName="PerformanceAnalyzerModel.Store.spDeleteModuleBySemester" />
+          <FunctionImportMapping FunctionImportName="spGetModuleInfoBySemester" FunctionName="PerformanceAnalyzerModel.Store.spGetModuleInfoBySemester">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetModuleInfoBySemester_Result">
+                <ScalarProperty Name="semesterID" ColumnName="semesterID" />
+                <ScalarProperty Name="moduleCode" ColumnName="moduleCode" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="GPA" ColumnName="GPA" />
+                <ScalarProperty Name="credits" ColumnName="credits" />
+                <ScalarProperty Name="compulary" ColumnName="compulary" />
+                <ScalarProperty Name="lecturerName" ColumnName="lecturerName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spInsertModuleBySemester" FunctionName="PerformanceAnalyzerModel.Store.spInsertModuleBySemester" />
+          <FunctionImportMapping FunctionImportName="spGetModuleInfoBySemesterNew" FunctionName="PerformanceAnalyzerModel.Store.spGetModuleInfoBySemesterNew">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetModuleInfoBySemesterNew_Result">
+                <ScalarProperty Name="semesterID" ColumnName="semesterID" />
+                <ScalarProperty Name="moduleCode" ColumnName="moduleCode" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="GPA" ColumnName="GPA" />
+                <ScalarProperty Name="credits" ColumnName="credits" />
+                <ScalarProperty Name="compulary" ColumnName="compulary" />
+                <ScalarProperty Name="lecturerName" ColumnName="lecturerName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -81,7 +81,7 @@ namespace PerformanceAnalyzer2.BusinessLogicLayer
 
 
         }
-
+        public static void newFunction() { }
        
     }
 }

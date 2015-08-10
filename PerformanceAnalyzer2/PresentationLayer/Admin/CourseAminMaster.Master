@@ -42,11 +42,11 @@
 
                 <td style="border:solid">
 
-                    <asp:Menu ID="Menu1" runat="server" StaticMenuItemStyle-BorderStyle="Solid"  Orientation="Horizontal">
+                    <asp:Menu ID="Menu1" runat="server" StaticMenuItemStyle-BorderStyle="Solid"  Orientation="Horizontal"  OnMenuItemClick="Menu1_MenuItemClick">
                         <Items>
-                            <asp:MenuItem Text="Profile" NavigateUrl="~/PresentationLayer/CourseAdmin/ViewProfile.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="New Course" NavigateUrl="~/PresentationLayer/Admin/NewCourseView.aspx?activeView=0"></asp:MenuItem>
-                            <asp:MenuItem Text="Edit Course"></asp:MenuItem>
+                            <asp:MenuItem Text="Profile" NavigateUrl="~/PresentationLayer/CourseAdmin/ViewProfile.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="New Course" NavigateUrl="~/PresentationLayer/Admin/NewCourseView.aspx?activeView=0&initial=0"></asp:MenuItem>
+                            <asp:MenuItem Text="Edit Course" NavigateUrl="~/PresentationLayer/Admin/CourseView.aspx?activeView=0&initial=0"></asp:MenuItem>
                             <asp:MenuItem Text="New Reslts"></asp:MenuItem>
                             <asp:MenuItem Text="Statistics"></asp:MenuItem>
                         </Items>

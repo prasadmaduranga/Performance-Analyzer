@@ -261,5 +261,100 @@ namespace PerformanceAnalyzer2
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetModuleInfoBySemesterNew_Result>("spGetModuleInfoBySemesterNew", semesterIDParameter);
         }
+    
+        public virtual ObjectResult<getStudentBasicInfo_Result> getStudentBasicInfo(Nullable<int> courseID)
+        {
+            var courseIDParameter = courseID.HasValue ?
+                new ObjectParameter("courseID", courseID) :
+                new ObjectParameter("courseID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getStudentBasicInfo_Result>("getStudentBasicInfo", courseIDParameter);
+        }
+    
+        public virtual int spUpdateStudentBasicInfo(Nullable<int> userID, string userName, string indexNo)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("userID", userID) :
+                new ObjectParameter("userID", typeof(int));
+    
+            var userNameParameter = userName != null ?
+                new ObjectParameter("userName", userName) :
+                new ObjectParameter("userName", typeof(string));
+    
+            var indexNoParameter = indexNo != null ?
+                new ObjectParameter("indexNo", indexNo) :
+                new ObjectParameter("indexNo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateStudentBasicInfo", userIDParameter, userNameParameter, indexNoParameter);
+        }
+    
+        public virtual ObjectResult<getStudentBasicInfoNew_Result> getStudentBasicInfoNew(Nullable<int> courseID)
+        {
+            var courseIDParameter = courseID.HasValue ?
+                new ObjectParameter("courseID", courseID) :
+                new ObjectParameter("courseID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getStudentBasicInfoNew_Result>("getStudentBasicInfoNew", courseIDParameter);
+        }
+    
+        public virtual int spSetCommonPassword(Nullable<int> courseID, string password)
+        {
+            var courseIDParameter = courseID.HasValue ?
+                new ObjectParameter("courseID", courseID) :
+                new ObjectParameter("courseID", typeof(int));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spSetCommonPassword", courseIDParameter, passwordParameter);
+        }
+    
+        public virtual int spEditBasicCourseInfo(Nullable<int> courseID, string name, string batch, Nullable<int> universityID, Nullable<int> facultyID, Nullable<int> departmentID)
+        {
+            var courseIDParameter = courseID.HasValue ?
+                new ObjectParameter("courseID", courseID) :
+                new ObjectParameter("courseID", typeof(int));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            var batchParameter = batch != null ?
+                new ObjectParameter("batch", batch) :
+                new ObjectParameter("batch", typeof(string));
+    
+            var universityIDParameter = universityID.HasValue ?
+                new ObjectParameter("universityID", universityID) :
+                new ObjectParameter("universityID", typeof(int));
+    
+            var facultyIDParameter = facultyID.HasValue ?
+                new ObjectParameter("facultyID", facultyID) :
+                new ObjectParameter("facultyID", typeof(int));
+    
+            var departmentIDParameter = departmentID.HasValue ?
+                new ObjectParameter("departmentID", departmentID) :
+                new ObjectParameter("departmentID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEditBasicCourseInfo", courseIDParameter, nameParameter, batchParameter, universityIDParameter, facultyIDParameter, departmentIDParameter);
+        }
+    
+        public virtual ObjectResult<spGetCourseInfo_Result> spGetCourseInfo(Nullable<int> courseID)
+        {
+            var courseIDParameter = courseID.HasValue ?
+                new ObjectParameter("courseID", courseID) :
+                new ObjectParameter("courseID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetCourseInfo_Result>("spGetCourseInfo", courseIDParameter);
+        }
+    
+        public virtual ObjectResult<spGetCourseInformation_Result> spGetCourseInformation(Nullable<int> courseID)
+        {
+            var courseIDParameter = courseID.HasValue ?
+                new ObjectParameter("courseID", courseID) :
+                new ObjectParameter("courseID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetCourseInformation_Result>("spGetCourseInformation", courseIDParameter);
+        }
     }
 }

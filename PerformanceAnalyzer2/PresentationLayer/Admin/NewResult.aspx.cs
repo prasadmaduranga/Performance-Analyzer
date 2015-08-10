@@ -7,16 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace PerformanceAnalyzer2.PresentationLayer.Admin
 {
-    public partial class CourseAminMaster : System.Web.UI.MasterPage
+    public partial class WebForm6 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-
-        protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
-        {
-            Session["courseID"] = null;
         }
     }
 }

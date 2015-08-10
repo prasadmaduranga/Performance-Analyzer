@@ -726,9 +726,23 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="getStudentBasicInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="courseID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getStudentBasicInfoNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="courseID" Type="int" Mode="In" />
+        </Function>
         <Function Name="spDeleteModuleBySemester" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="semesterID" Type="int" Mode="In" />
           <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spEditBasicCourseInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="courseID" Type="int" Mode="In" />
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="batch" Type="nvarchar" Mode="In" />
+          <Parameter Name="universityID" Type="int" Mode="In" />
+          <Parameter Name="facultyID" Type="int" Mode="In" />
+          <Parameter Name="departmentID" Type="int" Mode="In" />
         </Function>
         <Function Name="spGetAdminData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userID" Type="int" Mode="In" />
@@ -738,6 +752,12 @@
         </Function>
         <Function Name="spGetAdminProfileInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="email" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spGetCourseInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="courseID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spGetCourseInformation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="courseID" Type="int" Mode="In" />
         </Function>
         <Function Name="spGetIndustryProfessionalData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userID" Type="int" Mode="In" />
@@ -777,6 +797,10 @@
           <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
           <Parameter Name="lecturerName" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="spSetCommonPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="courseID" Type="int" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="spUpdateAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userID" Type="int" Mode="In" />
           <Parameter Name="userName" Type="nvarchar" Mode="In" />
@@ -791,6 +815,11 @@
           <Parameter Name="facultyID" Type="int" Mode="In" />
           <Parameter Name="departmentID" Type="int" Mode="In" />
           <Parameter Name="adminID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spUpdateStudentBasicInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userID" Type="int" Mode="In" />
+          <Parameter Name="userName" Type="nvarchar" Mode="In" />
+          <Parameter Name="indexNo" Type="nvarchar" Mode="In" />
         </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -974,7 +1003,36 @@
             <Parameter Name="lecturerName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spGetModuleInfoBySemesterNew" ReturnType="Collection(PerformanceAnalyzerModel.spGetModuleInfoBySemesterNew_Result)">
-            <Parameter Name="semesterID" Mode="In" Type="Int32" />
+          <Parameter Name="semesterID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getStudentBasicInfo" ReturnType="Collection(PerformanceAnalyzerModel.getStudentBasicInfo_Result)">
+          <Parameter Name="courseID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdateStudentBasicInfo">
+            <Parameter Name="userID" Mode="In" Type="Int32" />
+            <Parameter Name="userName" Mode="In" Type="String" />
+            <Parameter Name="indexNo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getStudentBasicInfoNew" ReturnType="Collection(PerformanceAnalyzerModel.getStudentBasicInfoNew_Result)">
+          <Parameter Name="courseID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spSetCommonPassword">
+            <Parameter Name="courseID" Mode="In" Type="Int32" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spEditBasicCourseInfo">
+            <Parameter Name="courseID" Mode="In" Type="Int32" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="batch" Mode="In" Type="String" />
+            <Parameter Name="universityID" Mode="In" Type="Int32" />
+            <Parameter Name="facultyID" Mode="In" Type="Int32" />
+            <Parameter Name="departmentID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetCourseInfo" ReturnType="Collection(PerformanceAnalyzerModel.spGetCourseInfo_Result)">
+            <Parameter Name="courseID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetCourseInformation" ReturnType="Collection(PerformanceAnalyzerModel.spGetCourseInformation_Result)">
+            <Parameter Name="courseID" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="AcedemicYear">
@@ -1557,6 +1615,35 @@
           <Property Type="String" Name="compulary" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="lecturerName" Nullable="false" MaxLength="60" />
         </ComplexType>
+        <ComplexType Name="getStudentBasicInfo_Result">
+          <Property Type="Int32" Name="userID" Nullable="false" />
+          <Property Type="String" Name="userName" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="IndexNo" Nullable="true" MaxLength="120" />
+        </ComplexType>
+        <ComplexType Name="getStudentBasicInfoNew_Result">
+          <Property Type="Int32" Name="userID" Nullable="false" />
+          <Property Type="String" Name="userName" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="IndexNo" Nullable="true" MaxLength="120" />
+        </ComplexType>
+        <ComplexType Name="spGetCourseInfo_Result">
+          <Property Type="Int32" Name="courseID" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="batch" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="universityName" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="facultyName" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="departmentName" Nullable="true" MaxLength="60" />
+          <Property Type="Int32" Name="studentCount" Nullable="true" />
+          <Property Type="Int32" Name="yearCount" Nullable="true" />
+          <Property Type="Int32" Name="semestercount" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spGetCourseInformation_Result">
+          <Property Type="Int32" Name="courseID" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="batch" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="universityName" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="facultyName" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="departmentName" Nullable="true" MaxLength="60" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1884,6 +1971,54 @@
                 <ScalarProperty Name="credits" ColumnName="credits" />
                 <ScalarProperty Name="compulary" ColumnName="compulary" />
                 <ScalarProperty Name="lecturerName" ColumnName="lecturerName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getStudentBasicInfo" FunctionName="PerformanceAnalyzerModel.Store.getStudentBasicInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.getStudentBasicInfo_Result">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="IndexNo" ColumnName="IndexNo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spUpdateStudentBasicInfo" FunctionName="PerformanceAnalyzerModel.Store.spUpdateStudentBasicInfo" />
+          <FunctionImportMapping FunctionImportName="getStudentBasicInfoNew" FunctionName="PerformanceAnalyzerModel.Store.getStudentBasicInfoNew">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.getStudentBasicInfoNew_Result">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="IndexNo" ColumnName="IndexNo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spSetCommonPassword" FunctionName="PerformanceAnalyzerModel.Store.spSetCommonPassword" />
+          <FunctionImportMapping FunctionImportName="spEditBasicCourseInfo" FunctionName="PerformanceAnalyzerModel.Store.spEditBasicCourseInfo" />
+          <FunctionImportMapping FunctionImportName="spGetCourseInfo" FunctionName="PerformanceAnalyzerModel.Store.spGetCourseInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetCourseInfo_Result">
+                <ScalarProperty Name="courseID" ColumnName="courseID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="batch" ColumnName="batch" />
+                <ScalarProperty Name="universityName" ColumnName="universityName" />
+                <ScalarProperty Name="facultyName" ColumnName="facultyName" />
+                <ScalarProperty Name="departmentName" ColumnName="departmentName" />
+                <ScalarProperty Name="studentCount" ColumnName="studentCount" />
+                <ScalarProperty Name="yearCount" ColumnName="yearCount" />
+                <ScalarProperty Name="semestercount" ColumnName="semestercount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetCourseInformation" FunctionName="PerformanceAnalyzerModel.Store.spGetCourseInformation">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetCourseInformation_Result">
+                <ScalarProperty Name="courseID" ColumnName="courseID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="batch" ColumnName="batch" />
+                <ScalarProperty Name="universityName" ColumnName="universityName" />
+                <ScalarProperty Name="facultyName" ColumnName="facultyName" />
+                <ScalarProperty Name="departmentName" ColumnName="departmentName" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

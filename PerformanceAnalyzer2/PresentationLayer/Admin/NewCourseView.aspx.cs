@@ -12,55 +12,82 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
 {
     public partial class WebForm3 : System.Web.UI.Page
     {
-        protected void Page_PreInit(object sender, EventArgs e) { Session["courseID"] = 10; }
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["userID"] = 1;
-
-     
-
-
-           // DetailsView1.DataSource = AdminLogic.getbasicCourseInfo();
-            //DetailsView1.DataBind();
-            int activeViewIndexVal = Convert.ToInt32(Request.QueryString["activeView"]);
-            string activeViewIndex = (String)Request.QueryString["activeView"];
-            switch (activeViewIndex)
+            
+            if (!IsPostBack)
             {
-                case "0": MultiView1.ActiveViewIndex = activeViewIndexVal;
-                    break;
-                case "1":
-                    loadGridviewSemester();
-                    MultiView1.ActiveViewIndex = activeViewIndexVal;
+                int activeViewIndexVal = Convert.ToInt32(Request.QueryString["activeView"]);
+                string activeViewIndex = (String)Request.QueryString["activeView"];
+                string initRequest = (String)Request.QueryString["initial"];
+                if (initRequest!=null &&  initRequest.Equals("0")) {
+                    Session["courseID"] = null;
+                }
 
-                    break;
-                case "2": MultiView1.ActiveViewIndex = activeViewIndexVal;
-                    break;
 
+                if (Session["courseID"] == null)
+                {
+                    foreach (MenuItem item in Menu1.Items)
+                    {
+                        if (item.Text == "Step2: Acedemic Info" || item.Text == "Step3: Student Info" || item.Text == "Step4: Finish")
+                        {
+                            item.Enabled = false;
+                        }
+                    }
+                }
+                else {
+                    foreach (MenuItem item in Menu1.Items)
+                    {
+                        if (item.Text == "Step2: Acedemic Info" || item.Text == "Step3: Student Info" || item.Text == "Step4: Finish")
+                        {
+                            item.Enabled = true;
+                        }
+                    }
+                
+                }
+                switch (activeViewIndex)
+                {
+                    case "0": MultiView1.ActiveViewIndex = activeViewIndexVal;
+                        break;
+                    case "1":
+                        loadGridviewSemester();
+                        MultiView1.ActiveViewIndex = activeViewIndexVal;
+
+                        break;
+                    case "2":
+
+                        setBsicStudentInfo();
+                        MultiView1.ActiveViewIndex = activeViewIndexVal;
+                        break;
+                    case "3":
+
+                        MultiView1.ActiveViewIndex = activeViewIndexVal;
+                        break;
+
+                }
             }
-
 
 
         }
 
         protected void Page_PreRender(object sender, EventArgs e)
         { 
-        //    if ( Session["selectedSemester"].Equals(null) ) { GridView2.Visible = false; }
-        //    else { GridView2.Visible = true; }
+      
         }
 
         public void lbi_Click(object sender, EventArgs e)
         {
-            SqlDataSource4.InsertParameters["semesterID"].DefaultValue = GridView1.SelectedValue.ToString();
-            SqlDataSource4.InsertParameters["moduleCode"].DefaultValue = ((DropDownList)GridView2.FooterRow.FindControl("DropDownList5")).SelectedValue;
-            SqlDataSource4.InsertParameters["lecturerName"].DefaultValue = ((TextBox)GridView2.FooterRow.FindControl("TextBox2")).Text;
-            SqlDataSource4.Insert();
-            GridView2.DataBind();
+          
         }
 
         protected void loadGridviewSemester() {
 
             GridView1.DataSource = AdminLogic.getSemesterInformation();
             GridView1.DataBind();
+            DetailsView2.Visible = false;
+
 
         }
 
@@ -91,52 +118,236 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
             AdminLogic.insertBasicCourseInfo(Session["userID"], name, batch, universityID, facID, deptID,semesterCount,studentCount,yearCount);
 
             Session["courseID"] = AdminLogic.getMaxCourseID();
+          
             Response.Redirect("NewCourseView.aspx?activeView=1");
         }
 
         protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
-            int rowIndex = e.NewSelectedIndex;
-            Session["selectedSemester"] = Convert.ToInt32(GridView1.Rows[rowIndex].Cells[1].Text);
-            //int semId= Convert.ToInt32(GridView1.DataKeys[rowIndex]["semesterID"]);
-           GridView2.DataBind();
-           if (GridView2.Rows.Count <= 0) {
-               DataTable dt = new DataTable();
-               dt.Clear();
-               dt.Columns.Add("semesterID");
-               dt.Columns.Add("moduleCode");
-               dt.Columns.Add("name");
-               dt.Columns.Add("lecturerName");
-
-               dt.Columns.Add("GPA");
-               dt.Columns.Add("credits");
-               dt.Columns.Add("compulsary");
-
-               DataRow _ravi = dt.NewRow();
-               _ravi["semesterID"] = "";
-               _ravi["moduleCode"] = "";
-               _ravi["name"] = "";
-               _ravi["lecturerName"] = "";
-               _ravi["GPA"] = "";
-               _ravi["credits"] = "";
-               _ravi["compulsary"] = "";
-
-               dt.Rows.Add(_ravi);
-               GridView2.DataSource = dt;
-               GridView2.DataBind();
-           }
+          
+          
+           
+          
         }
 
         protected void GridView2_RowDeleted(object sender, GridViewDeletedEventArgs e)
         {
-            GridView2.DataBind();
+            Session["selectedSemester"] = GridView1.SelectedValue;
+
+            if (GridView1.SelectedValue != null)
+            {
+                this.setGriview2(GridView1.SelectedValue.ToString());
+            }
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           GridView2.DataBind();
+            Session["selectedSemester"] = GridView1.SelectedValue;
+
+            if (GridView1.SelectedValue != null)
+            {
+                GridView2.Visible = true;
+                this.setGriview2(GridView1.SelectedValue.ToString());
+                DetailsView2.Visible = true;
+                UpdatePanel3.Update();
+            }
+            else
+            {
+                GridView2.Visible = false;
+                DetailsView2.Visible = false;
+                UpdatePanel3.Update();
+            }
         }
 
+        protected void DetailsView2_ItemInserting(object sender, DetailsViewInsertEventArgs e)
+        {
+            SqlDataSource6.InsertParameters["semesterID"].DefaultValue = GridView1.SelectedValue.ToString();
+            SqlDataSource6.InsertParameters["moduleCode"].DefaultValue = ((DropDownList)DetailsView2.Rows[1].Cells[1].FindControl("DropDownList6")).SelectedValue;
+
+            SqlDataSource6.InsertParameters["lecturerName"].DefaultValue = ((TextBox)DetailsView2.Rows[2].Cells[1].FindControl("TextBox1")).Text;
+            SqlDataSource6.Insert();
+            
+            Session["selectedSemester"] = GridView1.SelectedValue;
+
+        }
+
+        protected void SqlDataSource7_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+        {
+
+        }
+
+        protected void DetailsView2_ItemUpdated(object sender, DetailsViewUpdatedEventArgs e)
+        {
+          
+        }
+
+        protected void DetailsView2_ItemInserted(object sender, DetailsViewInsertedEventArgs e)
+        {
+            //((DropDownList)DetailsView2.Rows[1].Cells[1].FindControl("DropDownList6")).SelectedIndex = 0;
+            //((TextBox)DetailsView2.Rows[2].Cells[1].FindControl("TextBox1")).Text = "";
+            //if (GridView1.SelectedValue != null)
+            //{
+            //    this.setGriview2(GridView1.SelectedValue.ToString());
+
+            //}
+            //this.DetailsView2.DataBind();
+
+            GridView2.Visible = true;
+                this.setGriview2(GridView1.SelectedValue.ToString());
+
+
+
+              
+            DetailsView2.DataBind();
+
+           
+          
+
+            UpdatePanel3.Update();
+
+
+        }
+
+        protected void UpdatePanel3_Load(object sender, EventArgs e)
+        {
+            //if (GridView1.SelectedValue != null)
+            //{
+            //    this.setGriview2(GridView1.SelectedValue.ToString());
+            //}
+
+        }
+
+        protected void GridView2_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+          string semID = GridView2.Rows[rowIndex].Cells[1].Text;
+           string modCode= GridView2.Rows[rowIndex].Cells[2].Text;
+
+           AdminLogic.deletemoduleBySemester(semID, modCode);
+
+           this.setGriview2(GridView1.SelectedValue.ToString());
+        }
+
+        protected void DetailsView2_PageIndexChanging(object sender, DetailsViewPageEventArgs e)
+        {
+
+        }
+
+        protected void setGriview2(string semesterID) {
+            GridView2.DataSource = AdminLogic.getModuleBySemester(semesterID);
+            GridView2.DataBind();
+            if (GridView2.Visible == false) {
+                GridView2.Visible = true;
+            }
+            UpdatePanel3.Update();
+           
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+           
+
+            GridView3.DataSource = AdminLogic.getStudentBasicData(Session["courseID"].ToString());
+            GridView3.DataBind();
+           
+            Response.Redirect("NewCourseView.aspx?activeView=2");
+        }
+
+        protected void DetailsView1_ItemInserted(object sender, DetailsViewInsertedEventArgs e)
+        {
+            Session["courseID"] = AdminLogic.getMaxCourseID();
+            
+
+        }
+
+        protected void GridView3_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridView3.EditIndex = e.NewEditIndex;
+            setBsicStudentInfo();
+        }
+
+        protected void setBsicStudentInfo() {
+            GridView3.DataSource = AdminLogic.getStudentBasicData(Session["courseID"].ToString());
+            GridView3.DataBind();
+
+           
+        }
+
+        protected void GridView3_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            string userID = GridView3.Rows[rowIndex].Cells[1].Text.ToString();
+          
+           string userName = ((TextBox)GridView3.Rows[rowIndex].FindControl("TextBox3")).Text;
+
+           string indexNo = ((TextBox)GridView3.Rows[rowIndex].FindControl("TextBox4")).Text;
+          
+
+            AdminLogic.updateStudentBasicInfo(userID, userName, indexNo);
+            GridView3.EditIndex = -1;
+            setBsicStudentInfo();
+            
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            AdminLogic.spSetCommonPassword(Session["courseID"].ToString(), TextBox5.Text);
+            Response.Redirect("CourseView.aspx?courseID=" + Session["courseID"].ToString());
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+         
+            Response.Redirect("NewCourseView.aspx?activeView=3" );
+        }
+
+        protected void GridView3_RowUpdated(object sender, GridViewUpdatedEventArgs e)
+        {
+         
+        }
+
+        protected void DropDownList6_DataBound(object sender, EventArgs e)
+        {
+           
+            
+
+        }
+
+        protected void DropDownList6_DataBinding(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
+        {
+            if (e.Item.Enabled == true && e.Item.Text == "Step1: Basic Info") {
+                MultiView1.ActiveViewIndex = 0;
+                e.Item.Selected = true;
+            }
+            else if (e.Item.Enabled == true && e.Item.Text == "Step2: Acedemic Info")
+            {
+                MultiView1.ActiveViewIndex = 1;
+                e.Item.Selected = true;
+
+            }
+            else if (e.Item.Enabled == true && e.Item.Text == "Step3: Student Info")
+            {
+                MultiView1.ActiveViewIndex = 2;
+                e.Item.Selected = true;
+
+            }
+            else if (e.Item.Enabled == true && e.Item.Text == "Step4: Finish")
+            {
+                MultiView1.ActiveViewIndex = 3;
+                e.Item.Selected = true;
+
+            }
+           
+        }
+
+       
+      
+      
        
         
     }

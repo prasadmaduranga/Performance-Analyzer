@@ -57,6 +57,14 @@ namespace PerformanceAnalyzer2.BusinessLogicLayer
             return semList.ToList();
 
         }
+        public static object getSemesterInformation(int courseID)
+        {
+
+            PerformanceAnalyzerDataContext dataContext = new PerformanceAnalyzerDataContext();
+            var semList = dataContext.spGetSemeterInfoNew(courseID);
+            return semList.ToList();
+
+        }
         public static void insertBasicCourseInfo(object userID,string name,string batch,string universityID,String facultyID,String departmentID,int semesterCount,int studentCount,int yearCount)
         {
             int userid = Convert.ToInt32(userID);
@@ -81,7 +89,66 @@ namespace PerformanceAnalyzer2.BusinessLogicLayer
 
 
         }
-        public static void newFunction() { }
-       
+        public static object  getModuleBySemester(String semesterID) {
+
+            PerformanceAnalyzerDataContext dataContext = new PerformanceAnalyzerDataContext();
+            var dataSet=dataContext.spGetModuleInfoBySemesterNew(Convert.ToInt32(semesterID));
+            return dataSet.ToList();
+        }
+        public static void deletemoduleBySemester(String semesterID,string moduleCode)
+        {
+
+            PerformanceAnalyzerDataContext dataContext = new PerformanceAnalyzerDataContext();
+           dataContext.spDeleteModuleBySemester(Convert.ToInt32(semesterID), moduleCode);
+            
+        }
+        public static object getStudentBasicData(String courseID) {
+
+            PerformanceAnalyzerDataContext dataContext = new PerformanceAnalyzerDataContext();
+            var dataSet = dataContext.getStudentBasicInfoNew(Convert.ToInt32(courseID));
+            return dataSet.ToList();
+        
+        }
+        public static void updateStudentBasicInfo(String courseID,string userName,String indexNO)
+        {
+
+            PerformanceAnalyzerDataContext dataContext = new PerformanceAnalyzerDataContext();
+            dataContext.spUpdateStudentBasicInfo(Convert.ToInt32(courseID), userName, indexNO);
+          
+
+        }
+
+
+        public static void spSetCommonPassword(String courseID, string password)
+        {
+
+            PerformanceAnalyzerDataContext dataContext = new PerformanceAnalyzerDataContext();
+            dataContext.spSetCommonPassword(Convert.ToInt32(courseID), password);
+
+
+        }
+        public static void spEditBasicCourseInfo(String courseID, string name,string batch,int uniID,int facID,int deptID)
+        {
+
+            PerformanceAnalyzerDataContext dataContext = new PerformanceAnalyzerDataContext();
+            dataContext.spEditBasicCourseInfo(Convert.ToInt32(courseID), name, batch, uniID, facID, deptID);
+
+
+        }
+
+        public static object getbasicCourseInfoNew(string courseID)
+        {
+
+            PerformanceAnalyzerDataContext dataContext = new PerformanceAnalyzerDataContext();
+            int courseid = Convert.ToInt32(courseID);
+            var course = dataContext.spGetCourseInformation(courseid);
+
+            return course.ToList();
+
+
+
+
+        }
+
     }
 }

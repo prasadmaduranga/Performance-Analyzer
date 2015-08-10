@@ -180,6 +180,35 @@
     <FunctionImport Name="spGetModuleInfoBySemesterNew" ReturnType="Collection(PerformanceAnalyzerModel.spGetModuleInfoBySemesterNew_Result)">
       <Parameter Name="semesterID" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="getStudentBasicInfo" ReturnType="Collection(PerformanceAnalyzerModel.getStudentBasicInfo_Result)">
+      <Parameter Name="courseID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spUpdateStudentBasicInfo">
+      <Parameter Name="userID" Mode="In" Type="Int32" />
+      <Parameter Name="userName" Mode="In" Type="String" />
+      <Parameter Name="indexNo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="getStudentBasicInfoNew" ReturnType="Collection(PerformanceAnalyzerModel.getStudentBasicInfoNew_Result)">
+      <Parameter Name="courseID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spSetCommonPassword">
+      <Parameter Name="courseID" Mode="In" Type="Int32" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spEditBasicCourseInfo">
+      <Parameter Name="courseID" Mode="In" Type="Int32" />
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="batch" Mode="In" Type="String" />
+      <Parameter Name="universityID" Mode="In" Type="Int32" />
+      <Parameter Name="facultyID" Mode="In" Type="Int32" />
+      <Parameter Name="departmentID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetCourseInfo" ReturnType="Collection(PerformanceAnalyzerModel.spGetCourseInfo_Result)">
+      <Parameter Name="courseID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetCourseInformation" ReturnType="Collection(PerformanceAnalyzerModel.spGetCourseInformation_Result)">
+      <Parameter Name="courseID" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="AcedemicYear">
     <Key>
@@ -760,5 +789,34 @@
     <Property Type="Int32" Name="credits" Nullable="true" />
     <Property Type="String" Name="compulary" Nullable="true" MaxLength="10" />
     <Property Type="String" Name="lecturerName" Nullable="false" MaxLength="60" />
+  </ComplexType>
+  <ComplexType Name="getStudentBasicInfo_Result">
+    <Property Type="Int32" Name="userID" Nullable="false" />
+    <Property Type="String" Name="userName" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="IndexNo" Nullable="true" MaxLength="120" />
+  </ComplexType>
+  <ComplexType Name="getStudentBasicInfoNew_Result">
+    <Property Type="Int32" Name="userID" Nullable="false" />
+    <Property Type="String" Name="userName" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="IndexNo" Nullable="true" MaxLength="120" />
+  </ComplexType>
+  <ComplexType Name="spGetCourseInfo_Result">
+    <Property Type="Int32" Name="courseID" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="batch" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="universityName" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="facultyName" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="departmentName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="studentCount" Nullable="true" />
+    <Property Type="Int32" Name="yearCount" Nullable="true" />
+    <Property Type="Int32" Name="semestercount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spGetCourseInformation_Result">
+    <Property Type="Int32" Name="courseID" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="batch" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="universityName" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="facultyName" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="departmentName" Nullable="true" MaxLength="60" />
   </ComplexType>
 </Schema>

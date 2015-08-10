@@ -71,6 +71,7 @@
     <Content Include="PresentationLayer\Admin\EditProfileView.aspx" />
     <Content Include="PresentationLayer\Admin\NewCourseView.aspx" />
     <Content Include="PresentationLayer\Admin\WebForm4.aspx" />
+    <Content Include="PresentationLayer\Admin\CourseView.aspx" />
     <Content Include="PresentationLayer\IndustryProfessional\ViewProfileView.aspx" />
     <Content Include="PresentationLayer\IndustryProfessional\EditProfileView.aspx" />
     <Content Include="PresentationLayer\Lecturer\ViewProfileView.aspx" />
@@ -116,6 +117,12 @@
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Faculty.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getStudentBasicInfoNew_Result.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getStudentBasicInfo_Result.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="IndustryProfessional.cs">
@@ -174,6 +181,13 @@
     </Compile>
     <Compile Include="PresentationLayer\Admin\WebForm4.aspx.designer.cs">
       <DependentUpon>WebForm4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Admin\CourseView.aspx.cs">
+      <DependentUpon>CourseView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Admin\CourseView.aspx.designer.cs">
+      <DependentUpon>CourseView.aspx</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\IndustryProfessional\IndustryProfessionalMaster.Master.cs">
       <DependentUpon>IndustryProfessionalMaster.Master</DependentUpon>
@@ -262,6 +276,12 @@
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="spGetAdminProfileInfo_Result.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetCourseInformation_Result.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetCourseInfo_Result.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="spGetIndustryProfessionalData_Result.cs">

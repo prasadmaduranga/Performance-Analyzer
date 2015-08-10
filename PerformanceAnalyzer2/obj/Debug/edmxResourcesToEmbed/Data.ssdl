@@ -721,9 +721,23 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="getStudentBasicInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="courseID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="getStudentBasicInfoNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="courseID" Type="int" Mode="In" />
+  </Function>
   <Function Name="spDeleteModuleBySemester" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="semesterID" Type="int" Mode="In" />
     <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spEditBasicCourseInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="courseID" Type="int" Mode="In" />
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="batch" Type="nvarchar" Mode="In" />
+    <Parameter Name="universityID" Type="int" Mode="In" />
+    <Parameter Name="facultyID" Type="int" Mode="In" />
+    <Parameter Name="departmentID" Type="int" Mode="In" />
   </Function>
   <Function Name="spGetAdminData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="userID" Type="int" Mode="In" />
@@ -733,6 +747,12 @@
   </Function>
   <Function Name="spGetAdminProfileInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="email" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spGetCourseInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="courseID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetCourseInformation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="courseID" Type="int" Mode="In" />
   </Function>
   <Function Name="spGetIndustryProfessionalData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="userID" Type="int" Mode="In" />
@@ -772,6 +792,10 @@
     <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
     <Parameter Name="lecturerName" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="spSetCommonPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="courseID" Type="int" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="spUpdateAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="userID" Type="int" Mode="In" />
     <Parameter Name="userName" Type="nvarchar" Mode="In" />
@@ -786,5 +810,10 @@
     <Parameter Name="facultyID" Type="int" Mode="In" />
     <Parameter Name="departmentID" Type="int" Mode="In" />
     <Parameter Name="adminID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spUpdateStudentBasicInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userID" Type="int" Mode="In" />
+    <Parameter Name="userName" Type="nvarchar" Mode="In" />
+    <Parameter Name="indexNo" Type="nvarchar" Mode="In" />
   </Function>
 </Schema>

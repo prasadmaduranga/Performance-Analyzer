@@ -18,5 +18,27 @@ namespace PerformanceAnalyzer2.BusinessLogicLayer
 
 
         }
+         public static object getbasicCourseInfoNew(string courseID)
+         {
+
+             PerformanceAnalyzerDataContext dataContext = new PerformanceAnalyzerDataContext();
+             int courseid = Convert.ToInt32(courseID);
+             var course = dataContext.spGetCourseInformation(courseid);
+
+             return course.ToList();
+
+
+
+
+         }
+
+         public static object getModuleData(object  courseID) {
+
+             int courseid = Convert.ToInt32(courseID);
+             PerformanceAnalyzerDataContext dbcontext = new PerformanceAnalyzerDataContext();
+             var dataList = dbcontext.getSemesterByCourse(courseid);
+             return dataList.ToList();
+
+         }
     }
     }

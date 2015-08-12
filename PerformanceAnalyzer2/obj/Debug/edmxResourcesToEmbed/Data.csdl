@@ -209,6 +209,33 @@
     <FunctionImport Name="spGetCourseInformation" ReturnType="Collection(PerformanceAnalyzerModel.spGetCourseInformation_Result)">
       <Parameter Name="courseID" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="spCreateEnrollments">
+      <Parameter Name="courseID" Mode="In" Type="Int32" />
+      <Parameter Name="moduleCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetCourseInformationNew" ReturnType="Collection(PerformanceAnalyzerModel.spGetCourseInformationNew_Result)">
+      <Parameter Name="courseID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetStudentInfoForResult" ReturnType="Collection(PerformanceAnalyzerModel.spGetStudentInfoForResult_Result)">
+      <Parameter Name="courseID" Mode="In" Type="Int32" />
+      <Parameter Name="moduleCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertEnrollment">
+      <Parameter Name="userID" Mode="In" Type="Int32" />
+      <Parameter Name="moduleCode" Mode="In" Type="String" />
+      <Parameter Name="result" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetStudentInfoForResultNew" ReturnType="Collection(PerformanceAnalyzerModel.spGetStudentInfoForResultNew_Result)">
+      <Parameter Name="courseID" Mode="In" Type="Int32" />
+      <Parameter Name="moduleCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="AcedamicInfoes" EntityType="PerformanceAnalyzerModel.AcedamicInfo" />
+    <FunctionImport Name="getSemesterByCourse" ReturnType="Collection(PerformanceAnalyzerModel.getSemesterByCourse_Result)">
+      <Parameter Name="courseID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetModulesBySemester" ReturnType="Collection(PerformanceAnalyzerModel.spGetModulesBySemester_Result)">
+      <Parameter Name="semesterID" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="AcedemicYear">
     <Key>
@@ -818,5 +845,58 @@
     <Property Type="String" Name="universityName" Nullable="true" MaxLength="60" />
     <Property Type="String" Name="facultyName" Nullable="true" MaxLength="60" />
     <Property Type="String" Name="departmentName" Nullable="true" MaxLength="60" />
+  </ComplexType>
+  <ComplexType Name="spGetCourseInformationNew_Result">
+    <Property Type="Int32" Name="courseID" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="batch" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="universityName" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="facultyName" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="departmentName" Nullable="true" MaxLength="60" />
+  </ComplexType>
+  <ComplexType Name="spGetStudentInfoForResult_Result">
+    <Property Type="Int32" Name="userID" Nullable="false" />
+    <Property Type="String" Name="indexNo" Nullable="true" MaxLength="120" />
+    <Property Type="String" Name="result" Nullable="true" MaxLength="5" />
+  </ComplexType>
+  <ComplexType Name="spGetStudentInfoForResultNew_Result">
+    <Property Type="Int32" Name="userID" Nullable="false" />
+    <Property Type="String" Name="indexNo" Nullable="true" MaxLength="120" />
+    <Property Type="String" Name="result" Nullable="true" MaxLength="5" />
+  </ComplexType>
+  <EntityType Name="AcedamicInfo">
+    <Key>
+      <PropertyRef Name="courseID" />
+      <PropertyRef Name="yearID" />
+      <PropertyRef Name="semesterID" />
+    </Key>
+    <Property Type="Int32" Name="courseID" Nullable="false" />
+    <Property Type="String" Name="courseName" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="batch" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="universityID" />
+    <Property Type="Int32" Name="facultyID" />
+    <Property Type="Int32" Name="departmentID" />
+    <Property Type="Int32" Name="adminID" />
+    <Property Type="Int32" Name="yearID" Nullable="false" />
+    <Property Type="Int32" Name="yearNumber" />
+    <Property Type="Int32" Name="semesterID" Nullable="false" />
+    <Property Type="Int32" Name="semesterNumber" />
+    <Property Type="String" Name="moduleCode" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="lecturerName" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="moduleName" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="GPA" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="credits" />
+    <Property Type="String" Name="compulary" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="getSemesterByCourse_Result">
+    <Property Type="Int32" Name="semesterID" Nullable="false" />
+    <Property Type="Int32" Name="semesterNumber" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spGetModulesBySemester_Result">
+    <Property Type="String" Name="moduleCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="moduleName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="GPA" Nullable="true" MaxLength="4" />
+    <Property Type="Int32" Name="credits" Nullable="true" />
+    <Property Type="Int32" Name="courseID" Nullable="false" />
   </ComplexType>
 </Schema>

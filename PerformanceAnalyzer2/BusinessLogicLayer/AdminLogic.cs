@@ -150,5 +150,27 @@ namespace PerformanceAnalyzer2.BusinessLogicLayer
 
         }
 
+
+        public static object getStudentenrollmentInfo(int courseID,string moduleCode) { 
+        
+            PerformanceAnalyzerDataContext dbContext=new PerformanceAnalyzerDataContext();
+            var resultSet = dbContext.spGetStudentInfoForResultNew(courseID, moduleCode);
+            return resultSet.ToList();
+
+        }
+
+        public static void updateResult(int userID, String moduleCode, string result) {
+            PerformanceAnalyzerDataContext dbContext = new PerformanceAnalyzerDataContext();
+            dbContext.spInsertEnrollment(userID, moduleCode, result);
+
+        
+        }
+
+        public static void createEnrollments(int courseID, string moduleCode) {
+
+            PerformanceAnalyzerDataContext dbContext = new PerformanceAnalyzerDataContext();
+            dbContext.spCreateEnrollments(courseID, moduleCode);
+
+        }
     }
 }

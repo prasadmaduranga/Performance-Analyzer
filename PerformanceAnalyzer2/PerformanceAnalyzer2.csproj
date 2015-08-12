@@ -72,16 +72,21 @@
     <Content Include="PresentationLayer\Admin\NewCourseView.aspx" />
     <Content Include="PresentationLayer\Admin\WebForm4.aspx" />
     <Content Include="PresentationLayer\Admin\CourseView.aspx" />
+    <Content Include="PresentationLayer\Admin\NewResult.aspx" />
     <Content Include="PresentationLayer\IndustryProfessional\ViewProfileView.aspx" />
     <Content Include="PresentationLayer\IndustryProfessional\EditProfileView.aspx" />
     <Content Include="PresentationLayer\Lecturer\ViewProfileView.aspx" />
     <Content Include="PresentationLayer\Lecturer\EditProfileView.aspx" />
     <Content Include="PresentationLayer\Student\ViewProfileView.aspx" />
     <Content Include="PresentationLayer\Student\EditProfileView.aspx" />
+    <Content Include="PresentationLayer\Student\MyCourseView.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcedamicInfo.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="AcedemicYear.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -117,6 +122,9 @@
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Faculty.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getSemesterByCourse_Result.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="getStudentBasicInfoNew_Result.cs">
@@ -189,6 +197,13 @@
     <Compile Include="PresentationLayer\Admin\CourseView.aspx.designer.cs">
       <DependentUpon>CourseView.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PresentationLayer\Admin\NewResult.aspx.cs">
+      <DependentUpon>NewResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Admin\NewResult.aspx.designer.cs">
+      <DependentUpon>NewResult.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\IndustryProfessional\IndustryProfessionalMaster.Master.cs">
       <DependentUpon>IndustryProfessionalMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -252,6 +267,13 @@
     <Compile Include="PresentationLayer\Student\EditProfileView.aspx.designer.cs">
       <DependentUpon>EditProfileView.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PresentationLayer\Student\MyCourseView.aspx.cs">
+      <DependentUpon>MyCourseView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Student\MyCourseView.aspx.designer.cs">
+      <DependentUpon>MyCourseView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
@@ -278,6 +300,9 @@
     <Compile Include="spGetAdminProfileInfo_Result.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="spGetCourseInformationNew_Result.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="spGetCourseInformation_Result.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -296,6 +321,9 @@
     <Compile Include="spGetModuleInfoBySemester_Result.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="spGetModulesBySemester_Result.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="spGetSemeterInfoNew_Result.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -303,6 +331,12 @@
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="spGetStudentData_Result.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetStudentInfoForResultNew_Result.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetStudentInfoForResult_Result.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Student.cs">

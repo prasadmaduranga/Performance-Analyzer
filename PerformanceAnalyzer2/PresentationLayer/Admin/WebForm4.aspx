@@ -22,6 +22,7 @@
             </Fields>
         </asp:DetailsView>
         <br />
+        <asp:Image ID="Image1" runat="server" Height="150px" ImageUrl="~/Images/prasad.jpg" Width="150px" />
         <br />
         <br />
         <br />

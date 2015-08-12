@@ -14,9 +14,6 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
 
         }
 
-        protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
-        {
-            Session["courseID"] = null;
-        }
+       
     }
 }

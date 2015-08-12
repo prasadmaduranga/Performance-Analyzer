@@ -51,6 +51,7 @@
         <InheritanceConnector EntityType="PerformanceAnalyzerModel.IndustryProfessional" />
         <InheritanceConnector EntityType="PerformanceAnalyzerModel.Student" />
         <InheritanceConnector EntityType="PerformanceAnalyzerModel.CourseAdmin" />
+        <EntityTypeShape EntityType="PerformanceAnalyzerModel.AcedamicInfo" Width="1.5" PointX="0.71039613928198631" PointY="11.295997595086693" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

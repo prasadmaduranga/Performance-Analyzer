@@ -373,5 +373,79 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spCreateEnrollments" FunctionName="PerformanceAnalyzerModel.Store.spCreateEnrollments" />
+    <FunctionImportMapping FunctionImportName="spGetCourseInformationNew" FunctionName="PerformanceAnalyzerModel.Store.spGetCourseInformationNew">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetCourseInformationNew_Result">
+          <ScalarProperty Name="courseID" ColumnName="courseID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="batch" ColumnName="batch" />
+          <ScalarProperty Name="universityName" ColumnName="universityName" />
+          <ScalarProperty Name="facultyName" ColumnName="facultyName" />
+          <ScalarProperty Name="departmentName" ColumnName="departmentName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetStudentInfoForResult" FunctionName="PerformanceAnalyzerModel.Store.spGetStudentInfoForResult">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetStudentInfoForResult_Result">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="indexNo" ColumnName="indexNo" />
+          <ScalarProperty Name="result" ColumnName="result" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spInsertEnrollment" FunctionName="PerformanceAnalyzerModel.Store.spInsertEnrollment" />
+    <FunctionImportMapping FunctionImportName="spGetStudentInfoForResultNew" FunctionName="PerformanceAnalyzerModel.Store.spGetStudentInfoForResultNew">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetStudentInfoForResultNew_Result">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="indexNo" ColumnName="indexNo" />
+          <ScalarProperty Name="result" ColumnName="result" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="AcedamicInfoes">
+      <EntityTypeMapping TypeName="PerformanceAnalyzerModel.AcedamicInfo">
+        <MappingFragment StoreEntitySet="AcedamicInfo">
+          <ScalarProperty Name="compulary" ColumnName="compulary" />
+          <ScalarProperty Name="credits" ColumnName="credits" />
+          <ScalarProperty Name="GPA" ColumnName="GPA" />
+          <ScalarProperty Name="moduleName" ColumnName="moduleName" />
+          <ScalarProperty Name="lecturerName" ColumnName="lecturerName" />
+          <ScalarProperty Name="moduleCode" ColumnName="moduleCode" />
+          <ScalarProperty Name="semesterNumber" ColumnName="semesterNumber" />
+          <ScalarProperty Name="semesterID" ColumnName="semesterID" />
+          <ScalarProperty Name="yearNumber" ColumnName="yearNumber" />
+          <ScalarProperty Name="yearID" ColumnName="yearID" />
+          <ScalarProperty Name="adminID" ColumnName="adminID" />
+          <ScalarProperty Name="departmentID" ColumnName="departmentID" />
+          <ScalarProperty Name="facultyID" ColumnName="facultyID" />
+          <ScalarProperty Name="universityID" ColumnName="universityID" />
+          <ScalarProperty Name="batch" ColumnName="batch" />
+          <ScalarProperty Name="courseName" ColumnName="courseName" />
+          <ScalarProperty Name="courseID" ColumnName="courseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="getSemesterByCourse" FunctionName="PerformanceAnalyzerModel.Store.getSemesterByCourse">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.getSemesterByCourse_Result">
+          <ScalarProperty Name="semesterID" ColumnName="semesterID" />
+          <ScalarProperty Name="semesterNumber" ColumnName="semesterNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetModulesBySemester" FunctionName="PerformanceAnalyzerModel.Store.spGetModulesBySemester">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetModulesBySemester_Result">
+          <ScalarProperty Name="moduleCode" ColumnName="moduleCode" />
+          <ScalarProperty Name="moduleName" ColumnName="moduleName" />
+          <ScalarProperty Name="GPA" ColumnName="GPA" />
+          <ScalarProperty Name="credits" ColumnName="credits" />
+          <ScalarProperty Name="courseID" ColumnName="courseID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

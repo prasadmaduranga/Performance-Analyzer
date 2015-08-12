@@ -41,6 +41,7 @@ namespace PerformanceAnalyzer2
         public DbSet<Semester_Module> Semester_Module { get; set; }
         public DbSet<TelephoneNumber> TelephoneNumbers { get; set; }
         public DbSet<University> Universities { get; set; }
+        public DbSet<AcedamicInfo> AcedamicInfoes { get; set; }
     
         public virtual ObjectResult<spGetAdminProfileInfo_Result> spGetAdminProfileInfo(string email)
         {
@@ -355,6 +356,89 @@ namespace PerformanceAnalyzer2
                 new ObjectParameter("courseID", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetCourseInformation_Result>("spGetCourseInformation", courseIDParameter);
+        }
+    
+        public virtual int spCreateEnrollments(Nullable<int> courseID, string moduleCode)
+        {
+            var courseIDParameter = courseID.HasValue ?
+                new ObjectParameter("courseID", courseID) :
+                new ObjectParameter("courseID", typeof(int));
+    
+            var moduleCodeParameter = moduleCode != null ?
+                new ObjectParameter("moduleCode", moduleCode) :
+                new ObjectParameter("moduleCode", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spCreateEnrollments", courseIDParameter, moduleCodeParameter);
+        }
+    
+        public virtual ObjectResult<spGetCourseInformationNew_Result> spGetCourseInformationNew(Nullable<int> courseID)
+        {
+            var courseIDParameter = courseID.HasValue ?
+                new ObjectParameter("courseID", courseID) :
+                new ObjectParameter("courseID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetCourseInformationNew_Result>("spGetCourseInformationNew", courseIDParameter);
+        }
+    
+        public virtual ObjectResult<spGetStudentInfoForResult_Result> spGetStudentInfoForResult(Nullable<int> courseID, string moduleCode)
+        {
+            var courseIDParameter = courseID.HasValue ?
+                new ObjectParameter("courseID", courseID) :
+                new ObjectParameter("courseID", typeof(int));
+    
+            var moduleCodeParameter = moduleCode != null ?
+                new ObjectParameter("moduleCode", moduleCode) :
+                new ObjectParameter("moduleCode", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetStudentInfoForResult_Result>("spGetStudentInfoForResult", courseIDParameter, moduleCodeParameter);
+        }
+    
+        public virtual int spInsertEnrollment(Nullable<int> userID, string moduleCode, string result)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("userID", userID) :
+                new ObjectParameter("userID", typeof(int));
+    
+            var moduleCodeParameter = moduleCode != null ?
+                new ObjectParameter("moduleCode", moduleCode) :
+                new ObjectParameter("moduleCode", typeof(string));
+    
+            var resultParameter = result != null ?
+                new ObjectParameter("result", result) :
+                new ObjectParameter("result", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertEnrollment", userIDParameter, moduleCodeParameter, resultParameter);
+        }
+    
+        public virtual ObjectResult<spGetStudentInfoForResultNew_Result> spGetStudentInfoForResultNew(Nullable<int> courseID, string moduleCode)
+        {
+            var courseIDParameter = courseID.HasValue ?
+                new ObjectParameter("courseID", courseID) :
+                new ObjectParameter("courseID", typeof(int));
+    
+            var moduleCodeParameter = moduleCode != null ?
+                new ObjectParameter("moduleCode", moduleCode) :
+                new ObjectParameter("moduleCode", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetStudentInfoForResultNew_Result>("spGetStudentInfoForResultNew", courseIDParameter, moduleCodeParameter);
+        }
+    
+        public virtual ObjectResult<getSemesterByCourse_Result> getSemesterByCourse(Nullable<int> courseID)
+        {
+            var courseIDParameter = courseID.HasValue ?
+                new ObjectParameter("courseID", courseID) :
+                new ObjectParameter("courseID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getSemesterByCourse_Result>("getSemesterByCourse", courseIDParameter);
+        }
+    
+        public virtual ObjectResult<spGetModulesBySemester_Result> spGetModulesBySemester(Nullable<int> semesterID)
+        {
+            var semesterIDParameter = semesterID.HasValue ?
+                new ObjectParameter("semesterID", semesterID) :
+                new ObjectParameter("semesterID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetModulesBySemester_Result>("spGetModulesBySemester", semesterIDParameter);
         }
     }
 }

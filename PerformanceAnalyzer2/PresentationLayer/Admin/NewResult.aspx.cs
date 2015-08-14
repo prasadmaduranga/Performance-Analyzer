@@ -13,7 +13,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack) {
-                Session["userID"] =2;
+                Session["userID"] =1;
                 DropDownList2.Enabled = false;
                 DropDownList1.DataBind();
 

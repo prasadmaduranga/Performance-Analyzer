@@ -40,5 +40,25 @@ namespace PerformanceAnalyzer2.BusinessLogicLayer
              return dataList.ToList();
 
          }
+
+
+       public static string getColourForResult(float gpa)
+         {
+
+
+             if (gpa.Equals(float.Parse("3.7"))) { return "#00FF99"; }
+             else if (gpa.Equals(float.Parse("4.2"))) { return "#66FF33"; }
+             else if (gpa.Equals(float.Parse("4"))) { return "#66FF66"; }
+             else if (gpa.Equals(float.Parse("3.3"))) { return "#5C5CE6"; }
+             else if (gpa.Equals(float.Parse("3.0"))) { return "#7575FF"; }
+             else if (gpa.Equals(float.Parse("2.7"))) { return "#9494FF"; }
+             else if (gpa.Equals(float.Parse("2.4"))) { return "	#FF6600"; }
+             else if (gpa.Equals(float.Parse("2.0"))) { return "	#FF6633"; }
+             else if (gpa.Equals(float.Parse("1.7"))) { return "#FF9933"; }
+             else if (gpa.Equals(float.Parse("1"))) { return "#FF8533"; }
+             else if (gpa.Equals(float.Parse("0"))) { return "#D11919"; }
+             else return "#FFFFFF";
+
+         }
     }
     }

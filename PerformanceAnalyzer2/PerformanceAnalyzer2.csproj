@@ -351,6 +351,9 @@
     <Compile Include="spGetStudentInfoForResult_Result.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="spResultByUser_Result.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="Student.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>

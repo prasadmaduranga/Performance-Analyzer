@@ -803,6 +803,10 @@
   <Function Name="spGetAdminProfileInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="email" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="spGetBatchAverage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="courseID" Type="int" Mode="In" />
+  </Function>
   <Function Name="spGetCourseInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="courseID" Type="int" Mode="In" />
   </Function>
@@ -865,6 +869,10 @@
     <Parameter Name="semesterID" Type="int" Mode="In" />
     <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
     <Parameter Name="lecturerName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spResultByUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userID" Type="nvarchar" Mode="In" />
+    <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="spSetCommonPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="courseID" Type="int" Mode="In" />

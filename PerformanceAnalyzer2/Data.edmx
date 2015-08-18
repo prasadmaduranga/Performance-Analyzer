@@ -808,6 +808,10 @@
         <Function Name="spGetAdminProfileInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="email" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="spGetBatchAverage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="courseID" Type="int" Mode="In" />
+        </Function>
         <Function Name="spGetCourseInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="courseID" Type="int" Mode="In" />
         </Function>
@@ -870,6 +874,10 @@
           <Parameter Name="semesterID" Type="int" Mode="In" />
           <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
           <Parameter Name="lecturerName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spResultByUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userID" Type="nvarchar" Mode="In" />
+          <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="spSetCommonPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="courseID" Type="int" Mode="In" />
@@ -1130,10 +1138,18 @@
           </FunctionImport>
           <EntitySet Name="AcedamicInfoes" EntityType="PerformanceAnalyzerModel.AcedamicInfo" />
           <FunctionImport Name="getSemesterByCourse" ReturnType="Collection(PerformanceAnalyzerModel.getSemesterByCourse_Result)">
-            <Parameter Name="courseID" Mode="In" Type="Int32" />
+          <Parameter Name="courseID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spGetModulesBySemester" ReturnType="Collection(PerformanceAnalyzerModel.spGetModulesBySemester_Result)">
-            <Parameter Name="semesterID" Mode="In" Type="Int32" />
+          <Parameter Name="semesterID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetBatchAverage" ReturnType="Collection(Double)">
+            <Parameter Name="moduleCode" Mode="In" Type="String" />
+            <Parameter Name="courseID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spResultByUser" ReturnType="Collection(PerformanceAnalyzerModel.spResultByUser_Result)">
+            <Parameter Name="userID" Mode="In" Type="String" />
+            <Parameter Name="moduleCode" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="AcedemicYear">
@@ -1798,6 +1814,11 @@
           <Property Type="Int32" Name="credits" Nullable="true" />
           <Property Type="Int32" Name="courseID" Nullable="false" />
         </ComplexType>
+        <ComplexType Name="spResultByUser_Result">
+          <Property Type="String" Name="indexNo" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="result" Nullable="true" MaxLength="5" />
+          <Property Type="Double" Name="GPA" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2247,6 +2268,16 @@
                 <ScalarProperty Name="GPA" ColumnName="GPA" />
                 <ScalarProperty Name="credits" ColumnName="credits" />
                 <ScalarProperty Name="courseID" ColumnName="courseID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetBatchAverage" FunctionName="PerformanceAnalyzerModel.Store.spGetBatchAverage" />
+          <FunctionImportMapping FunctionImportName="spResultByUser" FunctionName="PerformanceAnalyzerModel.Store.spResultByUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spResultByUser_Result">
+                <ScalarProperty Name="indexNo" ColumnName="indexNo" />
+                <ScalarProperty Name="result" ColumnName="result" />
+                <ScalarProperty Name="GPA" ColumnName="GPA" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

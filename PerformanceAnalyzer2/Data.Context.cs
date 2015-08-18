@@ -440,5 +440,31 @@ namespace PerformanceAnalyzer2
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetModulesBySemester_Result>("spGetModulesBySemester", semesterIDParameter);
         }
+    
+        public virtual ObjectResult<Nullable<double>> spGetBatchAverage(string moduleCode, Nullable<int> courseID)
+        {
+            var moduleCodeParameter = moduleCode != null ?
+                new ObjectParameter("moduleCode", moduleCode) :
+                new ObjectParameter("moduleCode", typeof(string));
+    
+            var courseIDParameter = courseID.HasValue ?
+                new ObjectParameter("courseID", courseID) :
+                new ObjectParameter("courseID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<double>>("spGetBatchAverage", moduleCodeParameter, courseIDParameter);
+        }
+    
+        public virtual ObjectResult<spResultByUser_Result> spResultByUser(string userID, string moduleCode)
+        {
+            var userIDParameter = userID != null ?
+                new ObjectParameter("userID", userID) :
+                new ObjectParameter("userID", typeof(string));
+    
+            var moduleCodeParameter = moduleCode != null ?
+                new ObjectParameter("moduleCode", moduleCode) :
+                new ObjectParameter("moduleCode", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spResultByUser_Result>("spResultByUser", userIDParameter, moduleCodeParameter);
+        }
     }
 }

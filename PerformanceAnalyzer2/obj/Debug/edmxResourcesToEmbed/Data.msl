@@ -447,5 +447,15 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetBatchAverage" FunctionName="PerformanceAnalyzerModel.Store.spGetBatchAverage" />
+    <FunctionImportMapping FunctionImportName="spResultByUser" FunctionName="PerformanceAnalyzerModel.Store.spResultByUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spResultByUser_Result">
+          <ScalarProperty Name="indexNo" ColumnName="indexNo" />
+          <ScalarProperty Name="result" ColumnName="result" />
+          <ScalarProperty Name="GPA" ColumnName="GPA" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -236,6 +236,14 @@
     <FunctionImport Name="spGetModulesBySemester" ReturnType="Collection(PerformanceAnalyzerModel.spGetModulesBySemester_Result)">
       <Parameter Name="semesterID" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="spGetBatchAverage" ReturnType="Collection(Double)">
+      <Parameter Name="moduleCode" Mode="In" Type="String" />
+      <Parameter Name="courseID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spResultByUser" ReturnType="Collection(PerformanceAnalyzerModel.spResultByUser_Result)">
+      <Parameter Name="userID" Mode="In" Type="String" />
+      <Parameter Name="moduleCode" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="AcedemicYear">
     <Key>
@@ -898,5 +906,10 @@
     <Property Type="String" Name="GPA" Nullable="true" MaxLength="4" />
     <Property Type="Int32" Name="credits" Nullable="true" />
     <Property Type="Int32" Name="courseID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spResultByUser_Result">
+    <Property Type="String" Name="indexNo" Nullable="true" MaxLength="120" />
+    <Property Type="String" Name="result" Nullable="true" MaxLength="5" />
+    <Property Type="Double" Name="GPA" Nullable="true" />
   </ComplexType>
 </Schema>

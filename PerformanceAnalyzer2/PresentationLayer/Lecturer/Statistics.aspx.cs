@@ -3,24 +3,50 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.DataVisualization.Charting;
 using System.Web.UI.WebControls;
+using System.Web.UI.DataVisualization.Charting;
 
-namespace PerformanceAnalyzer2.PresentationLayer.Student
+
+using System.Drawing;
+
+
+
+namespace PerformanceAnalyzer2.PresentationLayer.Lecturer
 {
-    public partial class WebForm5 : System.Web.UI.Page
+    public partial class WebForm3 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["userID"] = 6;
-            Session["courseID"] = 8;
-            Session["statCourseID"] = 8;
-           
-            if (!IsPostBack) {
-
-                MultiView1.ActiveViewIndex = 4;
-
+            Session["userID"]=4;
+            if(!IsPostBack){
+         
+                RadioButtonList1.Enabled=false;
+                Session["statCourseID"] = "0";
             }
+            if(Session["statCourseID"].ToString().Equals("0")){
+            RadioButtonList1.Enabled=false;
+            }
+            else{
+            RadioButtonList1.Enabled=true;
+            
+            }
+        }
+
+        protected void DropDownList6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!DropDownList6.SelectedValue.Equals("-1"))
+            {
+                RadioButtonList1.SelectedIndex = -1;
+
+                RadioButtonList1.Enabled = true;
+                Session["statCourseID"] = Convert.ToInt32(DropDownList6.SelectedValue);
+                MultiView1.ActiveViewIndex = 4;
+            }
+            else {
+                Session["statCourseID"] = Convert.ToInt32("0");
+            }
+
+
         }
 
         private void View4_DataBind()
@@ -62,14 +88,14 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
             {
                 GridView1.DataBind();
                 GridView2.DataBind();
-                Chart1.DataBind();
+               
                 if (GridView1.Rows.Count > 0)
                 {
                     Label2.Text = DropDownList1.SelectedValue + ": " + DropDownList1.SelectedItem.Text.ToString();
                 }
                 else
                 {
-                    Label2.Text = "No results for selected module";
+                    Label2.Text = "Results not available";
                 }
             }
             else {
@@ -80,15 +106,15 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
 
         protected void Chart1_PrePaint(object sender, System.Web.UI.DataVisualization.Charting.ChartPaintEventArgs e)
         {
-            foreach (Series charts in Chart1.Series)
-            {
-                foreach (DataPoint point in charts.Points)
-                {
+        //    foreach (Series charts in Chart1.Series)
+        //    {
+        //        foreach (DataPoint point in charts.Points)
+        //        {
 
-                    point.Label = string.Format("{1}-{0:0} ",point.AxisLabel, point.YValues[0]);
+        //            point.Label = string.Format("{1}-{0:0} ",point.AxisLabel, point.YValues[0]);
 
-                }
-            }
+        //        }
+        //    }
         }
         
         //----------------------------------------------------------------------------------------
@@ -259,7 +285,58 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
             if (index == 0) { View1_DataBind(); }
             else if (index == 1) { View2_DataBind(); }
             else if (index == 2) { View3_DataBind(); }
-            else if (index == 3) { View4_DataBind(); }
+            else if (index == 3) {  View6_DataBind(); }
+         
+        }
+
+        private void View6_DataBind()
+        {
+            DropDownList7.DataBind();
+            MultiView1.ActiveViewIndex = 5;
+        }
+
+        protected void Chart3_Load(object sender, EventArgs e)
+        {
+            Chart3.ChartAreas[0].AxisX.Title = "GPA";
+	Chart3.ChartAreas[0].AxisX.TitleAlignment = StringAlignment.Near;
+    Chart3.ChartAreas[0].AxisX.TextOrientation = TextOrientation.Horizontal;
+    Chart3.ChartAreas[0].AxisY.Title = "student Count";
+    Chart3.ChartAreas[0].AxisY.TitleAlignment = StringAlignment.Near;
+    Chart3.ChartAreas[0].AxisY.TextOrientation = TextOrientation.Rotated90;
+        }
+
+        protected void GridView1_DataBound(object sender, EventArgs e)
+        {
+            if (GridView1.Rows.Count == 0)
+            {
+                GridView2.Visible = false;
+                Chart3.Visible = false;
+                Label2.Text = "No Results Available";
+            }
+            else {
+                GridView2.Visible = true;
+                Chart3.Visible = true;
+            
+            }
+        }
+
+        protected void DropDownList7_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!DropDownList7.SelectedValue.Equals("-1"))
+            {
+               
+               
+                DetailsView1.DataSource = SqlDataSource21;
+                DetailsView1.DataBind();
+            }
+            
+            }
+
+        protected void DetailsView1_DataBound(object sender, EventArgs e)
+        {
+            
         }
     }
 }
+
+ 

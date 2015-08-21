@@ -8,8 +8,6 @@ using System.Web.UI.WebControls;
 using System.Windows.Forms.DataVisualization.Charting;
 using PerformanceAnalyzer2.BusinessLogicLayer;
 using System.Data;
-
-
 using System.Web.UI.DataVisualization.Charting;
 
 

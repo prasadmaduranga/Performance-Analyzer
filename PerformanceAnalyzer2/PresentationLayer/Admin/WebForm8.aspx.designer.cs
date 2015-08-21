@@ -11,7 +11,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
 {
 
 
-    public partial class WebForm4
+    public partial class WebForm8
     {
     }
 }

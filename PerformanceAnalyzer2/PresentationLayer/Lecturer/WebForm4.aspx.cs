@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace PerformanceAnalyzer2.PresentationLayer.Admin
+namespace PerformanceAnalyzer2.PresentationLayer.Lecturer
 {
     public partial class WebForm4 : System.Web.UI.Page
     {

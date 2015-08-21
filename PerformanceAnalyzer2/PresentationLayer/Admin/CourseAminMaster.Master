@@ -48,7 +48,7 @@
                             <asp:MenuItem Text="New Course" NavigateUrl="~/PresentationLayer/Admin/NewCourseView.aspx?activeView=0&initial=0"></asp:MenuItem>
                             <asp:MenuItem Text="Edit Course" NavigateUrl="~/PresentationLayer/Admin/CourseView.aspx?activeView=0&initial=0"></asp:MenuItem>
                             <asp:MenuItem Text="New Reslts" NavigateUrl="~/PresentationLayer/Admin/NewResult.aspx" ></asp:MenuItem>
-                            <asp:MenuItem Text="Statistics"></asp:MenuItem>
+                            <asp:MenuItem Text="Add Module" NavigateUrl="~/PresentationLayer/Admin/NewModule.aspx"></asp:MenuItem>
                         </Items>
 
                     </asp:Menu>

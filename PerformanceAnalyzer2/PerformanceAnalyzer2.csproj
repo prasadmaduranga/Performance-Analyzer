@@ -74,9 +74,11 @@
     <Content Include="PresentationLayer\Admin\ViewProfileView.aspx" />
     <Content Include="PresentationLayer\Admin\EditProfileView.aspx" />
     <Content Include="PresentationLayer\Admin\NewCourseView.aspx" />
-    <Content Include="PresentationLayer\Admin\WebForm4.aspx" />
     <Content Include="PresentationLayer\Admin\CourseView.aspx" />
     <Content Include="PresentationLayer\Admin\NewResult.aspx" />
+    <Content Include="PresentationLayer\Admin\NewModule.aspx" />
+    <Content Include="PresentationLayer\Admin\WebForm4.aspx" />
+    <Content Include="PresentationLayer\Admin\WebForm8.aspx" />
     <Content Include="PresentationLayer\IndustryProfessional\ViewProfileView.aspx" />
     <Content Include="PresentationLayer\IndustryProfessional\EditProfileView.aspx" />
     <Content Include="PresentationLayer\IndustryProfessional\Statistics.aspx" />
@@ -191,13 +193,6 @@
     <Compile Include="PresentationLayer\Admin\NewCourseView.aspx.designer.cs">
       <DependentUpon>NewCourseView.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PresentationLayer\Admin\WebForm4.aspx.cs">
-      <DependentUpon>WebForm4.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PresentationLayer\Admin\WebForm4.aspx.designer.cs">
-      <DependentUpon>WebForm4.aspx</DependentUpon>
-    </Compile>
     <Compile Include="PresentationLayer\Admin\CourseView.aspx.cs">
       <DependentUpon>CourseView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -211,6 +206,27 @@
     </Compile>
     <Compile Include="PresentationLayer\Admin\NewResult.aspx.designer.cs">
       <DependentUpon>NewResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Admin\NewModule.aspx.cs">
+      <DependentUpon>NewModule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Admin\NewModule.aspx.designer.cs">
+      <DependentUpon>NewModule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Admin\WebForm4.aspx.cs">
+      <DependentUpon>WebForm4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Admin\WebForm4.aspx.designer.cs">
+      <DependentUpon>WebForm4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Admin\WebForm8.aspx.cs">
+      <DependentUpon>WebForm8.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Admin\WebForm8.aspx.designer.cs">
+      <DependentUpon>WebForm8.aspx</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\IndustryProfessional\IndustryProfessionalMaster.Master.cs">
       <DependentUpon>IndustryProfessionalMaster.Master</DependentUpon>
@@ -436,9 +452,9 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>25411</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:10241/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

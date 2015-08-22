@@ -36,46 +36,55 @@
                          <table style="width:100%;">
                                     <tr>
                                         <td>
-                                            <asp:Label ID="Label2" 
+                                            <asp:Label ID="Label2" 
+
 runat="server" Text="User Name"></asp:Label>
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="TextBox1" 
+                                            <asp:TextBox ID="TextBox1" 
+
 runat="server"></asp:TextBox>
                                         </td>
                                       
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:Label ID="Label3" 
+                                            <asp:Label ID="Label3" 
+
 runat="server" Text="E mail"></asp:Label>
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="TextBox2" 
+                                            <asp:TextBox ID="TextBox2" 
+
 runat="server"></asp:TextBox>
                                         </td>
                                        
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:Label ID="Label4" 
+                                            <asp:Label ID="Label4" 
+
 runat="server" Text="Linkedin Profile"></asp:Label>
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="TextBox3" 
+                                            <asp:TextBox ID="TextBox3" 
+
 runat="server"></asp:TextBox>
                                         </td>
                                      
                                     </tr>
                                      <tr>
                                         <td>
-                                            <asp:Label ID="Label5" 
+                                            <asp:Label ID="Label5" 
+
 runat="server" Text="Upload Profile Picture"></asp:Label>
                                          </td>
                                         <td>
-                                            <asp:FileUpload ID="FileUpload1" 
+                                            <asp:FileUpload ID="FileUpload1" 
+
 runat="server" />
-                                            <asp:Button ID="Button3" 
+                                            <asp:Button ID="Button3" 
+
 runat="server" Text="Upload" />
                                          </td>
                                       
@@ -109,22 +118,26 @@ runat="server" Rows="4" TextMode="MultiLine"></asp:TextBox>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:Label ID="Label6" 
+                                            <asp:Label ID="Label6" 
+
 runat="server" Text="Password"></asp:Label>
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="TextBox5" 
+                                            <asp:TextBox ID="TextBox5" 
+
 runat="server" TextMode="Password"></asp:TextBox>
                                         </td>
                                        
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:Label ID="Label7" 
+                                            <asp:Label ID="Label7" 
+
 runat="server" Text="Re-enter Password"></asp:Label>
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="TextBox6" 
+                                            <asp:TextBox ID="TextBox6" 
+
 runat="server" TextMode="Password"></asp:TextBox>
                                         </td>
                                      
@@ -132,12 +145,14 @@ runat="server" TextMode="Password"></asp:TextBox>
                                     <tr>
                                         <td>
                                            
-                                            <asp:Button ID="Button1" 
+                                            <asp:Button ID="Button1" 
+
 runat="server" Text="Cancel" />
                                            
                                          </td>
                                         <td>
-                                            <asp:Button ID="Button2" 
+                                            <asp:Button ID="Button2" 
+
 runat="server" Text="Submit" />
                                         </td>
                                       

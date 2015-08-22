@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace PerformanceAnalyzer2.PresentationLayer.Admin
+namespace PerformanceAnalyzer2.PresentationLayer.Student
 {
-    public partial class WebForm4 : System.Web.UI.Page
+    public partial class WebForm6 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

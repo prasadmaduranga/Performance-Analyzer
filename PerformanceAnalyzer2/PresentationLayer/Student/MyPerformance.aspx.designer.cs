@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PerformanceAnalyzer2.PresentationLayer.Admin
+namespace PerformanceAnalyzer2.PresentationLayer.Student
 {
 
 
-    public partial class WebForm8
+    public partial class WebForm6
     {
     }
 }

@@ -244,6 +244,22 @@
       <Parameter Name="userID" Mode="In" Type="String" />
       <Parameter Name="moduleCode" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="spUnfollowCourse">
+      <Parameter Name="userID" Mode="In" Type="Int32" />
+      <Parameter Name="courseID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sendRequest">
+      <Parameter Name="userID" Mode="In" Type="Int32" />
+      <Parameter Name="courseID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spLogin" ReturnType="Collection(PerformanceAnalyzerModel.spLogin_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spLogin3" ReturnType="Collection(PerformanceAnalyzerModel.spLogin3_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="AcedemicYear">
     <Key>
@@ -911,5 +927,13 @@
     <Property Type="String" Name="indexNo" Nullable="true" MaxLength="120" />
     <Property Type="String" Name="result" Nullable="true" MaxLength="5" />
     <Property Type="Double" Name="GPA" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spLogin_Result">
+    <Property Type="Int32" Name="Column1" Nullable="false" />
+    <Property Type="String" Name="Column2" Nullable="false" MaxLength="7" />
+  </ComplexType>
+  <ComplexType Name="spLogin3_Result">
+    <Property Type="Int32" Name="acceptStatus" Nullable="false" />
+    <Property Type="String" Name="userType" Nullable="false" MaxLength="7" />
   </ComplexType>
 </Schema>

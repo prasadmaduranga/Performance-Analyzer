@@ -457,5 +457,23 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spUnfollowCourse" FunctionName="PerformanceAnalyzerModel.Store.spUnfollowCourse" />
+    <FunctionImportMapping FunctionImportName="sendRequest" FunctionName="PerformanceAnalyzerModel.Store.sendRequest" />
+    <FunctionImportMapping FunctionImportName="spLogin" FunctionName="PerformanceAnalyzerModel.Store.spLogin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spLogin_Result">
+          <ScalarProperty Name="Column1" ColumnName="Column1" />
+          <ScalarProperty Name="Column2" ColumnName="Column2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spLogin3" FunctionName="PerformanceAnalyzerModel.Store.spLogin3">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spLogin3_Result">
+          <ScalarProperty Name="acceptStatus" ColumnName="acceptStatus" />
+          <ScalarProperty Name="userType" ColumnName="userType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

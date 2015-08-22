@@ -44,11 +44,11 @@
 
                     <asp:Menu ID="Menu1" runat="server" StaticMenuItemStyle-BorderStyle="Solid" Orientation="Horizontal">
                         <Items>
-                            <asp:MenuItem Text="Profile"></asp:MenuItem>
-                            <asp:MenuItem Text="My Course"></asp:MenuItem>
-                            <asp:MenuItem Text="Compare"></asp:MenuItem>
-                            <asp:MenuItem Text="My Performance"></asp:MenuItem>
-                            <asp:MenuItem Text="Statistics"></asp:MenuItem>
+                            <asp:MenuItem Text="Profile" NavigateUrl="~/PresentationLayer/Student/ViewProfileView.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="My Course" NavigateUrl="~/PresentationLayer/Student/MyCourseView.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Compare" NavigateUrl="~/PresentationLayer/Student/Compare.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="My Performance" NavigateUrl="~/PresentationLayer/Student/MyPerformance.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Statistics" NavigateUrl="~/PresentationLayer/Student/Statistics.aspx"></asp:MenuItem>
 
 
 

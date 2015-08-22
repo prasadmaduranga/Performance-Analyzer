@@ -466,5 +466,57 @@ namespace PerformanceAnalyzer2
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spResultByUser_Result>("spResultByUser", userIDParameter, moduleCodeParameter);
         }
+    
+        public virtual int spUnfollowCourse(Nullable<int> userID, Nullable<int> courseID)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("userID", userID) :
+                new ObjectParameter("userID", typeof(int));
+    
+            var courseIDParameter = courseID.HasValue ?
+                new ObjectParameter("courseID", courseID) :
+                new ObjectParameter("courseID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUnfollowCourse", userIDParameter, courseIDParameter);
+        }
+    
+        public virtual int sendRequest(Nullable<int> userID, Nullable<int> courseID)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("userID", userID) :
+                new ObjectParameter("userID", typeof(int));
+    
+            var courseIDParameter = courseID.HasValue ?
+                new ObjectParameter("courseID", courseID) :
+                new ObjectParameter("courseID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sendRequest", userIDParameter, courseIDParameter);
+        }
+    
+        public virtual ObjectResult<spLogin_Result> spLogin(string username, string password)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spLogin_Result>("spLogin", usernameParameter, passwordParameter);
+        }
+    
+        public virtual ObjectResult<spLogin3_Result> spLogin3(string username, string password)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spLogin3_Result>("spLogin3", usernameParameter, passwordParameter);
+        }
     }
 }

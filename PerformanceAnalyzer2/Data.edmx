@@ -283,7 +283,7 @@
           <Property Name="moduleCode" Type="nvarchar" Nullable="false" MaxLength="10" />
           <Property Name="name" Type="nvarchar" MaxLength="80" />
           <Property Name="GPA" Type="nvarchar" MaxLength="4" />
-          <Property Name="credits" Type="int" />
+          <Property Name="credits" Type="float" />
           <Property Name="compulary" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Prerequisite">
@@ -783,6 +783,10 @@
         <Function Name="getStudentBasicInfoNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="courseID" Type="int" Mode="In" />
         </Function>
+        <Function Name="sendRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userID" Type="int" Mode="In" />
+          <Parameter Name="courseID" Type="int" Mode="In" />
+        </Function>
         <Function Name="spCreateEnrollments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="courseID" Type="int" Mode="In" />
           <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
@@ -875,6 +879,14 @@
           <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
           <Parameter Name="lecturerName" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="spLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="nvarchar" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spLogin3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="nvarchar" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="spResultByUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userID" Type="nvarchar" Mode="In" />
           <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
@@ -882,6 +894,10 @@
         <Function Name="spSetCommonPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="courseID" Type="int" Mode="In" />
           <Parameter Name="password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spUnfollowCourse" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userID" Type="int" Mode="In" />
+          <Parameter Name="courseID" Type="int" Mode="In" />
         </Function>
         <Function Name="spUpdateAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userID" Type="int" Mode="In" />
@@ -1150,6 +1166,22 @@
           <FunctionImport Name="spResultByUser" ReturnType="Collection(PerformanceAnalyzerModel.spResultByUser_Result)">
             <Parameter Name="userID" Mode="In" Type="String" />
             <Parameter Name="moduleCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spUnfollowCourse">
+            <Parameter Name="userID" Mode="In" Type="Int32" />
+            <Parameter Name="courseID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sendRequest">
+            <Parameter Name="userID" Mode="In" Type="Int32" />
+            <Parameter Name="courseID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spLogin" ReturnType="Collection(PerformanceAnalyzerModel.spLogin_Result)">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spLogin3" ReturnType="Collection(PerformanceAnalyzerModel.spLogin3_Result)">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="AcedemicYear">
@@ -1819,6 +1851,14 @@
           <Property Type="String" Name="result" Nullable="true" MaxLength="5" />
           <Property Type="Double" Name="GPA" Nullable="true" />
         </ComplexType>
+        <ComplexType Name="spLogin_Result">
+          <Property Type="Int32" Name="Column1" Nullable="false" />
+          <Property Type="String" Name="Column2" Nullable="false" MaxLength="7" />
+        </ComplexType>
+        <ComplexType Name="spLogin3_Result">
+          <Property Type="Int32" Name="acceptStatus" Nullable="false" />
+          <Property Type="String" Name="userType" Nullable="false" MaxLength="7" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2278,6 +2318,24 @@
                 <ScalarProperty Name="indexNo" ColumnName="indexNo" />
                 <ScalarProperty Name="result" ColumnName="result" />
                 <ScalarProperty Name="GPA" ColumnName="GPA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spUnfollowCourse" FunctionName="PerformanceAnalyzerModel.Store.spUnfollowCourse" />
+          <FunctionImportMapping FunctionImportName="sendRequest" FunctionName="PerformanceAnalyzerModel.Store.sendRequest" />
+          <FunctionImportMapping FunctionImportName="spLogin" FunctionName="PerformanceAnalyzerModel.Store.spLogin">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spLogin_Result">
+                <ScalarProperty Name="Column1" ColumnName="Column1" />
+                <ScalarProperty Name="Column2" ColumnName="Column2" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spLogin3" FunctionName="PerformanceAnalyzerModel.Store.spLogin3">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spLogin3_Result">
+                <ScalarProperty Name="acceptStatus" ColumnName="acceptStatus" />
+                <ScalarProperty Name="userType" ColumnName="userType" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

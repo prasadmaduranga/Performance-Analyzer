@@ -278,7 +278,7 @@
     <Property Name="moduleCode" Type="nvarchar" Nullable="false" MaxLength="10" />
     <Property Name="name" Type="nvarchar" MaxLength="80" />
     <Property Name="GPA" Type="nvarchar" MaxLength="4" />
-    <Property Name="credits" Type="int" />
+    <Property Name="credits" Type="float" />
     <Property Name="compulary" Type="nvarchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="Prerequisite">
@@ -778,6 +778,10 @@
   <Function Name="getStudentBasicInfoNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="courseID" Type="int" Mode="In" />
   </Function>
+  <Function Name="sendRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userID" Type="int" Mode="In" />
+    <Parameter Name="courseID" Type="int" Mode="In" />
+  </Function>
   <Function Name="spCreateEnrollments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="courseID" Type="int" Mode="In" />
     <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
@@ -870,6 +874,14 @@
     <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
     <Parameter Name="lecturerName" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="spLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="nvarchar" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spLogin3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="nvarchar" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="spResultByUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="userID" Type="nvarchar" Mode="In" />
     <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
@@ -877,6 +889,10 @@
   <Function Name="spSetCommonPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="courseID" Type="int" Mode="In" />
     <Parameter Name="password" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spUnfollowCourse" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userID" Type="int" Mode="In" />
+    <Parameter Name="courseID" Type="int" Mode="In" />
   </Function>
   <Function Name="spUpdateAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="userID" Type="int" Mode="In" />

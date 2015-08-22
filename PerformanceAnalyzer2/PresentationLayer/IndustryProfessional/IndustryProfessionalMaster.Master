@@ -44,9 +44,9 @@
 
                     <asp:Menu ID="Menu1" runat="server" StaticMenuItemStyle-BorderStyle="Solid"  Orientation="Horizontal">
                         <Items>
-                            <asp:MenuItem Text="Profile" NavigateUrl=""></asp:MenuItem>
-                            <asp:MenuItem Text="Search Courses"></asp:MenuItem>
-                            <asp:MenuItem Text="Course List"></asp:MenuItem>
+                            <asp:MenuItem Text="Profile" NavigateUrl="~/PresentationLayer/IndustryProfessional/ViewProfileView.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Search Courses" NavigateUrl="~/PresentationLayer/IndustryProfessional/CourseList.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Statistics" NavigateUrl="~/PresentationLayer/IndustryProfessional/Statistics.aspx"></asp:MenuItem>
                            
                             
                         </Items>

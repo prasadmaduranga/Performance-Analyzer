@@ -26,7 +26,7 @@ namespace PerformanceAnalyzer2.BusinessLogicLayer
              PerformanceAnalyzerDataContext dataContext = new PerformanceAnalyzerDataContext();
              int courseid = Convert.ToInt32(courseID);
              var course = dataContext.spGetCourseInformation(courseid);
-
+    
              return course.ToList();
 
 

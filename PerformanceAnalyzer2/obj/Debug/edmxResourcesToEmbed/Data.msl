@@ -475,5 +475,7 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spCreateUser" FunctionName="PerformanceAnalyzerModel.Store.spCreateUser" />
+    <FunctionImportMapping FunctionImportName="spCreateUserNew" FunctionName="PerformanceAnalyzerModel.Store.spCreateUserNew" />
   </EntityContainerMapping>
 </Mapping>

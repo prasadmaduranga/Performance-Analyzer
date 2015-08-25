@@ -7,15 +7,20 @@
     <title></title>
 </head>
 <body runat="server">
-    <form runat="server">
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <ContentTemplate >
-            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <form id="Form1" runat="server">
+     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+         <%--   <Triggers>
+                <asp:PostBackTrigger ControlID="Button3" />
+            </Triggers>--%>
+            <ContentTemplate>
+  
+       
+                <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
 
-            <asp:MultiView ID="MultiView1" runat="server">
-                <asp:View ID="View1" runat="server">
-                  
+                <asp:MultiView ID="MultiView1" runat="server">
+                    <asp:View ID="View1" runat="server">
+
                         <div>
 
                             <br />
@@ -47,7 +52,7 @@
                                         </td>
 
                                     </tr>
-                           <%--         <tr>
+                                    <%--         <tr>
                                         <td>
                                             <asp:CheckBox ID="CheckBox1" runat="server" Text="Remember Me" />
                                         </td>
@@ -61,10 +66,10 @@
                             <br />
 
                         </div>
-              
-                </asp:View>
-                <asp:View ID="View2" runat="server">
-                   
+
+                    </asp:View>
+                    <asp:View ID="View2" runat="server">
+
                         <div>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SIGN IN<br />
                             <br />
@@ -74,7 +79,7 @@
                                         <asp:Label ID="Label3" runat="server" Text="Select Your Role"></asp:Label>
                                     </td>
                                     <td>
-                                        <asp:RadioButtonList ID="RadioButtonList1" runat="server" >
+                                        <asp:RadioButtonList ID="RadioButtonList1" runat="server">
                                             <asp:ListItem Value="0">Course Administrator</asp:ListItem>
                                             <asp:ListItem Value="1">Lecturer</asp:ListItem>
                                             <asp:ListItem Selected="True" Value="2">Industry Personal</asp:ListItem>
@@ -131,8 +136,8 @@
                                                 </td>
 
                                             </tr>
-                                           
-                                           
+
+
                                             <tr>
                                                 <td>
                                                     <asp:Label ID="Label8"
@@ -182,12 +187,14 @@
                             <br />
 
                         </div>
-                   
 
-                </asp:View>
 
-            </asp:MultiView>
-        </ContentTemplate>
-    </asp:UpdatePanel></form>
+                    </asp:View>
+
+                </asp:MultiView>
+  
+                 </ContentTemplate>
+        </asp:UpdatePanel>
+        </form>
 </body>
 </html>

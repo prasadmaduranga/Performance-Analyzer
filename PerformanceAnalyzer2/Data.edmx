@@ -791,6 +791,22 @@
           <Parameter Name="courseID" Type="int" Mode="In" />
           <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="spCreateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="userType" Type="nvarchar" Mode="In" />
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+          <Parameter Name="linkedin" Type="nvarchar" Mode="In" />
+          <Parameter Name="imageURL" Type="nvarchar" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spCreateUserNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="userType" Type="nvarchar" Mode="In" />
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+          <Parameter Name="linkedin" Type="nvarchar" Mode="In" />
+          <Parameter Name="imageURL" Type="nvarchar" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="spDeleteModuleBySemester" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="semesterID" Type="int" Mode="In" />
           <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
@@ -1181,6 +1197,22 @@
           </FunctionImport>
           <FunctionImport Name="spLogin3" ReturnType="Collection(PerformanceAnalyzerModel.spLogin3_Result)">
             <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spCreateUser">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="userType" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="linkedin" Mode="In" Type="String" />
+            <Parameter Name="imageURL" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spCreateUserNew" ReturnType="Collection(Int32)">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="userType" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="linkedin" Mode="In" Type="String" />
+            <Parameter Name="imageURL" Mode="In" Type="String" />
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
@@ -2339,6 +2371,8 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spCreateUser" FunctionName="PerformanceAnalyzerModel.Store.spCreateUser" />
+          <FunctionImportMapping FunctionImportName="spCreateUserNew" FunctionName="PerformanceAnalyzerModel.Store.spCreateUserNew" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

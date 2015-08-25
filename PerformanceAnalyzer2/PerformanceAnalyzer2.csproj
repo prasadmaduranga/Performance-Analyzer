@@ -77,14 +77,17 @@
     <Content Include="PresentationLayer\Admin\CourseView.aspx" />
     <Content Include="PresentationLayer\Admin\NewResult.aspx" />
     <Content Include="PresentationLayer\Admin\NewModule.aspx" />
+    <Content Include="PresentationLayer\Admin\Home.aspx" />
     <Content Include="PresentationLayer\IndustryProfessional\ViewProfileView.aspx" />
     <Content Include="PresentationLayer\IndustryProfessional\EditProfileView.aspx" />
     <Content Include="PresentationLayer\IndustryProfessional\Statistics.aspx" />
     <Content Include="PresentationLayer\IndustryProfessional\CourseList.aspx" />
+    <Content Include="PresentationLayer\IndustryProfessional\Home.aspx" />
     <Content Include="PresentationLayer\Lecturer\ViewProfileView.aspx" />
     <Content Include="PresentationLayer\Lecturer\EditProfileView.aspx" />
     <Content Include="PresentationLayer\Lecturer\Statistics.aspx" />
     <Content Include="PresentationLayer\Lecturer\CourseList.aspx" />
+    <Content Include="PresentationLayer\Lecturer\Home.aspx" />
     <Content Include="PresentationLayer\Student\ViewProfileView.aspx" />
     <Content Include="PresentationLayer\Student\EditProfileView.aspx" />
     <Content Include="PresentationLayer\Student\MyCourseView.aspx" />
@@ -216,6 +219,13 @@
     <Compile Include="PresentationLayer\Admin\NewModule.aspx.designer.cs">
       <DependentUpon>NewModule.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PresentationLayer\Admin\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Admin\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\IndustryProfessional\IndustryProfessionalMaster.Master.cs">
       <DependentUpon>IndustryProfessionalMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -251,6 +261,13 @@
     <Compile Include="PresentationLayer\IndustryProfessional\CourseList.aspx.designer.cs">
       <DependentUpon>CourseList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PresentationLayer\IndustryProfessional\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\IndustryProfessional\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\Lecturer\LecturerMaster.Master.cs">
       <DependentUpon>LecturerMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -285,6 +302,13 @@
     </Compile>
     <Compile Include="PresentationLayer\Lecturer\CourseList.aspx.designer.cs">
       <DependentUpon>CourseList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Lecturer\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Lecturer\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\Student\StudentMaster.Master.cs">
       <DependentUpon>StudentMaster.Master</DependentUpon>

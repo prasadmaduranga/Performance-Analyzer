@@ -14,7 +14,12 @@ namespace PerformanceAnalyzer2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            MultiView1.ActiveViewIndex = 0;
+            if (!IsPostBack)
+            {
+                MultiView1.ActiveViewIndex = 0;
+                // Page.Form.Attributes.Add("enctype", "multipart/form-data");}
+               
+            }
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -79,6 +84,10 @@ namespace PerformanceAnalyzer2
 
                 }
             }
+            else {
+                ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('Choose an image');", true);
+                
+            }
         }
 
         protected void Button4_Click(object sender, EventArgs e)
@@ -93,10 +102,24 @@ namespace PerformanceAnalyzer2
                 imageURL = "~/Images/"+FileUpload1.FileName;
             
             }
-
+            int i=RadioButtonList1.SelectedIndex;
+            string userType="";
+            if(i==0){userType="CourseAdmin";}
+            else if(i==1){userType="Lecturer";}
+            else if(i==2){userType="IndustryProfessional";}
 
             PerformanceAnalyzerDataContext dbcontext = new PerformanceAnalyzerDataContext();
-        
+           int val= dbcontext.spCreateUser(TextBox3.Text, userType, TextBox4.Text, TextBox5.Text, imageURL, TextBox7.Text);
+           if (val > 0) {
+               Session["userID"] = val;
+               if (i == 0) { Response.Redirect("~/PresentationLayer/Admin/Home.aspx"); }
+               else if (i == 1) { Response.Redirect("~/PresentationLayer/Lecturer/Home.aspx"); }
+               else if (i == 2) { Response.Redirect("~/PresentationLayer/IndustryProfessional/Home.aspx"); }
+           
+           }
+           else{
+               Response.Redirect("~/Loogin.aspx");
+           }
 
         }
     }

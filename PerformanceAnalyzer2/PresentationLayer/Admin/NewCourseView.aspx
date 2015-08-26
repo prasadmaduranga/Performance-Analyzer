@@ -278,7 +278,7 @@
                          <tr>
                             <td>&nbsp;</td>
                             <td>
-                                <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Finish" />
+                                <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Finish" style="height: 26px" />
                              </td>
                             
                         </tr>

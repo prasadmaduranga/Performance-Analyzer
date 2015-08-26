@@ -477,5 +477,20 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="spCreateUser" FunctionName="PerformanceAnalyzerModel.Store.spCreateUser" />
     <FunctionImportMapping FunctionImportName="spCreateUserNew" FunctionName="PerformanceAnalyzerModel.Store.spCreateUserNew" />
+    <FunctionImportMapping FunctionImportName="spLoginNew" FunctionName="PerformanceAnalyzerModel.Store.spLoginNew">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spLoginNew_Result">
+          <ScalarProperty Name="Column1" ColumnName="Column1" />
+          <ScalarProperty Name="Column2" ColumnName="Column2" />
+          <ScalarProperty Name="Column3" ColumnName="Column3" />
+          <ScalarProperty Name="Column4" ColumnName="Column4" />
+          <ScalarProperty Name="Column5" ColumnName="Column5" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spCreateUserNew2" FunctionName="PerformanceAnalyzerModel.Store.spCreateUserNew2" />
+    <FunctionImportMapping FunctionImportName="spLoginFinal" FunctionName="PerformanceAnalyzerModel.Store.spLoginFinal" />
+    <FunctionImportMapping FunctionImportName="spCreateUserNew3" FunctionName="PerformanceAnalyzerModel.Store.spCreateUserNew3" />
+    <FunctionImportMapping FunctionImportName="spSetCommonPasswordNew" FunctionName="PerformanceAnalyzerModel.Store.spSetCommonPasswordNew" />
   </EntityContainerMapping>
 </Mapping>

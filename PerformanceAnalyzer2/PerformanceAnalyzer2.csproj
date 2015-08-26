@@ -434,6 +434,9 @@
     <Compile Include="spLogin3_Result.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="spLoginNew_Result.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="spLogin_Result.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>

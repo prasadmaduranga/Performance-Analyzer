@@ -276,6 +276,34 @@
       <Parameter Name="imageURL" Mode="In" Type="String" />
       <Parameter Name="password" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="spLoginNew" ReturnType="Collection(PerformanceAnalyzerModel.spLoginNew_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spCreateUserNew2">
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="userType" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="linkedin" Mode="In" Type="String" />
+      <Parameter Name="imageURL" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spLoginFinal">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spCreateUserNew3" ReturnType="Collection(Int32)">
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="userType" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="linkedin" Mode="In" Type="String" />
+      <Parameter Name="imageURL" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSetCommonPasswordNew">
+      <Parameter Name="courseID" Mode="In" Type="Int32" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="AcedemicYear">
     <Key>
@@ -951,5 +979,12 @@
   <ComplexType Name="spLogin3_Result">
     <Property Type="Int32" Name="acceptStatus" Nullable="false" />
     <Property Type="String" Name="userType" Nullable="false" MaxLength="7" />
+  </ComplexType>
+  <ComplexType Name="spLoginNew_Result">
+    <Property Type="Int32" Name="Column1" Nullable="true" />
+    <Property Type="String" Name="Column2" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="Column3" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Column4" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Column5" Nullable="true" />
   </ComplexType>
 </Schema>

@@ -8,13 +8,13 @@
 </head>
 <body runat="server">
     <form id="Form1" runat="server">
-     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-         <%--   <Triggers>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <%--   <Triggers>
                 <asp:PostBackTrigger ControlID="Button3" />
             </Triggers>--%>
             <ContentTemplate>
-  
-       
+
+
                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
 
@@ -32,6 +32,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="*Required" ForeColor="Red" ValidationGroup="group1"></asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -40,15 +41,16 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="TextBox2" runat="server" TextMode="Password"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2" ErrorMessage="*Required" ForeColor="Red" ValidationGroup="group1"></asp:RequiredFieldValidator>
                                         </td>
 
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:Button ID="Button1" runat="server" Text="Sign In" OnClick="Button1_Click" />
+                                            <asp:Button ID="Button1" runat="server" Text="Sign In" OnClick="Button1_Click" CausesValidation="False" />
                                         </td>
                                         <td>
-                                            <asp:Button ID="Button2" runat="server" Text="Login" OnClick="Button2_Click" />
+                                            <asp:Button ID="Button2" runat="server" Text="Login" OnClick="Button2_Click" ValidationGroup="group1" />
                                         </td>
 
                                     </tr>
@@ -98,6 +100,7 @@
                                                 <td>
                                                     <asp:TextBox ID="TextBox3"
                                                         runat="server"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox3" ErrorMessage="*Required" ForeColor="Red" ValidationGroup="group1"></asp:RequiredFieldValidator>
                                                 </td>
 
                                             </tr>
@@ -109,6 +112,8 @@
                                                 <td>
                                                     <asp:TextBox ID="TextBox4"
                                                         runat="server"></asp:TextBox>
+                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextBox4" ErrorMessage="*Invalid Email" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                                                        ForeColor="Red"></asp:RegularExpressionValidator>
                                                 </td>
 
                                             </tr>
@@ -146,6 +151,7 @@
                                                 <td>
                                                     <asp:TextBox ID="TextBox7"
                                                         runat="server" TextMode="Password"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox7" ErrorMessage="*Required" ForeColor="Red" ValidationGroup="group2"></asp:RequiredFieldValidator>
                                                 </td>
 
                                             </tr>
@@ -157,6 +163,8 @@
                                                 <td>
                                                     <asp:TextBox ID="TextBox8"
                                                         runat="server" TextMode="Password"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBox8" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" ValidationGroup="group2"></asp:RequiredFieldValidator>
+                                                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="TextBox7" ControlToValidate="TextBox8" Display="Dynamic" ErrorMessage="*Password mismatch" ForeColor="Red" ValidationGroup="group2"></asp:CompareValidator>
                                                 </td>
 
                                             </tr>
@@ -164,12 +172,12 @@
                                                 <td>
 
                                                     <asp:Button ID="Button4"
-                                                        runat="server" Text="Cancel" />
+                                                        runat="server" Text="Cancel" CausesValidation="False" />
 
                                                 </td>
                                                 <td>
                                                     <asp:Button ID="Button5"
-                                                        runat="server" Text="Submit" OnClick="Button5_Click" />
+                                                        runat="server" Text="Submit" OnClick="Button5_Click" ValidationGroup="group2" />
                                                 </td>
 
                                             </tr>
@@ -192,9 +200,9 @@
                     </asp:View>
 
                 </asp:MultiView>
-  
-                 </ContentTemplate>
+
+            </ContentTemplate>
         </asp:UpdatePanel>
-        </form>
+    </form>
 </body>
 </html>

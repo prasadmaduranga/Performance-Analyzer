@@ -135,7 +135,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
         {
             Session["selectedSemester"] = GridView1.SelectedValue;
 
-            if (GridView1.SelectedValue != null)
+            if (GridView1.SelectedIndex>=0)
             {
                 GridView2.Visible = true;
                 this.setGriview2(GridView1.SelectedValue.ToString());

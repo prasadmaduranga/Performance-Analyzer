@@ -220,6 +220,7 @@
                                         <asp:DropDownList ID="DropDownList6" runat="server" DataSourceID="SqlDataSource7"  DataTextField="moduleCode" DataValueField="moduleCode" AppendDataBoundItems="true">
                                           <asp:ListItem Text="--Select Module--" Value="-1" Selected="True"></asp:ListItem>
                                         </asp:DropDownList>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Required" InitialValue="-1" ForeColor="Red" ControlToValidate="DropDownList6"></asp:RequiredFieldValidator>
                                     </InsertItemTemplate>
                                     <ItemTemplate>
                                         <br />
@@ -231,6 +232,7 @@
                                     </EditItemTemplate>
                                     <InsertItemTemplate>
                                         <asp:TextBox ID="TextBox1" runat="server"  ></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox1" ErrorMessage="*Required" ForeColor="Red"></asp:RequiredFieldValidator>
                                     </InsertItemTemplate>
                                     <ItemTemplate>
                                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("lecturerName") %>'></asp:Label>

@@ -576,5 +576,102 @@ namespace PerformanceAnalyzer2
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("spCreateUserNew", nameParameter, userTypeParameter, emailParameter, linkedinParameter, imageURLParameter, passwordParameter);
         }
+    
+        public virtual ObjectResult<spLoginNew_Result> spLoginNew(string username, string password)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spLoginNew_Result>("spLoginNew", usernameParameter, passwordParameter);
+        }
+    
+        public virtual int spCreateUserNew2(string name, string userType, string email, string linkedin, string imageURL, string password)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            var userTypeParameter = userType != null ?
+                new ObjectParameter("userType", userType) :
+                new ObjectParameter("userType", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
+    
+            var linkedinParameter = linkedin != null ?
+                new ObjectParameter("linkedin", linkedin) :
+                new ObjectParameter("linkedin", typeof(string));
+    
+            var imageURLParameter = imageURL != null ?
+                new ObjectParameter("imageURL", imageURL) :
+                new ObjectParameter("imageURL", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spCreateUserNew2", nameParameter, userTypeParameter, emailParameter, linkedinParameter, imageURLParameter, passwordParameter);
+        }
+    
+        public virtual int spLoginFinal(string username, string password)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spLoginFinal", usernameParameter, passwordParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> spCreateUserNew3(string name, string userType, string email, string linkedin, string imageURL, string password)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            var userTypeParameter = userType != null ?
+                new ObjectParameter("userType", userType) :
+                new ObjectParameter("userType", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
+    
+            var linkedinParameter = linkedin != null ?
+                new ObjectParameter("linkedin", linkedin) :
+                new ObjectParameter("linkedin", typeof(string));
+    
+            var imageURLParameter = imageURL != null ?
+                new ObjectParameter("imageURL", imageURL) :
+                new ObjectParameter("imageURL", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("spCreateUserNew3", nameParameter, userTypeParameter, emailParameter, linkedinParameter, imageURLParameter, passwordParameter);
+        }
+    
+        public virtual int spSetCommonPasswordNew(Nullable<int> courseID, string password)
+        {
+            var courseIDParameter = courseID.HasValue ?
+                new ObjectParameter("courseID", courseID) :
+                new ObjectParameter("courseID", typeof(int));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spSetCommonPasswordNew", courseIDParameter, passwordParameter);
+        }
     }
 }

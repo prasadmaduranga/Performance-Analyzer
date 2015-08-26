@@ -123,7 +123,8 @@ namespace PerformanceAnalyzer2.BusinessLogicLayer
         {
 
             PerformanceAnalyzerDataContext dataContext = new PerformanceAnalyzerDataContext();
-            dataContext.spSetCommonPassword(Convert.ToInt32(courseID), password);
+            dataContext.spSetCommonPasswordNew(Convert.ToInt32(courseID), password);
+               // dataContext.spSetCommonPassword(Convert.ToInt32(courseID), password);
 
 
         }

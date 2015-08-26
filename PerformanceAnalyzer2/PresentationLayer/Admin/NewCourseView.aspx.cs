@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data;
-
+using System.Text;
+using System.Security.Cryptography;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using PerformanceAnalyzer2.BusinessLogicLayer;
@@ -291,7 +292,18 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
 
         protected void Button3_Click(object sender, EventArgs e)
         {
-            AdminLogic.spSetCommonPassword(Session["courseID"].ToString(), TextBox5.Text);
+          
+                string password = TextBox5.Text;
+
+            MD5 md5Hash = MD5.Create();
+           
+                string hash = GetMd5Hash(md5Hash, password);
+
+
+            hash = hash.Substring(3, 12);
+
+
+            AdminLogic.spSetCommonPassword(Session["courseID"].ToString(), hash);
             Response.Redirect("CourseView.aspx?courseID=" + Session["courseID"].ToString());
         }
 
@@ -345,8 +357,27 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
            
         }
 
-       
-      
+
+        static string GetMd5Hash(MD5 md5Hash, string input)
+        {
+
+            // Convert the input string to a byte array and compute the hash. 
+            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+
+            // Create a new Stringbuilder to collect the bytes 
+            // and create a string.
+            StringBuilder sBuilder = new StringBuilder();
+
+            // Loop through each byte of the hashed data  
+            // and format each one as a hexadecimal string. 
+            for (int i = 0; i < data.Length; i++)
+            {
+                sBuilder.Append(data[i].ToString("x2"));
+            }
+
+            // Return the hexadecimal string. 
+            return sBuilder.ToString();
+        }
       
        
         

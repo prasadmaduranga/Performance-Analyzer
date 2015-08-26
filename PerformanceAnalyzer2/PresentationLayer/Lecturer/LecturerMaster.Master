@@ -54,6 +54,18 @@
                         </Items>
 
                     </asp:Menu>
+                    <table style="width:auto;">
+                        <tr>
+                            <td>
+                                <asp:ImageButton ID="ImageButton1" runat="server" Height="19px" OnClick="ImageButton1_Click" Width="21px" />
+                            </td>
+                            <td>
+                                <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click"></asp:LinkButton></td>
+                            <td>
+                                <asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click"></asp:LinkButton></td>
+                        </tr>
+
+                    </table>
                 </td>
  
             </tr>

@@ -6,6 +6,8 @@ using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.Text;
+using System.Security.Cryptography;
 using System.Data.SqlClient;
 using PerformanceAnalyzer2.BusinessLogicLayer;
 namespace PerformanceAnalyzer2
@@ -18,45 +20,84 @@ namespace PerformanceAnalyzer2
             {
                 MultiView1.ActiveViewIndex = 0;
                 // Page.Form.Attributes.Add("enctype", "multipart/form-data");}
-               
+
+
+
+                
             }
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
 
+            string password = TextBox2.Text;
+
+            MD5 md5Hash = MD5.Create();
+           
+                string hash = GetMd5Hash(md5Hash, password);
+
+
+            hash = hash.Substring(3, 12);
+
+
+            
+
             PerformanceAnalyzerDataContext dataContext = new PerformanceAnalyzerDataContext();
 
-            var course = dataContext.spLogin3(TextBox1.Text, TextBox2.Text);
+           // course = dataContext.spLoginFinal(TextBox1.Text, hash);
+            spLoginNew_Result course = dataContext.spLoginNew(TextBox1.Text, hash).FirstOrDefault();
 
-            spLogin3_Result obj = course.ToList<spLogin3_Result>().FirstOrDefault();
 
-            if (obj.acceptStatus == 1)
+         //   spLogin3_Result obj = course.ToList<spLogin3_Result>().FirstOrDefault();
+     //  spLoginNew_Result obj = course.ToList<spLoginNew_Result>().FirstOrDefault();
+
+            spLoginNew_Result obj = course;
+
+            if (obj.Column1 != 0)
             {
-                if (obj.userType.Equals("Student"))
+                if (obj.Column3.Equals("Student"))
                 {
-                    // Session["userID"] = obj.userID;
-                    Response.Redirect("~/PresentationLayer/Student/Home.aspx");
+
+                     Session["userID"] = obj.Column1;
+                     Session["userName"] = obj.Column2;
+                     Session["role"] = obj.Column3;
+                     Session["imageURL"] = obj.Column4;
+                     Session["courseID"] = obj.Column5;
+
+
+
+
+                     Response.Redirect("~/PresentationLayer/Student/Home.aspx");
                 }
-                else if (obj.userType.Equals("CourseAdmin"))
+                else if (obj.Column3.Equals("CourseAdmin"))
                 {
-                    // Session["userID"] = obj.userID;
+                    Session["userID"] = obj.Column1;
+                    Session["userName"] = obj.Column2;
+                    Session["role"] = obj.Column3;
+                    Session["imageURL"] = obj.Column4;
                     Response.Redirect("~/PresentationLayer/Admin/Home.aspx");
                 }
-                else if (obj.userType.Equals("Lecturer"))
+                else if (obj.Column3.Equals("Lecturer"))
                 {
-                    // Session["userID"] = obj.userID;
+                    Session["userID"] = obj.Column1;
+                    Session["userName"] = obj.Column2;
+                    Session["role"] = obj.Column3;
+                    Session["imageURL"] = obj.Column4;
                     Response.Redirect("~/PresentationLayer/Lecturer/Home.aspx");
                 }
-                else if (obj.userType.Equals("IndustryProfessional"))
+                else if (obj.Column3.Equals("IndustryProfessional"))
                 {
-                    // Session["userID"] = obj.userID;
+                    Session["userID"] = obj.Column1;
+                    Session["userName"] = obj.Column2;
+                    Session["role"] = obj.Column3;
+                    Session["imageURL"] = obj.Column4;
                     Response.Redirect("~/PresentationLayer/IndustryProfessional/Home.aspx");
                 }
             }
             else
             {
-                ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('Either username or password incorrect');", true);
+                ClientScript.RegisterStartupScript(GetType(), "hwaa", "alert('Either username or password incorrect');", true);
+          
                 TextBox1.Text = "";
                 TextBox2.Text = "";
 
@@ -100,6 +141,11 @@ namespace PerformanceAnalyzer2
             string imageURL="";
             if (FileUpload1.HasFile) {
                 imageURL = "~/Images/"+FileUpload1.FileName;
+            Session["imageURL"]=imageURL;
+            }
+            else{
+            imageURL = "~/Images/"+"Default.jpg";
+            Session["imageURL"]=imageURL;
             
             }
             int i=RadioButtonList1.SelectedIndex;
@@ -108,19 +154,66 @@ namespace PerformanceAnalyzer2
             else if(i==1){userType="Lecturer";}
             else if(i==2){userType="IndustryProfessional";}
 
+            string password = TextBox7.Text;
+
+            MD5 md5Hash = MD5.Create();
+
+            string hash = GetMd5Hash(md5Hash, password);
+
+
+            hash = hash.Substring(3, 12);
+
             PerformanceAnalyzerDataContext dbcontext = new PerformanceAnalyzerDataContext();
-           int val= dbcontext.spCreateUser(TextBox3.Text, userType, TextBox4.Text, TextBox5.Text, imageURL, TextBox7.Text);
-           if (val > 0) {
+         //  int val= dbcontext.spCreateUser(TextBox3.Text, userType, TextBox4.Text, TextBox5.Text, imageURL, TextBox7.Text);
+          int   val = dbcontext.spCreateUserNew3(TextBox3.Text, userType, TextBox4.Text, TextBox5.Text, imageURL,hash ).FirstOrDefault()??-1;
+       
+        
+            if (val > 0) {
                Session["userID"] = val;
-               if (i == 0) { Response.Redirect("~/PresentationLayer/Admin/Home.aspx"); }
-               else if (i == 1) { Response.Redirect("~/PresentationLayer/Lecturer/Home.aspx"); }
-               else if (i == 2) { Response.Redirect("~/PresentationLayer/IndustryProfessional/Home.aspx"); }
+               if (i == 0) {
+
+                   Session["userName"] = TextBox3.Text;
+                   Session["role"] = "CourseAdmin";
+                   Session["imageURL"] =imageURL;
+                   Response.Redirect("~/PresentationLayer/Admin/Home.aspx"); }
+               else if (i == 1) {
+                   Session["userName"] = TextBox3.Text;
+                   Session["role"] = "Lecturer";
+                   Session["imageURL"] = imageURL;
+                   
+                   Response.Redirect("~/PresentationLayer/Lecturer/Home.aspx"); }
+               else if (i == 2) {
+                   Session["userName"] = TextBox3.Text;
+                   Session["role"] = "IndustryProfessional";
+                   Session["imageURL"] = imageURL;
+                   
+                   Response.Redirect("~/PresentationLayer/IndustryProfessional/Home.aspx"); }
            
            }
            else{
                Response.Redirect("~/Loogin.aspx");
            }
 
+        }
+        static string GetMd5Hash(MD5 md5Hash, string input)
+        {
+
+            // Convert the input string to a byte array and compute the hash. 
+            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+
+            // Create a new Stringbuilder to collect the bytes 
+            // and create a string.
+            StringBuilder sBuilder = new StringBuilder();
+
+            // Loop through each byte of the hashed data  
+            // and format each one as a hexadecimal string. 
+            for (int i = 0; i < data.Length; i++)
+            {
+                sBuilder.Append(data[i].ToString("x2"));
+            }
+
+            // Return the hexadecimal string. 
+            return sBuilder.ToString();
         }
     }
 

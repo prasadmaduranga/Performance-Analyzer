@@ -68,6 +68,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bootstrap-3.3.5-dist\css\bootstrap-theme.css" />
+    <Content Include="bootstrap-3.3.5-dist\css\bootstrap-theme.min.css" />
+    <Content Include="bootstrap-3.3.5-dist\css\bootstrap.css" />
+    <Content Include="bootstrap-3.3.5-dist\css\Custom.css" />
+    <Content Include="bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bootstrap-3.3.5-dist\js\bootstrap.js" />
+    <Content Include="bootstrap-3.3.5-dist\js\bootstrap.min.js" />
+    <Content Include="bootstrap-3.3.5-dist\js\jquery.js" />
+    <Content Include="bootstrap-3.3.5-dist\js\npm.js" />
+    <Content Include="Images\128-215.jpg" />
     <Content Include="Images\prasad.jpg" />
     <Content Include="Images\Default.jpg" />
     <Content Include="Login.aspx" />
@@ -407,6 +417,9 @@
     <Compile Include="spGetLectureData_Result.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="spGetModuleInfoBySemesterNew2_Result.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="spGetModuleInfoBySemesterNew_Result.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -476,6 +489,13 @@
     <Content Include="PresentationLayer\IndustryProfessional\IndustryProfessionalMaster.Master" />
     <Content Include="PresentationLayer\Lecturer\LecturerMaster.Master" />
     <Content Include="PresentationLayer\Student\StudentMaster.Master" />
+    <Content Include="bootstrap-3.3.5-dist\css\bootstrap-theme.css.map" />
+    <Content Include="bootstrap-3.3.5-dist\css\bootstrap.css.map" />
+    <Content Include="bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="bootstrap-3.3.5-dist\css\bootstrap.min.css" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -95,5 +95,11 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
             DetailsView2.DataBind();
 
         }
+
+        protected void LinkButton5_Click(object sender, EventArgs e)
+        {
+            LinkButton btn=(LinkButton)sender;
+          //  Response.Redirect("~/PresentationLayer/Student/Compare.aspx?UID=" + btn.CommandArgument.ToString());
+        }
     }
 }

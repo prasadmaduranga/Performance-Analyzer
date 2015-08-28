@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PresentationLayer/Student/StudentMaster.Master" AutoEventWireup="true" CodeBehind="Statistics.aspx.cs" Inherits="PerformanceAnalyzer2.PresentationLayer.Student.WebForm5" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
@@ -8,40 +9,79 @@
                 <asp:ListItem Text="Overall" Value="3"></asp:ListItem>
                 <asp:ListItem Text="Past Results" Value="4"></asp:ListItem>
             </asp:RadioButtonList>
+
+
+
+
+
+
+            <div class="sidebar-nav" id="sidebar">
+                <div class="navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <span class="visible-xs navbar-brand"></span>
+                    </div>
+                    <div class="navbar-collapse collapse sidebar-navbar-collapse">
+
+                        <ul class="nav navbar-nav">
+                            <li><a href="../../PresentationLayer/Admin/ViewProfileView.aspx">View Profile</a></li>
+                            <li><a href="../../PresentationLayer/Admin/EditProfileView.aspx">Edit Profile</a></li>
+
+                        </ul>
+
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
         </ContentTemplate>
+
     </asp:UpdatePanel>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
         <ContentTemplate>
-            
+
             <asp:MultiView ID="MultiView1" runat="server">
                 <asp:View ID="View1" runat="server">
                     <table style="width: 100%;">
 
                         <tr>
-                            <td >
+                            <td>
                                 <asp:Label ID="Label1" runat="server" Text="Select Module"></asp:Label>
                             </td>
-                             <td >
-                                 <asp:DropDownList ID="DropDownList1" runat="server" AppendDataBoundItems="True" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="moduleCode" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                                 <asp:ListItem Text="--Select Module--" Value="-1"></asp:ListItem>
-                                 </asp:DropDownList>
-                                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT distinct Semester_Module.moduleCode, Module.name FROM Semester_Module INNER JOIN Semester ON Semester_Module.semesterID = Semester.semesterID INNER JOIN AcedemicYear ON Semester.yearID = AcedemicYear.yearID INNER JOIN Course ON AcedemicYear.courseID = Course.courseID INNER JOIN Module ON Semester_Module.moduleCode = Module.moduleCode WHERE (Course.courseID = @courseID)">
-                                     <SelectParameters>
-                                         <asp:SessionParameter Name="courseID" SessionField="statCourseID" />
-                                     </SelectParameters>
-                                 </asp:SqlDataSource>
+                            <td>
+                                <asp:DropDownList ID="DropDownList1" runat="server" AppendDataBoundItems="True" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="moduleCode" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                                    <asp:ListItem Text="--Select Module--" Value="-1"></asp:ListItem>
+                                </asp:DropDownList>
+                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT distinct Semester_Module.moduleCode, Module.name FROM Semester_Module INNER JOIN Semester ON Semester_Module.semesterID = Semester.semesterID INNER JOIN AcedemicYear ON Semester.yearID = AcedemicYear.yearID INNER JOIN Course ON AcedemicYear.courseID = Course.courseID INNER JOIN Module ON Semester_Module.moduleCode = Module.moduleCode WHERE (Course.courseID = @courseID)">
+                                    <SelectParameters>
+                                        <asp:SessionParameter Name="courseID" SessionField="statCourseID" />
+                                    </SelectParameters>
+                                </asp:SqlDataSource>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2">
                                 <asp:Label ID="Label2" runat="server"></asp:Label>
                             </td>
-                           
+
                         </tr>
                         <tr>
-                            <td >
+                            <td>
                                 <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="result" DataSourceID="SqlDataSource2">
                                     <Columns>
                                         <asp:BoundField DataField="indexNo" HeaderText="Index No" SortExpression="indexNo" />
@@ -79,7 +119,7 @@
 
 
                             </td>
-                           
+
                         </tr>
                         <tr>
                             <td>
@@ -105,7 +145,7 @@ group by  ResultMapping.result ">
                             <td>
                                 <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSource3" Height="232px" OnPrePaint="Chart1_PrePaint" Palette="EarthTones" Width="224px">
                                     <Series>
-                                        <asp:Series Name="Series1"  IsValueShownAsLabel="true" ShadowColor="Transparent" IsXValueIndexed="true" ChartType="Pie" XValueMember="result" YValueMembers="NumofStudents">
+                                        <asp:Series Name="Series1" IsValueShownAsLabel="true" ShadowColor="Transparent" IsXValueIndexed="true" ChartType="Pie" XValueMember="result" YValueMembers="NumofStudents">
                                         </asp:Series>
                                     </Series>
                                     <ChartAreas>
@@ -120,33 +160,33 @@ group by  ResultMapping.result ">
                 <asp:View ID="View2" runat="server">
                     <table style="width: 100%;">
                         <tr>
-                            <td >
+                            <td>
                                 <asp:Label ID="Label5" runat="server" Text="Select Semester"></asp:Label>
                             </td>
-                             <td >
-                                 <asp:DropDownList ID="DropDownList2" runat="server" AppendDataBoundItems="True" DataSourceID="SqlDataSource12" DataTextField="semester" DataValueField="semesterID" AutoPostBack="True" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
-                                 <asp:ListItem Text="--Select Module--" Value="-1"></asp:ListItem>
-                                 </asp:DropDownList>
-                                 <br />
-                                 <asp:SqlDataSource ID="SqlDataSource12" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT distinct semesterID, (cast(semesterNumber as nvarchar(10))+' Semester') as semester FROM AcedamicInfo WHERE (courseID =@courseID)">
-                                     <SelectParameters>
-                                         <asp:SessionParameter Name="courseID" SessionField="statCourseID" />
-                                     </SelectParameters>
-                                 </asp:SqlDataSource>
+                            <td>
+                                <asp:DropDownList ID="DropDownList2" runat="server" AppendDataBoundItems="True" DataSourceID="SqlDataSource12" DataTextField="semester" DataValueField="semesterID" AutoPostBack="True" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
+                                    <asp:ListItem Text="--Select Module--" Value="-1"></asp:ListItem>
+                                </asp:DropDownList>
+                                <br />
+                                <asp:SqlDataSource ID="SqlDataSource12" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT distinct semesterID, (cast(semesterNumber as nvarchar(10))+' Semester') as semester FROM AcedamicInfo WHERE (courseID =@courseID)">
+                                    <SelectParameters>
+                                        <asp:SessionParameter Name="courseID" SessionField="statCourseID" />
+                                    </SelectParameters>
+                                </asp:SqlDataSource>
                             </td>
                         </tr>
-                       
+
                         <tr>
                             <td colspan="2">
                                 <asp:Label ID="Label4" runat="server"></asp:Label>
                             </td>
-                           
+
                         </tr>
                         <tr>
                             <td colspan="2">
                                 <asp:GridView ID="GridView5" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource13" OnRowDataBound="GridView5_RowDataBound">
                                     <Columns>
-                                        <asp:BoundField DataField="indexNo" HeaderText="Index No"   />
+                                        <asp:BoundField DataField="indexNo" HeaderText="Index No" />
                                         <asp:BoundField DataField="name" HeaderText="Name" />
                                         <asp:TemplateField HeaderText="SGPA">
                                             <ItemTemplate>
@@ -170,7 +210,7 @@ group by  ResultMapping.result ">
                                     </SelectParameters>
                                 </asp:SqlDataSource>
                             </td>
-                           
+
                         </tr>
                         <tr>
                             <td>
@@ -190,7 +230,7 @@ group by  ResultMapping.result ">
                             <td>
                                 <asp:Chart ID="Chart2" runat="server" DataSourceID="SqlDataSource6" Height="232px" OnPrePaint="Chart1_PrePaint" Palette="EarthTones" Width="224px">
                                     <Series>
-                                        <asp:Series Name="Series1"  IsValueShownAsLabel="true" ShadowColor="Transparent" IsXValueIndexed="true" XValueMember="GPARange" YValueMembers="stdCount">
+                                        <asp:Series Name="Series1" IsValueShownAsLabel="true" ShadowColor="Transparent" IsXValueIndexed="true" XValueMember="GPARange" YValueMembers="stdCount">
                                         </asp:Series>
                                     </Series>
                                     <ChartAreas>
@@ -206,20 +246,20 @@ group by  ResultMapping.result ">
                 </asp:View>
                 <asp:View ID="View3" runat="server">
 
- <table style="width: 100%;">
-                    
-                       
+                    <table style="width: 100%;">
+
+
                         <tr>
                             <td colspan="2">
-                                <asp:Label ID="Label7"  Text="Overrall Reuslts" runat="server"></asp:Label>
+                                <asp:Label ID="Label7" Text="Overrall Reuslts" runat="server"></asp:Label>
                             </td>
-                           
+
                         </tr>
                         <tr>
                             <td colspan="2">
                                 <asp:GridView ID="GridView3" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource5" OnRowDataBound="GridView3_RowDataBound">
                                     <Columns>
-                                        <asp:BoundField DataField="indexNo" HeaderText="Index No"   />
+                                        <asp:BoundField DataField="indexNo" HeaderText="Index No" />
                                         <asp:BoundField DataField="name" HeaderText="Name" />
                                         <asp:TemplateField HeaderText="GPA">
                                             <ItemTemplate>
@@ -242,7 +282,7 @@ group by  ResultMapping.result ">
                                     </SelectParameters>
                                 </asp:SqlDataSource>
                             </td>
-                           
+
                         </tr>
                         <tr>
                             <td>
@@ -261,7 +301,7 @@ group by  ResultMapping.result ">
                             <td>
                                 <asp:Chart ID="Chart4" runat="server" DataSourceID="SqlDataSource7" Height="232px" OnPrePaint="Chart1_PrePaint" Palette="EarthTones" Width="224px">
                                     <Series>
-                                        <asp:Series Name="Series1"  IsValueShownAsLabel="true" ShadowColor="Transparent" IsXValueIndexed="true" XValueMember="GPARange" YValueMembers="stdCount">
+                                        <asp:Series Name="Series1" IsValueShownAsLabel="true" ShadowColor="Transparent" IsXValueIndexed="true" XValueMember="GPARange" YValueMembers="stdCount">
                                         </asp:Series>
                                     </Series>
                                     <ChartAreas>
@@ -275,13 +315,12 @@ group by  ResultMapping.result ">
 
                 </asp:View>
                 <asp:View ID="View4" runat="server">
-                    <table style="width:100%;">
+                    <table style="width: 100%;">
                         <tr>
-                            <td>
-                                Select Course</td>
+                            <td>Select Course</td>
                             <td>
                                 <asp:DropDownList ID="DropDownList3" AppendDataBoundItems="true" runat="server" DataSourceID="SqlDataSource16" DataTextField="name" DataValueField="courseID" AutoPostBack="True" OnSelectedIndexChanged="DropDownList3_SelectedIndexChanged">
-                                <asp:ListItem Text="--Select Course--" Value="-1"></asp:ListItem>
+                                    <asp:ListItem Text="--Select Course--" Value="-1"></asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource16" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="spGetPreviousCourses" SelectCommandType="StoredProcedure">
                                     <SelectParameters>
@@ -289,11 +328,10 @@ group by  ResultMapping.result ">
                                     </SelectParameters>
                                 </asp:SqlDataSource>
                             </td>
-                           
+
                         </tr>
                         <tr>
-                            <td>
-                                Select Semester</td>
+                            <td>Select Semester</td>
                             <td>
                                 <asp:DropDownList AppendDataBoundItems="True" ID="DropDownList4" runat="server" DataSourceID="SqlDataSource17" DataTextField="semester" DataValueField="semesterID" Height="16px" AutoPostBack="True" OnSelectedIndexChanged="DropDownList4_SelectedIndexChanged">
                                     <asp:ListItem Text="--Select Semester--" Value="-1"></asp:ListItem>
@@ -305,14 +343,13 @@ group by  ResultMapping.result ">
                                     </SelectParameters>
                                 </asp:SqlDataSource>
                             </td>
-                            
+
                         </tr>
-                         <tr>
-                            <td>
-                                Select Module</td>
+                        <tr>
+                            <td>Select Module</td>
                             <td>
                                 <asp:DropDownList ID="DropDownList5" AppendDataBoundItems="true" runat="server" DataSourceID="SqlDataSource18" DataTextField="name" DataValueField="moduleCode" AutoPostBack="True" OnSelectedIndexChanged="DropDownList5_SelectedIndexChanged">
-                                 <asp:ListItem Text="--Select Module--" Value="-1"></asp:ListItem>
+                                    <asp:ListItem Text="--Select Module--" Value="-1"></asp:ListItem>
                                 </asp:DropDownList>
                                 <br />
                                 <asp:SqlDataSource ID="SqlDataSource18" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT Module.name, Module.moduleCode FROM Semester_Module INNER JOIN Module ON Semester_Module.moduleCode = Module.moduleCode WHERE (Semester_Module.semesterID = @semesterID)">
@@ -320,17 +357,17 @@ group by  ResultMapping.result ">
                                         <asp:ControlParameter ControlID="DropDownList4" Name="semesterID" PropertyName="SelectedValue" />
                                     </SelectParameters>
                                 </asp:SqlDataSource>
-                             </td>
-                            
+                            </td>
+
                         </tr>
                         <tr>
                             <td colspan="2">
                                 <asp:Label ID="Label8" runat="server"></asp:Label>
                             </td>
-                            
+
                         </tr>
-                         <tr>
-                            <td >
+                        <tr>
+                            <td>
                                 <asp:GridView ID="GridView7" runat="server" AutoGenerateColumns="False" DataKeyNames="result" DataSourceID="SqlDataSource15">
                                     <Columns>
                                         <asp:BoundField DataField="result" HeaderText="Grade" ReadOnly="True" SortExpression="result" />
@@ -349,19 +386,19 @@ group by  ResultMapping.result ">
                                         <asp:ControlParameter ControlID="DropDownList5" Name="moduleCode" PropertyName="SelectedValue" />
                                     </SelectParameters>
                                 </asp:SqlDataSource>
-                             </td>
-                           <td >
-                               <asp:Chart ID="Chart5" runat="server" DataSourceID="SqlDataSource15" OnPrePaint="Chart5_PrePaint" Palette="EarthTones">
-                                   <Series>
-                                       <asp:Series Name="Series1" IsValueShownAsLabel="true" ChartType="Pie" XValueMember="result" YValueMembers="NumOfStudents">
-                                       </asp:Series>
-                                   </Series>
-                                   <ChartAreas>
-                                       <asp:ChartArea Name="ChartArea1">
-                                       </asp:ChartArea>
-                                   </ChartAreas>
-                               </asp:Chart>
-                             </td>
+                            </td>
+                            <td>
+                                <asp:Chart ID="Chart5" runat="server" DataSourceID="SqlDataSource15" OnPrePaint="Chart5_PrePaint" Palette="EarthTones">
+                                    <Series>
+                                        <asp:Series Name="Series1" IsValueShownAsLabel="true" ChartType="Pie" XValueMember="result" YValueMembers="NumOfStudents">
+                                        </asp:Series>
+                                    </Series>
+                                    <ChartAreas>
+                                        <asp:ChartArea Name="ChartArea1">
+                                        </asp:ChartArea>
+                                    </ChartAreas>
+                                </asp:Chart>
+                            </td>
                         </tr>
                     </table>
                 </asp:View>

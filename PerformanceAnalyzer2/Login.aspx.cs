@@ -111,6 +111,8 @@ namespace PerformanceAnalyzer2
 
         protected void Button3_Click(object sender, EventArgs e)
         {
+
+
             if (FileUpload1.HasFile)
             {
                 String extension = System.IO.Path.GetExtension(FileUpload1.FileName);

@@ -6,6 +6,33 @@
         <asp:MenuItem Text="Edit Profile" NavigateUrl="~/PresentationLayer/Student/EditProfileView.aspx"></asp:MenuItem>
         </Items>
     </asp:Menu>
+
+
+    <div class="sidebar-nav" id="sidebar">
+                <div class="navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <span class="visible-xs navbar-brand"></span>
+                    </div>
+                    <div class="navbar-collapse collapse sidebar-navbar-collapse">
+
+                        <ul class="nav navbar-nav">
+                            <li><a href="../../PresentationLayer/Admin/ViewProfileView.aspx">View Profile</a></li>
+                            <li><a href="../../PresentationLayer/Admin/EditProfileView.aspx">Edit Profile</a></li>
+
+                        </ul>
+
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <p>
@@ -21,7 +48,7 @@
                 <asp:BoundField DataField="userName" HeaderText="User name" />
                 <asp:BoundField DataField="email" HeaderText="E-mail" />
                 <asp:BoundField DataField="linkedin" HeaderText="Linkedin" />
-           <asp:BoundField DataField="indexNo" HeaderText="" />
+           <asp:BoundField DataField="indexNo" HeaderText="Index No" />
                 <asp:BoundField DataField="universityName" HeaderText="University" />
                 <asp:BoundField DataField="facultyName" HeaderText="Faculty" />
                 <asp:BoundField DataField="departmentName" HeaderText="Department" />

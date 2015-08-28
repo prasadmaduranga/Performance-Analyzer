@@ -5,51 +5,69 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
+
+
+
+
             <asp:Panel ID="Panel1" runat="server">
-                <asp:Panel ID="Panel2" runat="server" GroupingText="Comparison Group">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Comparison Group</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td>
+                                    <asp:RadioButton ID="RadioButton1" runat="server" GroupName="groupType" Text="Batch Vs. Me" AccessKey="1" AutoPostBack="True" OnCheckedChanged="ActivateMultiViewIndex" /></td>
 
-                    <table style="width: 100%;">
-                        <tr>
-                            <td>
-                                <asp:RadioButton ID="RadioButton1" runat="server" GroupName="groupType" Text="Batch Vs. Me" AccessKey="1" AutoPostBack="True" OnCheckedChanged="ActivateMultiViewIndex" /></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:RadioButton ID="RadioButton2" runat="server" GroupName="groupType" Text="Individual Vs. Me" AccessKey="2" AutoPostBack="True" OnCheckedChanged="ActivateMultiViewIndex" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:RadioButton ID="RadioButton3" runat="server" GroupName="groupType" Text="Other" AccessKey="3" AutoPostBack="True" OnCheckedChanged="ActivateMultiViewIndex" />
+                                </td>
 
-                        </tr>
-                        <tr>
-                            <td>
-                                <asp:RadioButton ID="RadioButton2" runat="server" GroupName="groupType" Text="Individual Vs. Me" AccessKey="2" AutoPostBack="True" OnCheckedChanged="ActivateMultiViewIndex" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <asp:RadioButton ID="RadioButton3" runat="server" GroupName="groupType" Text="Other" AccessKey="3" AutoPostBack="True" OnCheckedChanged="ActivateMultiViewIndex"/>
-                            </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Comparison Type</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td>
+                                    <asp:RadioButton ID="RadioButton4" runat="server" GroupName="level" Text="Module Level" AccessKey="4" AutoPostBack="True" OnCheckedChanged="ActivateMultiViewIndex" /></td>
 
-                        </tr>
-                    </table>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:RadioButton ID="RadioButton5" runat="server" GroupName="level" Text="Semester Level" AccessKey="5" AutoPostBack="True" OnCheckedChanged="ActivateMultiViewIndex" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:RadioButton ID="RadioButton6" runat="server" GroupName="level" Text="Overrall" AccessKey="6" AutoPostBack="True" OnCheckedChanged="ActivateMultiViewIndex" />
+                                </td>
 
-
-                </asp:Panel>
-                <asp:Panel ID="Panel3" runat="server" GroupingText="Comparison Type">
-                    <table style="width: 100%;">
-                        <tr>
-                            <td>
-                                <asp:RadioButton ID="RadioButton4" runat="server" GroupName="level" Text="Module Level" AccessKey="4" AutoPostBack="True" OnCheckedChanged="ActivateMultiViewIndex" /></td>
-
-                        </tr>
-                        <tr>
-                            <td>
-                                <asp:RadioButton ID="RadioButton5" runat="server" GroupName="level" Text="Semester Level" AccessKey="5" AutoPostBack="True" OnCheckedChanged="ActivateMultiViewIndex"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <asp:RadioButton ID="RadioButton6" runat="server" GroupName="level" Text="Overrall" AccessKey="6" AutoPostBack="True" OnCheckedChanged="ActivateMultiViewIndex"/>
-                            </td>
-
-                        </tr>
-                    </table>
-                </asp:Panel>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </asp:Panel>
+
+
+
+
+
+
+
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>
@@ -957,7 +975,7 @@ Member.userID!=@student1  AND
 
                         </tr>
                         <tr>
-                            <td colspan="2">
+                            <td colspan="2" style="height: 23px">
                                 <asp:Label ID="Label41" runat="server"></asp:Label>
                             </td>
 
@@ -1069,7 +1087,7 @@ Member.userID!=@student1  AND
                             </td>
 
                         </tr>
-                         <tr>
+                        <tr>
                             <td>
                                 <asp:Label ID="Label49" runat="server" Text="Select Second Student"></asp:Label>
                                 <td>
@@ -1091,7 +1109,7 @@ Member.userID!=@student1  AND
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:GridView ID="GridView14" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource29" OnRowDataBound="GridView14_RowDataBound" >
+                                <asp:GridView ID="GridView14" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource29" OnRowDataBound="GridView14_RowDataBound">
                                     <Columns>
                                         <asp:BoundField DataField="name" />
                                         <asp:TemplateField HeaderText="GPA">
@@ -1119,7 +1137,7 @@ Member.userID!=@student1  AND
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:GridView ID="GridView15" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource30" OnRowDataBound="GridView15_RowDataBound" >
+                                <asp:GridView ID="GridView15" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource30" OnRowDataBound="GridView15_RowDataBound">
                                     <Columns>
                                         <asp:BoundField DataField="semester" HeaderText="semester" />
                                         <asp:TemplateField HeaderText="Me">
@@ -1146,11 +1164,11 @@ Member.userID!=@student1  AND
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:Chart ID="Chart9" runat="server" DataSourceID="SqlDataSource30"  style="margin-right: 4px" Width="555px" OnLoad="Chart9_Load" OnPrePaint="Chart9_PrePaint">
+                                <asp:Chart ID="Chart9" runat="server" DataSourceID="SqlDataSource30" Style="margin-right: 4px" Width="555px" OnLoad="Chart9_Load" OnPrePaint="Chart9_PrePaint">
                                     <Series>
                                         <asp:Series ChartType="Line" Name="Series1" BorderWidth="3" IsValueShownAsLabel="True" XValueMember="semester" YValueMembers="mySGPA">
                                         </asp:Series>
-                                        <asp:Series ChartType="Line" Name="Series2" BorderWidth="3" IsValueShownAsLabel="True"  XValueMember="semester" YValueMembers="studentSGPA">
+                                        <asp:Series ChartType="Line" Name="Series2" BorderWidth="3" IsValueShownAsLabel="True" XValueMember="semester" YValueMembers="studentSGPA">
                                         </asp:Series>
 
                                     </Series>

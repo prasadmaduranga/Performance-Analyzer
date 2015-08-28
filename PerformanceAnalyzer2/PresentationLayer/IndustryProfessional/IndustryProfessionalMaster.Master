@@ -5,22 +5,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    
+    <link href="../../bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>--%>
+    <script src="../../bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../../bootstrap-3.3.5-dist/js/jquery.js"></script>
+    <link href="../../bootstrap-3.3.5-dist/css/Custom.css" rel="stylesheet" />
 </head>
 <body>
-      <form id="form1" runat="server">
-        <table style="width: 100%;">
+    <form id="form1" runat="server"  style="padding-left: 5%; padding-right: 5%; padding-top: 1%;">
+        <%--<table style="width: 100%;">
             <tr>
                 <td colspan="2">
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
                             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                             
+
                                 <ContentTemplate>
                                     <asp:ScriptManager ID="ScriptManager1" runat="server">
                                     </asp:ScriptManager>
                                 </ContentTemplate>
-                             
+
                             </asp:UpdatePanel>
                         </ContentTemplate>
                     </asp:UpdatePanel>
@@ -29,30 +33,31 @@
             </tr>
             <tr>
 
-               
-                    <td rowspan="2">
-                        <div style="border:solid">
-                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                                <br />
-                            </asp:ContentPlaceHolder>
-                        </div>
-                    </td>
+
+                <td rowspan="2">
+                    <div style="border: solid">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            <br />
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </td>
 
 
 
-                <td style="border:solid">
+                <td style="border: solid">
 
-                    <asp:Menu ID="Menu1" runat="server" StaticMenuItemStyle-BorderStyle="Solid"  Orientation="Horizontal">
+                    <asp:Menu ID="Menu1" runat="server" StaticMenuItemStyle-BorderStyle="Solid" Orientation="Horizontal">
                         <Items>
+                            <asp:MenuItem Text="Home" NavigateUrl="~/PresentationLayer/IndustryProfessional/Home.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Profile" NavigateUrl="~/PresentationLayer/IndustryProfessional/ViewProfileView.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Search Courses" NavigateUrl="~/PresentationLayer/IndustryProfessional/CourseList.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Statistics" NavigateUrl="~/PresentationLayer/IndustryProfessional/Statistics.aspx"></asp:MenuItem>
-                           
-                            
+
+
                         </Items>
 
                     </asp:Menu>
-                    <table style="width:auto;">
+                    <table style="width: auto;">
                         <tr>
                             <td>
                                 <asp:ImageButton ID="ImageButton1" runat="server" Height="19px" OnClick="ImageButton1_Click" Width="21px" />
@@ -65,12 +70,12 @@
 
                     </table>
                 </td>
- 
+
             </tr>
             <tr>
-              
-                <td >
-                    <div style="border:solid">
+
+                <td>
+                    <div style="border: solid">
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
                             <p>
                                 <br />
@@ -79,7 +84,7 @@
                     </div>
 
                 </td>
-             
+
             </tr>
             <tr>
                 <td colspan="2">
@@ -87,7 +92,178 @@
                 </td>
 
             </tr>
-        </table>
+        </table>--%>
+
+        <%--<div class="row">
+            <div class="col-sm-12" style="border: solid">
+
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+
+                            <ContentTemplate>
+                                <asp:ScriptManager ID="ScriptManager1" runat="server">
+                                </asp:ScriptManager>
+                            </ContentTemplate>
+
+                        </asp:UpdatePanel>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+            </div>
+
+        </div>
+        <div class="row">
+
+
+            <div class="col-sm-9" style="border: solid">
+
+
+
+                <asp:Menu ID="Menu1" runat="server" StaticMenuItemStyle-BorderStyle="Solid" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem Text="Home" NavigateUrl="~/PresentationLayer/IndustryProfessional/Home.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Profile" NavigateUrl="~/PresentationLayer/IndustryProfessional/ViewProfileView.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Search Courses" NavigateUrl="~/PresentationLayer/IndustryProfessional/CourseList.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Statistics" NavigateUrl="~/PresentationLayer/IndustryProfessional/Statistics.aspx"></asp:MenuItem>
+
+
+                    </Items>
+
+<StaticMenuItemStyle BorderStyle="Solid"></StaticMenuItemStyle>
+                    <StaticSelectedStyle CssClass="active" />
+
+                </asp:Menu>
+            </div>
+            <div class="col-sm-3" style="border: solid; padding-right: 10px">
+                <table>
+                    <tr>
+                        <td>
+                            <asp:ImageButton ID="ImageButton1" runat="server" Height="38px" OnClick="ImageButton1_Click" Width="38px" />
+                        </td>
+                        <td>
+                            <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click"></asp:LinkButton></td>
+                        <td>
+                            <asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click"></asp:LinkButton></td>
+                    </tr>
+
+                </table>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-3" style="border: solid; min-height: 470px;">
+                <div style="border: solid">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        <br />
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+            <div class="col-sm-9" style="border: solid; min-height: 470px;">
+                <div style="border: solid">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                        <p>
+                            <br />
+                        </p>
+                    </asp:ContentPlaceHolder>
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="row" style="border: solid">
+            <div class="col-sm-12">
+                <br />
+            </div>
+
+        </div>--%>
+
+        <div class="row">
+            <div class="col-sm-12" >
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+
+                            <ContentTemplate>
+                                <asp:ScriptManager ID="ScriptManager1" runat="server">
+                                </asp:ScriptManager>
+                            </ContentTemplate>
+
+                        </asp:UpdatePanel>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+            </div>
+
+        </div>
+        <div class="row ">
+
+
+
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <asp:ImageButton ID="ImageButton2" runat="server" Height="50px" Width="50px" ImageUrl="~/Images/Prasad.jpg"/>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="../../PresentationLayer/IndustryProfessional/Home.aspx">Home <span class="sr-only">(current)</span></a></li>
+                            <li><a href="../../PresentationLayer/IndustryProfessional/ViewProfileView.aspx">Profile</a></li>
+                            <li><a href="../../PresentationLayer/IndustryProfessional/CourseList.aspx">Search Courses</a></li>
+                            <li><a href="../../PresentationLayer/IndustryProfessional/Statistics.aspx">Statistics</a></li>
+                         
+                        </ul>
+
+
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <asp:ImageButton ID="ImageButton1" runat="server" Height="38px" OnClick="ImageButton1_Click" Width="38px" /></li>
+                            <li>
+                                <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click"></asp:LinkButton></li>
+                            <li>
+                                <asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click"></asp:LinkButton></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+
+        </div>
+        <div class="row">
+            <div class="col-sm-3" style="border: solid; min-height: 470px;">
+                <div style="border: solid">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        <br />
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+            <div class="col-sm-9" style="border: solid; min-height: 470px;">
+                <div style="border: solid">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                        <p>
+                            <br />
+                        </p>
+                    </asp:ContentPlaceHolder>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row" style="border: solid">
+            <div class="col-sm-12">
+                <br />
+            </div>
+
+        </div>
+
+
     </form>
 </body>
 </html>

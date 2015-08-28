@@ -63,7 +63,7 @@ where Course.courseID=@courseID">
                                 <td>
                                     <asp:FileUpload ID="FileUpload1" runat="server" /> </td>
                                  <td>
-                                     <asp:Button ID="Button1" runat="server" Text="Upload" /></td>
+                                     <asp:Button ID="Button1" runat="server" Text="Upload" OnClick="Button1_Click" /></td>
                             </tr>
                         </table>
 
@@ -114,6 +114,7 @@ where Course.courseID=@courseID">
 
                             </asp:DropDownList>
                             <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT [result], [GPA] FROM [ResultMapping]"></asp:SqlDataSource>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="DropDownList3" ErrorMessage="*Required" ForeColor="Red" InitialValue="-1"></asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label2" runat="server" Text='<%# Bind("result") %>'></asp:Label>

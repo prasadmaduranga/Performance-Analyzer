@@ -10,6 +10,10 @@
                 <asp:ListItem Text="Student Details" Value="5"></asp:ListItem>
 
             </asp:RadioButtonList>
+
+
+
+           
         </ContentTemplate>
     </asp:UpdatePanel>
 
@@ -489,7 +493,7 @@ group by  ResultMapping.result ">
                                                                     </InsertItemTemplate>
                                                                     <ItemTemplate>
                                                                         <asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" Text='<%# Eval("linkedin") %>' NavigateUrl='<%# Eval("linkedin") %>'></asp:HyperLink>
-                                                                       <%-- <asp:Label ID="Label11" runat="server" Text='<%# Eval("linkedin") %>'></asp:Label>--%>
+                                                                        <%-- <asp:Label ID="Label11" runat="server" Text='<%# Eval("linkedin") %>'></asp:Label>--%>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
                                                                 <asp:BoundField DataField="userID" HeaderText="userID" InsertVisible="False" ReadOnly="True" SortExpression="userID" Visible="False" />

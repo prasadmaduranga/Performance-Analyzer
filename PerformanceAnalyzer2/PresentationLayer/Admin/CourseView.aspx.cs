@@ -198,6 +198,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
             this.setGriview2(GridView1.SelectedValue.ToString());
             DetailsView2.DataBind();
             UpdatePanel3.Update();
+          
         }
         protected void GridView3_RowEditing(object sender, GridViewEditEventArgs e)
         {
@@ -229,6 +230,11 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
 
         }
         protected void GridView3_RowUpdated(object sender, GridViewUpdatedEventArgs e)
+        {
+
+        }
+
+        protected void DetailsView2_PreRender(object sender, EventArgs e)
         {
 
         }

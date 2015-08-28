@@ -106,15 +106,15 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
         protected void DetailsView1_ItemInserting(object sender, DetailsViewInsertEventArgs e)
         {
             //string name = ((DropDownList)(DetailsView1.Rows[0].Cells[1].FindControl("DropDownList1"))).SelectedValue.ToString();
-            string name = ((TextBox)(DetailsView1.Rows[0].Cells[1].Controls[0])).Text;
-            string batch = ((DropDownList)(DetailsView1.Rows[1].Cells[1].FindControl("DropDownList1"))).SelectedValue.ToString();
+            string name = ((TextBox)(DetailsView1.Rows[0].Cells[1].FindControl("TextBox1"))).Text;
+            string batch = ((DropDownList)(DetailsView1.Rows[1].Cells[1].FindControl("DropDownList7"))).SelectedValue.ToString();
             string universityID = ((DropDownList)(DetailsView1.Rows[2].Cells[1].FindControl("DropDownList2"))).SelectedValue.ToString();
             string facID = ((DropDownList)(DetailsView1.Rows[3].Cells[1].FindControl("DropDownList3"))).SelectedValue.ToString();
             string deptID = ((DropDownList)(DetailsView1.Rows[4].Cells[1].FindControl("DropDownList4"))).SelectedValue.ToString();
-            int studentCount = Convert.ToInt32(((TextBox)(DetailsView1.Rows[5].Cells[1].Controls[0])).Text);
-            int yearCount = Convert.ToInt32(((TextBox)(DetailsView1.Rows[6].Cells[1].Controls[0])).Text);
+            int studentCount = Convert.ToInt32(((TextBox)(DetailsView1.Rows[5].Cells[1].FindControl("TextBox2"))).Text);
+            int yearCount = Convert.ToInt32(((TextBox)(DetailsView1.Rows[6].Cells[1].Controls[0].FindControl("TextBox3"))).Text);
 
-            int semesterCount = Convert.ToInt32(((TextBox)(DetailsView1.Rows[7].Cells[1].Controls[0])).Text);
+            int semesterCount = Convert.ToInt32(((TextBox)(DetailsView1.Rows[7].Cells[1].Controls[0].FindControl("TextBox4"))).Text);
 
             AdminLogic.insertBasicCourseInfo(Session["userID"], name, batch, universityID, facID, deptID,semesterCount,studentCount,yearCount);
 

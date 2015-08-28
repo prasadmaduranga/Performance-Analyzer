@@ -7,6 +7,8 @@
                 <asp:ListItem Selected="True" Value="1">My Course List</asp:ListItem>
                 <asp:ListItem Value="2">Search Courses</asp:ListItem>
             </asp:RadioButtonList>
+
+
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>

@@ -865,6 +865,9 @@
   <Function Name="spGetModuleInfoBySemesterNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="semesterID" Type="int" Mode="In" />
   </Function>
+  <Function Name="spGetModuleInfoBySemesterNew2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="semesterID" Type="int" Mode="In" />
+  </Function>
   <Function Name="spGetModulesBySemester" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="semesterID" Type="int" Mode="In" />
   </Function>

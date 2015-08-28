@@ -492,5 +492,18 @@
     <FunctionImportMapping FunctionImportName="spLoginFinal" FunctionName="PerformanceAnalyzerModel.Store.spLoginFinal" />
     <FunctionImportMapping FunctionImportName="spCreateUserNew3" FunctionName="PerformanceAnalyzerModel.Store.spCreateUserNew3" />
     <FunctionImportMapping FunctionImportName="spSetCommonPasswordNew" FunctionName="PerformanceAnalyzerModel.Store.spSetCommonPasswordNew" />
+    <FunctionImportMapping FunctionImportName="spGetModuleInfoBySemesterNew2" FunctionName="PerformanceAnalyzerModel.Store.spGetModuleInfoBySemesterNew2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetModuleInfoBySemesterNew2_Result">
+          <ScalarProperty Name="semesterID" ColumnName="semesterID" />
+          <ScalarProperty Name="moduleCode" ColumnName="moduleCode" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="GPA" ColumnName="GPA" />
+          <ScalarProperty Name="credits" ColumnName="credits" />
+          <ScalarProperty Name="compulary" ColumnName="compulary" />
+          <ScalarProperty Name="lecturerName" ColumnName="lecturerName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

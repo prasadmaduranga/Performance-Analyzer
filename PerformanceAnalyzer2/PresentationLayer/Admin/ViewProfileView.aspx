@@ -1,11 +1,31 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PresentationLayer/Admin/CourseAminMaster.Master" AutoEventWireup="true" CodeBehind="ViewProfileView.aspx.cs" Inherits="PerformanceAnalyzer2.PresentationLayer.Admin.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Menu ID="Menu1" runat="server">
-        <Items>
-            <asp:MenuItem Text="View Profile" NavigateUrl="~/PresentationLayer/Admin/ViewProfileView.aspx"></asp:MenuItem>
-        <asp:MenuItem Text="Edit Profile" NavigateUrl="~/PresentationLayer/Admin/EditProfileView.aspx"></asp:MenuItem>
-        </Items>
-    </asp:Menu>
+    
+
+    <div class="sidebar-nav" id="sidebar">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="visible-xs navbar-brand"></span>
+        </div>
+        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+          
+          <ul class="nav navbar-nav">
+            <li ><a href="../../PresentationLayer/Admin/ViewProfileView.aspx">View Profile</a></li>
+            <li><a href="../../PresentationLayer/Admin/EditProfileView.aspx">Edit Profile</a></li>
+           
+          </ul>
+                 
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <p>

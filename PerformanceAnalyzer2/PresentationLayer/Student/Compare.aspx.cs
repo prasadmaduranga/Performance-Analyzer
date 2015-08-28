@@ -25,7 +25,11 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
 
             if (!IsPostBack)
             {
-                MultiView1.ActiveViewIndex = 9;
+                
+
+                
+                    MultiView1.ActiveViewIndex = 9;
+               
             }
 
         }
@@ -78,7 +82,16 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
             MultiView1.ActiveViewIndex = 7;
 
         }
-
+        private void ActivateView8(int uid)
+        {
+            Chart8.Visible = false;
+            Label42.Visible = false;
+            Label43.Visible = false;
+            GridView12.Visible = false;
+            GridView13.Visible = false;
+            MultiView1.ActiveViewIndex = 7;
+            DropDownList15.SelectedValue = uid.ToString();
+        }
         private void ActivateView7()
         {
             View7_DataBind();

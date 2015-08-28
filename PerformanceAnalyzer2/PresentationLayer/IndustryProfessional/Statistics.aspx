@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PresentationLayer/IndustryProfessional/IndustryProfessionalMaster.Master" AutoEventWireup="true" CodeBehind="Statistics.aspx.cs" Inherits="PerformanceAnalyzer2.PresentationLayer.IndustryProfessional.WebForm3" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
@@ -6,8 +7,13 @@
                 <asp:ListItem Text="Module Level" Value="1"></asp:ListItem>
                 <asp:ListItem Text="Semester Level" Value="2"></asp:ListItem>
                 <asp:ListItem Text="Overall" Value="3"></asp:ListItem>
-                 <asp:ListItem Text="Student Details" Value="5"></asp:ListItem>
+                <asp:ListItem Text="Student Details" Value="5"></asp:ListItem>
             </asp:RadioButtonList>
+
+          
+
+
+
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>
@@ -486,7 +492,7 @@ group by  ResultMapping.result ">
                                                                     </InsertItemTemplate>
                                                                     <ItemTemplate>
                                                                         <asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" Text='<%# Eval("linkedin") %>' NavigateUrl='<%# Eval("linkedin") %>'></asp:HyperLink>
-                                                                       <%-- <asp:Label ID="Label11" runat="server" Text='<%# Eval("linkedin") %>'></asp:Label>--%>
+                                                                        <%-- <asp:Label ID="Label11" runat="server" Text='<%# Eval("linkedin") %>'></asp:Label>--%>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
                                                                 <asp:BoundField DataField="userID" HeaderText="userID" InsertVisible="False" ReadOnly="True" SortExpression="userID" Visible="False" />

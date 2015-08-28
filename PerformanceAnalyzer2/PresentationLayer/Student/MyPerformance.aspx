@@ -3,13 +3,12 @@
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <asp:Panel ID="Panel1" runat="server">
-                <asp:Panel ID="Panel2" runat="server" GroupingText="Comparison Group">
-
-                    
-
-
-                </asp:Panel>
-                <asp:Panel ID="Panel3" runat="server" GroupingText="Comparison Type">
+                
+                 <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Comparison Type</h3>
+                    </div>
+                    <div class="panel-body">
                     <table style="width: 100%;">
                         
                         <tr>
@@ -24,8 +23,41 @@
 
                         </tr>
                     </table>
-                </asp:Panel>
+
+
+                    </div>
+                </div>
+
             </asp:Panel>
+
+
+
+
+            <div class="sidebar-nav" id="sidebar">
+                <div class="navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <span class="visible-xs navbar-brand"></span>
+                    </div>
+                    <div class="navbar-collapse collapse sidebar-navbar-collapse">
+
+                        <ul class="nav navbar-nav">
+                            <li><a href="../../PresentationLayer/Admin/ViewProfileView.aspx">View Profile</a></li>
+                            <li><a href="../../PresentationLayer/Admin/EditProfileView.aspx">Edit Profile</a></li>
+
+                        </ul>
+
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+
+
         </ContentTemplate>
     </asp:UpdatePanel>
 

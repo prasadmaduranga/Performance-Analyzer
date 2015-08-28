@@ -31,15 +31,6 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student {
         protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
-        /// Panel2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel2;
-        
-        /// <summary>
         /// RadioButton1 control.
         /// </summary>
         /// <remarks>
@@ -65,15 +56,6 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton RadioButton3;
-        
-        /// <summary>
-        /// Panel3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel3;
         
         /// <summary>
         /// RadioButton4 control.

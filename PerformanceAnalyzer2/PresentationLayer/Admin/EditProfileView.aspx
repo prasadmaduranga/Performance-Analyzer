@@ -1,28 +1,102 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PresentationLayer/Admin/CourseAminMaster.Master" AutoEventWireup="true" CodeBehind="EditProfileView.aspx.cs" Inherits="PerformanceAnalyzer2.PresentationLayer.Admin.WebForm2" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Menu ID="Menu1" runat="server">
-        <Items>
-            <asp:MenuItem Text="View Profile" NavigateUrl="~/PresentationLayer/Admin/ViewProfileView.aspx"></asp:MenuItem>
-        <asp:MenuItem Text="Edit Profile" NavigateUrl="~/PresentationLayer/Admin/EditProfileView.aspx"></asp:MenuItem>
-        </Items>
-    </asp:Menu>
+    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+        <ContentTemplate>
+
+            <%--<asp:Menu ID="Menu1" runat="server">
+                <Items>
+                    <asp:MenuItem Text="View Profile" NavigateUrl="~/PresentationLayer/Admin/ViewProfileView.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="Edit Profile" NavigateUrl="~/PresentationLayer/Admin/EditProfileView.aspx"></asp:MenuItem>
+                </Items>
+            </asp:Menu>--%>
+
+            <div class="sidebar-nav" id="sidebar">
+                <div class="navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <span class="visible-xs navbar-brand"></span>
+                    </div>
+                    <div class="navbar-collapse collapse sidebar-navbar-collapse">
+
+                        <ul class="nav navbar-nav">
+                            <li><a href="../../PresentationLayer/Admin/ViewProfileView.aspx">View Profile</a></li>
+                            <li><a href="../../PresentationLayer/Admin/EditProfileView.aspx">Edit Profile</a></li>
+
+
+                               
+                        </ul>
+
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+
+
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-
-    <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" DefaultMode="Edit" GridLines="Horizontal" Height="50px" Width="125px" AutoGenerateEditButton="True" OnItemUpdated="DetailsView1_ItemUpdated" OnItemUpdating="DetailsView1_ItemUpdating" DataKeyNames="userID">
-        <AlternatingRowStyle BackColor="#F7F7F7" />
-        <EditRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
-        <Fields>
-                <asp:BoundField DataField="userID"  ReadOnly="true" HeaderText="User ID" />
-                <asp:BoundField DataField="userName" HeaderText="User name" />
-                <asp:BoundField DataField="email" HeaderText="E-mail" />
-                <asp:BoundField DataField="linkedin" HeaderText="Linkedin" />
-                <asp:BoundField DataField="description" HeaderText="Description" />
-            </Fields>
-        <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
-        <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
-        <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
-        <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
-    </asp:DetailsView>
-
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="spGetMemberDetails" SelectCommandType="StoredProcedure" UpdateCommand="update member set userName=@userName,email=@email,linkedin=@linkedin where userID=@userID">
+                <SelectParameters>
+                    <asp:SessionParameter Name="userID" SessionField="userID" Type="Int32" />
+                </SelectParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="userName" />
+                    <asp:Parameter Name="email" />
+                    <asp:Parameter Name="linkedin" />
+                    <asp:Parameter Name="userID" />
+                </UpdateParameters>
+            </asp:SqlDataSource>
+            <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DefaultMode="Edit" Height="50px" Width="249px" AutoGenerateEditButton="True" OnItemUpdated="DetailsView1_ItemUpdated" OnItemUpdating="DetailsView1_ItemUpdating" DataKeyNames="userID">
+                <Fields>
+                    <asp:BoundField DataField="userID" ReadOnly="true" HeaderText="User ID" />
+                    <asp:TemplateField HeaderText="User name">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("userName") %>'></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="*Required" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </EditItemTemplate>
+                        <InsertItemTemplate>
+                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("userName") %>'></asp:TextBox>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("userName") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="E-mail">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("email") %>'></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextBox2" Display="Dynamic" ErrorMessage="*Invalid Email" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red"></asp:RegularExpressionValidator>
+                        </EditItemTemplate>
+                        <InsertItemTemplate>
+                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("email") %>'></asp:TextBox>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("email") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Linkedin">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("linkedin") %>'></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox3" ErrorMessage="*Required" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </EditItemTemplate>
+                        <InsertItemTemplate>
+                            <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("linkedin") %>'></asp:TextBox>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("linkedin") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Fields>
+            </asp:DetailsView>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>

@@ -92,7 +92,7 @@ namespace PerformanceAnalyzer2.BusinessLogicLayer
         public static object  getModuleBySemester(String semesterID) {
 
             PerformanceAnalyzerDataContext dataContext = new PerformanceAnalyzerDataContext();
-            var dataSet=dataContext.spGetModuleInfoBySemesterNew(Convert.ToInt32(semesterID));
+            var dataSet=dataContext.spGetModuleInfoBySemesterNew2(Convert.ToInt32(semesterID));
             return dataSet.ToList();
         }
         public static void deletemoduleBySemester(String semesterID,string moduleCode)

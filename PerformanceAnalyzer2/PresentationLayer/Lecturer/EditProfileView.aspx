@@ -46,13 +46,13 @@
                     <asp:Parameter Name="description" Type="String" />
                 </UpdateParameters>
             </asp:SqlDataSource>
-            <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DefaultMode="Edit" Height="50px" Width="249px" AutoGenerateEditButton="True" OnItemUpdated="DetailsView1_ItemUpdated" OnItemUpdating="DetailsView1_ItemUpdating" DataKeyNames="userID" DataSourceID="SqlDataSource1">
+            <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DefaultMode="Edit" Height="50px" Width="249px" AutoGenerateEditButton="True" OnItemUpdated="DetailsView1_ItemUpdated" OnItemUpdating="DetailsView1_ItemUpdating" DataKeyNames="userID" DataSourceID="SqlDataSource1" CssClass="table-condensed  table-striped  detailsView" HeaderText="Edit Prifile">
                 <Fields>
                     <asp:BoundField DataField="userID" ReadOnly="true" HeaderText="User ID" />
                     <asp:TemplateField HeaderText="User name">
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("userName") %>'></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="*Required" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="*Required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <InsertItemTemplate>
                             <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("userName") %>'></asp:TextBox>
@@ -77,7 +77,7 @@
                     <asp:TemplateField HeaderText="Linkedin">
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("linkedin") %>'></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox3" ErrorMessage="*Required" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox3" ErrorMessage="*Required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <InsertItemTemplate>
                             <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("linkedin") %>'></asp:TextBox>

@@ -32,6 +32,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.IndustryProfessional
                 SqlDataSource1.SelectParameters["courseIDin"].DefaultValue = GridView1.DataKeys[rowindex].Value.ToString();
                 DetailsView1.DataSource = SqlDataSource1;
                 DetailsView1.DataBind();
+                DetailsView1.Visible = true;
 
             }
             if (((LinkButton)e.CommandSource).Text.Equals("Unfollow"))

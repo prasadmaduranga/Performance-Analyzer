@@ -35,6 +35,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
            ((TextBox)DetailsView1.Rows[0].Cells[1].FindControl("TextBox1")).Text="";
              ((TextBox)DetailsView1.Rows[1].Cells[1].FindControl("TextBox2")).Text="";
              ((TextBox)DetailsView1.Rows[3].Cells[1].FindControl("TextBox3")).Text="";
+             Response.Redirect("NewModule.aspx");
         }
 
         protected void DetailsView1_PreRender(object sender, EventArgs e)

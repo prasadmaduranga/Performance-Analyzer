@@ -852,6 +852,9 @@
   <Function Name="spGetCourseInformationNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="courseID" Type="int" Mode="In" />
   </Function>
+  <Function Name="spGetCourseInformationNew2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="courseID" Type="int" Mode="In" />
+  </Function>
   <Function Name="spGetIndustryProfessionalData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="userID" Type="int" Mode="In" />
   </Function>

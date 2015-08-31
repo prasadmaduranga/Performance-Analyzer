@@ -307,6 +307,9 @@
     <FunctionImport Name="spGetModuleInfoBySemesterNew2" ReturnType="Collection(PerformanceAnalyzerModel.spGetModuleInfoBySemesterNew2_Result)">
       <Parameter Name="semesterID" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="spGetCourseInformationNew2" ReturnType="Collection(PerformanceAnalyzerModel.spGetCourseInformationNew2_Result)">
+      <Parameter Name="courseID" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="AcedemicYear">
     <Key>
@@ -998,5 +1001,13 @@
     <Property Type="Double" Name="credits" Nullable="true" />
     <Property Type="String" Name="compulary" Nullable="true" MaxLength="10" />
     <Property Type="String" Name="lecturerName" Nullable="false" MaxLength="60" />
+  </ComplexType>
+  <ComplexType Name="spGetCourseInformationNew2_Result">
+    <Property Type="Int32" Name="courseID" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="batch" Nullable="true" MaxLength="15" />
+    <Property Type="Int32" Name="universityName" Nullable="false" />
+    <Property Type="Int32" Name="facultyName" Nullable="false" />
+    <Property Type="Int32" Name="departmentName" Nullable="false" />
   </ComplexType>
 </Schema>

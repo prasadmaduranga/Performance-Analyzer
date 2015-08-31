@@ -62,7 +62,7 @@
                             </td>
                             <td>
 
-                                <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="292px" AutoGenerateRows="False" HeaderText="Course Details" Style="margin-left: 0px">
+                                <asp:DetailsView ID="DetailsView1" runat="server"  AutoGenerateRows="False" HeaderText="Course Details" Style="margin-left: 0px" CssClass="table-condensed  table-striped  detailsView">
                                     <Fields>
                                         <asp:BoundField DataField="name" HeaderText="Course" />
                                         <asp:BoundField DataField="batch" HeaderText="Batch" />
@@ -134,7 +134,7 @@
                             </td>
                             <td>
                                 <br />
-                                <asp:DetailsView ID="DetailsView2" runat="server" AutoGenerateRows="False" HeaderText="Course Details" Height="50px" Style="margin-left: 0px" Width="292px">
+                                <asp:DetailsView ID="DetailsView2" runat="server" AutoGenerateRows="False" HeaderText="Course Details"  CssClass="table-condensed  table-striped  detailsView">
                                     <Fields>
                                         <asp:BoundField DataField="name" HeaderText="Course" />
                                         <asp:BoundField DataField="batch" HeaderText="Batch" />

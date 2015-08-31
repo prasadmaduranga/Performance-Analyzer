@@ -505,5 +505,17 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetCourseInformationNew2" FunctionName="PerformanceAnalyzerModel.Store.spGetCourseInformationNew2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetCourseInformationNew2_Result">
+          <ScalarProperty Name="courseID" ColumnName="courseID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="batch" ColumnName="batch" />
+          <ScalarProperty Name="universityName" ColumnName="universityName" />
+          <ScalarProperty Name="facultyName" ColumnName="facultyName" />
+          <ScalarProperty Name="departmentName" ColumnName="departmentName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

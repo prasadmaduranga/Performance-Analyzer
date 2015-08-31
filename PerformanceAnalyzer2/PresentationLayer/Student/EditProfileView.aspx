@@ -52,13 +52,13 @@
                     <asp:Parameter Name="skills" Type="String" />
                 </UpdateParameters>
             </asp:SqlDataSource>
-            <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DefaultMode="Edit" Height="50px" Width="249px" AutoGenerateEditButton="True" OnItemUpdated="DetailsView1_ItemUpdated" OnItemUpdating="DetailsView1_ItemUpdating" DataKeyNames="userID" DataSourceID="SqlDataSource1" OnPageIndexChanging="DetailsView1_PageIndexChanging">
+            <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DefaultMode="Edit" Height="50px" Width="249px" AutoGenerateEditButton="True" OnItemUpdated="DetailsView1_ItemUpdated" OnItemUpdating="DetailsView1_ItemUpdating" DataKeyNames="userID" DataSourceID="SqlDataSource1" OnPageIndexChanging="DetailsView1_PageIndexChanging" CssClass="table-condensed  table-striped  detailsView" HeaderText="Edit Profile">
                 <Fields>
                     <asp:BoundField DataField="userID" ReadOnly="true" HeaderText="User ID" />
                     <asp:TemplateField HeaderText="User name">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("userName") %>'></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="*Required" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:TextBox ID="TextBox1"  runat="server" Text='<%# Bind("userName") %>'></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="*Required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <InsertItemTemplate>
                             <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("userName") %>'></asp:TextBox>

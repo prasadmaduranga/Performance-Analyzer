@@ -402,6 +402,9 @@
     <Compile Include="spGetAdminProfileInfo_Result.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="spGetCourseInformationNew2_Result.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="spGetCourseInformationNew_Result.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>

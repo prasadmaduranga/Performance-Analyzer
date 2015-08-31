@@ -27,7 +27,7 @@
             <asp:Menu ID="Menu1" runat="server" StaticMenuStyle-Width="100%" OnMenuItemClick="Menu2_MenuItemClick" StaticMenuStyle-CssClass="nav navbar-nav" class="navbar-collapse collapse sidebar-navbar-collapse">
 
                 <Items>
-                    <asp:MenuItem Text="Course Info"></asp:MenuItem>
+                    <asp:MenuItem Text="Course Info &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"></asp:MenuItem>
                     <asp:MenuItem Text="Module Info"></asp:MenuItem>
                     <asp:MenuItem Text="Student Info"></asp:MenuItem>
 
@@ -79,15 +79,12 @@
 
                         <tr>
                             <td colspan="2">
-                                <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="courseID" Height="50px" Width="303px" CellPadding="4" ForeColor="#333333" GridLines="None" OnItemUpdating="DetailsView1_ItemUpdating">
-                                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                                    <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
-                                    <EditRowStyle BackColor="#999999" />
-                                    <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" />
+                                <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="courseID"   OnItemUpdating="DetailsView1_ItemUpdating" CssClass="table-condensed table-striped  detailsView" HeaderText="Edit Course Info" DefaultMode="Edit" AutoGenerateEditButton="True" >
                                     <Fields>
                                         <asp:TemplateField HeaderText="Course name">
                                             <EditItemTemplate>
                                                 <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("name") %>'></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red"></asp:RequiredFieldValidator>
                                             </EditItemTemplate>
 
                                             <ItemTemplate>
@@ -97,19 +94,22 @@
                                         <asp:TemplateField HeaderText="Batch">
                                             <EditItemTemplate>
                                                 <asp:DropDownList ID="DropDownList5" runat="server" SelectedValue='<%# Eval("batch") %>'>
-
+                                                     <asp:ListItem Value="-1" Selected="True">--Select Batch--</asp:ListItem>
+                                                                                                        <asp:ListItem>2009</asp:ListItem>
+                                                   
                                                     <asp:ListItem>2009</asp:ListItem>
                                                     <asp:ListItem>2010</asp:ListItem>
                                                     <asp:ListItem>2011</asp:ListItem>
                                                     <asp:ListItem>2012</asp:ListItem>
                                                     <asp:ListItem>2013</asp:ListItem>
                                                     <asp:ListItem>2014</asp:ListItem>
-                                                    <asp:ListItem Selected="True">2015</asp:ListItem>
+                                                    <asp:ListItem>2015</asp:ListItem>
                                                     <asp:ListItem>2016</asp:ListItem>
                                                     <asp:ListItem>2017</asp:ListItem>
                                                     <asp:ListItem>2018</asp:ListItem>
 
                                                 </asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="DropDownList5" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" InitialValue="-1"></asp:RequiredFieldValidator>
                                             </EditItemTemplate>
                                             <ItemTemplate>
                                                 <asp:Label ID="Label2" runat="server" Text='<%# Bind("batch") %>'></asp:Label>
@@ -117,10 +117,12 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="University">
                                             <EditItemTemplate>
-                                                <asp:DropDownList ID="DropDownList6" runat="server" DataSourceID="SqlDataSource4" DataTextField="name" DataValueField="universityID" Height="16px">
+                                                <asp:DropDownList ID="DropDownList6" AppendDataBoundItems="True" runat="server" DataSourceID="SqlDataSource4" DataValueField="universityID"  SelectedValue='<%# Eval("universityID") %>' DataTextField="universityName" >
+                                                    <asp:ListItem Value="-1" Text="--Select University--"></asp:ListItem>
                                                 </asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="DropDownList6" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" InitialValue="-1"></asp:RequiredFieldValidator>
                                                 <br />
-                                                <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT * FROM [University]"></asp:SqlDataSource>
+                                                <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT universityID ,name as universityName FROM [University]"></asp:SqlDataSource>
                                             </EditItemTemplate>
                                             <ItemTemplate>
                                                 <asp:Label ID="Label3" runat="server" Text='<%# Bind("universityName") %>'></asp:Label>
@@ -131,12 +133,14 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Faculty ">
                                             <EditItemTemplate>
-                                                <asp:DropDownList ID="DropDownList7" runat="server" DataSourceID="SqlDataSource5" DataTextField="name" DataValueField="facultyID">
+                                                <asp:DropDownList ID="DropDownList7" AppendDataBoundItems="True" runat="server" DataSourceID="SqlDataSource5"  DataValueField="facultyID" SelectedValue='<%# Eval("facultyID") %>' DataTextField="facultyName">
+                                                <asp:ListItem Value="-1" Text="--Select faculty--"></asp:ListItem>
                                                 </asp:DropDownList>
-                                                <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT * FROM [Faculty]"></asp:SqlDataSource>
+                                                <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT facultyID, name as facultyName FROM [Faculty]"></asp:SqlDataSource>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="DropDownList7" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" InitialValue="-1"></asp:RequiredFieldValidator>
                                             </EditItemTemplate>
                                             <InsertItemTemplate>
-                                                <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="facultyID" ToolTip="Select Faculty">
+                                                <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="SqlDataSource2"  DataValueField="facultyID" ToolTip="Select Faculty">
                                                 </asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT * FROM [Faculty]"></asp:SqlDataSource>
                                             </InsertItemTemplate>
@@ -149,9 +153,11 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Department">
                                             <EditItemTemplate>
-                                                <asp:DropDownList ID="DropDownList8" runat="server" DataSourceID="SqlDataSource6" DataTextField="name" DataValueField="departmentID">
+                                                <asp:DropDownList ID="DropDownList8" AppendDataBoundItems="True" runat="server" DataSourceID="SqlDataSource6"  DataValueField="departmentID" SelectedValue='<%# Eval("departmentID") %>' DataTextField="departmentName">
+                                                <asp:ListItem Value="-1" Text="--Select Department--"></asp:ListItem>
                                                 </asp:DropDownList>
-                                                <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT * FROM [Department]"></asp:SqlDataSource>
+                                                <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT departmentID,name as departmentName FROM [Department]"></asp:SqlDataSource>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="DropDownList8" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" InitialValue="-1"></asp:RequiredFieldValidator>
                                             </EditItemTemplate>
                                             <ItemTemplate>
                                                 <asp:Label ID="Label5" runat="server" Text='<%# Eval("departmentName") %>'></asp:Label>
@@ -168,7 +174,7 @@
                                                         <asp:SessionParameter Name="courseID" SessionField="courseID" />
                                                     </SelectParameters>
                                                 </asp:SqlDataSource>
-                                                <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource7" ShowHeader="False">
+                                                <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource7" ShowHeader="False" GridLines="None">
                                                 </asp:GridView>
                                                 <br />
                                             </ItemTemplate>
@@ -182,7 +188,7 @@
                                                         <asp:SessionParameter Name="courseID" SessionField="courseID" />
                                                     </SelectParameters>
                                                 </asp:SqlDataSource>
-                                                <asp:GridView ID="GridView2" runat="server" DataSourceID="SqlDataSource8" ShowHeader="False">
+                                                <asp:GridView ID="GridView2" runat="server" DataSourceID="SqlDataSource8" ShowHeader="False" GridLines="None">
                                                 </asp:GridView>
                                             </ItemTemplate>
                                         </asp:TemplateField>
@@ -197,16 +203,32 @@
                                                         <asp:SessionParameter Name="courseID" SessionField="courseID" />
                                                     </SelectParameters>
                                                 </asp:SqlDataSource>
-                                                <asp:GridView ID="GridView3" runat="server" DataSourceID="SqlDataSource9" ShowHeader="False" SelectedRowStyle-BorderWidth="0px">
+                                                <asp:GridView ID="GridView3" runat="server" DataSourceID="SqlDataSource9" ShowHeader="False" SelectedRowStyle-BorderWidth="0px" GridLines="None">
                                                 </asp:GridView>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Fields>
-                                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
                                 </asp:DetailsView>
+                                <asp:SqlDataSource ID="SqlDataSource10" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="
+ select courseID,Course.name,batch,University.universityID as universityID,University.name as universityName,Faculty.facultyID as facultyID,Faculty.name as facultyName,Department.departmentID as departmentID,Department.name as departmentName
+
+ from Course join University on Course.universityID=University.universityID join Faculty on Faculty.facultyID=Course.facultyID
+ join Department on Department.departmentID=Course.departmentID
+where Course.courseID=@courseID
+" UpdateCommand="UPDATE Course SET universityID =@universityID, facultyID =@facultyID, departmentID =@departmentID, name =@name, batch =@batch
+where courseID=@courseID">
+                                    <SelectParameters>
+                                        <asp:ControlParameter ControlID="DropDownList1" Name="courseID" PropertyName="SelectedValue" />
+                                    </SelectParameters>
+                                    <UpdateParameters>
+                                        <asp:Parameter Name="universityID" />
+                                        <asp:Parameter Name="facultyID" />
+                                        <asp:Parameter Name="departmentID" />
+                                        <asp:Parameter Name="name" />
+                                        <asp:Parameter Name="batch" />
+                                        <asp:Parameter Name="courseID" />
+                                    </UpdateParameters>
+                                </asp:SqlDataSource>
                             </td>
                         </tr>
 
@@ -216,7 +238,7 @@
                 </asp:View>
                 <asp:View ID="View2" runat="server">
                     Module Information
-                        <asp:GridView ID="GridView1" ShowHeaderWhenEmpty="true" runat="server" AutoGenerateColumns="False" DataKeyNames="semesterID" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                        <asp:GridView ID="GridView1" ShowHeaderWhenEmpty="true" runat="server" AutoGenerateColumns="False" DataKeyNames="semesterID" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnDataBound="GridView1_DataBound" OnLoad="GridView1_Load">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
 
@@ -240,7 +262,7 @@
                     <br />
                     <br />
                     <br />
-                    <asp:DetailsView ID="DetailsView2" runat="server" AutoGenerateRows="False" DataSourceID="SqlDataSource6" DefaultMode="Insert" HeaderText="Add New Modules Here" Height="50px" Width="167px" OnItemInserted="DetailsView2_ItemInserted" OnItemInserting="DetailsView2_ItemInserting" OnPreRender="DetailsView2_PreRender">
+                    <asp:DetailsView ID="DetailsView2" runat="server" AutoGenerateRows="False" DataSourceID="SqlDataSource6" DefaultMode="Insert" HeaderText="Add New Modules " OnItemInserted="DetailsView2_ItemInserted" OnItemInserting="DetailsView2_ItemInserting" OnPreRender="DetailsView2_PreRender" CssClass="table-condensed  table-striped  detailsView">
                         <Fields>
                             <asp:BoundField DataField="semesterID" HeaderText="semesterID" InsertVisible="False" ReadOnly="True" SortExpression="semesterID" Visible="False" />
                             <asp:TemplateField HeaderText="moduleCode" SortExpression="moduleCode">
@@ -252,7 +274,7 @@
                                     <asp:DropDownList ID="DropDownList6" runat="server" DataSourceID="SqlDataSource7" DataTextField="moduleCode" DataValueField="moduleCode" AppendDataBoundItems="true">
                                         <asp:ListItem Text="--Select Module--" Value="-1" Selected="True"></asp:ListItem>
                                     </asp:DropDownList>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Required" InitialValue="-1" ForeColor="Red" ControlToValidate="DropDownList6"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Required" InitialValue="-1" ForeColor="Red" ControlToValidate="DropDownList6" Display="Dynamic" ValidationGroup="newModule"></asp:RequiredFieldValidator>
                                 </InsertItemTemplate>
                                 <ItemTemplate>
                                     <br />
@@ -265,14 +287,16 @@
                                 </EditItemTemplate>
                                 <InsertItemTemplate>
                                     <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox1" ErrorMessage="*Required" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox1" ErrorMessage="*Required" ForeColor="Red" Display="Dynamic" ValidationGroup="newModule"></asp:RequiredFieldValidator>
                                 </InsertItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="Label1" runat="server" Text='<%# Bind("lecturerName") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:CommandField ShowInsertButton="True" />
                         </Fields>
+                        <FooterTemplate>
+                            <asp:LinkButton ID="LinkButton4" runat="server" OnClick="insertButton_click" ValidationGroup="newModule">Insert</asp:LinkButton>
+                        </FooterTemplate>
                     </asp:DetailsView>
                     <br />
                     <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridView2_RowDeleting">

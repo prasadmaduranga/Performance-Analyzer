@@ -1,13 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PresentationLayer/Lecturer/LecturerMaster.Master" AutoEventWireup="true" CodeBehind="ViewProfileView.aspx.cs" Inherits="PerformanceAnalyzer2.PresentationLayer.Lecturer.WebForm1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Menu ID="Menu1" runat="server">
-        <Items>
-            <asp:MenuItem Text="View Profile" NavigateUrl="~/PresentationLayer/Lecturer/ViewProfileView.aspx"></asp:MenuItem>
-            <asp:MenuItem Text="Edit Profile" NavigateUrl="~/PresentationLayer/Lecturer/EditProfileView.aspx"></asp:MenuItem>
-        </Items>
-
-
+ 
         <div class="sidebar-nav" id="sidebar">
             <div class="navbar navbar-default" role="navigation">
                 <div class="navbar-header">
@@ -22,8 +16,8 @@
                 <div class="navbar-collapse collapse sidebar-navbar-collapse">
 
                     <ul class="nav navbar-nav">
-                        <li><a href="../../PresentationLayer/Admin/ViewProfileView.aspx">View Profile</a></li>
-                        <li><a href="../../PresentationLayer/Admin/EditProfileView.aspx">Edit Profile</a></li>
+                        <li><a href="../../PresentationLayer/Lecturer/ViewProfileView.aspx">View Profile</a></li>
+                        <li><a href="../../PresentationLayer/Lecturer/EditProfileView.aspx">Edit Profile</a></li>
 
                     </ul>
 
@@ -31,14 +25,12 @@
                 <!--/.nav-collapse -->
             </div>
         </div>
-    </asp:Menu>
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <p>
 
-        <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal" Height="50px" Width="125px">
-            <AlternatingRowStyle BackColor="#F7F7F7" />
-            <EditRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+        <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" Height="50px" width="400px" CssClass="table-condensed  table-striped  detailsView" HeaderText="Profile">
             <Fields>
                 <asp:TemplateField HeaderText="Profile Picture">
                     <ItemTemplate>
@@ -55,10 +47,6 @@
 
                 <asp:BoundField DataField="description" HeaderText="Description" />
             </Fields>
-            <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
-            <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
-            <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
-            <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
         </asp:DetailsView>
 
     </p>

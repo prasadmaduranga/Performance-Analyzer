@@ -1,42 +1,35 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PresentationLayer/Admin/CourseAminMaster.Master" AutoEventWireup="true" CodeBehind="NewCourseView.aspx.cs" Inherits="PerformanceAnalyzer2.PresentationLayer.Admin.WebForm3" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Menu ID="Menu1" runat="server" StaticMenuItemStyle-BorderStyle="Solid" Orientation="Vertical">
+    
+
+    <div class="sidebar-nav" id="sidebar">
+        <div class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="visible-xs navbar-brand"></span>
+            </div>
+
+            <asp:Menu ID="Menu1" runat="server"   StaticMenuStyle-Width="100%"  StaticMenuStyle-CssClass="nav navbar-nav" class="navbar-collapse collapse sidebar-navbar-collapse">
         <Items>
-            <asp:MenuItem Text="Step1: Basic Info" NavigateUrl="NewCourseView.aspx?activeView=0"></asp:MenuItem>
-            <asp:MenuItem Text="Step2: Acedemic Info" NavigateUrl="NewCourseView.aspx?activeView=1"></asp:MenuItem>
+            <asp:MenuItem Text="Step1: Basic Info " NavigateUrl="NewCourseView.aspx?activeView=0"></asp:MenuItem>
+            <asp:MenuItem Text="Step2: Acedemic Info&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" NavigateUrl="NewCourseView.aspx?activeView=1"></asp:MenuItem>
             <asp:MenuItem Text="Step3: Student Info" NavigateUrl="NewCourseView.aspx?activeView=2"></asp:MenuItem>
             <asp:MenuItem Text="Step4: Finish" NavigateUrl="NewCourseView.aspx?activeView=3"></asp:MenuItem>
 
         </Items>
 
-        <StaticMenuItemStyle BorderStyle="Solid"></StaticMenuItemStyle>
-
-        <StaticSelectedStyle BackColor="#FF99FF" ForeColor="#6666FF" />
-
+    
     </asp:Menu>
 
-    <div class="sidebar-nav" id="sidebar">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <span class="visible-xs navbar-brand"></span>
+
         </div>
-        <div class="navbar-collapse collapse sidebar-navbar-collapse">
-          
-          <ul class="nav navbar-nav">
-            <li ><a href="../../PresentationLayer/Admin/ViewProfileView.aspx">View Profile</a></li>
-            <li><a href="../../PresentationLayer/Admin/EditProfileView.aspx">Edit Profile</a></li>
-           
-          </ul>
-                 
-        </div><!--/.nav-collapse -->
-      </div>
+
     </div>
 
 
@@ -46,11 +39,7 @@
 
     <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
         <asp:View ID="View1" runat="server">
-            <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateInsertButton="True" AutoGenerateRows="False" DataKeyNames="courseID" DefaultMode="Insert" Height="50px" Width="303px" OnItemInserting="DetailsView1_ItemInserting" CellPadding="4" ForeColor="#333333" GridLines="None" OnItemInserted="DetailsView1_ItemInserted">
-                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
-                <EditRowStyle BackColor="#999999" />
-                <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" />
+            <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateInsertButton="True" AutoGenerateRows="False" DataKeyNames="courseID" DefaultMode="Insert" OnItemInserting="DetailsView1_ItemInserting" OnItemInserted="DetailsView1_ItemInserted" CssClass="table-condensed  table-striped  detailsView" HeaderText="Basic Details">
                 <Fields>
                     <asp:TemplateField HeaderText="Course name">
                         <EditItemTemplate>
@@ -58,7 +47,7 @@
                         </EditItemTemplate>
                         <InsertItemTemplate>
                             <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("name") %>'></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox1" ErrorMessage="*Required" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox1" ErrorMessage="*Required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                         </InsertItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label1" runat="server" Text='<%# Bind("name") %>'></asp:Label>
@@ -67,13 +56,14 @@
                     <asp:TemplateField HeaderText="Batch">
                         <InsertItemTemplate>
                             <asp:DropDownList ID="DropDownList7" runat="server">
+                                <asp:ListItem Value="-1" Selected="true">--Select Year--</asp:ListItem>
+
                                 <asp:ListItem>2009</asp:ListItem>
                                 <asp:ListItem>2010</asp:ListItem>
                                 <asp:ListItem>2011</asp:ListItem>
                                 <asp:ListItem>2012</asp:ListItem>
                                 <asp:ListItem>2013</asp:ListItem>
                                 <asp:ListItem>2014</asp:ListItem>
-                                <asp:ListItem Value="-1" Selected="true">--Select Year--</asp:ListItem>
 
                                 <asp:ListItem>2015</asp:ListItem>
                                 <asp:ListItem>2016</asp:ListItem>
@@ -81,17 +71,18 @@
                                 <asp:ListItem>2018</asp:ListItem>
                                 <asp:ListItem></asp:ListItem>
                             </asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="DropDownList7" ErrorMessage="*Required" ForeColor="Red" InitialValue="-1"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="DropDownList7" ErrorMessage="*Required" ForeColor="Red" InitialValue="-1" Display="Dynamic"></asp:RequiredFieldValidator>
                         </InsertItemTemplate>
                         <ItemTemplate>
                             <asp:DropDownList ID="DropDownList1" runat="server">
+                                <asp:ListItem Value="-1" Selected="true">--Select Year--</asp:ListItem>
+
                                 <asp:ListItem>2009</asp:ListItem>
                                 <asp:ListItem>2010</asp:ListItem>
                                 <asp:ListItem>2011</asp:ListItem>
                                 <asp:ListItem>2012</asp:ListItem>
                                 <asp:ListItem>2013</asp:ListItem>
                                 <asp:ListItem>2014</asp:ListItem>
-                                <asp:ListItem Value="-1" Selected="true">--Select Year--</asp:ListItem>
 
                                 <asp:ListItem>2015</asp:ListItem>
                                 <asp:ListItem>2016</asp:ListItem>
@@ -107,7 +98,7 @@
                             <asp:DropDownList ID="DropDownList2" AppendDataBoundItems="true" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="universityID" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged" ToolTip="Select University">
                                 <asp:ListItem Text="--Select University--" Value="-1"></asp:ListItem>
                             </asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="DropDownList2" ErrorMessage="*Required" ForeColor="Red" InitialValue="-1"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="DropDownList2" ErrorMessage="*Required" ForeColor="Red" InitialValue="-1" Display="Dynamic"></asp:RequiredFieldValidator>
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT * FROM [University]"></asp:SqlDataSource>
                         </InsertItemTemplate>
                         <ItemTemplate>
@@ -127,7 +118,7 @@
                                 <asp:ListItem Text="--Select Faculty--" Value="-1"></asp:ListItem>
                             </asp:DropDownList>
                             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT * FROM [Faculty] "></asp:SqlDataSource>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="DropDownList3" ErrorMessage="*Required" ForeColor="Red" InitialValue="-1"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="DropDownList3" ErrorMessage="*Required" ForeColor="Red" InitialValue="-1" Display="Dynamic"></asp:RequiredFieldValidator>
                         </InsertItemTemplate>
                         <ItemTemplate>
 
@@ -148,7 +139,7 @@
                                 <asp:ListItem Text="--Select Department--" Value="-1"></asp:ListItem>
                             </asp:DropDownList>
                             <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT * FROM [Department] "></asp:SqlDataSource>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="DropDownList4" ErrorMessage="*Required" ForeColor="Red" InitialValue="-1"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="DropDownList4" ErrorMessage="*Required" ForeColor="Red" InitialValue="-1" Display="Dynamic"></asp:RequiredFieldValidator>
                         </InsertItemTemplate>
                         <ItemTemplate>
 
@@ -167,7 +158,7 @@
                         <InsertItemTemplate>
                             <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("studentCount") %>'></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="TextBox2" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="TextBox2" ValidationExpression="^[1-9]\d*$" ErrorMessage="*invalid" ForeColor="Red"></asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="TextBox2" ValidationExpression="^[1-9]\d*$" ErrorMessage="*invalid" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                         </InsertItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label2" runat="server" Text='<%# Bind("studentCount") %>'></asp:Label>
@@ -202,10 +193,6 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Fields>
-                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
             </asp:DetailsView>
             <br />
             <br />

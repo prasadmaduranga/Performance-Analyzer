@@ -1,6 +1,13 @@
 ﻿body {
-background-image:url("../../Images/128-215.jpg");
-background-repeat:repeat;
+/*background-image:url("../../Images/128-215.jpg");
+background-repeat:repeat;*/
+background-color:white;
+}
+
+#form1 > div > div.col-sm-9 {
+
+    border-color:lightblue;
+
 
 }
 
@@ -193,9 +200,119 @@ width:100%;
 }
 
 #form1 > div:nth-child(11) > div.col-sm-3 {
-width:100%;
+
+    padding-left:0px;
+}
+
+#form1 > div:nth-child(10) > div.col-sm-9,#form1 > div:nth-child(10) > div.col-sm-3 {
+
+background-color:white;
+
+}
+
+
+#ContentPlaceHolder2_DetailsView1 > tbody > tr:nth-child(1),#ContentPlaceHolder2_DetailsView2 > tbody > tr:nth-child(1),#ContentPlaceHolder2_DetailsView3 > tbody > tr:nth-child(1) {
+    background-color:  #0179ac;
+    font-weight:bold;
+color:white;
+
+
+}
+
+#ContentPlaceHolder2_DetailsView1 > tbody,#ContentPlaceHolder2_DetailsView2 > tbody,#ContentPlaceHolder2_DetailsView3 > tbody {
+border-left: #0179ac solid 1px;
 
 }
 
 
 
+#ContentPlaceHolder2_DetailsView1,#ContentPlaceHolder2_DetailsView2 ,#ContentPlaceHolder2_DetailsView3  {
+    -moz-box-shadow: 3px -1px 4px #000000;
+    -webkit-box-shadow: 3px -1px 4px #000000;
+    box-shadow: 3px -1px 4px #000000;
+}
+#ContentPlaceHolder2_DetailsView1 >.textbox, #ContentPlaceHolder2_DetailsView1 >.input{
+
+
+
+}
+
+
+
+
+/*For text box area  and input inside forms*/
+
+    #ContentPlaceHolder2_DetailsView1 input, #ContentPlaceHolder2_DetailsView1 textarea, #ContentPlaceHolder2_DetailsView2 input, #ContentPlaceHolder2_DetailsView2 textarea {
+  
+
+        display: block;
+        width: 100%;
+        height: 38px;
+        padding: 8px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555555;
+        background-color: #ffffff;
+        background-image: none;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+
+
+
+        width:300px;
+    }
+
+
+#ContentPlaceHolder2_DetailsView1,#ContentPlaceHolder2_DetailsView2 ,#ContentPlaceHolder2_DetailsView3  {
+
+width:auto;
+}
+    #ContentPlaceHolder2_DetailsView1  select,#ContentPlaceHolder2_DetailsView2 select ,#ContentPlaceHolder2_DetailsView3  select  {
+    
+    width:100%;
+    }
+#ContentPlaceHolder2_DetailsView1  input,#ContentPlaceHolder2_DetailsView2  input ,#ContentPlaceHolder2_DetailsView3 input {
+    
+    width:100%;
+    }
+/*#ContentPlaceHolder2_DetailsView1_RadioButtonList3 > tbody, #ContentPlaceHolder2_DetailsView1_RadioButtonList4 > tbody {
+
+    width:100%;
+
+}
+    #ContentPlaceHolder2_DetailsView1_RadioButtonList3 > tbody > tr > td, #ContentPlaceHolder2_DetailsView1_RadioButtonList4 > tbody > tr > td {
+    width:50%;
+    
+    }
+        #ContentPlaceHolder2_DetailsView1_RadioButtonList3 > tbody > tr > td input ,#ContentPlaceHolder2_DetailsView1_RadioButtonList4 > tbody > tr > td input {
+        
+        
+        width:20%;
+        
+        }*/
+
+#ContentPlaceHolder2_DetailsView1_RadioButtonList3,#ContentPlaceHolder2_DetailsView1_RadioButtonList4 > tbody
+{
+width:100%;
+}
+  #ContentPlaceHolder2_DetailsView1_RadioButtonList3 > tbody > tr > td:nth-child(1),  #ContentPlaceHolder2_DetailsView1_RadioButtonList3 > tbody > tr > td:nth-child(2), #ContentPlaceHolder2_DetailsView1_RadioButtonList4 > tbody > tr > td:nth-child(1),#ContentPlaceHolder2_DetailsView1_RadioButtonList4 > tbody > tr > td:nth-child(2){
+    
+    width:50%;
+    
+    }
+
+#ContentPlaceHolder2_DetailsView1_RadioButtonList3_0, #ContentPlaceHolder2_DetailsView1_RadioButtonList3_1, #ContentPlaceHolder2_DetailsView1_RadioButtonList4_0, #ContentPlaceHolder2_DetailsView1_RadioButtonList4_1 {
+
+width:20px;
+
+}
+#ContentPlaceHolder2_DetailsView1_RadioButtonList3 tr td input,#ContentPlaceHolder2_DetailsView1_RadioButtonList4 tr td input {
+width:20px;
+
+
+} 

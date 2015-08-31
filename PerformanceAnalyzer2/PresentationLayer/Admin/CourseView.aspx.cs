@@ -25,6 +25,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
                             break;
                         case "1":
                             MultiView1.ActiveViewIndex = activeViewIndexVal;
+                            DetailsView2.Visible = false;
                             break;
                         case "2":
                             MultiView1.ActiveViewIndex = activeViewIndexVal;
@@ -43,24 +44,40 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
 
                 }
                 else {
+                    DetailsView2.Visible = false;
                     MultiView1.ActiveViewIndex = 0;
                 
                 }
-            }          
+            }   
+            else if(GridView1.SelectedIndex<0){
+                DetailsView2.Visible = false;
+            
+            }
         }
 
         protected void DetailsView1_ItemUpdating(object sender, DetailsViewUpdateEventArgs e)
         {
-            string name = ((TextBox)(DetailsView1.Rows[0].Cells[1].Controls[0])).Text;
-            string batch = ((DropDownList)(DetailsView1.Rows[1].Cells[1].FindControl("DropDownList5"))).SelectedValue.ToString();
-            string universityID = ((DropDownList)(DetailsView1.Rows[2].Cells[1].FindControl("DropDownList6"))).SelectedValue.ToString();
-            string facID = ((DropDownList)(DetailsView1.Rows[3].Cells[1].FindControl("DropDownList7"))).SelectedValue.ToString();
-            string deptID = ((DropDownList)(DetailsView1.Rows[4].Cells[1].FindControl("DropDownList8"))).SelectedValue.ToString();
+            string name = ((TextBox)(DetailsView1.Rows[1].Cells[1].FindControl("TextBox1"))).Text;
+            string batch = ((DropDownList)(DetailsView1.Rows[2].Cells[1].FindControl("DropDownList5"))).SelectedValue.ToString();
+            string universityID = ((DropDownList)(DetailsView1.Rows[3].Cells[1].FindControl("DropDownList6"))).SelectedValue.ToString();
+            string facID = ((DropDownList)(DetailsView1.Rows[4].Cells[1].FindControl("DropDownList7"))).SelectedValue.ToString();
+            string deptID = ((DropDownList)(DetailsView1.Rows[5].Cells[1].FindControl("DropDownList8"))).SelectedValue.ToString();
 
-            AdminLogic.spEditBasicCourseInfo(Session["courseID"].ToString(), name, batch, Convert.ToInt32(universityID), Convert.ToInt32(facID), Convert.ToInt32(deptID));
+       //     AdminLogic.spEditBasicCourseInfo(Session["courseID"].ToString(), name, batch, Convert.ToInt32(universityID), Convert.ToInt32(facID), Convert.ToInt32(deptID));
+            SqlDataSource10.UpdateParameters["name"].DefaultValue = name;
+            SqlDataSource10.UpdateParameters["batch"].DefaultValue = batch;
+            SqlDataSource10.UpdateParameters["universityID"].DefaultValue = universityID;
+            SqlDataSource10.UpdateParameters["facultyID"].DefaultValue = facID;
+            SqlDataSource10.UpdateParameters["departmentID"].DefaultValue = deptID;
+            SqlDataSource10.UpdateParameters["courseID"].DefaultValue = Session["courseID"].ToString();
 
-            DetailsView1.DataBind();
+            SqlDataSource10.Update();
+            DetailsView1.DataSource = SqlDataSource10;
             DetailsView1.ChangeMode(DetailsViewMode.ReadOnly);
+            DetailsView1.DataBind();
+            
+
+
         }
 
         protected void DetailsView1_ItemInserted(object sender, DetailsViewInsertedEventArgs e)
@@ -86,7 +103,11 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
                 DetailsView2.Visible = true;
             }
             Session["courseID"] = Convert.ToInt32(DropDownList1.SelectedValue);
-            DetailsView1.DataSource = AdminLogic.getbasicCourseInfoNew(DropDownList1.SelectedValue);
+       //     DetailsView1.DataSource = AdminLogic.getbasicCourseInfoNew2(DropDownList1.SelectedValue);
+          // DetailsView1.DataSource = AdminLogic.getbasicCourseInfoNew2(DropDownList1.SelectedValue);
+          //  AdminLogic.getbasicCourseInfoNew
+            DetailsView1.DataSource = SqlDataSource10;
+
             DetailsView1.DataBind();
 
             loadGridviewSemester();
@@ -182,13 +203,22 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
         }
         protected void DetailsView2_ItemInserting(object sender, DetailsViewInsertEventArgs e)
         {
-            SqlDataSource6.InsertParameters["semesterID"].DefaultValue = GridView1.SelectedValue.ToString();
+            try
+            {
+                SqlDataSource6.InsertParameters["semesterID"].DefaultValue = GridView1.SelectedValue.ToString();
+           
+            
             SqlDataSource6.InsertParameters["moduleCode"].DefaultValue = ((DropDownList)DetailsView2.Rows[1].Cells[1].FindControl("DropDownList6")).SelectedValue;
 
             SqlDataSource6.InsertParameters["lecturerName"].DefaultValue = ((TextBox)DetailsView2.Rows[2].Cells[1].FindControl("TextBox1")).Text;
             SqlDataSource6.Insert();
 
             Session["selectedSemester"] = GridView1.SelectedValue;
+            }
+            catch (Exception er)
+            {
+          ClientScript.RegisterStartupScript(this.GetType(),"", "alert('Select a semester')", true);
+            }
 
         }
        
@@ -198,7 +228,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
             this.setGriview2(GridView1.SelectedValue.ToString());
             DetailsView2.DataBind();
             UpdatePanel3.Update();
-          
+           
         }
         protected void GridView3_RowEditing(object sender, GridViewEditEventArgs e)
         {
@@ -238,6 +268,75 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
         {
 
         }
+
+        protected void DetailsView1_ItemCommand(object sender, DetailsViewCommandEventArgs e)
+        {
+            DetailsView1.ChangeMode(DetailsViewMode.Edit);           
+                DetailsView1.DataBind();
+        }
+
+        protected void GridView1_DataBound(object sender, EventArgs e)
+        {
+            if (GridView1.SelectedIndex < 0) {
+                DetailsView2.Visible = false;
+            
+            }
+        }
+
+        protected void GridView1_Load(object sender, EventArgs e)
+        {
+          
+        }
+
+        //protected void  insertButton_click()
+        //{
+        //    try
+        //    {
+        //        SqlDataSource6.InsertParameters["semesterID"].DefaultValue = GridView1.SelectedValue.ToString();
+
+
+        //        SqlDataSource6.InsertParameters["moduleCode"].DefaultValue = ((DropDownList)DetailsView2.Rows[1].Cells[1].FindControl("DropDownList6")).SelectedValue;
+
+        //        SqlDataSource6.InsertParameters["lecturerName"].DefaultValue = ((TextBox)DetailsView2.Rows[2].Cells[1].FindControl("TextBox1")).Text;
+        //        SqlDataSource6.Insert();
+
+        //        Session["selectedSemester"] = GridView1.SelectedValue;
+        //    }
+        //    catch (Exception er)
+        //    {
+        //        ClientScript.RegisterStartupScript(this.GetType(), "", "alert('Select a semester')", true);
+        //    }
+        //    GridView2.Visible = true;
+        //    this.setGriview2(GridView1.SelectedValue.ToString());
+        //    DetailsView2.DataBind();
+        //    UpdatePanel3.Update();
+        //}
+
+        protected void insertButton_click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlDataSource6.InsertParameters["semesterID"].DefaultValue = GridView1.SelectedValue.ToString();
+
+
+                SqlDataSource6.InsertParameters["moduleCode"].DefaultValue = ((DropDownList)DetailsView2.Rows[1].Cells[1].FindControl("DropDownList6")).SelectedValue;
+
+                SqlDataSource6.InsertParameters["lecturerName"].DefaultValue = ((TextBox)DetailsView2.Rows[2].Cells[1].FindControl("TextBox1")).Text;
+                SqlDataSource6.Insert();
+
+                Session["selectedSemester"] = GridView1.SelectedValue;
+            }
+            catch (Exception er)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "", "alert('Select a semester')", true);
+            }
+            GridView2.Visible = true;
+            this.setGriview2(GridView1.SelectedValue.ToString());
+            DetailsView2.DataBind();
+            UpdatePanel3.Update();
+        }
+
+        
 
     }
 }

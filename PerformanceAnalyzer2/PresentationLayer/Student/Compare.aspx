@@ -109,7 +109,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView3_RowDataBound" Style="margin-right: 0px">
+                                <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView3_RowDataBound" Style="margin-right: 0px" CssClass="table-condensed  table-striped  detailsView">
                                     <Columns>
                                         <asp:TemplateField HeaderText="Category">
                                             <ItemTemplate>

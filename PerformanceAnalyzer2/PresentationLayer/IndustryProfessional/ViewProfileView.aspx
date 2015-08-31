@@ -28,9 +28,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <p>
-        <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal">
-            <AlternatingRowStyle BackColor="#F7F7F7" />
-            <EditRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+        <asp:DetailsView ID="DetailsView1" runat="server" Height="50px"  AutoGenerateRows="False" CssClass="table-condensed  table-striped  detailsView" width="400px" HeaderText="Profile">
             <Fields>
                 
                 <asp:TemplateField HeaderText="Profile Picture">
@@ -44,10 +42,6 @@
             <asp:BoundField DataField="companyName" HeaderText="Company" />
                 <asp:BoundField DataField="description" HeaderText="Description" />
             </Fields>
-            <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
-            <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
-            <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
-            <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
             
 
         </asp:DetailsView>

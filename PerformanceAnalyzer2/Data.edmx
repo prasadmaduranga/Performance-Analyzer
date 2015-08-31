@@ -857,6 +857,9 @@
         <Function Name="spGetCourseInformationNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="courseID" Type="int" Mode="In" />
         </Function>
+        <Function Name="spGetCourseInformationNew2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="courseID" Type="int" Mode="In" />
+        </Function>
         <Function Name="spGetIndustryProfessionalData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userID" Type="int" Mode="In" />
         </Function>
@@ -1275,7 +1278,10 @@
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spGetModuleInfoBySemesterNew2" ReturnType="Collection(PerformanceAnalyzerModel.spGetModuleInfoBySemesterNew2_Result)">
-            <Parameter Name="semesterID" Mode="In" Type="Int32" />
+          <Parameter Name="semesterID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetCourseInformationNew2" ReturnType="Collection(PerformanceAnalyzerModel.spGetCourseInformationNew2_Result)">
+            <Parameter Name="courseID" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="AcedemicYear">
@@ -1969,6 +1975,14 @@
           <Property Type="String" Name="compulary" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="lecturerName" Nullable="false" MaxLength="60" />
         </ComplexType>
+        <ComplexType Name="spGetCourseInformationNew2_Result">
+          <Property Type="Int32" Name="courseID" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="batch" Nullable="true" MaxLength="15" />
+          <Property Type="Int32" Name="universityName" Nullable="false" />
+          <Property Type="Int32" Name="facultyName" Nullable="false" />
+          <Property Type="Int32" Name="departmentName" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2476,6 +2490,18 @@
                 <ScalarProperty Name="credits" ColumnName="credits" />
                 <ScalarProperty Name="compulary" ColumnName="compulary" />
                 <ScalarProperty Name="lecturerName" ColumnName="lecturerName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetCourseInformationNew2" FunctionName="PerformanceAnalyzerModel.Store.spGetCourseInformationNew2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PerformanceAnalyzerModel.spGetCourseInformationNew2_Result">
+                <ScalarProperty Name="courseID" ColumnName="courseID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="batch" ColumnName="batch" />
+                <ScalarProperty Name="universityName" ColumnName="universityName" />
+                <ScalarProperty Name="facultyName" ColumnName="facultyName" />
+                <ScalarProperty Name="departmentName" ColumnName="departmentName" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

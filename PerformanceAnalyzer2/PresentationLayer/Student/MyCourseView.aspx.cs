@@ -101,5 +101,12 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
             LinkButton btn=(LinkButton)sender;
           //  Response.Redirect("~/PresentationLayer/Student/Compare.aspx?UID=" + btn.CommandArgument.ToString());
         }
+
+        protected void GridView6_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView6.PageIndex = e.NewPageIndex;
+            // GridView3.DataSource = AdminLogic.getStudentBasicData(Session["courseID"].ToString());
+            GridView6.DataBind();
+        }
     }
 }

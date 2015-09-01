@@ -28,7 +28,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:GridView ID="GridView1" runat="server" DataKeyNames="courseID" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" OnRowCommand="GridView1_RowCommand">
+                                <asp:GridView ID="GridView1" runat="server" DataKeyNames="courseID" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" OnRowCommand="GridView1_RowCommand" GridLines="Horizontal" CssClass="table table-striped table-hover  table-condensed  gridViewCustom">
                                     <Columns>
                                         <asp:BoundField DataField="courseID" ReadOnly="true" HeaderText="ID" />
                                         <asp:BoundField DataField="description" HeaderText="Course" />
@@ -37,10 +37,10 @@
                                                 <table>
                                                     <tr>
                                                         <td>
-                                                            <asp:LinkButton ID="LinkButton1" runat="server">Unfollow</asp:LinkButton>
+                                                            <asp:LinkButton ID="LinkButton1" runat="server">Unfollow | </asp:LinkButton>
                                                         </td>
                                                         <td>
-                                                            <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">More...</asp:LinkButton>
+                                                            <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click"> More...</asp:LinkButton>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -60,7 +60,7 @@
                             </td>
                             <td>
 
-                                <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="292px" AutoGenerateRows="False" HeaderText="Course Details" Style="margin-left: 0px">
+                                <asp:DetailsView ID="DetailsView1" runat="server"  AutoGenerateRows="False" HeaderText="Course Details" Style="margin-left: 0px" CssClass="table-condensed  table-striped  detailsView" GridLines="Horizontal">
                                     <Fields>
                                         <asp:BoundField DataField="name" HeaderText="Course" />
                                         <asp:BoundField DataField="batch" HeaderText="Batch" />
@@ -99,7 +99,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:GridView ID="GridView2" runat="server" DataKeyNames="courseID" AutoGenerateColumns="False" DataSourceID="SqlDataSource4" OnRowCommand="GridView2_RowCommand">
+                                <asp:GridView ID="GridView2" runat="server" DataKeyNames="courseID" AutoGenerateColumns="False" DataSourceID="SqlDataSource4" OnRowCommand="GridView2_RowCommand" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:BoundField DataField="courseID" Visible="false" HeaderText="CourseID" />
                                         <asp:BoundField DataField="description" HeaderText="Course" />
@@ -113,7 +113,7 @@
                                                             <asp:LinkButton ID="LinkButton3" runat="server" Text='<%# Eval("requestStatus") %>' OnClick="LinkButton3_Click"></asp:LinkButton>
                                                         </td>
                                                         <td>
-                                                            <asp:LinkButton ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">More...</asp:LinkButton>
+                                                            <asp:LinkButton ID="LinkButton4" runat="server" OnClick="LinkButton4_Click"> | More...</asp:LinkButton>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -132,7 +132,7 @@
                             </td>
                             <td>
                                 <br />
-                                <asp:DetailsView ID="DetailsView2" runat="server" AutoGenerateRows="False" HeaderText="Course Details" Height="50px" Style="margin-left: 0px" Width="292px">
+                                <asp:DetailsView ID="DetailsView2" runat="server" AutoGenerateRows="False" HeaderText="Course Details"  Style="margin-left: 0px" CssClass="table-condensed  table-striped  detailsView" GridLines="Horizontal">
                                     <Fields>
                                         <asp:BoundField DataField="name" HeaderText="Course" />
                                         <asp:BoundField DataField="batch" HeaderText="Batch" />

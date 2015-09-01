@@ -60,7 +60,7 @@
                                         </td>
                                         <td>
                                             <asp:DropDownList ID="DropDownList1" runat="server" AppendDataBoundItems="True" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="moduleCode" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                                                <asp:ListItem Text="--Select Module--" Value="-1"></asp:ListItem>
+                                                <asp:ListItem Text="--Select Semester--" Value="-1"></asp:ListItem>
                                             </asp:DropDownList>
                                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT distinct Semester_Module.moduleCode, Module.name FROM Semester_Module INNER JOIN Semester ON Semester_Module.semesterID = Semester.semesterID INNER JOIN AcedemicYear ON Semester.yearID = AcedemicYear.yearID INNER JOIN Course ON AcedemicYear.courseID = Course.courseID INNER JOIN Module ON Semester_Module.moduleCode = Module.moduleCode WHERE (Course.courseID = @courseID)">
                                                 <SelectParameters>
@@ -76,8 +76,8 @@
 
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="result" DataSourceID="SqlDataSource2" OnDataBound="GridView1_DataBound">
+                                        <td colspan="2">
+                                            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="result" DataSourceID="SqlDataSource2" OnDataBound="GridView1_DataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" OnPageIndexChanging="GridView1_PageIndexChanging" HorizontalAlign="Center">
                                                 <Columns>
                                                     <asp:BoundField DataField="indexNo" HeaderText="Index No" SortExpression="indexNo" />
                                                     <asp:BoundField DataField="userName" HeaderText="Name" SortExpression="userName" />
@@ -91,8 +91,7 @@
                                                     <asp:ControlParameter ControlID="DropDownList1" Name="moduleCode" PropertyName="SelectedValue" Type="String" />
                                                 </SelectParameters>
                                             </asp:SqlDataSource>
-                                        </td>
-                                        <td>
+                                        
 
 
                                             <asp:SqlDataSource ID="SqlDataSource14" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="spGetModuleResultForBatchGraph" SelectCommandType="StoredProcedure">
@@ -108,7 +107,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3">
+                                            <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                                 <Columns>
                                                     <asp:BoundField DataField="result" HeaderText="Result" SortExpression="result" />
                                                     <asp:BoundField DataField="numOfStudents" HeaderText="Num.Of Students" ReadOnly="True" SortExpression="numberOfStudents" />
@@ -169,7 +168,7 @@ group by  ResultMapping.result ">
                                     </tr>
                                     <tr>
                                         <td colspan="2">
-                                            <asp:GridView ID="GridView5" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource13" OnRowDataBound="GridView5_RowDataBound">
+                                            <asp:GridView ID="GridView5" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource13" OnRowDataBound="GridView5_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" OnPageIndexChanging="GridView5_PageIndexChanging" HorizontalAlign="Center">
                                                 <Columns>
                                                     <asp:BoundField DataField="indexNo" HeaderText="Index No" />
                                                     <asp:BoundField DataField="name" HeaderText="Name" />
@@ -199,7 +198,7 @@ group by  ResultMapping.result ">
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:GridView ID="GridView6" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource6">
+                                            <asp:GridView ID="GridView6" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                                 <Columns>
                                                     <asp:BoundField DataField="GPARange" HeaderText="Range" />
                                                     <asp:BoundField DataField="stdCount" HeaderText="Num Of Students" />
@@ -242,7 +241,7 @@ group by  ResultMapping.result ">
                                     </tr>
                                     <tr>
                                         <td colspan="2">
-                                            <asp:GridView ID="GridView3" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource5" OnRowDataBound="GridView3_RowDataBound">
+                                            <asp:GridView ID="GridView3" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource5" OnRowDataBound="GridView3_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" OnPageIndexChanging="GridView3_PageIndexChanging" HorizontalAlign="Center">
                                                 <Columns>
                                                     <asp:BoundField DataField="indexNo" HeaderText="Index No" />
                                                     <asp:BoundField DataField="name" HeaderText="Name" />
@@ -271,7 +270,7 @@ group by  ResultMapping.result ">
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource7">
+                                            <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource7" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                                 <Columns>
                                                     <asp:BoundField DataField="GPARange" HeaderText="Range" />
                                                     <asp:BoundField DataField="stdCount" HeaderText="Num Of Students" />
@@ -353,7 +352,7 @@ group by  ResultMapping.result ">
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:GridView ID="GridView7" runat="server" AutoGenerateColumns="False" DataKeyNames="result" DataSourceID="SqlDataSource15">
+                                            <asp:GridView ID="GridView7" runat="server" AutoGenerateColumns="False" DataKeyNames="result" DataSourceID="SqlDataSource15" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                                 <Columns>
                                                     <asp:BoundField DataField="result" HeaderText="Grade" ReadOnly="True" SortExpression="result" />
                                                     <asp:BoundField DataField="NumofStudents" HeaderText="Num. Of Students" ReadOnly="True" SortExpression="NumofStudents" />
@@ -414,15 +413,15 @@ group by  ResultMapping.result ">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2">
+                                     <%--   <td colspan="2">
                                             <table>
                                                 <tr>
                                                     <td style="width: 66px">&nbsp;</td>
                                                     <td style="width: 267px">&nbsp;</td>
                                                 </tr>
-                                                <tr>
+                                                <tr>--%>
                                                     <td colspan="2">
-                                                        <asp:DetailsView ID="DetailsView1" runat="server" Height="63px" Width="319px" AutoGenerateRows="False" DataKeyNames="userID" OnDataBound="DetailsView1_DataBound" Style="margin-right: 1px">
+                                                        <asp:DetailsView ID="DetailsView1"  runat="server" AutoGenerateRows="False" DataKeyNames="userID" OnDataBound="DetailsView1_DataBound" Style="margin-right: 1px" CssClass="table-condensed  table-striped  detailsView view1Special" HeaderText="Profile" GridLines="Horizontal" HorizontalAlign="Center">
                                                             <Fields>
                                                                 <asp:TemplateField HeaderText="Name" SortExpression="userName">
                                                                     <EditItemTemplate>
@@ -518,9 +517,9 @@ FROM            Member INNER JOIN
 
 
                                                     </td>
-                                                </tr>
+                                                <%--</tr>
                                             </table>
-                                        </td>
+                                        </td>--%>
                                     </tr>
                                 </table>
 

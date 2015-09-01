@@ -517,5 +517,7 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spDeleteMessage" FunctionName="PerformanceAnalyzerModel.Store.spDeleteMessage" />
+    <FunctionImportMapping FunctionImportName="spGrantCourse" FunctionName="PerformanceAnalyzerModel.Store.spGrantCourse" />
   </EntityContainerMapping>
 </Mapping>

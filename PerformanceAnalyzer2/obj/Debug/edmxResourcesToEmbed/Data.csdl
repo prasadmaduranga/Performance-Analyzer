@@ -310,6 +310,13 @@
     <FunctionImport Name="spGetCourseInformationNew2" ReturnType="Collection(PerformanceAnalyzerModel.spGetCourseInformationNew2_Result)">
       <Parameter Name="courseID" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="spDeleteMessage">
+      <Parameter Name="userID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGrantCourse">
+      <Parameter Name="userID" Mode="In" Type="Int32" />
+      <Parameter Name="courseID" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="AcedemicYear">
     <Key>

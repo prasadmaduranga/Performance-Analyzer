@@ -23,9 +23,8 @@
                         <Items>
                             <asp:MenuItem Text="Basic Details"></asp:MenuItem>
                             <asp:MenuItem Text="Modules"></asp:MenuItem>
-                            <asp:MenuItem Text="Student Details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  &nbsp;"></asp:MenuItem>
-
+                            <asp:MenuItem Text="Student Details"></asp:MenuItem>
+<%--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--%>
                         </Items>
                     </asp:Menu>
                     <!--/.nav-collapse -->
@@ -39,11 +38,7 @@
         <ContentTemplate>
             <asp:MultiView ID="MultiView1" runat="server">
                 <asp:View ID="View1" runat="server">
-                    <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="courseID" Height="50px" Width="303px" CellPadding="4" ForeColor="#333333" GridLines="None">
-                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                        <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
-                        <EditRowStyle BackColor="#999999" />
-                        <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" />
+                    <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="courseID"  CssClass="table-condensed  table-striped  detailsView" HeaderText="Basic Course Information" HorizontalAlign="Center">
                         <Fields>
                             <asp:TemplateField HeaderText="Course name">
 
@@ -78,9 +73,6 @@
 
                                 <ItemTemplate>
                                     <asp:Label ID="Label5" runat="server" Text='<%# Eval("departmentName") %>'></asp:Label>
-                                    <br />
-                                    <br />
-                                    <br />
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Number of student">
@@ -91,7 +83,7 @@
                                             <asp:SessionParameter Name="courseID" SessionField="courseID" />
                                         </SelectParameters>
                                     </asp:SqlDataSource>
-                                    <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource7" ShowHeader="False">
+                                    <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource7" ShowHeader="False" GridLines="None">
                                     </asp:GridView>
                                     <br />
                                 </ItemTemplate>
@@ -105,7 +97,7 @@
                                             <asp:SessionParameter Name="courseID" SessionField="courseID" />
                                         </SelectParameters>
                                     </asp:SqlDataSource>
-                                    <asp:GridView ID="GridView2" runat="server" DataSourceID="SqlDataSource8" ShowHeader="False">
+                                    <asp:GridView ID="GridView2" runat="server" DataSourceID="SqlDataSource8" ShowHeader="False" GridLines="None">
                                     </asp:GridView>
                                 </ItemTemplate>
                             </asp:TemplateField>
@@ -120,20 +112,17 @@
                                             <asp:SessionParameter Name="courseID" SessionField="courseID" />
                                         </SelectParameters>
                                     </asp:SqlDataSource>
-                                    <asp:GridView ID="GridView3" runat="server" DataSourceID="SqlDataSource9" ShowHeader="False" SelectedRowStyle-BorderWidth="0px">
+                                    <asp:GridView ID="GridView3" runat="server" DataSourceID="SqlDataSource9" ShowHeader="False" SelectedRowStyle-BorderWidth="0px" GridLines="None">
                                     </asp:GridView>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Fields>
 
-                        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
                     </asp:DetailsView>
                 </asp:View>
                 <asp:View ID="View2" runat="server">
 
-                    <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataKeyNames="semesterID" OnDataBinding="GridView4_DataBinding" OnRowDataBound="GridView4_RowDataBound">
+                    <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataKeyNames="semesterID" OnDataBinding="GridView4_DataBinding" OnRowDataBound="GridView4_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" HorizontalAlign="Center">
                         <Columns>
                             <%-- <asp:BoundField DataField="semesterID" InsertVisible="false" HeaderText="semesterID" SortExpression="semesterID" />--%>
 
@@ -192,7 +181,7 @@
                         <tr>
                             <td>
                                 <div>
-                                    <asp:GridView ID="GridView6" runat="server" AutoGenerateColumns="False" DataKeyNames="userID" DataSourceID="SqlDataSource11" OnSelectedIndexChanged="GridView6_SelectedIndexChanged" AllowPaging="True" PageSize="20">
+                                    <asp:GridView ID="GridView6" runat="server" AutoGenerateColumns="False" DataKeyNames="userID" DataSourceID="SqlDataSource11" OnSelectedIndexChanged="GridView6_SelectedIndexChanged" AllowPaging="True" PageSize="5" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" OnPageIndexChanging="GridView6_PageIndexChanging">
                                         <Columns>
                                             <asp:CommandField ShowSelectButton="True" />
                                             <asp:BoundField DataField="userID" Visible="false" HeaderText="userID" InsertVisible="False" ReadOnly="True" SortExpression="userID" />
@@ -239,7 +228,7 @@
                             <td>
                                 <div>
 
-                                    <asp:DetailsView ID="DetailsView2" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataKeyNames="userID" DataSourceID="SqlDataSource12">
+                                    <asp:DetailsView ID="DetailsView2" runat="server" AutoGenerateRows="False" DataKeyNames="userID" DataSourceID="SqlDataSource12" CssClass="table-condensed  table-striped  detailsView" HeaderText="Profile">
                                         <Fields>
                                             <asp:TemplateField HeaderText="Profile Picture" SortExpression="imageURL">
                                                 <EditItemTemplate>

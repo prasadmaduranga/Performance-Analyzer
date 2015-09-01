@@ -23,7 +23,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.IndustryProfessional
 
         }
 
-        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void GridView1_RowCommand2(object sender, GridViewCommandEventArgs e)
         {
             if (((LinkButton)e.CommandSource).Text.Equals("More..."))
             {
@@ -43,11 +43,8 @@ namespace PerformanceAnalyzer2.PresentationLayer.IndustryProfessional
                 PerformanceAnalyzerDataContext dataContext = new PerformanceAnalyzerDataContext();
                 dataContext.spUnfollowCourse(Convert.ToInt32(Session["userID"].ToString()), courseID);
                 GridView1.DataBind();
-
                 DetailsView1.DataSource = null;
                 DetailsView1.DataBind();
-
-
             }
 
 
@@ -120,6 +117,11 @@ namespace PerformanceAnalyzer2.PresentationLayer.IndustryProfessional
 
                 MultiView1.ActiveViewIndex = 1;
             }
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -10,6 +10,8 @@
     <script src="../../bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
     <script src="../../bootstrap-3.3.5-dist/js/jquery.js"></script>
     <link href="../../bootstrap-3.3.5-dist/css/Custom.css" rel="stylesheet" />
+    <script src="http://localhost:41826/bootstrap-3.3.5-dist/js/Custom.js"></script>
+    <script src="http://localhost:41826/bootstrap-3.3.5-dist/js/jquerymin1.9.1.js"></script>
 </head>
 <body>
     <form id="form1" runat="server"  style="padding-left: 5%; padding-right: 5%; padding-top: 1%;">

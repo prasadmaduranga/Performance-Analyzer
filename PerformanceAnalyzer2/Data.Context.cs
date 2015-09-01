@@ -691,5 +691,27 @@ namespace PerformanceAnalyzer2
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetCourseInformationNew2_Result>("spGetCourseInformationNew2", courseIDParameter);
         }
+    
+        public virtual int spDeleteMessage(Nullable<int> userID)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("userID", userID) :
+                new ObjectParameter("userID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spDeleteMessage", userIDParameter);
+        }
+    
+        public virtual int spGrantCourse(Nullable<int> userID, Nullable<int> courseID)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("userID", userID) :
+                new ObjectParameter("userID", typeof(int));
+    
+            var courseIDParameter = courseID.HasValue ?
+                new ObjectParameter("courseID", courseID) :
+                new ObjectParameter("courseID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spGrantCourse", userIDParameter, courseIDParameter);
+        }
     }
 }

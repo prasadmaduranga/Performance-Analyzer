@@ -27,7 +27,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Lecturer
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (((LinkButton)e.CommandSource).Text.Equals("More..."))
+            if (((LinkButton)e.CommandSource).Text.Equals(" More..."))
             {
                 GridViewRow rowSelect = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
                 int rowindex = rowSelect.RowIndex;
@@ -36,7 +36,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Lecturer
                 DetailsView1.DataBind();
 
             }
-            if (((LinkButton)e.CommandSource).Text.Equals("Unfollow"))
+            if (((LinkButton)e.CommandSource).Text.Equals("Unfollow | "))
             {
                 GridViewRow rowSelect = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
                 int rowindex = rowSelect.RowIndex;
@@ -80,7 +80,8 @@ namespace PerformanceAnalyzer2.PresentationLayer.Lecturer
 
 
             }
-            else if (((LinkButton)e.CommandSource).Text.Equals("More...")) {
+            else if (((LinkButton)e.CommandSource).Text.Equals(" | More..."))
+            {
 
                 GridViewRow rowSelect = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
                 int rowindex = rowSelect.RowIndex;

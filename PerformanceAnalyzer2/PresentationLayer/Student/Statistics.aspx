@@ -60,7 +60,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="result" DataSourceID="SqlDataSource2">
+                                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="result" DataSourceID="SqlDataSource2" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" OnPageIndexChanging="GridView1_PageIndexChanging">
                                     <Columns>
                                         <asp:BoundField DataField="indexNo" HeaderText="Index No" SortExpression="indexNo" />
                                         <asp:BoundField DataField="userName" HeaderText="Name" SortExpression="userName" />
@@ -101,7 +101,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3">
+                                <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:BoundField DataField="result" HeaderText="Result" SortExpression="result" />
                                         <asp:BoundField DataField="numOfStudents" HeaderText="Num.Of Students" ReadOnly="True" SortExpression="numberOfStudents" />
@@ -162,7 +162,7 @@ group by  ResultMapping.result ">
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:GridView ID="GridView5" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource13" OnRowDataBound="GridView5_RowDataBound">
+                                <asp:GridView ID="GridView5" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource13" OnRowDataBound="GridView5_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" HorizontalAlign="Center" OnPageIndexChanging="GridView5_PageIndexChanging">
                                     <Columns>
                                         <asp:BoundField DataField="indexNo" HeaderText="Index No" />
                                         <asp:BoundField DataField="name" HeaderText="Name" />
@@ -192,7 +192,7 @@ group by  ResultMapping.result ">
                         </tr>
                         <tr>
                             <td>
-                                <asp:GridView ID="GridView6" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource6">
+                                <asp:GridView ID="GridView6" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:BoundField DataField="GPARange" HeaderText="Range" />
                                         <asp:BoundField DataField="stdCount" HeaderText="Num Of Students" />
@@ -235,7 +235,7 @@ group by  ResultMapping.result ">
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:GridView ID="GridView3" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource5" OnRowDataBound="GridView3_RowDataBound">
+                                <asp:GridView ID="GridView3" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource5" OnRowDataBound="GridView3_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" HorizontalAlign="Center" OnPageIndexChanging="GridView3_PageIndexChanging">
                                     <Columns>
                                         <asp:BoundField DataField="indexNo" HeaderText="Index No" />
                                         <asp:BoundField DataField="name" HeaderText="Name" />
@@ -264,7 +264,7 @@ group by  ResultMapping.result ">
                         </tr>
                         <tr>
                             <td>
-                                <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource7">
+                                <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource7" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:BoundField DataField="GPARange" HeaderText="Range" />
                                         <asp:BoundField DataField="stdCount" HeaderText="Num Of Students" />
@@ -346,7 +346,7 @@ group by  ResultMapping.result ">
                         </tr>
                         <tr>
                             <td>
-                                <asp:GridView ID="GridView7" runat="server" AutoGenerateColumns="False" DataKeyNames="result" DataSourceID="SqlDataSource15">
+                                <asp:GridView ID="GridView7" runat="server" AutoGenerateColumns="False" DataKeyNames="result" DataSourceID="SqlDataSource15" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:BoundField DataField="result" HeaderText="Grade" ReadOnly="True" SortExpression="result" />
                                         <asp:BoundField DataField="NumofStudents" HeaderText="Num. Of Students" ReadOnly="True" SortExpression="NumofStudents" />

@@ -823,6 +823,9 @@
           <Parameter Name="imageURL" Type="nvarchar" Mode="In" />
           <Parameter Name="password" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="spDeleteMessage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userID" Type="int" Mode="In" />
+        </Function>
         <Function Name="spDeleteModuleBySemester" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="semesterID" Type="int" Mode="In" />
           <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
@@ -895,6 +898,10 @@
         <Function Name="spGetStudentInfoForResultNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="courseID" Type="int" Mode="In" />
           <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spGrantCourse" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userID" Type="int" Mode="In" />
+          <Parameter Name="courseID" Type="int" Mode="In" />
         </Function>
         <Function Name="spInsertBasicCourseInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="name" Type="nvarchar" Mode="In" />
@@ -1281,6 +1288,13 @@
           <Parameter Name="semesterID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spGetCourseInformationNew2" ReturnType="Collection(PerformanceAnalyzerModel.spGetCourseInformationNew2_Result)">
+          <Parameter Name="courseID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spDeleteMessage">
+            <Parameter Name="userID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGrantCourse">
+            <Parameter Name="userID" Mode="In" Type="Int32" />
             <Parameter Name="courseID" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
@@ -2505,6 +2519,8 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spDeleteMessage" FunctionName="PerformanceAnalyzerModel.Store.spDeleteMessage" />
+          <FunctionImportMapping FunctionImportName="spGrantCourse" FunctionName="PerformanceAnalyzerModel.Store.spGrantCourse" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

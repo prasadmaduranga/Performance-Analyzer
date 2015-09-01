@@ -76,7 +76,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource13" OnRowDataBound="GridView4_RowDataBound">
+                                <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource13" OnRowDataBound="GridView4_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:BoundField DataField="moduleCode" HeaderText="Module Code" />
                                         <asp:BoundField DataField="name" HeaderText="Module" />
@@ -101,7 +101,7 @@
                                 </asp:SqlDataSource>
                             </td>
                             <td>
-                                <asp:GridView ID="GridView5" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView5_RowDataBound" ShowHeader="False">
+                                <asp:GridView ID="GridView5" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView5_RowDataBound" ShowHeader="False" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:BoundField DataField="name" />
                                         <asp:TemplateField HeaderText="SGPA">
@@ -123,7 +123,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:Chart ID="Chart4" runat="server" DataSourceID="SqlDataSource13" OnLoad="Chart4_Load" OnDataBound="Chart4_DataBound" OnPostPaint="Chart4_PostPaint">
+                                <asp:Chart ID="Chart4" runat="server" DataSourceID="SqlDataSource13" OnLoad="Chart4_Load" OnDataBound="Chart4_DataBound" OnPostPaint="Chart4_PostPaint" Width="448px">
                                     <Series>
                                         <asp:Series Name="Series1" BorderWidth="3" IsValueShownAsLabel="true" ChartType="Line" XValueMember="moduleCode" YValueMembers="myGPA">
                                         </asp:Series>
@@ -179,7 +179,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:GridView ID="GridView10" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource23" OnRowDataBound="GridView10_RowDataBound" ShowHeader="False">
+                                <asp:GridView ID="GridView10" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource23" OnRowDataBound="GridView10_RowDataBound" ShowHeader="False" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:BoundField DataField="name" />
                                         <asp:TemplateField HeaderText="GPA">
@@ -206,7 +206,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:GridView ID="GridView11" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource24" OnRowDataBound="GridView11_RowDataBound">
+                                <asp:GridView ID="GridView11" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource24" OnRowDataBound="GridView11_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:BoundField DataField="semester" HeaderText="semester" />
                                         <asp:TemplateField HeaderText="My SGPA">
@@ -227,7 +227,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:Chart ID="Chart7" runat="server" DataSourceID="SqlDataSource24" OnLoad="Chart7_Load" OnPostPaint="Chart7_PostPaint" OnPrePaint="Chart7_PrePaint">
+                                <asp:Chart ID="Chart7" runat="server" DataSourceID="SqlDataSource24" OnLoad="Chart7_Load" OnPostPaint="Chart7_PostPaint" OnPrePaint="Chart7_PrePaint" Width="526px">
                                     <Series>
                                         <asp:Series ChartType="Line" Name="Series1" BorderWidth="3" IsValueShownAsLabel="True" XValueMember="semester" YValueMembers="mySGPA">
                                         </asp:Series>

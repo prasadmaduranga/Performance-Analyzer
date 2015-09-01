@@ -46,7 +46,7 @@
                     <asp:Parameter Name="description" Type="String" />
                 </UpdateParameters>
             </asp:SqlDataSource>
-            <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DefaultMode="Edit" Height="50px" Width="249px" AutoGenerateEditButton="True" OnItemUpdated="DetailsView1_ItemUpdated" OnItemUpdating="DetailsView1_ItemUpdating" DataKeyNames="userID" DataSourceID="SqlDataSource1" CssClass="table-condensed  table-striped  detailsView" HeaderText="Edit Prifile">
+            <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DefaultMode="Edit" Height="50px" Width="249px" AutoGenerateEditButton="True" OnItemUpdated="DetailsView1_ItemUpdated" OnItemUpdating="DetailsView1_ItemUpdating" DataKeyNames="userID" DataSourceID="SqlDataSource1" CssClass="table-condensed  table-striped  detailsView" HeaderText="Edit Prifile" GridLines="Horizontal">
                 <Fields>
                     <asp:BoundField DataField="userID" ReadOnly="true" HeaderText="User ID" />
                     <asp:TemplateField HeaderText="User name">

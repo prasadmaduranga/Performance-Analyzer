@@ -109,7 +109,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView3_RowDataBound" Style="margin-right: 0px" CssClass="table-condensed  table-striped  detailsView">
+                                <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView3_RowDataBound" Style="margin-right: 0px" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:TemplateField HeaderText="Category">
                                             <ItemTemplate>
@@ -200,7 +200,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" OnRowDataBound="GridView1_RowDataBound">
+                                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" OnRowDataBound="GridView1_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:TemplateField HeaderText="Student" SortExpression="indexNo">
                                             <EditItemTemplate>
@@ -332,7 +332,7 @@ SELECT DISTINCT Module.name, Module.moduleCode FROM Student INNER JOIN Enrollmen
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:GridView ID="GridView2" runat="server" DataSourceID="SqlDataSource7" OnRowDataBound="GridView2_RowDataBound" AutoGenerateColumns="False">
+                                <asp:GridView ID="GridView2" runat="server" DataSourceID="SqlDataSource7" OnRowDataBound="GridView2_RowDataBound" AutoGenerateColumns="False" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:BoundField DataField="indexNo" HeaderText="indexNo" SortExpression="indexNo" />
                                         <asp:BoundField DataField="result" HeaderText="result" SortExpression="result" />
@@ -359,9 +359,9 @@ SELECT DISTINCT Module.name, Module.moduleCode FROM Student INNER JOIN Enrollmen
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:Chart ID="Chart2" runat="server" DataSourceID="SqlDataSource8" Palette="Bright" OnPrePaint="Chart2_PrePaint">
+                                <asp:Chart ID="Chart2" runat="server" DataSourceID="SqlDataSource8" Palette="Bright" OnPrePaint="Chart2_PrePaint" Width="733px">
                                     <Series>
-                                        <asp:Series Name="Series1" XValueMember="indexNo" YValueMembers="GPA"></asp:Series>
+                                        <asp:Series Name="Series1" XValueMember="indexNo" YValueMembers="GPA" ChartArea="ChartArea1"></asp:Series>
                                     </Series>
                                     <ChartAreas>
                                         <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
@@ -417,7 +417,7 @@ where Enrollment.moduleCode=@moduleCode and (Student.userID=@student1 or Student
                         </tr>
                         <tr>
                             <td>
-                                <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource13" OnRowDataBound="GridView4_RowDataBound">
+                                <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource13" OnRowDataBound="GridView4_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:BoundField DataField="moduleCode" HeaderText="Module Code" />
                                         <asp:BoundField DataField="name" HeaderText="Module" />
@@ -458,7 +458,7 @@ where Enrollment.moduleCode=@moduleCode and (Student.userID=@student1 or Student
                                 </asp:SqlDataSource>
                             </td>
                             <td>
-                                <asp:GridView ID="GridView5" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView5_RowDataBound">
+                                <asp:GridView ID="GridView5" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView5_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:BoundField DataField="name" />
                                         <asp:TemplateField HeaderText="SGPA">
@@ -480,7 +480,7 @@ where Enrollment.moduleCode=@moduleCode and (Student.userID=@student1 or Student
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:Chart ID="Chart4" runat="server" DataSourceID="SqlDataSource13" OnLoad="Chart4_Load" OnDataBound="Chart4_DataBound" OnPostPaint="Chart4_PostPaint">
+                                <asp:Chart ID="Chart4" runat="server" DataSourceID="SqlDataSource13" OnLoad="Chart4_Load" OnDataBound="Chart4_DataBound" OnPostPaint="Chart4_PostPaint" Width="604px">
                                     <Series>
                                         <asp:Series Name="Series1" BorderWidth="3" IsValueShownAsLabel="true" ChartType="Line" XValueMember="moduleCode" YValueMembers="myGPA">
                                         </asp:Series>
@@ -590,7 +590,7 @@ where Enrollment.moduleCode=@moduleCode and (Student.userID=@student1 or Student
                         </tr>
                         <tr>
                             <td>
-                                <asp:GridView ID="GridView6" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView6_RowDataBound">
+                                <asp:GridView ID="GridView6" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView6_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:BoundField DataField="moduleCode" HeaderText="Module Code" />
                                         <asp:BoundField DataField="name" HeaderText="Name" />
@@ -623,7 +623,7 @@ where Enrollment.moduleCode=@moduleCode and (Student.userID=@student1 or Student
                                 <br />
                             </td>
                             <td>
-                                <asp:GridView ID="GridView7" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView7_RowDataBound">
+                                <asp:GridView ID="GridView7" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView7_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:BoundField DataField="name" HeaderText="Student" />
                                         <asp:TemplateField HeaderText="SGPA">
@@ -761,7 +761,7 @@ Member.userID!=@student1  AND
                         </tr>
                         <tr>
                             <td>
-                                <asp:GridView ID="GridView8" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView8_RowDataBound">
+                                <asp:GridView ID="GridView8" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView8_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:BoundField DataField="moduleCode" HeaderText="Module Code" />
                                         <asp:BoundField DataField="name" HeaderText="Name" />
@@ -801,7 +801,7 @@ Member.userID!=@student1  AND
                                 <br />
                             </td>
                             <td>
-                                <asp:GridView ID="GridView9" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource21">
+                                <asp:GridView ID="GridView9" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource21" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:BoundField DataField="name" HeaderText="Student" />
                                         <asp:TemplateField HeaderText="SGPA">
@@ -824,7 +824,7 @@ Member.userID!=@student1  AND
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:Chart ID="Chart5" runat="server" OnLoad="Chart5_Load" OnPostPaint="Chart5_PostPaint">
+                                <asp:Chart ID="Chart5" runat="server" OnLoad="Chart5_Load" OnPostPaint="Chart5_PostPaint" Width="556px">
                                     <Series>
                                         <asp:Series Name="Series1" BorderWidth="3" IsValueShownAsLabel="True" ChartType="Line" ChartArea="ChartArea1" XValueMember="moduleCode" YValueMembers="myGPA">
                                         </asp:Series>
@@ -869,7 +869,7 @@ Member.userID!=@student1  AND
                         </tr>
                         <tr>
                             <td>
-                                <asp:GridView ID="GridView10" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource23" OnRowDataBound="GridView10_RowDataBound">
+                                <asp:GridView ID="GridView10" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource23" OnRowDataBound="GridView10_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:BoundField DataField="name" />
                                         <asp:TemplateField HeaderText="GPA">
@@ -896,7 +896,7 @@ Member.userID!=@student1  AND
                         </tr>
                         <tr>
                             <td>
-                                <asp:GridView ID="GridView11" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource24" OnRowDataBound="GridView11_RowDataBound">
+                                <asp:GridView ID="GridView11" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource24" OnRowDataBound="GridView11_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:BoundField DataField="semester" HeaderText="semester" />
                                         <asp:TemplateField HeaderText="My SGPA">
@@ -982,7 +982,7 @@ Member.userID!=@student1  AND
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:GridView ID="GridView12" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource25" OnRowDataBound="GridView12_RowDataBound">
+                                <asp:GridView ID="GridView12" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource25" OnRowDataBound="GridView12_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:BoundField DataField="name" />
                                         <asp:TemplateField HeaderText="GPA">
@@ -1010,7 +1010,7 @@ Member.userID!=@student1  AND
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:GridView ID="GridView13" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource26" OnRowDataBound="GridView13_RowDataBound">
+                                <asp:GridView ID="GridView13" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource26" OnRowDataBound="GridView13_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:BoundField DataField="semester" HeaderText="semester" />
                                         <asp:TemplateField HeaderText="Me">
@@ -1037,7 +1037,7 @@ Member.userID!=@student1  AND
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:Chart ID="Chart8" runat="server" DataSourceID="SqlDataSource26" OnLoad="Chart8_Load" OnPrePaint="Chart8_PrePaint">
+                                <asp:Chart ID="Chart8" runat="server" DataSourceID="SqlDataSource26" OnLoad="Chart8_Load" OnPrePaint="Chart8_PrePaint" Width="538px">
                                     <Series>
                                         <asp:Series ChartType="Line" Name="Series1" BorderWidth="3" IsValueShownAsLabel="True" XValueMember="semester" YValueMembers="mySGPA">
                                         </asp:Series>
@@ -1109,7 +1109,7 @@ Member.userID!=@student1  AND
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:GridView ID="GridView14" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource29" OnRowDataBound="GridView14_RowDataBound">
+                                <asp:GridView ID="GridView14" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource29" OnRowDataBound="GridView14_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:BoundField DataField="name" />
                                         <asp:TemplateField HeaderText="GPA">
@@ -1137,7 +1137,7 @@ Member.userID!=@student1  AND
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:GridView ID="GridView15" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource30" OnRowDataBound="GridView15_RowDataBound">
+                                <asp:GridView ID="GridView15" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource30" OnRowDataBound="GridView15_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:BoundField DataField="semester" HeaderText="semester" />
                                         <asp:TemplateField HeaderText="Me">

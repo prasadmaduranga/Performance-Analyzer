@@ -281,9 +281,17 @@ namespace PerformanceAnalyzer2.PresentationLayer.Lecturer
         protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = RadioButtonList1.SelectedIndex;
-
+           
             if (index == 0) { View1_DataBind(); }
-            else if (index == 1) { View2_DataBind(); }
+            else if (index == 1) {
+                if (DropDownList2.SelectedValue.Equals("-1"))
+                {
+                    View2_DataBind();
+                }
+                else {
+                    MultiView1.ActiveViewIndex = 1;
+                }
+                }
             else if (index == 2) { View3_DataBind(); }
             else if (index == 3) {  View6_DataBind(); }
          
@@ -335,6 +343,24 @@ namespace PerformanceAnalyzer2.PresentationLayer.Lecturer
         protected void DetailsView1_DataBound(object sender, EventArgs e)
         {
             
+        }
+
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+            GridView1.DataBind();
+        }
+
+        protected void GridView5_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView5.PageIndex = e.NewPageIndex;
+            GridView5.DataBind();
+        }
+
+        protected void GridView3_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView3.PageIndex = e.NewPageIndex;
+            GridView3.DataBind();
         }
     }
 }

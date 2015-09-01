@@ -27,7 +27,8 @@
             <asp:Menu ID="Menu1" runat="server" StaticMenuStyle-Width="100%" OnMenuItemClick="Menu2_MenuItemClick" StaticMenuStyle-CssClass="nav navbar-nav" class="navbar-collapse collapse sidebar-navbar-collapse">
 
                 <Items>
-                    <asp:MenuItem Text="Course Info &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"></asp:MenuItem>
+                    <asp:MenuItem Text="Course Info"></asp:MenuItem>
+                   <%-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--%>
                     <asp:MenuItem Text="Module Info"></asp:MenuItem>
                     <asp:MenuItem Text="Student Info"></asp:MenuItem>
 
@@ -79,6 +80,17 @@
 
                         <tr>
                             <td colspan="2">
+                                <asp:SqlDataSource ID="SqlDataSource11" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="
+ select courseID,Course.name,batch,University.universityID as universityID,University.name as universityName,Faculty.facultyID as facultyID,Faculty.name as facultyName,Department.departmentID as departmentID,Department.name as departmentName
+
+ from Course join University on Course.universityID=University.universityID join Faculty on Faculty.facultyID=Course.facultyID
+ join Department on Department.departmentID=Course.departmentID
+where Course.courseID=@courseID
+">
+                                    <SelectParameters>
+                                        <asp:Parameter Name="courseID" />
+                                    </SelectParameters>
+                                </asp:SqlDataSource>
                                 <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="courseID"   OnItemUpdating="DetailsView1_ItemUpdating" CssClass="table-condensed table-striped  detailsView" HeaderText="Edit Course Info" DefaultMode="Edit" AutoGenerateEditButton="True" >
                                     <Fields>
                                         <asp:TemplateField HeaderText="Course name">
@@ -238,8 +250,7 @@ where courseID=@courseID">
                 </asp:View>
                 <asp:View ID="View2" runat="server">
                     Module Information
-                        <asp:GridView ID="GridView1" ShowHeaderWhenEmpty="true" runat="server" AutoGenerateColumns="False" DataKeyNames="semesterID" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnDataBound="GridView1_DataBound" OnLoad="GridView1_Load">
-                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                        <asp:GridView ID="GridView1" ShowHeaderWhenEmpty="True" runat="server" AutoGenerateColumns="False" DataKeyNames="semesterID" GridLines="Horizontal" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnDataBound="GridView1_DataBound" OnLoad="GridView1_Load" CssClass="table table-striped table-hover  table-condensed  gridViewCustom">
                             <Columns>
 
                                 <asp:CommandField ShowSelectButton="True" />
@@ -248,16 +259,7 @@ where courseID=@courseID">
 
                                 <asp:BoundField DataField="semesterNumber" HeaderText="Semester" SortExpression="Semester" />
                             </Columns>
-                            <EditRowStyle BackColor="#999999" />
-                            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                            <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                            <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                            <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                            <SelectedRowStyle CssClass="selectedRow" />
                         </asp:GridView>
                     <br />
                     <br />
@@ -299,7 +301,7 @@ where courseID=@courseID">
                         </FooterTemplate>
                     </asp:DetailsView>
                     <br />
-                    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridView2_RowDeleting">
+                    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridView2_RowDeleting" CssClass="table table-striped table-hover  table-condensed  gridViewCustom">
                         <Columns>
                             <asp:CommandField ShowDeleteButton="True" />
                             <asp:BoundField DataField="semesterID" HeaderText="semesterID" InsertVisible="False" ReadOnly="True" SortExpression="semesterID" />
@@ -331,8 +333,7 @@ where courseID=@courseID">
                 <asp:View ID="View3" runat="server">
                     Student Information<br />
                     <br />
-                    <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" DataKeyNames="userID" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowEditing="GridView3_RowEditing" OnRowUpdating="GridView3_RowUpdating" AllowPaging="True" OnRowUpdated="GridView3_RowUpdated">
-                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" DataKeyNames="userID" GridLines="Horizontal" OnRowEditing="GridView3_RowEditing" OnRowUpdating="GridView3_RowUpdating" AllowPaging="True" OnRowUpdated="GridView3_RowUpdated" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" HorizontalAlign="Center" OnPageIndexChanging="GridView3_PageIndexChanging">
                         <Columns>
                             <asp:BoundField DataField="userID" HeaderText="userID" InsertVisible="False" ReadOnly="True" SortExpression="userID" />
                             <asp:TemplateField HeaderText="userName" SortExpression="userName">
@@ -356,16 +357,8 @@ where courseID=@courseID">
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
-                        <EditRowStyle BackColor="#999999" />
-                        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                        <EditRowStyle CssClass="selectedRow  editCustom" />
+                        <PagerStyle HorizontalAlign="Center" />
                     </asp:GridView>
                     <br />
 

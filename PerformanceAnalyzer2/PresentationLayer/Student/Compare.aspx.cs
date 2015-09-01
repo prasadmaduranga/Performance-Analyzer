@@ -18,9 +18,9 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["courseID"] = 8;
-            Session["userID"] = 6;
-            Session["indexNo"] = "120287D";
+            Session["courseID"] = 154;
+            Session["userID"] =309;
+            Session["indexNo"] = "129";
            
 
             if (!IsPostBack)

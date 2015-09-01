@@ -261,5 +261,23 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
             else if (index == 2) { View3_DataBind(); }
             else if (index == 3) { View4_DataBind(); }
         }
+
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+            GridView1.DataBind();
+        }
+
+        protected void GridView5_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView5.PageIndex = e.NewPageIndex;
+            GridView5.DataBind();
+        }
+
+        protected void GridView3_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView3.PageIndex = e.NewPageIndex;
+            GridView3.DataBind();
+        }
     }
 }

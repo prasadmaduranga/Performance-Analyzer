@@ -30,7 +30,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:GridView ID="GridView1" runat="server" DataKeyNames="courseID" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" OnRowCommand="GridView1_RowCommand">
+                                <asp:GridView ID="GridView1" runat="server" DataKeyNames="courseID" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" OnRowCommand="GridView1_RowCommand2" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CssClass="table table-striped table-hover  table-condensed  gridViewCustom editCustom" GridLines="Horizontal">
                                     <Columns>
                                         <asp:BoundField DataField="courseID" ReadOnly="true" HeaderText="ID" />
                                         <asp:BoundField DataField="description" HeaderText="Course" />
@@ -39,16 +39,17 @@
                                                 <table>
                                                     <tr>
                                                         <td>
-                                                            <asp:LinkButton ID="LinkButton1" runat="server">Unfollow</asp:LinkButton>
+                                                            <asp:LinkButton ID="LinkButton1" runat="server">Unfollow | </asp:LinkButton>
                                                         </td>
                                                         <td>
-                                                            <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">More...</asp:LinkButton>
+                                                            <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click"> More...</asp:LinkButton>
                                                         </td>
                                                     </tr>
                                                 </table>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>
+                                    <SelectedRowStyle CssClass="selectedRow" />
                                 </asp:GridView>
                                 <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="spGetCourseList" SelectCommandType="StoredProcedure">
                                     <SelectParameters>
@@ -101,7 +102,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:GridView ID="GridView2" runat="server" DataKeyNames="courseID" AutoGenerateColumns="False" DataSourceID="SqlDataSource4" OnRowCommand="GridView2_RowCommand">
+                                <asp:GridView ID="GridView2"  runat="server" DataKeyNames="courseID" AutoGenerateColumns="False" DataSourceID="SqlDataSource4" OnRowCommand="GridView2_RowCommand" DataMember="table table-striped table-hover  table-condensed  gridViewCustom editCustom" GridLines="Horizontal" CssClass="table table-striped table-hover  table-condensed  gridViewCustom editCustom">
                                     <Columns>
                                         <asp:BoundField DataField="courseID" Visible="false" HeaderText="CourseID" />
                                         <asp:BoundField DataField="description" HeaderText="Course" />
@@ -112,10 +113,10 @@
                                                 <table>
                                                     <tr>
                                                         <td>
-                                                            <asp:LinkButton ID="LinkButton3" runat="server" Text='<%# Eval("requestStatus") %>' OnClick="LinkButton3_Click"></asp:LinkButton>
+                                                            <asp:LinkButton ID="LinkButton3" runat="server" Text='<%# Eval("requestStatus")+" " %>' OnClick="LinkButton3_Click"></asp:LinkButton>
                                                         </td>
                                                         <td>
-                                                            <asp:LinkButton ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">More...</asp:LinkButton>
+                                                            <asp:LinkButton ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">| More...</asp:LinkButton>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -124,13 +125,15 @@
 
                                         </asp:TemplateField>
                                     </Columns>
+                                    <SelectedRowStyle CssClass="selectedRow" />
                                 </asp:GridView>
-                                <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="spGetCourseListForView" SelectCommandType="StoredProcedure">
+                                <asp:SqlDataSource ID="SqlDataSource4"  runat="server"  ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="spGetCourseListForView" SelectCommandType="StoredProcedure">
                                     <SelectParameters>
                                         <asp:SessionParameter Name="userID" SessionField="userID" Type="Int32" />
                                         <asp:ControlParameter ControlID="DropDownList1" Name="universityID" PropertyName="SelectedValue" Type="Int32" />
                                     </SelectParameters>
                                 </asp:SqlDataSource>
+
                             </td>
                             <td>
                                 <br />
@@ -151,6 +154,7 @@
                                         <asp:Parameter Name="courseIDin" Type="Int32" />
                                     </SelectParameters>
                                 </asp:SqlDataSource>
+                                <br />
                             </td>
                         </tr>
                     </table>

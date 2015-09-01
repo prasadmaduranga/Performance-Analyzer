@@ -71,11 +71,20 @@ namespace PerformanceAnalyzer2.PresentationLayer.IndustryProfessional
 
         private void View2_DataBind()
         {
-            GridView6.Visible = false;
-            GridView5.Visible = false;
-            Chart2.Visible = false;
-            Label4.Text = "";
-            MultiView1.ActiveViewIndex = 1;
+            if (DropDownList2.SelectedValue.Equals("-1"))
+            {
+                GridView6.Visible = false;
+                GridView5.Visible = false;
+                Chart2.Visible = false;
+                Label4.Text = "";
+                MultiView1.ActiveViewIndex = 1;
+            }
+            else {
+
+                MultiView1.ActiveViewIndex = 1;
+            
+            }
+           
         }
         private void View1_DataBind()
         {
@@ -344,6 +353,26 @@ namespace PerformanceAnalyzer2.PresentationLayer.IndustryProfessional
         protected void DetailsView1_DataBound(object sender, EventArgs e)
         {
 
+        }
+
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+            GridView1.DataBind();
+        }
+
+        protected void GridView5_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView5.PageIndex = e.NewPageIndex;
+           // GridView3.DataSource = AdminLogic.getStudentBasicData(Session["courseID"].ToString());
+            GridView5.DataBind();
+        }
+
+        protected void GridView3_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView3.PageIndex = e.NewPageIndex;
+           // GridView3.DataSource = AdminLogic.getStudentBasicData(Session["courseID"].ToString());
+            GridView3.DataBind();
         }
     }
 }

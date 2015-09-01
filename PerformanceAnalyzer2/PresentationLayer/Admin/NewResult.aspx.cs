@@ -128,5 +128,11 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
         {
 
         }
+
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+            this.Gridview1_DataBind();
+        }
     }
 }

@@ -85,6 +85,15 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin {
         protected global::System.Web.UI.WebControls.View View1;
         
         /// <summary>
+        /// SqlDataSource11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource11;
+        
+        /// <summary>
         /// DetailsView1 control.
         /// </summary>
         /// <remarks>

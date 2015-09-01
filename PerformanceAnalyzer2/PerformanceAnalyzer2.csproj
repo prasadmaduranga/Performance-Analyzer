@@ -75,7 +75,9 @@
     <Content Include="bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="bootstrap-3.3.5-dist\js\bootstrap.js" />
     <Content Include="bootstrap-3.3.5-dist\js\bootstrap.min.js" />
+    <Content Include="bootstrap-3.3.5-dist\js\Custom.js" />
     <Content Include="bootstrap-3.3.5-dist\js\jquery.js" />
+    <Content Include="bootstrap-3.3.5-dist\js\jquerymin1.9.1.js" />
     <Content Include="bootstrap-3.3.5-dist\js\npm.js" />
     <Content Include="Images\128-215.jpg" />
     <Content Include="Images\prasad.jpg" />
@@ -88,6 +90,7 @@
     <Content Include="PresentationLayer\Admin\NewResult.aspx" />
     <Content Include="PresentationLayer\Admin\NewModule.aspx" />
     <Content Include="PresentationLayer\Admin\Home.aspx" />
+    <Content Include="PresentationLayer\Admin\Notifications.aspx" />
     <Content Include="PresentationLayer\IndustryProfessional\ViewProfileView.aspx" />
     <Content Include="PresentationLayer\IndustryProfessional\EditProfileView.aspx" />
     <Content Include="PresentationLayer\IndustryProfessional\Statistics.aspx" />
@@ -235,6 +238,13 @@
     </Compile>
     <Compile Include="PresentationLayer\Admin\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Admin\Notifications.aspx.cs">
+      <DependentUpon>Notifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Admin\Notifications.aspx.designer.cs">
+      <DependentUpon>Notifications.aspx</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\IndustryProfessional\IndustryProfessionalMaster.Master.cs">
       <DependentUpon>IndustryProfessionalMaster.Master</DependentUpon>
@@ -526,7 +536,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>25411</DevelopmentServerPort>
+          <DevelopmentServerPort>41826</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:10241/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

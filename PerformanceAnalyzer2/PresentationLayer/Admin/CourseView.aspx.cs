@@ -34,13 +34,23 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
                 }
                 else  if (Request.QueryString["courseID"] != null)
                 {
-                    Session["courseID"] = Request.QueryString["courseID"];
+                    Session["courseID"] = Request.QueryString["courseID"].ToString();
                     MultiView1.ActiveViewIndex = 0;
-                 
-                    DetailsView1.DataSource = AdminLogic.getbasicCourseInfoNew(Session["courseID"].ToString());
+                 //   DropDownList1.SelectedValue = Session["courseID"].ToString();
+                    DropDownList1.DataBind();
+                    DropDownList1.SelectedIndex = DropDownList1.Items.IndexOf(DropDownList1.Items.FindByValue(Session["courseID"].ToString()));
 
-                    DetailsView1.DataBind(); 
+                   // sqldatasource11.selectparameters["courseid"].defaultvalue = session["courseid"].tostring();
+                    //sqldatasource11.databind();
+                    SqlDataSource10.DataBind();
+                   DetailsView1.DataSource = SqlDataSource10;
+                   DetailsView1.DataBind();
 
+                    //DetailsView1.DataSource = SqlDataSource11;
+                    //DetailsView1.DataBind();
+                        
+                  loadGridviewSemester();
+                  setBsicStudentInfo();
 
                 }
                 else {
@@ -106,6 +116,25 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
        //     DetailsView1.DataSource = AdminLogic.getbasicCourseInfoNew2(DropDownList1.SelectedValue);
           // DetailsView1.DataSource = AdminLogic.getbasicCourseInfoNew2(DropDownList1.SelectedValue);
           //  AdminLogic.getbasicCourseInfoNew
+            DetailsView1.DataSource = SqlDataSource10;
+
+            DetailsView1.DataBind();
+
+            loadGridviewSemester();
+            setBsicStudentInfo();
+        }
+
+        protected void DropDownList1_SelectedIndexChanged()
+        {
+
+            if (DetailsView2.Visible == false && !DropDownList1.SelectedValue.Equals("0"))
+            {
+                DetailsView2.Visible = true;
+            }
+            Session["courseID"] = Convert.ToInt32(DropDownList1.SelectedValue);
+            //     DetailsView1.DataSource = AdminLogic.getbasicCourseInfoNew2(DropDownList1.SelectedValue);
+            // DetailsView1.DataSource = AdminLogic.getbasicCourseInfoNew2(DropDownList1.SelectedValue);
+            //  AdminLogic.getbasicCourseInfoNew
             DetailsView1.DataSource = SqlDataSource10;
 
             DetailsView1.DataBind();
@@ -334,6 +363,13 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
             this.setGriview2(GridView1.SelectedValue.ToString());
             DetailsView2.DataBind();
             UpdatePanel3.Update();
+        }
+
+        protected void GridView3_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView3.PageIndex = e.NewPageIndex;
+            GridView3.DataSource = AdminLogic.getStudentBasicData(Session["courseID"].ToString());
+            GridView3.DataBind();
         }
 
         

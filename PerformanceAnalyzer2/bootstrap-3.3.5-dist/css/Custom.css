@@ -242,7 +242,10 @@ border-left: #0179ac solid 1px;
 
 /*For text box area  and input inside forms*/
 
-    #ContentPlaceHolder2_DetailsView1 input, #ContentPlaceHolder2_DetailsView1 textarea, #ContentPlaceHolder2_DetailsView2 input, #ContentPlaceHolder2_DetailsView2 textarea {
+    #ContentPlaceHolder2_DetailsView1 input, #ContentPlaceHolder2_DetailsView1 textarea, #ContentPlaceHolder2_DetailsView2 input, #ContentPlaceHolder2_DetailsView2 textarea
+    ,   .gridViewCustom  input,.gridViewCustom  textarea
+    
+     {
   
 
         display: block;
@@ -263,8 +266,6 @@ border-left: #0179ac solid 1px;
         transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 
 
-
-        width:300px;
     }
 
 
@@ -276,7 +277,7 @@ width:auto;
     
     width:100%;
     }
-#ContentPlaceHolder2_DetailsView1  input,#ContentPlaceHolder2_DetailsView2  input ,#ContentPlaceHolder2_DetailsView3 input {
+#ContentPlaceHolder2_DetailsView1  input,#ContentPlaceHolder2_DetailsView2  input ,#ContentPlaceHolder2_DetailsView3 input,gri {
     
     width:100%;
     }
@@ -315,4 +316,193 @@ width:20px;
 width:20px;
 
 
-} 
+}
+.gridViewCustom {
+text-align:center;
+width:auto;
+  box-shadow: 3px -1px 4px #000000;
+}
+    .gridViewCustom > tbody > tr > th {
+    padding-left:20px;
+    padding-right:20px;
+       color:white;   
+    background-color:#0179ac;
+    }
+      .gridViewCustom > tbody > tr > th:hover,  .gridViewCustom > tbody > tr > th:active{
+    
+    background-color:#0179ac;
+    }
+
+    
+    .gridViewCustom > tbody {
+    border-left:solid 1px black;
+
+    
+    }
+
+    /*//==========================================*/
+#ContentPlaceHolder2_GridView1 > tbody > tr:hover,
+#ContentPlaceHolder2_GridView2 > tbody > tr:hover, 
+#ContentPlaceHolder2_GridView3 > tbody > tr:hover, 
+#ContentPlaceHolder2_GridView4 > tbody > tr:hover,
+#ContentPlaceHolder2_GridView5 > tbody > tr:hover, 
+#ContentPlaceHolder2_GridView6 > tbody > tr:hover, 
+#ContentPlaceHolder2_GridView7 > tbody > tr:hover,
+#ContentPlaceHolder2_GridView8 > tbody > tr:hover, 
+#ContentPlaceHolder2_GridView9> tbody > tr:hover, 
+#ContentPlaceHolder2_GridView10 > tbody > tr:hover, 
+#ContentPlaceHolder2_GridView11 > tbody > tr:hover, 
+#ContentPlaceHolder2_GridView12> tbody > tr:hover,
+#ContentPlaceHolder2_GridView13 > tbody > tr:hover, 
+#ContentPlaceHolder2_GridView14> tbody > tr:hover, 
+#ContentPlaceHolder2_GridView15> tbody > tr:hover
+ {
+
+    background-color: #D8D8D8;
+    }
+#ContentPlaceHolder2 .gridViewCustom  {
+    width:auto;
+        box-shadow: 3px -1px 4px #000000;
+}
+
+
+.selectedRow {
+    background-color: #D8D8D8;
+
+}
+.editCustom {
+
+width:initial;
+
+}
+
+
+    .editCustom input {
+    height:auto;
+    padding-bottom:0px;
+    padding-top:0px;
+
+    
+    }
+
+.gridViewCustom #TextBox3 {
+     max-width:200px;
+
+
+}
+#ContentPlaceHolder2_GridView3 #TextBox4 ,.gridViewCustom > tbody > TextBox4_0,.gridViewCustom > tbody > tr.selectedRow.editCustom > td:nth-child(4){
+    max-width:100px;
+
+}
+#ContentPlaceHolder2_GridView3 #TextBox3.gridViewCustom > tbody > TextBox3_0,.gridViewCustom > tbody > tr.selectedRow.editCustom > td:nth-child(3) {
+     max-width:200px;
+
+
+}
+ #ContentPlaceHolder2_GridView3  tbody  tr td:nth-child(1) {
+max-width:110px;
+
+
+}
+
+
+.view1Special {
+
+margin:0px;
+
+}
+
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+* {
+  margin: 0;
+  padding: 0;
+}*/
+/*body {
+  background: #111;
+  color: #fff;
+  font-family: 'Open sans', sans-serif;
+  font-weight: 300;
+  font-size: 20pt;
+}*/
+.homemenu a {
+  color: #fff;
+  text-decoration: none;
+    font-weight: 300;
+  font-size: 20pt;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.homemenu {
+  width: 650px;
+  margin: 30px auto;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+@import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow);
+
+.homemenu a {
+  width: 200px;
+  line-height: 200px;
+  display: block;
+  margin: 5px;
+  text-align: center;
+  float: left;
+  opacity: 0.7;
+
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.homemenu2 {
+  width: 650px;
+  margin: 30px auto;
+  font-size:-webkit-xxx-large;
+
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+.homemenu2 a {
+  width: 300px;
+  line-height: 200px;
+  display: block;
+  margin: 5px;
+  text-align: center;
+  float: left;
+  opacity: 0.7;
+font-size:25pt;
+font-family: 'PT Sans Narrow', sans-serif;
+}
+
+
+.yellow { background: #fdd22a; }
+.yellow:hover {  -moz-box-shadow: 3px 3px 3px black;
+    -webkit-box-shadow: 3px 3px 3px black;
+    box-shadow: 3px 3px 3px black; }
+
+.blue { background: #009fe3; }
+.blue:hover {   -moz-box-shadow: 3px 3px 3px black;
+    -webkit-box-shadow: 3px 3px 3px black;
+    box-shadow: 3px 3px 3px black; }
+
+.purple { background: #574696; }
+.purple:hover {   -moz-box-shadow: 3px 3px 3px black;
+    -webkit-box-shadow: 3px 3px 3px black;
+    box-shadow: 3px 3px 3px black; }
+
+.orange { background: #ee7202; }
+.orange:hover {  -moz-box-shadow: 3px 3px 3px black;
+    -webkit-box-shadow: 3px 3px 3px black;
+    box-shadow: 3px 3px 3px black; }
+
+.pink { background: #e61c67; }
+.pink:hover {   -moz-box-shadow: 3px 3px 3px black;
+    -webkit-box-shadow: 3px 3px 3px black;
+    box-shadow: 3px 3px 3px black; }
+
+.green { background: #96c11f; }
+.green:hover {  -moz-box-shadow: 3px 3px 3px black;
+    -webkit-box-shadow: 3px 3px 3px black;
+    box-shadow: 3px 3px 3px black;  }
+
+
+
+
+

@@ -1129,7 +1129,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
 
             Label47.Visible = true;
             Label48.Visible = true;
-            Label46.Text = DropDownList10.SelectedItem.Text + " Vs " + DropDownList12.SelectedItem.Text + " Overrall Comparison";
+            Label46.Text = DropDownList10.SelectedItem.Text + " Vs " + DropDownList11.SelectedItem.Text + " Overrall Comparison";
             Label46.Visible = true;
             if (Chart8.Series[0].Points.Count > 0 || Chart8.Series[1].Points.Count > 0)
             {
@@ -1221,7 +1221,9 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
                 else if (comparisonGroup.Equals("others") && comparisnType.Equals("semester")) { ActivateView6(); }
                 else if (comparisonGroup.Equals("BVsMe") && comparisnType.Equals("overrall")) { ActivateView7(); }
                 else if (comparisonGroup.Equals("stdVsMe") && comparisnType.Equals("overrall")) { ActivateView8(); }
-                else if (comparisonGroup.Equals("others") && comparisnType.Equals("overrall")) { ActivateView9(); }
+                else if (comparisonGroup.Equals("others") && comparisnType.Equals("overrall")) {
+                    Label46.Text = "No Students Selected!";
+                    ActivateView9(); }
             }
 
         }

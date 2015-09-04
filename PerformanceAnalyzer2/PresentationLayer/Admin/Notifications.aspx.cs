@@ -13,7 +13,9 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
         {
             Session["userID"] =3;
             if (!IsPostBack) {
-                GridView1.DataBind(); 
+                GridView1.DataBind();
+                DetailsView1.Visible = false;
+
             }
         }
 
@@ -39,6 +41,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
            //    dbcontext.Database.SqlQuery<String>(@"insert into Lecture_Course values("+userId.ToString()+","+courseID.ToString()+")");
                dbcontext.spGrantCourse(userId, courseID);
                GridView1.DataBind();
+               DetailsView1.Visible = false;
 
             }
             else if (((LinkButton)e.CommandSource).Text.Equals("Delete"))
@@ -56,10 +59,13 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
                // dbcontext.Database.SqlQuery<String>(@"delete from [message] where senderID=" + userId.ToString());
                 dbcontext.spDeleteMessage(userId);
                 GridView1.DataBind();
+                DetailsView1.Visible = true;
+
             
             }
             else if (((LinkButton)e.CommandSource).Text.Equals("More..."))
             {
+                DetailsView1.Visible = true;
                  GridViewRow rowSelect = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
                 int rowindex = rowSelect.RowIndex;
                 int userId;

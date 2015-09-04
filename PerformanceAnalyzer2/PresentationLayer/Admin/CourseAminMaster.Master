@@ -13,6 +13,10 @@
     <link href="../../bootstrap-3.3.5-dist/css/Custom.css" rel="stylesheet" />
     <script src="http://localhost:41826/bootstrap-3.3.5-dist/js/Custom.js"></script>
     <script src="http://localhost:41826/bootstrap-3.3.5-dist/js/jquerymin1.9.1.js"></script>
+        <link href="../../bootstrap-3.3.5-dist/css/footer-distributed-with-address-and-phones.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
+
+	<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <form id="form1" runat="server" style="padding-left: 5%; padding-right: 5%; padding-top: 1%;">
@@ -213,11 +217,11 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <asp:ImageButton ID="ImageButton2" runat="server" Height="50px" Width="50px" ImageUrl="~/Images/Prasad.jpg"/>
+              <asp:ImageButton ID="ImageButton2"  CssClass="img" runat="server"  ImageUrl="~/Images/imagefinal5.png" />
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li><a href="../../PresentationLayer/Admin/Home.aspx">Home <span class="sr-only">(current)</span></a></li>
+                        <ul class="nav navbar-nav" >
+                            <li><a href="../../PresentationLayer/Admin/Home.aspx" >Home <span class="sr-only">(current)</span></a></li>
                             <li><a href="../../PresentationLayer/Admin/ViewProfileView.aspx">Profile</a></li>
                             <li><a href="../../PresentationLayer/Admin/NewCourseView.aspx?activeView=0&initial=0">New Course</a></li>
                             <li><a href="../../PresentationLayer/Admin/CourseView.aspx?activeView=0&initial=0">Edit Course</a></li>
@@ -246,15 +250,15 @@
 
         </div>
         <div class="row">
-            <div class="col-sm-3" style="border: solid; min-height: 470px;" id="sidenavsm3">
-                <div style="border: solid">
+            <div class="col-sm-3" style="min-height: 470px;" id="sidenavsm3">
+                <div >
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                         <br />
                     </asp:ContentPlaceHolder>
                 </div>
             </div>
-            <div class="col-sm-9" style="border: solid; min-height: 470px;">
-                <div style="border: solid">
+            <div class="col-sm-9" style=" min-height: 470px;">
+                <div style="">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
                         <p>
                             <br />
@@ -265,9 +269,51 @@
             </div>
 
         </div>
-        <div class="row" style="border: solid">
+        <div class="row" style="">
             <div class="col-sm-12">
-                <br />
+             <footer class="footer-distributed">
+
+                    <div class="footer-left">
+
+                        <h3>Prasad Maduranga<span></span></h3>
+
+
+
+                        <p class="footer-company-name">prasad.12@cse.mrt.ac.lk &copy; 2015</p>
+                    </div>
+
+                    <div class="footer-center">
+
+                        <div>
+                            <i class="fa fa-map-marker"  style="width:25px;height:25px;"></i>
+                            <p><span>University of Moratuwa</span> Moratuwa, Sri Lanka</p>
+                        </div>
+
+                        <div>
+                            <i class="fa fa-phone" style="width:32px;height:32px;" ></i>
+                            <p>+94 72 8178055</p>
+                        </div>
+
+                       
+
+                    </div>
+
+                    <div class="footer-right">
+
+                        
+
+                        <div class="footer-icons">
+
+                            <a href="https://www.facebook.com/prasad.maduranga.378" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a href="https://twitter.com/prasadmadurang1" target="_blank"><i class="fa fa-twitter"></i></a>
+                            <a href="https://lk.linkedin.com/in/prasadmaduranga" target="_blank"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://github.com/prasadmaduranga" target="_blank"><i class="fa fa-github"></i></a>
+
+                        </div>
+
+                    </div>
+
+                </footer>
             </div>
 
         </div>

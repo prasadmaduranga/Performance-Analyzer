@@ -72,6 +72,7 @@
     <Content Include="bootstrap-3.3.5-dist\css\bootstrap-theme.min.css" />
     <Content Include="bootstrap-3.3.5-dist\css\bootstrap.css" />
     <Content Include="bootstrap-3.3.5-dist\css\Custom.css" />
+    <Content Include="bootstrap-3.3.5-dist\css\footer-distributed-with-address-and-phones.css" />
     <Content Include="bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="bootstrap-3.3.5-dist\js\bootstrap.js" />
     <Content Include="bootstrap-3.3.5-dist\js\bootstrap.min.js" />
@@ -80,9 +81,27 @@
     <Content Include="bootstrap-3.3.5-dist\js\jquerymin1.9.1.js" />
     <Content Include="bootstrap-3.3.5-dist\js\npm.js" />
     <Content Include="Images\128-215.jpg" />
+    <Content Include="Images\image2.jpg" />
+    <Content Include="Images\image2.png" />
+    <Content Include="Images\imagefinal2.png" />
+    <Content Include="Images\imagefinal4.png" />
+    <Content Include="Images\imagefinal5.png" />
+    <Content Include="Images\imagefinal6.png" />
     <Content Include="Images\prasad.jpg" />
     <Content Include="Images\Default.jpg" />
     <Content Include="Login.aspx" />
+    <Content Include="Login2.aspx" />
+    <Content Include="Login\css\animate-custom.css" />
+    <Content Include="Login\css\demo.css" />
+    <Content Include="Login\css\fonts\BebasNeue-webfont.svg" />
+    <Content Include="Login\css\fonts\Dharma Type Font License.txt" />
+    <Content Include="Login\css\fonts\fontomas-webfont.svg" />
+    <Content Include="Login\css\fonts\franchise-bold-webfont.svg" />
+    <Content Include="Login\css\style.css" />
+    <Content Include="Login\css\style2.css" />
+    <Content Include="Login\css\style3.css" />
+    <Content Include="Login\images\bg.jpg" />
+    <Content Include="Login\images\ImageAttribution.txt" />
     <Content Include="PresentationLayer\Admin\ViewProfileView.aspx" />
     <Content Include="PresentationLayer\Admin\EditProfileView.aspx" />
     <Content Include="PresentationLayer\Admin\NewCourseView.aspx" />
@@ -173,6 +192,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login2.aspx.cs">
+      <DependentUpon>Login2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login2.aspx.designer.cs">
+      <DependentUpon>Login2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member.cs">
       <DependentUpon>Data.tt</DependentUpon>
@@ -509,6 +535,15 @@
     <Content Include="bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="bootstrap-3.3.5-dist\css\bootstrap.min.css" />
+    <Content Include="Login\css\fonts\BebasNeue-webfont.eot" />
+    <Content Include="Login\css\fonts\BebasNeue-webfont.ttf" />
+    <Content Include="Login\css\fonts\BebasNeue-webfont.woff" />
+    <Content Include="Login\css\fonts\fontomas-webfont.eot" />
+    <Content Include="Login\css\fonts\fontomas-webfont.ttf" />
+    <Content Include="Login\css\fonts\fontomas-webfont.woff" />
+    <Content Include="Login\css\fonts\franchise-bold-webfont.eot" />
+    <Content Include="Login\css\fonts\franchise-bold-webfont.ttf" />
+    <Content Include="Login\css\fonts\franchise-bold-webfont.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -17,8 +17,8 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
                 DropDownList2.Enabled = false;
                 DropDownList1.DataBind();
 
-                FileUpload1.Enabled = false;
-                Button1.Enabled = true;
+                TextBox1.Enabled = false;
+           
              
 
             }
@@ -29,12 +29,12 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
         {
             if (RadioButton1.Checked)
             {
-                FileUpload1.Enabled = false;
-                Button1.Enabled = false;
+                TextBox1.Enabled = false;
+     
             }
             else {
-                FileUpload1.Enabled = true;
-                Button1.Enabled = true;
+                TextBox1.Enabled = true;
+        
             }
         }
 

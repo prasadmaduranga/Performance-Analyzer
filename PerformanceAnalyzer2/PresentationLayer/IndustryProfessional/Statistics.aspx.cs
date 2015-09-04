@@ -76,7 +76,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.IndustryProfessional
                 GridView6.Visible = false;
                 GridView5.Visible = false;
                 Chart2.Visible = false;
-                Label4.Text = "";
+                Label4.Text = "No Semester Selected!";
                 MultiView1.ActiveViewIndex = 1;
             }
             else {
@@ -159,7 +159,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.IndustryProfessional
                 GridView6.Visible = true;
                 GridView5.Visible = true;
                 Chart2.Visible = true;
-                Label4.Text = DropDownList2.SelectedItem.Text + "Overall Results";
+                Label4.Text = DropDownList2.SelectedItem.Text + " Overall Results";
 
                 GridView5.DataBind();
                 GridView6.DataBind();
@@ -170,7 +170,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.IndustryProfessional
                 GridView6.Visible = false;
                 GridView5.Visible = false;
                 Chart2.Visible = false;
-                Label4.Text = "";
+                Label4.Text = "No Semester Selected!";
 
             }
         }
@@ -308,6 +308,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.IndustryProfessional
 
         private void View6_DataBind()
         {
+            Label10.Text = "No Student Selected!";
             DropDownList7.DataBind();
             MultiView1.ActiveViewIndex = 5;
         }
@@ -343,7 +344,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.IndustryProfessional
             if (!DropDownList7.SelectedValue.Equals("-1"))
             {
 
-
+                Label10.Text = "Student Information";
                 DetailsView1.DataSource = SqlDataSource21;
                 DetailsView1.DataBind();
             }

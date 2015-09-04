@@ -378,6 +378,13 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
             // Return the hexadecimal string. 
             return sBuilder.ToString();
         }
+
+        protected void GridView3_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView3.PageIndex = e.NewPageIndex;
+            GridView3.DataSource = AdminLogic.getStudentBasicData(Session["courseID"].ToString());
+            GridView3.DataBind();
+        }
       
        
         

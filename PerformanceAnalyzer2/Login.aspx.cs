@@ -18,7 +18,7 @@ namespace PerformanceAnalyzer2
         {
             if (!IsPostBack)
             {
-                MultiView1.ActiveViewIndex = 0;
+             MultiView1.ActiveViewIndex = 0;
                 // Page.Form.Attributes.Add("enctype", "multipart/form-data");}
 
 
@@ -106,9 +106,9 @@ namespace PerformanceAnalyzer2
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            MultiView1.ActiveViewIndex = 1;
+   MultiView1.ActiveViewIndex = 1;
         }
-
+       
         protected void Button3_Click(object sender, EventArgs e)
         {
 
@@ -135,7 +135,7 @@ namespace PerformanceAnalyzer2
 
         protected void Button4_Click(object sender, EventArgs e)
         {
-            MultiView1.ActiveViewIndex = 0;
+           MultiView1.ActiveViewIndex = 0;
         }
 
         protected void Button5_Click(object sender, EventArgs e)
@@ -150,7 +150,9 @@ namespace PerformanceAnalyzer2
             Session["imageURL"]=imageURL;
             
             }
-            int i=RadioButtonList1.SelectedIndex;
+           
+          int i=RadioButtonList1.SelectedIndex;
+            
             string userType="";
             if(i==0){userType="CourseAdmin";}
             else if(i==1){userType="Lecturer";}
@@ -216,6 +218,16 @@ namespace PerformanceAnalyzer2
 
             // Return the hexadecimal string. 
             return sBuilder.ToString();
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            MultiView1.ActiveViewIndex = 1;
+        }
+
+        protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+            MultiView1.ActiveViewIndex =0;
         }
     }
 

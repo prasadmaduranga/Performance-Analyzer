@@ -69,11 +69,22 @@ namespace PerformanceAnalyzer2.PresentationLayer.Lecturer
 
         private void View2_DataBind()
         {
-            GridView6.Visible = false;
-            GridView5.Visible = false;
-            Chart2.Visible = false;
-            Label4.Text = "";
-            MultiView1.ActiveViewIndex = 1;
+           
+
+            if (DropDownList2.SelectedValue.Equals("-1"))
+            {
+                GridView6.Visible = false;
+                GridView5.Visible = false;
+                Chart2.Visible = false;
+                Label4.Text = "No Semester Selected!";
+                MultiView1.ActiveViewIndex = 1;
+            }
+            else
+            {
+
+                MultiView1.ActiveViewIndex = 1;
+
+            }
         }
         private void View1_DataBind()
         {
@@ -157,7 +168,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Lecturer
                 GridView6.Visible = false;
                 GridView5.Visible = false;
                 Chart2.Visible = false;
-                Label4.Text = "";
+                Label4.Text = "No Semester Selected!";
             
             }
         }
@@ -299,6 +310,8 @@ namespace PerformanceAnalyzer2.PresentationLayer.Lecturer
 
         private void View6_DataBind()
         {
+          
+            Label10.Text = "No Student Selected!";
             DropDownList7.DataBind();
             MultiView1.ActiveViewIndex = 5;
         }

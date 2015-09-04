@@ -5,7 +5,7 @@
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server"><ContentTemplate>
     <div>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="senderID,courseID" OnRowCommand="GridView1_RowCommand" DataSourceID="SqlDataSource1">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="senderID,courseID" OnRowCommand="GridView1_RowCommand" DataSourceID="SqlDataSource1" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" HorizontalAlign="Center">
             <Columns>
                 <asp:BoundField DataField="senderName" HeaderText="Sender" />
                 <asp:BoundField DataField="courseName" HeaderText="Course" />
@@ -39,7 +39,7 @@
         </asp:SqlDataSource>
     </div>
     <div>
-        <asp:DetailsView ID="DetailsView1" runat="server"  AutoGenerateRows="False" CssClass="table-condensed  table-striped  detailsView" width="400px" HeaderText="Profile" DataSourceID="SqlDataSource2">
+        <asp:DetailsView ID="DetailsView1" runat="server"  AutoGenerateRows="False" CssClass="table-condensed  table-striped  detailsView" width="400px" HeaderText="Profile" DataSourceID="SqlDataSource2" GridLines="Horizontal" HorizontalAlign="Center">
             <Fields>
                 
                 <asp:TemplateField HeaderText="Profile Picture">

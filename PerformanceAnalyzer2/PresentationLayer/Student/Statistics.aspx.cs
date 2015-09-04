@@ -12,9 +12,9 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["userID"] = 6;
-            Session["courseID"] = 8;
-            Session["statCourseID"] = 8;
+            Session["userID"] = 309;
+            Session["courseID"] = 154;
+            Session["statCourseID"] = 154;
            
             if (!IsPostBack) {
 
@@ -39,6 +39,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
             GridView4.DataBind();
             Chart4.DataBind();
             MultiView1.ActiveViewIndex = 2;
+
         }
 
         private void View2_DataBind()
@@ -46,7 +47,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
             GridView6.Visible = false;
             GridView5.Visible = false;
             Chart2.Visible = false;
-            Label4.Text = "";
+            
             MultiView1.ActiveViewIndex = 1;
         }
         private void View1_DataBind()
@@ -60,10 +61,10 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
         {
             if (!DropDownList1.SelectedValue.Equals("-1"))
             {
-                GridView1.DataBind();
+                GridView2.DataBind();
                 GridView2.DataBind();
                 Chart1.DataBind();
-                if (GridView1.Rows.Count > 0)
+                if (GridView2.Rows.Count > 0)
                 {
                     Label2.Text = DropDownList1.SelectedValue + ": " + DropDownList1.SelectedItem.Text.ToString();
                 }
@@ -256,16 +257,22 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
         {
             int index = RadioButtonList1.SelectedIndex;
 
-            if (index == 0) { View1_DataBind(); }
-            else if (index == 1) { View2_DataBind(); }
+            if (index == 0) {
+                Label2.Text = "No Module Selected!";
+                View1_DataBind(); }
+            else if (index == 1) {
+                Label4.Text = "No Semester Selected!";
+                View2_DataBind(); }
             else if (index == 2) { View3_DataBind(); }
-            else if (index == 3) { View4_DataBind(); }
+            else if (index == 3) {
+                Label8.Text = "No Module Selected!";
+                View4_DataBind(); }
         }
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            GridView1.PageIndex = e.NewPageIndex;
-            GridView1.DataBind();
+            GridView2.PageIndex = e.NewPageIndex;
+            GridView2.DataBind();
         }
 
         protected void GridView5_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -278,6 +285,22 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
         {
             GridView3.PageIndex = e.NewPageIndex;
             GridView3.DataBind();
+        }
+
+        protected void GridView1_DataBound(object sender, EventArgs e)
+        {
+
+        }
+        protected void DropDownList7_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!DropDownList7.SelectedValue.Equals("-1"))
+            {
+
+
+                DetailsView1.DataSource = SqlDataSource21;
+                DetailsView1.DataBind();
+            }
+
         }
     }
 }

@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div>
-        <asp:DetailsView ID="DetailsView1" runat="server" DefaultMode="Insert"  AutoGenerateRows="False" OnItemInserted="DetailsView1_ItemInserted" OnItemInserting="DetailsView1_ItemInserting" HeaderText="Add New Module" OnPreRender="DetailsView1_PreRender" CssClass="table-condensed  table-striped  detailsView" >
+        <asp:DetailsView ID="DetailsView1" runat="server" DefaultMode="Insert"  AutoGenerateRows="False" OnItemInserted="DetailsView1_ItemInserted" OnItemInserting="DetailsView1_ItemInserting" HeaderText="Add New Module" OnPreRender="DetailsView1_PreRender" CssClass="table-condensed  table-striped  detailsView" HorizontalAlign="Center" >
             <Fields>
                 <asp:TemplateField HeaderText="Module Code">
                     <EditItemTemplate>

@@ -39,7 +39,7 @@
 
     <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
         <asp:View ID="View1" runat="server">
-            <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateInsertButton="True" AutoGenerateRows="False" DataKeyNames="courseID" DefaultMode="Insert" OnItemInserting="DetailsView1_ItemInserting" OnItemInserted="DetailsView1_ItemInserted" CssClass="table-condensed  table-striped  detailsView" HeaderText="Basic Details">
+            <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateInsertButton="True" AutoGenerateRows="False" DataKeyNames="courseID" DefaultMode="Insert" OnItemInserting="DetailsView1_ItemInserting" OnItemInserted="DetailsView1_ItemInserted" CssClass="table-condensed  table-striped  detailsView" HeaderText="Basic Details" GridLines="Horizontal" HorizontalAlign="Center">
                 <Fields>
                     <asp:TemplateField HeaderText="Course name">
                         <EditItemTemplate>
@@ -248,7 +248,7 @@
                         </Fields>
                     </asp:DetailsView>
                     <br />
-                    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridView2_RowDeleting" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
+                    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridView2_RowDeleting" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" HorizontalAlign="Center">
                         <Columns>
                             <asp:CommandField ShowDeleteButton="True" />
                             <asp:BoundField DataField="semesterID" HeaderText="semesterID" InsertVisible="False" ReadOnly="True" SortExpression="semesterID" />
@@ -295,8 +295,7 @@
                 <ContentTemplate>
                     Update Student Information<br />
                     <br />
-                    <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" DataKeyNames="userID" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowEditing="GridView3_RowEditing" OnRowUpdating="GridView3_RowUpdating" AllowPaging="True" OnRowUpdated="GridView3_RowUpdated">
-                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" DataKeyNames="userID" GridLines="Horizontal" OnRowEditing="GridView3_RowEditing" OnRowUpdating="GridView3_RowUpdating" AllowPaging="True" OnRowUpdated="GridView3_RowUpdated" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" OnPageIndexChanging="GridView3_PageIndexChanging" HorizontalAlign="Center">
                         <Columns>
                             <asp:BoundField DataField="userID" HeaderText="userID" InsertVisible="False" ReadOnly="True" SortExpression="userID" />
                             <asp:TemplateField HeaderText="userName" SortExpression="userName">
@@ -320,16 +319,6 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
-                        <EditRowStyle BackColor="#999999" />
-                        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                     </asp:GridView>
                     <br />
                     <asp:Button ID="Button2" runat="server" Text="Next" OnClick="Button2_Click" />

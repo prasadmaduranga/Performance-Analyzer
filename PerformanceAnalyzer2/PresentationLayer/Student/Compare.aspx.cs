@@ -367,14 +367,20 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
 
                 Label10.Text = string.Format(DropDownList6.SelectedItem.Text.ToString() + ": " + DropDownList6.SelectedValue.ToString());
                 DataTable dt = StudentLogic.getUserVSBatch(Session["userID"].ToString(), Session["courseID"].ToString(), DropDownList6.SelectedValue);
-                GridView3.DataSource = dt;
-                GridView3.DataBind();
+                if (dt != null)
+                {
+                    GridView3.DataSource = dt;
+                    GridView3.DataBind();
 
-                Chart3.DataSource = dt;
-                Chart3.Series["Series1"].XValueMember = "Result Group";
-                Chart3.Series["Series1"].YValueMembers = "GPA";
-                Chart3.DataBind();
+                    Chart3.DataSource = dt;
+                    Chart3.Series["Series1"].XValueMember = "Result Group";
+                    Chart3.Series["Series1"].YValueMembers = "GPA";
+                    Chart3.DataBind();
+                }
+                else {
 
+                    Label10.Text = "No results available!";
+                }
 
             }
         }
@@ -422,14 +428,16 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
 
         private void View4_databind()
         {
-            GridView4.DataBind();
-            Chart4.DataBind();
-            GridView5.DataSource = SqlDataSource11;
-            GridView5.DataBind();
-
-            Label16.Visible = true;
-            Label17.Visible = true;
-
+            if (!DropDownList7.SelectedValue.Equals("-1"))
+            {
+                GridView4.DataBind();
+                Chart4.DataBind();
+                GridView5.DataSource = SqlDataSource11;
+                GridView5.DataBind();
+                Label14.Text = DropDownList7.SelectedItem.Text + " results";
+                Label16.Visible = true;
+                Label17.Visible = true;
+            }
         }
 
         protected void GridView4_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -476,11 +484,19 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
 
         protected void GridView5_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+
+                    double val = double.Parse(((Label)e.Row.Cells[1].FindControl("Label18")).Text);
+                    ((Label)e.Row.Cells[1].FindControl("Label18")).Text = Math.Round(val, 2).ToString();
+                }
+            }
+            catch (Exception er)
             {
 
-                double val = double.Parse(((Label)e.Row.Cells[1].FindControl("Label18")).Text);
-                ((Label)e.Row.Cells[1].FindControl("Label18")).Text = Math.Round(val, 2).ToString();
+                Label14.Text = "No results available!";
             }
         }
 
@@ -598,6 +614,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
             {
                 Label21.Visible = true;
                 Label22.Visible = true;
+               // Label19.Text = DropDownList9.SelectedValue + " Vs Me " + DropDownList8.SelectedItem.Text + " results";
             }
 
 
@@ -1224,6 +1241,25 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
                 else if (comparisonGroup.Equals("others") && comparisnType.Equals("overrall")) {
                     Label46.Text = "No Students Selected!";
                     ActivateView9(); }
+            }
+
+        }
+
+        protected void GridView9_RowDataBound1(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+
+                    double val = double.Parse(((Label)e.Row.Cells[1].FindControl("Label28")).Text);
+                    ((Label)e.Row.Cells[1].FindControl("Label28")).Text = Math.Round(val, 2).ToString();
+                }
+            }
+            catch (Exception er)
+            {
+
+                Label30.Text = "No results available!";
             }
 
         }

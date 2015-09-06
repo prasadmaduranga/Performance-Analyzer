@@ -28,7 +28,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <p>
-        <asp:DetailsView ID="DetailsView1" runat="server" Height="50px"  AutoGenerateRows="False" CssClass="table-condensed  table-striped  detailsView" width="400px" HeaderText="Profile">
+        <asp:DetailsView ID="DetailsView1" runat="server" Height="50px"  AutoGenerateRows="False" CssClass="table-condensed  table-striped  detailsView  gridview" width="400px" HeaderText="Profile" HorizontalAlign="Center">
             <Fields>
                 
                 <asp:TemplateField HeaderText="Profile Picture">

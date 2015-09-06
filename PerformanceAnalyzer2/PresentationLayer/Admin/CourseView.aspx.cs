@@ -154,11 +154,13 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
             {
                 if (Session["courseID"] == null)
                 {
-                    DetailsView2.Visible = false;
+                   DetailsView2.Visible = false;
 
                 }
                 else {
-                    DetailsView2.Visible = true;
+                   // DetailsView2.Visible = true;
+                    DetailsView2.Visible = false;
+
                 }
                 MultiView1.ActiveViewIndex = 1;
                 e.Item.Selected = true;
@@ -246,7 +248,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
             }
             catch (Exception er)
             {
-          ClientScript.RegisterStartupScript(this.GetType(),"", "alert('Select a semester')", true);
+          ClientScript.RegisterStartupScript(this.GetType(),"", "alert('Select a semester!')", true);
             }
 
         }
@@ -370,6 +372,29 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
             GridView3.PageIndex = e.NewPageIndex;
             GridView3.DataSource = AdminLogic.getStudentBasicData(Session["courseID"].ToString());
             GridView3.DataBind();
+        }
+
+        protected void LinkButton5_Click(object sender, EventArgs e)
+        {
+            string name = ((TextBox)(DetailsView1.Rows[1].Cells[1].FindControl("TextBox1"))).Text;
+            string batch = ((DropDownList)(DetailsView1.Rows[2].Cells[1].FindControl("DropDownList5"))).SelectedValue.ToString();
+            string universityID = ((DropDownList)(DetailsView1.Rows[3].Cells[1].FindControl("DropDownList6"))).SelectedValue.ToString();
+            string facID = ((DropDownList)(DetailsView1.Rows[4].Cells[1].FindControl("DropDownList7"))).SelectedValue.ToString();
+            string deptID = ((DropDownList)(DetailsView1.Rows[5].Cells[1].FindControl("DropDownList8"))).SelectedValue.ToString();
+
+            //     AdminLogic.spEditBasicCourseInfo(Session["courseID"].ToString(), name, batch, Convert.ToInt32(universityID), Convert.ToInt32(facID), Convert.ToInt32(deptID));
+            SqlDataSource10.UpdateParameters["name"].DefaultValue = name;
+            SqlDataSource10.UpdateParameters["batch"].DefaultValue = batch;
+            SqlDataSource10.UpdateParameters["universityID"].DefaultValue = universityID;
+            SqlDataSource10.UpdateParameters["facultyID"].DefaultValue = facID;
+            SqlDataSource10.UpdateParameters["departmentID"].DefaultValue = deptID;
+            SqlDataSource10.UpdateParameters["courseID"].DefaultValue = Session["courseID"].ToString();
+
+            SqlDataSource10.Update();
+            DetailsView1.DataSource = SqlDataSource10;
+            DetailsView1.ChangeMode(DetailsViewMode.ReadOnly);
+            DetailsView1.DataBind();
+            
         }
 
         

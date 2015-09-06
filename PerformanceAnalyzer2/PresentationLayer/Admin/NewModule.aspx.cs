@@ -44,5 +44,17 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
             ((TextBox)DetailsView1.Rows[1].Cells[1].FindControl("TextBox2")).Text = "";
             ((TextBox)DetailsView1.Rows[3].Cells[1].FindControl("TextBox3")).Text = "";
         }
+
+        protected void LinkButton4_Click(object sender, EventArgs e)
+        {
+
+            SqlDataSource1.InsertParameters["moduleCode"].DefaultValue = ((TextBox)DetailsView1.Rows[0].Cells[1].FindControl("TextBox1")).Text;
+            SqlDataSource1.InsertParameters["name"].DefaultValue = ((TextBox)DetailsView1.Rows[1].Cells[1].FindControl("TextBox2")).Text;
+            SqlDataSource1.InsertParameters["GPA"].DefaultValue = ((RadioButtonList)DetailsView1.Rows[2].Cells[1].FindControl("RadioButtonList3")).SelectedItem.Text;
+            SqlDataSource1.InsertParameters["credits"].DefaultValue = ((TextBox)DetailsView1.Rows[3].Cells[1].FindControl("TextBox3")).Text;
+            SqlDataSource1.InsertParameters["compulary"].DefaultValue = ((RadioButtonList)DetailsView1.Rows[4].Cells[1].FindControl("RadioButtonList4")).SelectedItem.Text;
+            SqlDataSource1.Insert();
+         
+        }
     }
 }

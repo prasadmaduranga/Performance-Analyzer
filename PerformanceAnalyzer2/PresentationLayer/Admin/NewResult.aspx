@@ -136,7 +136,7 @@ where Course.courseID=@courseID">
 
 
                         <div class="col-lg-4">
-                            <asp:Button ID="Button2" runat="server" Text="Go" OnClick="Button2_Click" />
+                            <asp:Button ID="Button2" runat="server" Text="Go" OnClick="Button2_Click" class="btn btn-primary"/>
                         </div>
                     </div>
                 </div>
@@ -147,7 +147,7 @@ where Course.courseID=@courseID">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
 
-            <asp:GridView ID="GridView1" runat="server" DataKeyNames="userID" AllowPaging="True" AutoGenerateColumns="False" AutoGenerateEditButton="True" GridLines="Horizontal" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowUpdated="GridView1_RowUpdated" CssClass="table table-striped table-hover  table-condensed  gridViewCustom editCustom" HorizontalAlign="Center" OnPageIndexChanging="GridView1_PageIndexChanging">
+            <asp:GridView ID="GridView1" runat="server" DataKeyNames="userID" AllowPaging="True" AutoGenerateColumns="False" AutoGenerateEditButton="True" GridLines="Horizontal" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowUpdated="GridView1_RowUpdated" CssClass="table table-striped table-hover  table-condensed  gridViewCustom editCustom gridview" HorizontalAlign="Center" OnPageIndexChanging="GridView1_PageIndexChanging">
                 <Columns>
                     <%-- <asp:TemplateField HeaderText="userID"  SortExpression="userID" Visible="False">
                         <EditItemTemplate>

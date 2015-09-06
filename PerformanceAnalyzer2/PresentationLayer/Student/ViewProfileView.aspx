@@ -31,12 +31,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <p>
-          <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False"  Height="50px" Width="125px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" GridLines="Horizontal" CssClass="table-condensed  table-striped  detailsView" ForeColor="#0179ac" HeaderText="Profile">
+          <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False"  Height="50px" Width="125px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" GridLines="Horizontal" CssClass="table-condensed  table-striped  detailsView gridview" ForeColor="#0179ac" HeaderText="Profile" HorizontalAlign="Center">
               <EditRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
             <Fields>
                  <asp:TemplateField HeaderText="Profile Picture">
                     <ItemTemplate>
-                        <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("imageURL") %>' />
+                        <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("imageURL") %>' Height="100px" Width="100px" />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="userName" HeaderText="User name" />

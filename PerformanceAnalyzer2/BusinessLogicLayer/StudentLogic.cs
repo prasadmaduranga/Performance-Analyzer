@@ -130,22 +130,29 @@ namespace PerformanceAnalyzer2.BusinessLogicLayer
         DataRow dr = dt.NewRow();
         DataRow dr2 = dt.NewRow();
 
+        try
+        {
 
-        dr["Result Group"] = obj1.indexNo;
+            dr["Result Group"] = obj1.indexNo;
 
-        dr["Result"] = obj1.result;
+            dr["Result"] = obj1.result;
 
-        dr["GPA"] = obj1.GPA;
+            dr["GPA"] = obj1.GPA;
 
-        dt.Rows.Add(dr);
-            
-        dr2["Result Group"] = "Batch";
+            dt.Rows.Add(dr);
 
-        dr2["Result"] =getResultForGPA(obj2);
+            dr2["Result Group"] = "Batch";
 
-        dr2["GPA"] = Math.Round(obj2, 2);
+            dr2["Result"] = getResultForGPA(obj2);
 
-        dt.Rows.Add(dr2);
+            dr2["GPA"] = Math.Round(obj2, 2);
+
+            dt.Rows.Add(dr2);
+        }
+        catch (Exception er)
+        {
+            return null;
+        }
         return dt;
         }
 

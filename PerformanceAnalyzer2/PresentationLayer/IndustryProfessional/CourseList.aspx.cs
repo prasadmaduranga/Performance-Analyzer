@@ -64,7 +64,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.IndustryProfessional
 
         protected void GridView2_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (((LinkButton)e.CommandSource).Text.Equals("Send Request"))
+            if (((LinkButton)e.CommandSource).Text.Equals("Send Request "))
             {
                 GridViewRow rowSelect = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
                 int rowindex = rowSelect.RowIndex;
@@ -76,7 +76,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.IndustryProfessional
 
 
             }
-            else if (((LinkButton)e.CommandSource).Text.Equals("More..."))
+            else if (((LinkButton)e.CommandSource).Text.Equals("| More..."))
             {
 
                 GridViewRow rowSelect = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);

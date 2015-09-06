@@ -5,7 +5,7 @@
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server"><ContentTemplate>
     <div>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="senderID,courseID" OnRowCommand="GridView1_RowCommand" DataSourceID="SqlDataSource1" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" HorizontalAlign="Center">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="senderID,courseID" OnRowCommand="GridView1_RowCommand" DataSourceID="SqlDataSource1" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" HorizontalAlign="Center" Width="850px">
             <Columns>
                 <asp:BoundField DataField="senderName" HeaderText="Sender" />
                 <asp:BoundField DataField="courseName" HeaderText="Course" />

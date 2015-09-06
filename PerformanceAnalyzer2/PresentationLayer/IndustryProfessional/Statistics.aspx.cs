@@ -322,6 +322,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.IndustryProfessional
             Chart3.ChartAreas[0].AxisY.TitleAlignment = StringAlignment.Near;
             Chart3.ChartAreas[0].AxisY.TextOrientation = TextOrientation.Rotated90;
         }
+       
 
         protected void GridView1_DataBound(object sender, EventArgs e)
         {
@@ -374,6 +375,26 @@ namespace PerformanceAnalyzer2.PresentationLayer.IndustryProfessional
             GridView3.PageIndex = e.NewPageIndex;
            // GridView3.DataSource = AdminLogic.getStudentBasicData(Session["courseID"].ToString());
             GridView3.DataBind();
+        }
+
+        protected void Chart2_Load(object sender, EventArgs e)
+        {
+            Chart2.ChartAreas[0].AxisX.Title = "SGPA";
+            Chart2.ChartAreas[0].AxisX.TitleAlignment = StringAlignment.Near;
+            Chart2.ChartAreas[0].AxisX.TextOrientation = TextOrientation.Horizontal;
+            Chart2.ChartAreas[0].AxisY.Title = "Student Count";
+            Chart2.ChartAreas[0].AxisY.TitleAlignment = StringAlignment.Near;
+            Chart2.ChartAreas[0].AxisY.TextOrientation = TextOrientation.Rotated90;
+        }
+
+        protected void Chart4_Load(object sender, EventArgs e)
+        {
+            Chart4.ChartAreas[0].AxisX.Title = "Overall GPA";
+            Chart4.ChartAreas[0].AxisX.TitleAlignment = StringAlignment.Near;
+            Chart4.ChartAreas[0].AxisX.TextOrientation = TextOrientation.Horizontal;
+            Chart4.ChartAreas[0].AxisY.Title = "Student Count";
+            Chart4.ChartAreas[0].AxisY.TitleAlignment = StringAlignment.Near;
+            Chart4.ChartAreas[0].AxisY.TextOrientation = TextOrientation.Rotated90;
         }
     }
 }

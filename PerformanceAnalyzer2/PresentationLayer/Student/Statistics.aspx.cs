@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.DataVisualization.Charting;
 using System.Web.UI.WebControls;
+using System.Drawing;
+
 
 namespace PerformanceAnalyzer2.PresentationLayer.Student
 {
@@ -63,7 +65,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
             {
                 GridView2.DataBind();
                 GridView2.DataBind();
-                Chart1.DataBind();
+                //Chart1.DataBind();
                 if (GridView2.Rows.Count > 0)
                 {
                     Label2.Text = DropDownList1.SelectedValue + ": " + DropDownList1.SelectedItem.Text.ToString();
@@ -81,15 +83,15 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
 
         protected void Chart1_PrePaint(object sender, System.Web.UI.DataVisualization.Charting.ChartPaintEventArgs e)
         {
-            foreach (Series charts in Chart1.Series)
-            {
-                foreach (DataPoint point in charts.Points)
-                {
+            //foreach (Series charts in Chart1.Series)
+            //{
+            //    foreach (DataPoint point in charts.Points)
+            //    {
 
-                    point.Label = string.Format("{1}-{0:0} ",point.AxisLabel, point.YValues[0]);
+            //        point.Label = string.Format("{1}-{0:0} ",point.AxisLabel, point.YValues[0]);
 
-                }
-            }
+            //    }
+            //}
         }
         
         //----------------------------------------------------------------------------------------
@@ -301,6 +303,36 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
                 DetailsView1.DataBind();
             }
 
+        }
+
+        protected void Chart6_Load(object sender, EventArgs e)
+        {
+            Chart6.ChartAreas[0].AxisX.Title = "GPA";
+            Chart6.ChartAreas[0].AxisX.TitleAlignment = StringAlignment.Near;
+            Chart6.ChartAreas[0].AxisX.TextOrientation = TextOrientation.Horizontal;
+            Chart6.ChartAreas[0].AxisY.Title = "student Count";
+            Chart6.ChartAreas[0].AxisY.TitleAlignment = StringAlignment.Near;
+            Chart6.ChartAreas[0].AxisY.TextOrientation = TextOrientation.Rotated90;
+        }
+
+        protected void Chart2_Load(object sender, EventArgs e)
+        {
+            Chart2.ChartAreas[0].AxisX.Title = "SGPA";
+            Chart2.ChartAreas[0].AxisX.TitleAlignment = StringAlignment.Near;
+            Chart2.ChartAreas[0].AxisX.TextOrientation = TextOrientation.Horizontal;
+            Chart2.ChartAreas[0].AxisY.Title = "Student Count";
+            Chart2.ChartAreas[0].AxisY.TitleAlignment = StringAlignment.Near;
+            Chart2.ChartAreas[0].AxisY.TextOrientation = TextOrientation.Rotated90;
+        }
+
+        protected void Chart4_Load(object sender, EventArgs e)
+        {
+            Chart4.ChartAreas[0].AxisX.Title = "Overall GPA";
+            Chart4.ChartAreas[0].AxisX.TitleAlignment = StringAlignment.Near;
+            Chart4.ChartAreas[0].AxisX.TextOrientation = TextOrientation.Horizontal;
+            Chart4.ChartAreas[0].AxisY.Title = "Student Count";
+            Chart4.ChartAreas[0].AxisY.TitleAlignment = StringAlignment.Near;
+            Chart4.ChartAreas[0].AxisY.TextOrientation = TextOrientation.Rotated90;
         }
     }
 }

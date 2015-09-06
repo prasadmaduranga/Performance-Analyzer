@@ -611,7 +611,9 @@ border-top:0px;
 }
 
 #statSpecial > table > tbody > tr:nth-child(2) > td > div > div.panel-heading,#statSpecial > table > tbody > tr > td > div > div.panel-heading,#ContentPlaceHolder2_UpdatePanel2 > table > tbody > tr > td > div > div.panel-heading,
-#ContentPlaceHolder2_UpdatePanel2 > div > table > tbody > tr:nth-child(2) > td > div > div.panel-heading,#ContentPlaceHolder2_UpdatePanel2 > div > table > tbody > tr > td > div > div.panel-heading
+#ContentPlaceHolder2_UpdatePanel2 > div > table > tbody > tr:nth-child(2) > td > div > div.panel-heading,#ContentPlaceHolder2_UpdatePanel2 > div > table > tbody > tr > td > div > div.panel-heading,
+#ContentPlaceHolder2_UpdatePanel3 > div.panel.panel-default > div.panel-heading,#form1 > div:nth-child(13) > div.col-sm-9 > div > div > div.panel-heading,
+#ContentPlaceHolder2_UpdatePanel3 > table > tbody > tr:nth-child(2) > td > div > div.panel-heading,#ContentPlaceHolder2_UpdatePanel3 > table > tbody > tr:nth-child(2) > td > div > div.panel-heading,#ContentPlaceHolder2_UpdatePanel3 > table > tbody > tr > td > div > div.panel-heading
  {
     background-color:#E8E8E8 ;
     font-weight:700;
@@ -703,7 +705,8 @@ padding-right:0px;
 
 }
 
-#ContentPlaceHolder2_Label8,#ContentPlaceHolder2_Panel4 > div.panel-body.form-horizontal > div span,#ContentPlaceHolder2_Panel5 > div.panel-body.form-horizontal > div span,#ContentPlaceHolder2_Panel6 > div.panel-body.form-horizontal > div span,#ContentPlaceHolder2_Panel7 > div.panel-body.form-horizontal > div span {
+#ContentPlaceHolder2_Label8,#ContentPlaceHolder2_Panel4 > div.panel-body.form-horizontal > div span,#ContentPlaceHolder2_Panel5 > div.panel-body.form-horizontal > div span,#ContentPlaceHolder2_Panel6 > div.panel-body.form-horizontal > div span,#ContentPlaceHolder2_Panel7 > div.panel-body.form-horizontal > div span ,
+#ContentPlaceHolder2_Label50,#ContentPlaceHolder2_Label29,#ContentPlaceHolder2_Label65{
 
 padding-top:0px;
 }
@@ -740,4 +743,113 @@ width:920px;
 }
 div.footer-left h3 ,#form1 > div:nth-child(11) > div > footer > div.footer-left > h3{
 font-size:20px;
+}
+
+.detailviewnormal {
+min-width:450px;
+max-width:650px;
+}
+.gridview {
+    max-width:650px;
+min-width:450px;
+}
+.gridview2 {
+    max-width:910px;
+min-width:650px;
+}
+#ContentPlaceHolder2_DetailsView1_Image1 {
+height:100px;
+width:100px;
+
+
+}
+
+#ContentPlaceHolder1_Menu1 > ul > li:nth-child(1) {
+    width: 245px;
+}
+#ContentPlaceHolder2_UpdatePanel3 > div > div.panel-body > table > tbody > tr > td > div {
+
+width:910px;
+
+}
+#ContentPlaceHolder2_Button1 {
+margin-left:126px;
+
+}
+
+#ContentPlaceHolder2_UpdatePanel1 > div > div.panel-body > table > tbody > tr > td > div,#ContentPlaceHolder2_UpdatePanel2 > div > div.panel-body > table > tbody > tr > td > div,
+#ContentPlaceHolder2_UpdatePanel4 > div > div.panel-body > table > tbody > tr > td > div,
+#ContentPlaceHolder2_UpdatePanel5 > div > div.panel-body > table > tbody > tr > td > div {
+width:910px;
+
+}
+#ContentPlaceHolder2_Button2 {
+    margin-left: 230px;
+}
+
+#ContentPlaceHolder2_DetailsView1_RadioButtonList4_1,#ContentPlaceHolder2_DetailsView1_RadioButtonList4 > tbody > tr > td:nth-child(2) > label {
+margin-left:50px;
+}
+.gridview > tbody > tr:nth-child(1) > th ,#ContentPlaceHolder2_GridView9 > tbody > tr:nth-child(1) > th,#ContentPlaceHolder2_GridView12 > tbody > tr:nth-child(1) > th,#ContentPlaceHolder2_GridView13 > tbody > tr:nth-child(1) > th{
+text-align:center;
+
+}
+.gridview3 > tbody > tr:nth-child(1) > th,#ContentPlaceHolder2_GridView5 > tbody > tr:nth-child(1) > th:nth-child(2),#ContentPlaceHolder2_GridView7 > tbody > tr:nth-child(1) > th {
+text-align:center;
+
+}
+
+.gridview3 {
+width:800px;
+
+}
+.gridview5 {
+width:600px;
+
+}
+.gridviewsmall {
+
+        width: 300px;
+
+    margin-left: 40px;
+}
+.gridviewsmall2 {
+
+        width: 300px;
+
+ 
+}
+
+
+.chartsmall {
+
+    width: 400px;
+    margin-left: 70px;
+}
+.profile {
+width:400px;
+margin-left:250px;
+
+}
+.padding40{
+padding-left:40px;
+
+}
+
+.chart4margin110 {
+
+margin-left:100px
+}
+
+.chart3padding {
+margin-left:120px;
+
+}
+
+.paddingleft0 {
+
+padding-left:0px;
+}
+.marginleft0 {
+margin-left:0px;
 }

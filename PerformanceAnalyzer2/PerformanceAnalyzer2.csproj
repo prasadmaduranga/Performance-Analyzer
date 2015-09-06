@@ -89,6 +89,7 @@
     <Content Include="Images\imagefinal6.png" />
     <Content Include="Images\prasad.jpg" />
     <Content Include="Images\Default.jpg" />
+    <Content Include="Images\sally.png" />
     <Content Include="Login.aspx" />
     <Content Include="Login2.aspx" />
     <Content Include="Login\css\animate-custom.css" />

@@ -201,6 +201,7 @@
             </div>
 
         </div>
+        <asp:UpdatePanel ID="UpdatePanel3" runat="server"><ContentTemplate>
         <div class="row ">
 
 
@@ -242,6 +243,8 @@
 
 
         </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
         <div class="row">
             <div class="col-sm-3" style=" min-height: 470px;">
                 <div >

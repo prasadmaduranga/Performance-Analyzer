@@ -456,7 +456,7 @@ group by  ResultMapping.result ">
                                         <div class="panel-body">
                                             <table>
                                                 <tr>
-                                                    <td colspan="2">
+                                                    <td >
                                                         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="spGetModuleResultForBatch" SelectCommandType="StoredProcedure">
                                                             <SelectParameters>
                                                                 <asp:SessionParameter Name="courseID" SessionField="statCourseID" Type="Int32" />
@@ -477,9 +477,9 @@ group by  ResultMapping.result ">
 
 
                                                 </tr>
-                                                <tr>
-                                                    <td>
-                                                        <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="result" DataSourceID="SqlDataSource2" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" OnPageIndexChanging="GridView1_PageIndexChanging">
+                                                <tr> 
+                                                    <td colspan="2" style="padding-left:40px;">
+                                                        <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="result" DataSourceID="SqlDataSource2" CssClass="gridview3  table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" OnPageIndexChanging="GridView1_PageIndexChanging">
                                                             <Columns>
                                                                 <asp:BoundField DataField="indexNo" HeaderText="Index No" SortExpression="indexNo" />
                                                                 <asp:BoundField DataField="userName" HeaderText="Name" SortExpression="userName" />
@@ -493,20 +493,10 @@ group by  ResultMapping.result ">
                                                                 <asp:ControlParameter ControlID="DropDownList1" Name="moduleCode" PropertyName="SelectedValue" Type="String" />
                                                             </SelectParameters>
                                                         </asp:SqlDataSource>
-                                                    </td>
-                                                    <td>
+                                                   
+                                               
 
 
-                                                        <asp:Chart ID="Chart3" runat="server" DataSourceID="SqlDataSource14" Width="387px">
-                                                            <Series>
-                                                                <asp:Series ChartType="Spline" BorderWidth="3" Name="Series1" XValueMember="GPA" YValueMembers="studentCount" ChartArea="ChartArea1">
-                                                                </asp:Series>
-                                                            </Series>
-                                                            <ChartAreas>
-                                                                <asp:ChartArea Name="ChartArea1">
-                                                                </asp:ChartArea>
-                                                            </ChartAreas>
-                                                        </asp:Chart>
                                                         <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="spGetModuleResultForBatchGraph" SelectCommandType="StoredProcedure">
                                                             <SelectParameters>
                                                                 <asp:SessionParameter Name="courseID" SessionField="statCourseID" Type="Int32" />
@@ -515,12 +505,12 @@ group by  ResultMapping.result ">
                                                         </asp:SqlDataSource>
 
 
-                                                    </td>
+                                                     </td>
 
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <asp:GridView ID="GridView8" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource8" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
+                                                        <asp:GridView ID="GridView8" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource8" CssClass="gridviewsmall  table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                                             <Columns>
                                                                 <asp:BoundField DataField="result" HeaderText="Result" SortExpression="result" />
                                                                 <asp:BoundField DataField="numOfStudents" HeaderText="Num.Of Students" ReadOnly="True" SortExpression="numberOfStudents" />
@@ -540,9 +530,9 @@ group by  ResultMapping.result ">
                                                         </asp:SqlDataSource>
                                                     </td>
                                                     <td>
-                                                        <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSource8" Height="232px" OnPrePaint="Chart1_PrePaint" Palette="EarthTones" Width="224px">
+                                                        <asp:Chart ID="Chart6" runat="server" DataSourceID="SqlDataSource14" Width="400px" CssClass="chartsmall" Height="302px" OnLoad="Chart6_Load">
                                                             <Series>
-                                                                <asp:Series Name="Series1" IsValueShownAsLabel="true" ShadowColor="Transparent" IsXValueIndexed="true" ChartType="Pie" XValueMember="result" YValueMembers="NumofStudents">
+                                                                <asp:Series BorderWidth="3" ChartArea="ChartArea1" ChartType="Spline" Name="Series1" XValueMember="GPA" YValueMembers="studentCount">
                                                                 </asp:Series>
                                                             </Series>
                                                             <ChartAreas>
@@ -837,7 +827,7 @@ group by  ResultMapping.result ">
                                                 </tr>--%>
                                                 <tr>
                                                     <td colspan="2">
-                                                        <asp:GridView ID="GridView5" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource13" OnRowDataBound="GridView5_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" HorizontalAlign="Center" OnPageIndexChanging="GridView5_PageIndexChanging">
+                                                        <asp:GridView ID="GridView5" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource13" OnRowDataBound="GridView5_RowDataBound" CssClass="gridview3  table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" HorizontalAlign="Center" OnPageIndexChanging="GridView5_PageIndexChanging">
                                                             <Columns>
                                                                 <asp:BoundField DataField="indexNo" HeaderText="Index No" />
                                                                 <asp:BoundField DataField="name" HeaderText="Name" />
@@ -867,7 +857,7 @@ group by  ResultMapping.result ">
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <asp:GridView ID="GridView6" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
+                                                        <asp:GridView ID="GridView6" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" CssClass="gridviewsmall  table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                                             <Columns>
                                                                 <asp:BoundField DataField="GPARange" HeaderText="Range" />
                                                                 <asp:BoundField DataField="stdCount" HeaderText="Num Of Students" />
@@ -881,7 +871,7 @@ group by  ResultMapping.result ">
                                                         </asp:SqlDataSource>
                                                     </td>
                                                     <td>
-                                                        <asp:Chart ID="Chart2" runat="server" DataSourceID="SqlDataSource6" Height="232px" OnPrePaint="Chart1_PrePaint" Palette="EarthTones" Width="224px">
+                                                        <asp:Chart ID="Chart2" runat="server" DataSourceID="SqlDataSource6" Height="253px" OnPrePaint="Chart1_PrePaint" Palette="EarthTones" Width="400px" CssClass="chartsmall" OnLoad="Chart2_Load">
                                                             <Series>
                                                                 <asp:Series Name="Series1" IsValueShownAsLabel="true" ShadowColor="Transparent" IsXValueIndexed="true" XValueMember="GPARange" YValueMembers="stdCount">
                                                                 </asp:Series>
@@ -1006,7 +996,7 @@ group by  ResultMapping.result ">
                                     <div class="panel panel-default">
                                         <div class="panel-heading" style="background-color: #0179ac">
 
-                                            <asp:Label ID="Label11" runat="server" Text="Overall Results "></asp:Label>
+                                            <asp:Label ID="Label11" runat="server" Text="Overall Results " ForeColor="White"></asp:Label>
 
                                         </div>
 
@@ -1015,7 +1005,7 @@ group by  ResultMapping.result ">
                                             <table style="width: 100%">
                                                 <tr>
                                                     <td colspan="2">
-                                                        <asp:GridView ID="GridView3" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource5" OnRowDataBound="GridView3_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" HorizontalAlign="Center" OnPageIndexChanging="GridView3_PageIndexChanging">
+                                                        <asp:GridView ID="GridView3" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource5" OnRowDataBound="GridView3_RowDataBound" CssClass="gridview3  table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" HorizontalAlign="Center" OnPageIndexChanging="GridView3_PageIndexChanging">
                                                             <Columns>
                                                                 <asp:BoundField DataField="indexNo" HeaderText="Index No" />
                                                                 <asp:BoundField DataField="name" HeaderText="Name" />
@@ -1044,7 +1034,7 @@ group by  ResultMapping.result ">
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource7" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
+                                                        <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource7" CssClass="gridviewsmall  table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                                             <Columns>
                                                                 <asp:BoundField DataField="GPARange" HeaderText="Range" />
                                                                 <asp:BoundField DataField="stdCount" HeaderText="Num Of Students" />
@@ -1057,7 +1047,7 @@ group by  ResultMapping.result ">
                                                         </asp:SqlDataSource>
                                                     </td>
                                                     <td>
-                                                        <asp:Chart ID="Chart4" runat="server" DataSourceID="SqlDataSource7" Height="232px" OnPrePaint="Chart1_PrePaint" Palette="EarthTones" Width="224px">
+                                                        <asp:Chart ID="Chart4" runat="server" DataSourceID="SqlDataSource7" Height="249px" OnPrePaint="Chart1_PrePaint" Palette="EarthTones" Width="403px" CssClass="chartsmall " OnLoad="Chart4_Load">
                                                             <Series>
                                                                 <asp:Series Name="Series1" IsValueShownAsLabel="true" ShadowColor="Transparent" IsXValueIndexed="true" XValueMember="GPARange" YValueMembers="stdCount">
                                                                 </asp:Series>
@@ -1254,7 +1244,7 @@ group by  ResultMapping.result ">
 
                                                     <tr>
                                                         <td>
-                                                            <asp:GridView ID="GridView7" runat="server" AutoGenerateColumns="False" DataKeyNames="result" DataSourceID="SqlDataSource15" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
+                                                            <asp:GridView ID="GridView7" runat="server" AutoGenerateColumns="False" DataKeyNames="result" DataSourceID="SqlDataSource15" CssClass="gridviewsmall  table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                                                 <Columns>
                                                                     <asp:BoundField DataField="result" HeaderText="Grade" ReadOnly="True" SortExpression="result" />
                                                                     <asp:BoundField DataField="NumofStudents" HeaderText="Num. Of Students" ReadOnly="True" SortExpression="NumofStudents" />
@@ -1274,7 +1264,7 @@ group by  ResultMapping.result ">
                                                             </asp:SqlDataSource>
                                                         </td>
                                                         <td>
-                                                            <asp:Chart ID="Chart5" runat="server" DataSourceID="SqlDataSource15" OnPrePaint="Chart5_PrePaint" Palette="EarthTones" Width="408px">
+                                                            <asp:Chart ID="Chart5" runat="server" DataSourceID="SqlDataSource15" OnPrePaint="Chart5_PrePaint" Palette="EarthTones" Width="421px" CssClass="chartsmall" Height="295px">
                                                                 <Series>
                                                                     <asp:Series Name="Series1" IsValueShownAsLabel="true" ChartType="Pie" XValueMember="result" YValueMembers="NumOfStudents">
                                                                     </asp:Series>
@@ -1521,7 +1511,7 @@ FROM            Member INNER JOIN
 
                                                     <tr>
                                                         <td colspan="2">
-                                                            <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="userID" Style="margin-right: 1px" CssClass="table-condensed  table-striped  detailsView" GridLines="Horizontal" HeaderText="Profile" HorizontalAlign="Center">
+                                                            <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="userID" Style="margin-right: 1px" CssClass="table-condensed  table-striped  detailsView" GridLines="Horizontal" HeaderText="Profile" HorizontalAlign="Center" Width="400px">
                                                                 <Fields>
                                                                     <asp:TemplateField HeaderText="Name" SortExpression="userName">
                                                                         <EditItemTemplate>

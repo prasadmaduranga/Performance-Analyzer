@@ -187,17 +187,17 @@
 
                             <tr>
                                 <td>
-                                    <div class="panel panel-default" >
+                                    <div class="panel panel-default">
                                         <div class="panel-heading">
 
-                                            <asp:Label ID="Label10" runat="server"></asp:Label>
+                                            <asp:Label ID="Label10" runat="server" Text="No subject selected!"></asp:Label>
 
                                         </div>
                                         <div class="panel-body">
                                             <table>
                                                 <tr>
-                                                    <td colspan="2">
-                                                        <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView3_RowDataBound" Style="margin-right: 0px" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
+                                                    <td>
+                                                        <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView3_RowDataBound" Style="margin-right: 0px" CssClass="gridviewsmall table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                                             <Columns>
                                                                 <asp:TemplateField HeaderText="Category">
                                                                     <ItemTemplate>
@@ -217,9 +217,22 @@
                                                             </Columns>
                                                         </asp:GridView>
                                                     </td>
+                                                    <td>
+                                                        <asp:Chart ID="Chart3" runat="server" CssClass="chart3padding " OnPrePaint="Chart3_PrePaint" Height="244px" Width="292px">
+                                                            <Series>
+                                                                <asp:Series Name="Series1">
+                                                                </asp:Series>
+                                                            </Series>
+                                                            <ChartAreas>
+                                                                <asp:ChartArea Name="ChartArea1">
+                                                                </asp:ChartArea>
+                                                            </ChartAreas>
+                                                        </asp:Chart>
+                                                        <br />
+                                                    </td>
 
                                                 </tr>
-                                                <tr>
+                                                <%--   <tr>
                                                     <td colspan="2">
                                                         <asp:Chart ID="Chart3" runat="server" OnPrePaint="Chart3_PrePaint">
                                                             <Series>
@@ -234,8 +247,11 @@
                                                         <br />
                                                     </td>
 
-                                                </tr>
+                                                </tr>--%>
                                             </table>
+                                        </div>
+                                    </div>
+
                                 </td>
                             </tr>
                         </table>
@@ -409,13 +425,13 @@ where Enrollment.moduleCode=@moduleCode and (Student.userID=@student1 or Student
                                     <div class="panel panel-default" style="width: 920px">
                                         <div class="panel-heading">
 
-                                            <asp:Label ID="Label2" runat="server"></asp:Label>
+                                            <asp:Label ID="Label2" runat="server" Text="No module selected!"></asp:Label>
 
                                         </div>
                                         <div class="panel-body">
                                             <table>
                                                 <tr>
-                                                    <td colspan="2">
+                                                    <td>
                                                         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" OnRowDataBound="GridView1_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                                             <Columns>
                                                                 <asp:TemplateField HeaderText="Student" SortExpression="indexNo">
@@ -446,11 +462,8 @@ where Enrollment.moduleCode=@moduleCode and (Student.userID=@student1 or Student
                                                             </SelectParameters>
                                                         </asp:SqlDataSource>
                                                     </td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2">
-                                                        <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSource4" Palette="Bright" OnPostPaint="Chart1_PostPaint" OnPrePaint="Chart1_PrePaint" OnPreRender="Chart1_PreRender">
+                                                    <td>
+                                                        <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSource4" Palette="Bright" OnPostPaint="Chart1_PostPaint" OnPrePaint="Chart1_PrePaint" OnPreRender="Chart1_PreRender" Height="241px" Width="292px" CssClass="chart3padding">
                                                             <Series>
                                                                 <asp:Series Name="Series1" XValueMember="indexNo" YValueMembers="GPA"></asp:Series>
                                                             </Series>
@@ -468,10 +481,12 @@ where Enrollment.moduleCode=@moduleCode and (Student.userID=@student1 or Student
                                                                 <asp:ControlParameter ControlID="DropDownList1" Name="student2" PropertyName="SelectedValue" />
                                                             </SelectParameters>
                                                         </asp:SqlDataSource>
-                                                        <br />
+
+
                                                     </td>
 
                                                 </tr>
+
                                             </table>
                                 </td>
                             </tr>
@@ -636,7 +651,7 @@ where Enrollment.moduleCode=@moduleCode and (Student.userID=@student1 or Student
 
                                             <asp:Label ID="Label4" runat="server" Width="160px" class="col-lg-3 control-label" Text="Select Second Student"></asp:Label>
                                             <div class="col-lg-4">
-                                                <asp:DropDownList ID="DropDownList5" AppendDataBoundItems="True" runat="server" DataSourceID="SqlDataSource9" DataTextField="indexNo" DataValueField="userID" AutoPostBack="True" OnSelectedIndexChanged="DropDownList5_SelectedIndexChanged">
+                                                <asp:DropDownList Width="275px" ID="DropDownList5" AppendDataBoundItems="True" runat="server" DataSourceID="SqlDataSource9" DataTextField="indexNo" DataValueField="userID" AutoPostBack="True" OnSelectedIndexChanged="DropDownList5_SelectedIndexChanged">
                                                     <asp:ListItem Text="--Select Student--" Value="-1"></asp:ListItem>
 
                                                 </asp:DropDownList>
@@ -659,7 +674,7 @@ where (Member.userID!=@userID AND  Member.userID!=@student2) AND
                                             <asp:Label ID="Label51" Width="160px" class="col-lg-3 control-label" runat="server" Text="Select Module"></asp:Label>
                                             <div class="col-lg-4">
 
-                                                <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="SqlDataSource6" AppendDataBoundItems="True" DataTextField="name" DataValueField="moduleCode" OnSelectedIndexChanged="DropDownList4_SelectedIndexChanged" AutoPostBack="True">
+                                                <asp:DropDownList ID="DropDownList4" Width="275px" runat="server" DataSourceID="SqlDataSource6" AppendDataBoundItems="True" DataTextField="name" DataValueField="moduleCode" OnSelectedIndexChanged="DropDownList4_SelectedIndexChanged" AutoPostBack="True">
                                                     <asp:ListItem Text="--Select Module--" Value="-1"></asp:ListItem>
                                                 </asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT DISTINCT Module.name, Module.moduleCode FROM Student INNER JOIN Enrollment ON Student.userID = Enrollment.userID INNER JOIN Module ON Enrollment.moduleCode = Module.moduleCode WHERE (Enrollment.userID = @student1ID)
@@ -684,14 +699,14 @@ SELECT DISTINCT Module.name, Module.moduleCode FROM Student INNER JOIN Enrollmen
                                     <div class="panel panel-default" style="width: 920px">
                                         <div class="panel-heading">
 
-                                            <asp:Label ID="Label6" runat="server"></asp:Label>
+                                            <asp:Label ID="Label6" runat="server" Text="No students selected!"></asp:Label>
 
                                         </div>
                                         <div class="panel-body">
                                             <table>
                                                 <tr>
-                                                    <td colspan="2">
-                                                        <asp:GridView ID="GridView2" runat="server" DataSourceID="SqlDataSource7" OnRowDataBound="GridView2_RowDataBound" AutoGenerateColumns="False" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
+                                                    <td>
+                                                        <asp:GridView ID="GridView2" runat="server" DataSourceID="SqlDataSource7" OnRowDataBound="GridView2_RowDataBound" AutoGenerateColumns="False" CssClass="gridviewsmalltable table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                                             <Columns>
                                                                 <asp:BoundField DataField="indexNo" HeaderText="indexNo" SortExpression="indexNo" />
                                                                 <asp:BoundField DataField="result" HeaderText="result" SortExpression="result" />
@@ -715,10 +730,8 @@ SELECT DISTINCT Module.name, Module.moduleCode FROM Student INNER JOIN Enrollmen
                                                         </asp:SqlDataSource>
                                                     </td>
 
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2">
-                                                        <asp:Chart ID="Chart2" runat="server" DataSourceID="SqlDataSource8" Palette="Bright" OnPrePaint="Chart2_PrePaint" Width="733px">
+                                                    <td>
+                                                        <asp:Chart ID="Chart2" runat="server" DataSourceID="SqlDataSource8" Palette="Bright" OnPrePaint="Chart2_PrePaint" Width="291px" CssClass="chart3padding" Height="243px">
                                                             <Series>
                                                                 <asp:Series Name="Series1" XValueMember="indexNo" YValueMembers="GPA" ChartArea="ChartArea1"></asp:Series>
                                                             </Series>
@@ -736,10 +749,12 @@ where Enrollment.moduleCode=@moduleCode and (Student.userID=@student1 or Student
                                                                 <asp:ControlParameter ControlID="DropDownList5" Name="student2" PropertyName="SelectedValue" />
                                                             </SelectParameters>
                                                         </asp:SqlDataSource>
-                                                        <br />
+
+
                                                     </td>
 
                                                 </tr>
+
                                             </table>
                                 </td>
                             </tr>
@@ -931,14 +946,35 @@ where Enrollment.moduleCode=@moduleCode and (Student.userID=@student1 or Student
                                     <div class="panel panel-default" style="width: 920px">
                                         <div class="panel-heading">
 
-                                            <asp:Label ID="Label14" runat="server"></asp:Label>
+                                            <asp:Label ID="Label14" runat="server" Text="No semester selected!"></asp:Label>
 
                                         </div>
                                         <div class="panel-body">
                                             <table>
                                                 <tr>
                                                     <td>
-                                                        <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource13" OnRowDataBound="GridView4_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
+                                                        <asp:GridView ID="GridView5" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView5_RowDataBound" CssClass="gridviewsmall2 table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" HorizontalAlign="Left">
+                                                            <Columns>
+                                                                <asp:BoundField DataField="name" />
+                                                                <asp:TemplateField HeaderText="SGPA">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="Label18" runat="server" Text='<%# Eval("SGPA") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                        <asp:SqlDataSource ID="SqlDataSource11" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="getSGPABatchVsMe" SelectCommandType="StoredProcedure">
+                                                            <SelectParameters>
+                                                                <asp:ControlParameter ControlID="DropDownList7" Name="semesterID" PropertyName="SelectedValue" Type="Int32" />
+                                                                <asp:SessionParameter Name="courseID" SessionField="courseID" Type="Int32" />
+                                                                <asp:SessionParameter Name="userID" SessionField="userID" Type="Int32" />
+                                                            </SelectParameters>
+                                                        </asp:SqlDataSource>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource13" OnRowDataBound="GridView4_RowDataBound" CssClass="gridview3  table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                                             <Columns>
                                                                 <asp:BoundField DataField="moduleCode" HeaderText="Module Code" />
                                                                 <asp:BoundField DataField="name" HeaderText="Module" />
@@ -978,30 +1014,12 @@ where Enrollment.moduleCode=@moduleCode and (Student.userID=@student1 or Student
                                                             </SelectParameters>
                                                         </asp:SqlDataSource>
                                                     </td>
-                                                    <td>
-                                                        <asp:GridView ID="GridView5" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView5_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
-                                                            <Columns>
-                                                                <asp:BoundField DataField="name" />
-                                                                <asp:TemplateField HeaderText="SGPA">
-                                                                    <ItemTemplate>
-                                                                        <asp:Label ID="Label18" runat="server" Text='<%# Eval("SGPA") %>'></asp:Label>
-                                                                    </ItemTemplate>
-                                                                </asp:TemplateField>
-                                                            </Columns>
-                                                        </asp:GridView>
-                                                        <asp:SqlDataSource ID="SqlDataSource11" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="getSGPABatchVsMe" SelectCommandType="StoredProcedure">
-                                                            <SelectParameters>
-                                                                <asp:ControlParameter ControlID="DropDownList7" Name="semesterID" PropertyName="SelectedValue" Type="Int32" />
-                                                                <asp:SessionParameter Name="courseID" SessionField="courseID" Type="Int32" />
-                                                                <asp:SessionParameter Name="userID" SessionField="userID" Type="Int32" />
-                                                            </SelectParameters>
-                                                        </asp:SqlDataSource>
-                                                    </td>
+
 
                                                 </tr>
                                                 <tr>
                                                     <td colspan="2">
-                                                        <asp:Chart ID="Chart4" runat="server" DataSourceID="SqlDataSource13" OnLoad="Chart4_Load" OnDataBound="Chart4_DataBound" OnPostPaint="Chart4_PostPaint" Width="604px">
+                                                        <asp:Chart ID="Chart4" CssClass="marginleft0" runat="server" DataSourceID="SqlDataSource13" OnLoad="Chart4_Load" OnDataBound="Chart4_DataBound" OnPostPaint="Chart4_PostPaint" Width="800px" Height="350px">
                                                             <Series>
                                                                 <asp:Series Name="Series1" BorderWidth="3" IsValueShownAsLabel="true" ChartType="Line" XValueMember="moduleCode" YValueMembers="myGPA">
                                                                 </asp:Series>
@@ -1023,7 +1041,7 @@ where Enrollment.moduleCode=@moduleCode and (Student.userID=@student1 or Student
 
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2">
+                                                    <td colspan="2" style="padding-left: 60px;">
 
                                                         <asp:Label ID="Label16" Visible="false" runat="server" Text="Me"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;
                               
@@ -1042,16 +1060,7 @@ where Enrollment.moduleCode=@moduleCode and (Student.userID=@student1 or Student
                                                     </td>
 
                                                 </tr>
-                                                <tr>
-                                                    <td colspan="2">&nbsp;</td>
 
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2">
-                                                        <br />
-                                                    </td>
-
-                                                </tr>
                                             </table>
                                         </div>
                                 </td>
@@ -1060,151 +1069,10 @@ where Enrollment.moduleCode=@moduleCode and (Student.userID=@student1 or Student
 
                     </asp:View>
                     <asp:View ID="View5" runat="server">
-                        <%-- <table style="width: 100%;">
-
-                            <tr>
-                                <td>
-                                    <asp:Label ID="Label19" runat="server" Text="Select Semester"></asp:Label>
-                                </td>
-                                <td>
-
-                                    <asp:DropDownList ID="DropDownList8" AppendDataBoundItems="true" runat="server" DataSourceID="SqlDataSource17" DataTextField="semester" DataValueField="semesterID" AutoPostBack="True" OnSelectedIndexChanged="DropDownList8_SelectedIndexChanged">
-                                        <asp:ListItem Text="--Select Semester--" Value="-1"></asp:ListItem>
-                                    </asp:DropDownList>
-                                    <asp:SqlDataSource ID="SqlDataSource17" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT distinct semesterID, (cast(semesterNumber as nvarchar(10))+' Semester') as semester FROM AcedamicInfo WHERE (courseID =@courseID)">
-                                        <SelectParameters>
-                                            <asp:SessionParameter Name="courseID" SessionField="courseID" />
-                                        </SelectParameters>
-                                    </asp:SqlDataSource>
-
-                                    <br />
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Label ID="Label24" runat="server" Text="Select Student"></asp:Label>
-                                </td>
-                                <td>
-
-                                    <asp:DropDownList ID="DropDownList9" AppendDataBoundItems="true" runat="server" DataSourceID="SqlDataSource18" DataTextField="indexNo" DataValueField="userID" AutoPostBack="True" OnSelectedIndexChanged="DropDownList9_SelectedIndexChanged">
-                                        <asp:ListItem Text="--Select Student--" Value="-1"></asp:ListItem>
-                                    </asp:DropDownList>
-                                    <asp:SqlDataSource ID="SqlDataSource18" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT Member.userName, Student.indexNo, Member.userID FROM Member INNER JOIN Student ON Member.userID = Student.userID
-                                                                                                                         where Member.userID!=@userID AND
-                                                                                                                         student.courseID=@courseID">
-                                        <SelectParameters>
-                                            <asp:SessionParameter Name="userID" SessionField="userID" />
-                                            <asp:SessionParameter Name="courseID" SessionField="courseID" />
-                                        </SelectParameters>
-                                    </asp:SqlDataSource>
-
-                                    <br />
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
 
 
-                                    <asp:Label ID="Label20" runat="server"></asp:Label>
 
-
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:GridView ID="GridView6" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView6_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
-                                        <Columns>
-                                            <asp:BoundField DataField="moduleCode" HeaderText="Module Code" />
-                                            <asp:BoundField DataField="name" HeaderText="Name" />
-                                            <asp:BoundField DataField="myResult" HeaderText="My Result" />
-                                            <asp:TemplateField HeaderText="studentResult">
-                                                <ItemTemplate>
-                                                    <asp:Label ID="Label25" runat="server" Text='<%# Eval("studentResult") %>'></asp:Label>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="My GPA">
-                                                <ItemTemplate>
-                                                    <asp:Label ID="Label26" runat="server" Text='<%# Eval("myGPA") %>'></asp:Label>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="studentGPA">
-                                                <ItemTemplate>
-                                                    <asp:Label ID="Label27" runat="server" Text='<%# Eval("studentGPA") %>'></asp:Label>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                        </Columns>
-                                    </asp:GridView>
-                                    <asp:SqlDataSource ID="SqlDataSource19" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="spGetSemesterResultsStudentVsMe" SelectCommandType="StoredProcedure">
-                                        <SelectParameters>
-                                            <asp:ControlParameter ControlID="DropDownList8" Name="semesterID" PropertyName="SelectedValue" Type="Int32" />
-                                            <asp:SessionParameter Name="courseID" SessionField="courseID" Type="Int32" />
-                                            <asp:SessionParameter Name="userID" SessionField="userID" Type="Int32" />
-                                            <asp:ControlParameter ControlID="DropDownList9" Name="studentID" PropertyName="SelectedValue" Type="Int32" />
-                                        </SelectParameters>
-                                    </asp:SqlDataSource>
-                                    <br />
-                                </td>
-                                <td>
-                                    <asp:GridView ID="GridView7" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView7_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
-                                        <Columns>
-                                            <asp:BoundField DataField="name" HeaderText="Student" />
-                                            <asp:TemplateField HeaderText="SGPA">
-                                                <ItemTemplate>
-                                                    <asp:Label ID="Label28" runat="server" Text='<%# Eval("SGPA") %>'></asp:Label>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                        </Columns>
-                                    </asp:GridView>
-                                    <asp:SqlDataSource ID="SqlDataSource20" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="getSGPAStudentVsMe" SelectCommandType="StoredProcedure">
-                                        <SelectParameters>
-                                            <asp:ControlParameter ControlID="DropDownList8" Name="semesterID" PropertyName="SelectedValue" Type="Int32" />
-                                            <asp:SessionParameter Name="courseID" SessionField="courseID" Type="Int32" />
-                                            <asp:SessionParameter Name="userID" SessionField="userID" Type="Int32" />
-                                            <asp:ControlParameter ControlID="DropDownList9" Name="studentID" PropertyName="SelectedValue" Type="Int32" />
-                                        </SelectParameters>
-                                    </asp:SqlDataSource>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <asp:Chart ID="Chart6" runat="server" OnLoad="Chart6_Load" OnPostPaint="Chart6_PostPaint" OnDataBound="Chart6_DataBound">
-                                        <Series>
-                                            <asp:Series Name="Series1" BorderWidth="3" IsValueShownAsLabel="True" ChartType="Line" ChartArea="ChartArea1" XValueMember="moduleCode" YValueMembers="myGPA">
-                                            </asp:Series>
-                                            <asp:Series BorderWidth="3" ChartArea="ChartArea1" ChartType="Line" IsValueShownAsLabel="True" Name="Series2" XValueMember="moduleCode" YValueMembers="studentGPA">
-                                            </asp:Series>
-                                        </Series>
-                                        <ChartAreas>
-                                            <asp:ChartArea Name="ChartArea1">
-                                            </asp:ChartArea>
-                                        </ChartAreas>
-                                    </asp:Chart>
-                                    <br />
-
-                                    <br />
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-
-                                    <asp:Label ID="Label21" Visible="false" runat="server" Text="Me"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;
-                              
-                                <asp:Label ID="Label22" Visible="False" runat="server"></asp:Label>
-
-                                </td>
-
-                            </tr>
-
-
-                        </table>--%>
-
-
-                        <table style="width: 100%;">
+                        <%--  <table style="width: 100%;">
                             <tr>
 
                                 <asp:Panel ID="Panel6" class="panel panel-danger" runat="server">
@@ -1353,191 +1221,167 @@ where Enrollment.moduleCode=@moduleCode and (Student.userID=@student1 or Student
                                             </table>
                                 </td>
                             </tr>
+                        </table>--%>
+
+                        <table style="width: 100%;">
+                            <tr>
+
+                                <asp:Panel ID="Panel6" class="panel panel-danger" runat="server">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Enter Semester Info.</h3>
+                                    </div>
+                                    <div class="panel-body form-horizontal">
+                                        <div class="form-group">
+                                            <asp:Label ID="Label5" Width="160px" class="col-lg-3 control-label" runat="server" Text="Select Semester"></asp:Label>
+
+                                            <div class="col-lg-4">
+                                                <asp:DropDownList ID="DropDownList8" AppendDataBoundItems="true" Width="160px" runat="server" DataSourceID="SqlDataSource17" DataTextField="semester" DataValueField="semesterID" AutoPostBack="True" OnSelectedIndexChanged="DropDownList8_SelectedIndexChanged">
+                                                    <asp:ListItem Text="--Select Semester--" Value="-1"></asp:ListItem>
+                                                </asp:DropDownList>
+                                                <asp:SqlDataSource ID="SqlDataSource17" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT distinct semesterID, (cast(semesterNumber as nvarchar(10))+' Semester') as semester FROM AcedamicInfo WHERE (courseID =@courseID)">
+                                                    <SelectParameters>
+                                                        <asp:SessionParameter Name="courseID" SessionField="courseID" />
+                                                    </SelectParameters>
+                                                </asp:SqlDataSource>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <asp:Label ID="Label24" Width="160px" class="col-lg-3 control-label" runat="server" Text="Select Student"></asp:Label>
+                                            <div class="col-lg-4">
+                                                <asp:DropDownList ID="DropDownList9" AppendDataBoundItems="true" Width="160px" runat="server" DataSourceID="SqlDataSource18" DataTextField="indexNo" DataValueField="userID" AutoPostBack="True" OnSelectedIndexChanged="DropDownList9_SelectedIndexChanged">
+                                                    <asp:ListItem Text="--Select Student--" Value="-1"></asp:ListItem>
+                                                </asp:DropDownList>
+                                                <asp:SqlDataSource ID="SqlDataSource18" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT Member.userName, Student.indexNo, Member.userID FROM Member INNER JOIN Student ON Member.userID = Student.userID
+                                                                                                                         where Member.userID!=@userID AND
+                                                                                                                         student.courseID=@courseID">
+                                                    <SelectParameters>
+                                                        <asp:SessionParameter Name="userID" SessionField="userID" />
+                                                        <asp:SessionParameter Name="courseID" SessionField="courseID" />
+                                                    </SelectParameters>
+                                                </asp:SqlDataSource>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </asp:Panel>
+
+
+
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="panel panel-default" style="width: 920px">
+                                        <div class="panel-heading">
+
+
+                                            <asp:Label ID="Label20" runat="server" Text="No student/semester selected!"></asp:Label>
+
+                                        </div>
+                                        <div class="panel-body">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <asp:GridView ID="GridView7" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView7_RowDataBound" CssClass="gridviewsmall2 table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
+                                                            <Columns>
+                                                                <asp:BoundField DataField="name" HeaderText="Student" />
+                                                                <asp:TemplateField HeaderText="SGPA">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="Label28" runat="server" Text='<%# Eval("SGPA") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                        <asp:SqlDataSource ID="SqlDataSource20" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="getSGPAStudentVsMe" SelectCommandType="StoredProcedure">
+                                                            <SelectParameters>
+                                                                <asp:ControlParameter ControlID="DropDownList8" Name="semesterID" PropertyName="SelectedValue" Type="Int32" />
+                                                                <asp:SessionParameter Name="courseID" SessionField="courseID" Type="Int32" />
+                                                                <asp:SessionParameter Name="userID" SessionField="userID" Type="Int32" />
+                                                                <asp:ControlParameter ControlID="DropDownList9" Name="studentID" PropertyName="SelectedValue" Type="Int32" />
+                                                            </SelectParameters>
+                                                        </asp:SqlDataSource>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <asp:GridView ID="GridView6" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView6_RowDataBound" CssClass="gridview3 table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
+                                                            <Columns>
+                                                                <asp:BoundField DataField="moduleCode" HeaderText="Module Code" />
+                                                                <asp:BoundField DataField="name" HeaderText="Name" />
+                                                                <asp:BoundField DataField="myResult" HeaderText="My Result" />
+                                                                <asp:TemplateField HeaderText="studentResult">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="Label25" runat="server" Text='<%# Eval("studentResult") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="My GPA">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="Label26" runat="server" Text='<%# Eval("myGPA") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="studentGPA">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="Label27" runat="server" Text='<%# Eval("studentGPA") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                        <asp:SqlDataSource ID="SqlDataSource19" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="spGetSemesterResultsStudentVsMe" SelectCommandType="StoredProcedure">
+                                                            <SelectParameters>
+                                                                <asp:ControlParameter ControlID="DropDownList8" Name="semesterID" PropertyName="SelectedValue" Type="Int32" />
+                                                                <asp:SessionParameter Name="courseID" SessionField="courseID" Type="Int32" />
+                                                                <asp:SessionParameter Name="userID" SessionField="userID" Type="Int32" />
+                                                                <asp:ControlParameter ControlID="DropDownList9" Name="studentID" PropertyName="SelectedValue" Type="Int32" />
+                                                            </SelectParameters>
+                                                        </asp:SqlDataSource>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td >
+                                                        <asp:Chart ID="Chart6" CssClass="marginleft0" Height="350px" Width="800px" runat="server" OnLoad="Chart6_Load" OnPostPaint="Chart6_PostPaint" OnDataBound="Chart6_DataBound">
+                                                            <Series>
+                                                                <asp:Series Name="Series1" BorderWidth="3" IsValueShownAsLabel="True" ChartType="Line" ChartArea="ChartArea1" XValueMember="moduleCode" YValueMembers="myGPA">
+                                                                </asp:Series>
+                                                                <asp:Series BorderWidth="3" ChartArea="ChartArea1" ChartType="Line" IsValueShownAsLabel="True" Name="Series2" XValueMember="moduleCode" YValueMembers="studentGPA">
+                                                                </asp:Series>
+                                                            </Series>
+                                                            <ChartAreas>
+                                                                <asp:ChartArea Name="ChartArea1">
+                                                                </asp:ChartArea>
+                                                            </ChartAreas>
+                                                        </asp:Chart>
+                                                        <br />
+
+                                                        <br />
+                                                    </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td  style="padding-left: 60px;">
+
+                                                        <asp:Label ID="Label21" Visible="false" runat="server" Text="Me"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;
+                              
+                                                               <asp:Label ID="Label22" runat="server"></asp:Label>
+
+                                                    </td>
+
+                                                </tr>
+                          
+
+                                            </table>
+                                        </div>
+                                </td>
+                            </tr>
                         </table>
 
 
                     </asp:View>
                     <asp:View ID="View6" runat="server">
-                        <%--     <table style="width: 100%;">
-
-                            <tr>
-                                <td>
-                                    <asp:Label ID="Label23" runat="server" Text="Select Semester"></asp:Label>
-                                </td>
-                                <td>
-
-                                    <asp:SqlDataSource ID="SqlDataSource14" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT distinct semesterID, (cast(semesterNumber as nvarchar(10))+' Semester') as semester FROM AcedamicInfo WHERE (courseID =@courseID)">
-                                        <SelectParameters>
-                                            <asp:SessionParameter Name="courseID" SessionField="courseID" />
-                                        </SelectParameters>
-                                    </asp:SqlDataSource>
-
-                                    <asp:DropDownList ID="DropDownList12" AppendDataBoundItems="true" runat="server" DataSourceID="SqlDataSource14" DataTextField="semester" DataValueField="semesterID" AutoPostBack="True" OnSelectedIndexChanged="DropDownList12_SelectedIndexChanged">
-                                        <asp:ListItem Text="--Select Semester--" Value="-1"></asp:ListItem>
-                                    </asp:DropDownList>
-
-                                    <br />
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Label ID="Label64" runat="server" Text="Select First Student"></asp:Label>
-                                </td>
-                                <td>
-
-                                    <asp:SqlDataSource ID="SqlDataSource15" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT Member.userName, Student.indexNo, Member.userID FROM Member INNER JOIN Student ON Member.userID = Student.userID
-                                                                                                                         where Member.userID!=@userID AND
-                                                                                                                         student.courseID=@courseID">
-                                        <SelectParameters>
-                                            <asp:SessionParameter Name="userID" SessionField="userID" />
-                                            <asp:SessionParameter Name="courseID" SessionField="courseID" />
-                                        </SelectParameters>
-                                    </asp:SqlDataSource>
-
-                                    <asp:DropDownList ID="DropDownList13" runat="server" AppendDataBoundItems="true" DataSourceID="SqlDataSource15" DataTextField="indexNo" DataValueField="userID" OnSelectedIndexChanged="DropDownList13_SelectedIndexChanged" AutoPostBack="True">
-                                        <asp:ListItem Text="--Select First Student--" Value="-1"></asp:ListItem>
-                                    </asp:DropDownList>
-
-                                    <br />
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Label ID="Label33" runat="server" Text="Select Second Student"></asp:Label>
-                                </td>
-                                <td>
-
-                                    <asp:SqlDataSource ID="SqlDataSource22" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT Member.userName, Student.indexNo, Member.userID FROM Member INNER JOIN Student ON Member.userID = Student.userID
-                                                                                                                         where Member.userID!=@userID AND
-Member.userID!=@student1  AND
-                                                                                                                         student.courseID=@courseID">
-                                        <SelectParameters>
-                                            <asp:SessionParameter Name="userID" SessionField="userID" />
-                                            <asp:ControlParameter ControlID="DropDownList13" Name="student1" PropertyName="SelectedValue" />
-                                            <asp:SessionParameter Name="courseID" SessionField="courseID" />
-                                        </SelectParameters>
-                                    </asp:SqlDataSource>
-
-                                    <asp:DropDownList ID="DropDownList14" AppendDataBoundItems="True" runat="server" DataSourceID="SqlDataSource22" DataTextField="indexNo" DataValueField="userID" AutoPostBack="True" OnSelectedIndexChanged="DropDownList14_SelectedIndexChanged">
-                                        <asp:ListItem Text="--Select Second Student--" Value="-1"></asp:ListItem>
-                                    </asp:DropDownList>
-
-                                    <br />
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-
-
-                                    <asp:Label ID="Label30" runat="server"></asp:Label>
-
-
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:GridView ID="GridView8" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView8_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
-                                        <Columns>
-                                            <asp:BoundField DataField="moduleCode" HeaderText="Module Code" />
-                                            <asp:BoundField DataField="name" HeaderText="Name" />
-                                            <asp:TemplateField HeaderText="My Result">
-                                                <EditItemTemplate>
-                                                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("myResult") %>'></asp:TextBox>
-                                                </EditItemTemplate>
-                                                <ItemTemplate>
-                                                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("myResult") %>'></asp:Label>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="studentResult">
-                                                <ItemTemplate>
-                                                    <asp:Label ID="Label25" runat="server" Text='<%# Eval("studentResult") %>'></asp:Label>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="My GPA">
-                                                <ItemTemplate>
-                                                    <asp:Label ID="Label26" runat="server" Text='<%# Eval("myGPA") %>'></asp:Label>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="studentGPA">
-                                                <ItemTemplate>
-                                                    <asp:Label ID="Label27" runat="server" Text='<%# Eval("studentGPA") %>'></asp:Label>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                        </Columns>
-                                    </asp:GridView>
-                                    <asp:SqlDataSource ID="SqlDataSource16" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="spGetSemesterResultsStudentVsMe" SelectCommandType="StoredProcedure">
-                                        <SelectParameters>
-                                            <asp:ControlParameter ControlID="DropDownList12" Name="semesterID" PropertyName="SelectedValue" Type="Int32" />
-                                            <asp:SessionParameter Name="courseID" SessionField="courseID" Type="Int32" />
-                                            <asp:ControlParameter ControlID="DropDownList13" Name="userID" PropertyName="SelectedValue" Type="Int32" />
-                                            <asp:ControlParameter ControlID="DropDownList14" Name="studentID" PropertyName="SelectedValue" Type="Int32" />
-                                        </SelectParameters>
-                                    </asp:SqlDataSource>
-                                    <br />
-                                </td>
-                                <td>
-                                    <asp:GridView ID="GridView9" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource21" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
-                                        <Columns>
-                                            <asp:BoundField DataField="name" HeaderText="Student" />
-                                            <asp:TemplateField HeaderText="SGPA">
-                                                <ItemTemplate>
-                                                    <asp:Label ID="Label28" runat="server" Text='<%# Eval("SGPA") %>'></asp:Label>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                        </Columns>
-                                    </asp:GridView>
-                                    <asp:SqlDataSource ID="SqlDataSource21" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="getSGPAStudentVsStudent" SelectCommandType="StoredProcedure">
-                                        <SelectParameters>
-                                            <asp:ControlParameter ControlID="DropDownList12" Name="semesterID" PropertyName="SelectedValue" Type="Int32" />
-                                            <asp:SessionParameter Name="courseID" SessionField="courseID" Type="Int32" />
-                                            <asp:ControlParameter ControlID="DropDownList13" Name="userID" PropertyName="SelectedValue" Type="Int32" />
-                                            <asp:ControlParameter ControlID="DropDownList14" Name="studentID" PropertyName="SelectedValue" Type="Int32" />
-                                        </SelectParameters>
-                                    </asp:SqlDataSource>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <asp:Chart ID="Chart5" runat="server" OnLoad="Chart5_Load" OnPostPaint="Chart5_PostPaint" Width="556px">
-                                        <Series>
-                                            <asp:Series Name="Series1" BorderWidth="3" IsValueShownAsLabel="True" ChartType="Line" ChartArea="ChartArea1" XValueMember="moduleCode" YValueMembers="myGPA">
-                                            </asp:Series>
-                                            <asp:Series BorderWidth="3" ChartArea="ChartArea1" ChartType="Line" IsValueShownAsLabel="True" Name="Series2" XValueMember="moduleCode" YValueMembers="studentGPA">
-                                            </asp:Series>
-                                        </Series>
-                                        <ChartAreas>
-                                            <asp:ChartArea Name="ChartArea1">
-                                            </asp:ChartArea>
-                                        </ChartAreas>
-                                    </asp:Chart>
-                                    <br />
-
-                                    <br />
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-
-                                    <asp:Label ID="Label31" Visible="False" runat="server"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;
-                              
-                                <asp:Label ID="Label32" Visible="False" runat="server"></asp:Label>
-
-                                </td>
-
-                            </tr>
-
-
-                        </table>--%>
+                   
 
 
 
-                        <table style="width: 100%;">
+                        <%--<table style="width: 100%;">
                             <tr>
 
                                 <asp:Panel ID="Panel7" class="panel panel-danger" runat="server">
@@ -1716,6 +1560,190 @@ Member.userID!=@student1  AND
                                             </table>
                                 </td>
                             </tr>
+                        </table>--%>
+
+
+                          <table style="width: 100%;">
+                            <tr>
+
+                                <asp:Panel ID="Panel7" class="panel panel-danger" runat="server">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Enter Filtering Info.</h3>
+                                    </div>
+                                    <div class="panel-body form-horizontal">
+                                        <div class="form-group">
+                                          <asp:Label ID="Label8" Width="200px" class="col-lg-3 control-label" runat="server" Text="Select Semester"></asp:Label>
+
+                                            <div class="col-lg-4">
+                                                <asp:SqlDataSource ID="SqlDataSource14" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT distinct semesterID, (cast(semesterNumber as nvarchar(10))+' Semester') as semester FROM AcedamicInfo WHERE (courseID =@courseID)">
+                                                    <SelectParameters>
+                                                        <asp:SessionParameter Name="courseID" SessionField="courseID" />
+                                                    </SelectParameters>
+                                                </asp:SqlDataSource>
+
+                                                <asp:DropDownList ID="DropDownList12" Width="160px" AppendDataBoundItems="true" runat="server" DataSourceID="SqlDataSource14" DataTextField="semester" DataValueField="semesterID" AutoPostBack="True" OnSelectedIndexChanged="DropDownList12_SelectedIndexChanged">
+                                                    <asp:ListItem Text="--Select Semester--" Value="-1"></asp:ListItem>
+                                                </asp:DropDownList>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <asp:Label ID="Label23" Width="200px" class="col-lg-3 control-label" runat="server" Text="Select First Student"></asp:Label>
+
+                                            <div class="col-lg-4">
+                                                <asp:SqlDataSource ID="SqlDataSource15" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT Member.userName, Student.indexNo, Member.userID FROM Member INNER JOIN Student ON Member.userID = Student.userID
+                                                                                                                         where Member.userID!=@userID AND
+                                                                                                                         student.courseID=@courseID">
+                                                    <SelectParameters>
+                                                        <asp:SessionParameter Name="userID" SessionField="userID" />
+                                                        <asp:SessionParameter Name="courseID" SessionField="courseID" />
+                                                    </SelectParameters>
+                                                </asp:SqlDataSource>
+
+                                                <asp:DropDownList ID="DropDownList13" Width="160px" runat="server" AppendDataBoundItems="true" DataSourceID="SqlDataSource15" DataTextField="indexNo" DataValueField="userID" OnSelectedIndexChanged="DropDownList13_SelectedIndexChanged" AutoPostBack="True">
+                                                    <asp:ListItem Text="--Select First Student--" Value="-1"></asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                        <asp:Label ID="Label33" Width="200px" class="col-lg-3 control-label" runat="server" Text="Select Second Student"></asp:Label>
+                                            <div class="col-lg-4">
+                                               <asp:SqlDataSource ID="SqlDataSource22" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT Member.userName, Student.indexNo, Member.userID FROM Member INNER JOIN Student ON Member.userID = Student.userID
+                                                                                                                         where Member.userID!=@userID AND
+Member.userID!=@student1  AND
+                                                                                                                         student.courseID=@courseID">
+                                                    <SelectParameters>
+                                                        <asp:SessionParameter Name="userID" SessionField="userID" />
+                                                        <asp:ControlParameter ControlID="DropDownList13" Name="student1" PropertyName="SelectedValue" />
+                                                        <asp:SessionParameter Name="courseID" SessionField="courseID" />
+                                                    </SelectParameters>
+                                                </asp:SqlDataSource>
+
+                                                <asp:DropDownList ID="DropDownList14" Width="160px" AppendDataBoundItems="True" runat="server" DataSourceID="SqlDataSource22" DataTextField="indexNo" DataValueField="userID" AutoPostBack="True" OnSelectedIndexChanged="DropDownList14_SelectedIndexChanged">
+                                                    <asp:ListItem Text="--Select Second Student--" Value="-1"></asp:ListItem>
+                                                </asp:DropDownList>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </asp:Panel>
+
+
+
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="panel panel-default" style="width: 920px">
+                                        <div class="panel-heading">
+
+
+                                           
+                                            <asp:Label ID="Label30" runat="server" Text="No semester/Students selected!"></asp:Label>
+
+                                        </div>
+                                        <div class="panel-body">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                         <asp:GridView ID="GridView9" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource21" CssClass="gridviewsmall2 table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" OnRowDataBound="GridView9_RowDataBound1">
+                                                            <Columns>
+                                                                <asp:BoundField DataField="name" HeaderText="Student" />
+                                                                <asp:TemplateField HeaderText="SGPA">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="Label28" runat="server" Text='<%# Eval("SGPA") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                        <asp:SqlDataSource ID="SqlDataSource21" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="getSGPAStudentVsStudent" SelectCommandType="StoredProcedure">
+                                                            <SelectParameters>
+                                                                <asp:ControlParameter ControlID="DropDownList12" Name="semesterID" PropertyName="SelectedValue" Type="Int32" />
+                                                                <asp:SessionParameter Name="courseID" SessionField="courseID" Type="Int32" />
+                                                                <asp:ControlParameter ControlID="DropDownList13" Name="userID" PropertyName="SelectedValue" Type="Int32" />
+                                                                <asp:ControlParameter ControlID="DropDownList14" Name="studentID" PropertyName="SelectedValue" Type="Int32" />
+                                                            </SelectParameters>
+                                                        </asp:SqlDataSource>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                       <asp:GridView ID="GridView8" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView8_RowDataBound" CssClass="gridview3 table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
+                                                            <Columns>
+                                                                <asp:BoundField DataField="moduleCode" HeaderText="Module Code" />
+                                                                <asp:BoundField DataField="name" HeaderText="Name" />
+                                                                <asp:TemplateField HeaderText="My Result">
+                                                                    <EditItemTemplate>
+                                                                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("myResult") %>'></asp:TextBox>
+                                                                    </EditItemTemplate>
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("myResult") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="studentResult">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="Label25" runat="server" Text='<%# Eval("studentResult") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="My GPA">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="Label26" runat="server" Text='<%# Eval("myGPA") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="studentGPA">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="Label27" runat="server" Text='<%# Eval("studentGPA") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                        <asp:SqlDataSource ID="SqlDataSource16" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="spGetSemesterResultsStudentVsMe" SelectCommandType="StoredProcedure">
+                                                            <SelectParameters>
+                                                                <asp:ControlParameter ControlID="DropDownList12" Name="semesterID" PropertyName="SelectedValue" Type="Int32" />
+                                                                <asp:SessionParameter Name="courseID" SessionField="courseID" Type="Int32" />
+                                                                <asp:ControlParameter ControlID="DropDownList13" Name="userID" PropertyName="SelectedValue" Type="Int32" />
+                                                                <asp:ControlParameter ControlID="DropDownList14" Name="studentID" PropertyName="SelectedValue" Type="Int32" />
+                                                            </SelectParameters>
+                                                        </asp:SqlDataSource>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <asp:Chart ID="Chart5" runat="server" OnLoad="Chart5_Load" CssClass="marginleft0" Height="350px" Width="800px" OnPostPaint="Chart5_PostPaint" >
+                                                            <Series>
+                                                                <asp:Series Name="Series1" BorderWidth="3" IsValueShownAsLabel="True" ChartType="Line" ChartArea="ChartArea1" XValueMember="moduleCode" YValueMembers="myGPA">
+                                                                </asp:Series>
+                                                                <asp:Series BorderWidth="3" ChartArea="ChartArea1" ChartType="Line" IsValueShownAsLabel="True" Name="Series2" XValueMember="moduleCode" YValueMembers="studentGPA">
+                                                                </asp:Series>
+                                                            </Series>
+                                                            <ChartAreas>
+                                                                <asp:ChartArea Name="ChartArea1">
+                                                                </asp:ChartArea>
+                                                            </ChartAreas>
+                                                        </asp:Chart>
+                                                        <br />
+
+                                                        <br />
+                                                    </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td  style="padding-left: 60px;">
+
+                                                     <asp:Label ID="Label31" Visible="False" runat="server"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;
+                              
+                                <asp:Label ID="Label32" Visible="False" runat="server"></asp:Label>
+
+
+                                                    </td>
+
+                                                </tr>
+                          
+
+                                            </table>
+                                        </div>
+                                </td>
+                            </tr>
                         </table>
 
                     </asp:View>
@@ -1723,100 +1751,13 @@ Member.userID!=@student1  AND
 
 
 
-                        <%--   <table style="width: 100%;">
-                            <tr>
-                                <td>
-                                    <asp:Label ID="Label34" runat="server" Text="Batch Vs Me Overrall Comparison"></asp:Label>
-                                </td>
 
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:GridView ID="GridView10" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource23" OnRowDataBound="GridView10_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
-                                        <Columns>
-                                            <asp:BoundField DataField="name" />
-                                            <asp:TemplateField HeaderText="GPA">
-                                                <ItemTemplate>
-                                                    <asp:Label ID="Label35" runat="server" Text='<%# Eval("overallGPA") %>'></asp:Label>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="Expected Class">
-                                                <ItemTemplate>
-                                                    <asp:Label ID="Label36" runat="server" Text="Label"></asp:Label>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                        </Columns>
-                                    </asp:GridView>
-                                    <br />
-                                    <asp:SqlDataSource ID="SqlDataSource23" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="spGetOverallGPABatchVsMe" SelectCommandType="StoredProcedure">
-                                        <SelectParameters>
-                                            <asp:SessionParameter Name="courseID" SessionField="courseID" Type="Int32" />
-                                            <asp:SessionParameter Name="userID" SessionField="userID" Type="Int32" />
-                                        </SelectParameters>
-                                    </asp:SqlDataSource>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:GridView ID="GridView11" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource24" OnRowDataBound="GridView11_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
-                                        <Columns>
-                                            <asp:BoundField DataField="semester" HeaderText="semester" />
-                                            <asp:TemplateField HeaderText="My SGPA">
-                                                <ItemTemplate>
-                                                    <asp:Label ID="Label37" runat="server" Text='<%# Eval("mySGPA") %>'></asp:Label>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="Batch SGPA">
-                                                <ItemTemplate>
-                                                    <asp:Label ID="Label38" runat="server" Text='<%# Eval("batchSGPA") %>'></asp:Label>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                        </Columns>
-                                    </asp:GridView>
-                                    <asp:SqlDataSource ID="SqlDataSource24" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="spGetOverallResultsBatchVsMe" SelectCommandType="StoredProcedure">
-                                        <SelectParameters>
-                                            <asp:SessionParameter Name="courseID" SessionField="courseID" Type="Int32" />
-                                            <asp:SessionParameter Name="userID" SessionField="userID" Type="Int32" />
-                                        </SelectParameters>
-                                    </asp:SqlDataSource>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Chart ID="Chart7" runat="server" DataSourceID="SqlDataSource24" OnLoad="Chart7_Load" OnPostPaint="Chart7_PostPaint" OnPrePaint="Chart7_PrePaint">
-                                        <Series>
-                                            <asp:Series ChartType="Line" Name="Series1" BorderWidth="3" IsValueShownAsLabel="True" XValueMember="semester" YValueMembers="mySGPA">
-                                            </asp:Series>
-                                            <asp:Series ChartType="Line" Name="Series2" BorderWidth="3" IsValueShownAsLabel="True" XValueMember="semester" YValueMembers="batchSGPA">
-                                            </asp:Series>
-
-                                        </Series>
-                                        <ChartAreas>
-                                            <asp:ChartArea Name="ChartArea1">
-                                            </asp:ChartArea>
-                                        </ChartAreas>
-                                    </asp:Chart>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Label ID="Label39" runat="server" Text="Me"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <asp:Label ID="Label40" runat="server" Text="Batch"></asp:Label>
-                                </td>
-
-                            </tr>
-                        </table>--%>
-
-
-                        <table style="width: 100%;">
+<%--                        <table style="width: 100%;">
 
 
                             <tr>
                                 <td>
-                                    <div class="panel panel-default" style="width:920px">
+                                    <div class="panel panel-default" style="width: 920px">
                                         <div class="panel-heading">
 
                                             <asp:Label ID="Label34" runat="server" Text="Batch Vs Me Overrall Comparison"></asp:Label>
@@ -1907,7 +1848,114 @@ Member.userID!=@student1  AND
                                     </div>
                                 </td>
                             </tr>
+                        </table>--%>
+
+
+ <table style="width: 100%;">
+                           
+
+                            <tr>
+                                <td>
+                                    <div class="panel panel-default" style="width: 920px">
+                                        <div class="panel-heading">
+
+
+                                           
+                                         <asp:Label ID="Label34" runat="server" Text="Batch Vs Me Overrall Comparison"></asp:Label>
+
+                                        </div>
+                                        <div class="panel-body">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <asp:GridView ID="GridView10" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource23" OnRowDataBound="GridView10_RowDataBound" CssClass="gridviewsmall2 table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
+                                                            <Columns>
+                                                                <asp:BoundField DataField="name" />
+                                                                <asp:TemplateField HeaderText="GPA">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="Label35" runat="server" Text='<%# Eval("overallGPA") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Expected Class">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="Label36" runat="server" Text="Label"></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                        <br />
+                                                        <asp:SqlDataSource ID="SqlDataSource23" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="spGetOverallGPABatchVsMe" SelectCommandType="StoredProcedure">
+                                                            <SelectParameters>
+                                                                <asp:SessionParameter Name="courseID" SessionField="courseID" Type="Int32" />
+                                                                <asp:SessionParameter Name="userID" SessionField="userID" Type="Int32" />
+                                                            </SelectParameters>
+                                                        </asp:SqlDataSource>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                          <asp:GridView ID="GridView11" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource24" OnRowDataBound="GridView11_RowDataBound" CssClass="gridview5 table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
+                                                            <Columns>
+                                                                <asp:BoundField DataField="semester" HeaderText="semester" />
+                                                                <asp:TemplateField HeaderText="My SGPA">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="Label37" runat="server" Text='<%# Eval("mySGPA") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Batch SGPA">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="Label38" runat="server" Text='<%# Eval("batchSGPA") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                        <asp:SqlDataSource ID="SqlDataSource24" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="spGetOverallResultsBatchVsMe" SelectCommandType="StoredProcedure">
+                                                            <SelectParameters>
+                                                                <asp:SessionParameter Name="courseID" SessionField="courseID" Type="Int32" />
+                                                                <asp:SessionParameter Name="userID" SessionField="userID" Type="Int32" />
+                                                            </SelectParameters>
+                                                        </asp:SqlDataSource>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                       <asp:Chart ID="Chart7" runat="server" DataSourceID="SqlDataSource24" CssClass="marginleft0" OnLoad="Chart7_Load" OnPostPaint="Chart7_PostPaint" OnPrePaint="Chart7_PrePaint" Width="600px">
+                                                            <Series>
+                                                                <asp:Series ChartType="Line" Name="Series1" BorderWidth="3" IsValueShownAsLabel="True" XValueMember="semester" YValueMembers="mySGPA">
+                                                                </asp:Series>
+                                                                <asp:Series ChartType="Line" Name="Series2" BorderWidth="3" IsValueShownAsLabel="True" XValueMember="semester" YValueMembers="batchSGPA">
+                                                                </asp:Series>
+
+                                                            </Series>
+                                                            <ChartAreas>
+                                                                <asp:ChartArea Name="ChartArea1">
+                                                                </asp:ChartArea>
+                                                            </ChartAreas>
+                                                        </asp:Chart>
+                                                    </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td  style="padding-left: 60px;">
+
+                                                      <asp:Label ID="Label39" runat="server" Text="Me"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:Label ID="Label40" runat="server" Text="Batch"></asp:Label>
+
+
+                                                    </td>
+
+                                                </tr>
+                          
+
+                                            </table>
+                                        </div>
+                                </td>
+                            </tr>
                         </table>
+
+        
+
+
                     </asp:View>
                     <asp:View ID="View8" runat="server">
                         <%-- <table style="width: 100%;">
@@ -2021,7 +2069,7 @@ Member.userID!=@student1  AND
                             </tr>
                         </table>--%>
 
-                        <table style="width: 100%;">
+<%--                        <table style="width: 100%;">
                             <tr>
 
                                 <asp:Panel ID="Panel8" class="panel panel-danger" runat="server">
@@ -2149,8 +2197,140 @@ Member.userID!=@student1  AND
                                             </table>
                                 </td>
                             </tr>
-                        </table>
+                        </table>--%>
+                          <table style="width: 100%;">
+                            <tr>
 
+                                <asp:Panel ID="Panel8" class="panel panel-danger" runat="server">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Enter Student Info.</h3>
+                                    </div>
+                                    <div class="panel-body form-horizontal">
+                                        <div class="form-group">
+                                           <asp:Label ID="Label50" Width="160px" class="col-lg-3 control-label" runat="server" Text="Select Student"></asp:Label>
+
+                                            <div class="col-lg-4">
+                                                <asp:DropDownList ID="DropDownList15" Width="160px" runat="server" AppendDataBoundItems="true" DataSourceID="SqlDataSource28" DataTextField="indexNo" DataValueField="userID" AutoPostBack="True" OnSelectedIndexChanged="DropDownList15_SelectedIndexChanged">
+                                                    <asp:ListItem Text="--Select Student--" Value="-1"></asp:ListItem>
+                                                </asp:DropDownList>
+                                                <asp:SqlDataSource ID="SqlDataSource28" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT Member.userName, Student.indexNo, Member.userID FROM Member INNER JOIN Student ON Member.userID = Student.userID
+                                                                                                                         where Member.userID!=@userID AND
+                                                                                                                         student.courseID=@courseID">
+                                                    <SelectParameters>
+                                                        <asp:SessionParameter Name="userID" SessionField="userID" />
+                                                        <asp:SessionParameter Name="courseID" SessionField="courseID" />
+                                                    </SelectParameters>
+                                                </asp:SqlDataSource>
+
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </asp:Panel>
+
+
+
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="panel panel-default" style="width: 920px">
+                                        <div class="panel-heading">
+
+
+                                           
+                                          <asp:Label ID="Label41" runat="server" Text="No student selected!"></asp:Label>
+
+                                        </div>
+                                        <div class="panel-body">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <asp:GridView ID="GridView12" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource25" OnRowDataBound="GridView12_RowDataBound" CssClass="gridview5 table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
+                                                            <Columns>
+                                                                <asp:BoundField DataField="name" />
+                                                                <asp:TemplateField HeaderText="GPA">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="Label35" runat="server" Text='<%# Eval("overallGPA") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Expected Class">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="Label36" runat="server" Text="Label"></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                        <br />
+                                                        <asp:SqlDataSource ID="SqlDataSource25" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="spGetOverallGPAStudentVsMe" SelectCommandType="StoredProcedure">
+                                                            <SelectParameters>
+                                                                <asp:SessionParameter Name="courseID" SessionField="courseID" Type="Int32" />
+                                                                <asp:SessionParameter Name="userID" SessionField="userID" Type="Int32" />
+                                                                <asp:ControlParameter ControlID="DropDownList15" Name="studentID" PropertyName="SelectedValue" Type="Int32" />
+                                                            </SelectParameters>
+                                                        </asp:SqlDataSource>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                      <asp:GridView ID="GridView13" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource26" OnRowDataBound="GridView13_RowDataBound" CssClass="gridview5 table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
+                                                            <Columns>
+                                                                <asp:BoundField DataField="semester" HeaderText="semester" />
+                                                                <asp:TemplateField HeaderText="Me">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="Label37" runat="server" Text='<%# Eval("mySGPA") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Batch SGPA">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="Label38" runat="server" Text='<%# Eval("studentSGPA") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                        <asp:SqlDataSource ID="SqlDataSource26" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="spGetOverallResultsStudentVsMe" SelectCommandType="StoredProcedure">
+                                                            <SelectParameters>
+                                                                <asp:SessionParameter Name="courseID" SessionField="courseID" Type="Int32" />
+                                                                <asp:SessionParameter Name="userID" SessionField="userID" Type="Int32" />
+                                                                <asp:ControlParameter ControlID="DropDownList15" Name="studentID" PropertyName="SelectedValue" Type="Int32" />
+                                                            </SelectParameters>
+                                                        </asp:SqlDataSource>                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <asp:Chart ID="Chart8" runat="server"  CssClass="marginleft0" DataSourceID="SqlDataSource26" OnLoad="Chart8_Load" OnPrePaint="Chart8_PrePaint" Width="600px">
+                                                            <Series>
+                                                                <asp:Series ChartType="Line" Name="Series1" BorderWidth="3" IsValueShownAsLabel="True" XValueMember="semester" YValueMembers="mySGPA">
+                                                                </asp:Series>
+                                                                <asp:Series ChartType="Line" Name="Series2" BorderWidth="3" IsValueShownAsLabel="True" XValueMember="semester" YValueMembers="studentSGPA">
+                                                                </asp:Series>
+
+                                                            </Series>
+                                                            <ChartAreas>
+                                                                <asp:ChartArea Name="ChartArea1">
+                                                                </asp:ChartArea>
+                                                            </ChartAreas>
+                                                        </asp:Chart>
+                                                       
+                                                    </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td  style="padding-left: 60px;">
+                                                        <asp:Label ID="Label42" runat="server" ></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                     <asp:Label ID="Label43" runat="server" ></asp:Label>
+
+
+                                                    </td>
+
+                                                </tr>
+                          
+
+                                            </table>
+                                        </div>
+                                </td>
+                            </tr>
+                        </table>
                     </asp:View>
                     <asp:View ID="View9" runat="server">
                         <%--  <table style="width: 100%;">
@@ -2278,7 +2458,7 @@ Member.userID!=@student1  AND
                             </tr>
                         </table>--%>
 
-                        <table style="width: 100%;">
+                       <%-- <table style="width: 100%;">
                             <tr>
 
                                 <asp:Panel ID="Panel9" class="panel panel-danger" runat="server">
@@ -2414,8 +2594,151 @@ Member.userID!=@student1  AND
                                             </table>
                                 </td>
                             </tr>
-                        </table>
+                        </table>--%>
+                               <table style="width: 100%;">
+                            <tr>
 
+                                <asp:Panel ID="Panel9" class="panel panel-danger" runat="server">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Enter Student Info.</h3>
+                                    </div>
+                                    <div class="panel-body form-horizontal">
+                                        <div class="form-group">
+                                          <asp:Label ID="Label65" Width="200px" class="col-lg-3 control-label" runat="server" Text="Select First Student"></asp:Label>
+
+                                            <div class="col-lg-4">
+                                                <asp:DropDownList ID="DropDownList10" runat="server" AppendDataBoundItems="True" DataSourceID="SqlDataSource27" DataTextField="indexNo" DataValueField="userID" AutoPostBack="True" OnSelectedIndexChanged="DropDownList10_SelectedIndexChanged">
+                                                    <asp:ListItem Text="--Select Student--" Value="-1"></asp:ListItem>
+                                                </asp:DropDownList>
+                                                <asp:SqlDataSource ID="SqlDataSource27" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT Member.userName, Student.indexNo, Member.userID FROM Member INNER JOIN Student ON Member.userID = Student.userID
+                                                                                                                         where Member.userID!=@userID AND
+                                                                                                                         student.courseID=@courseID">
+                                                    <SelectParameters>
+                                                        <asp:SessionParameter Name="userID" SessionField="userID" />
+                                                        <asp:SessionParameter Name="courseID" SessionField="courseID" />
+                                                    </SelectParameters>
+                                                </asp:SqlDataSource>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <asp:Label ID="Label29" Width="200px" class="col-lg-3 control-label" runat="server" Text="Select First Student"></asp:Label>
+
+                                            <div class="col-lg-4">
+                                              <asp:DropDownList ID="DropDownList11" runat="server" AppendDataBoundItems="True" DataSourceID="SqlDataSource27" DataTextField="indexNo" DataValueField="userID" AutoPostBack="True" OnSelectedIndexChanged="DropDownList11_SelectedIndexChanged">
+                                                    <asp:ListItem Text="--Select Student--" Value="-1"></asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                        </div>
+                                      
+                                    </div>
+                                </asp:Panel>
+
+
+
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="panel panel-default" style="width: 920px">
+                                        <div class="panel-heading">
+
+                                            <asp:Label ID="Label46" runat="server" Text="No student selected!"></asp:Label>
+
+                                        </div>
+                                        <div class="panel-body">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                         <asp:GridView ID="GridView14" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource29" OnRowDataBound="GridView14_RowDataBound" CssClass="gridview5 table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
+                                                            <Columns>
+                                                                <asp:BoundField DataField="name" />
+                                                                <asp:TemplateField HeaderText="GPA">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="Label35" runat="server" Text='<%# Eval("overallGPA") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Expected Class">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="Label36" runat="server" Text="Label"></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                        <br />
+                                                        <asp:SqlDataSource ID="SqlDataSource29" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="spGetOverallGPAStudentVsStudent" SelectCommandType="StoredProcedure">
+                                                            <SelectParameters>
+                                                                <asp:SessionParameter Name="courseID" SessionField="courseID" Type="Int32" />
+                                                                <asp:ControlParameter ControlID="DropDownList10" Name="userID" PropertyName="SelectedValue" Type="Int32" />
+                                                                <asp:ControlParameter ControlID="DropDownList11" Name="studentID" PropertyName="SelectedValue" Type="Int32" />
+                                                            </SelectParameters>
+                                                        </asp:SqlDataSource>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                       <asp:GridView ID="GridView15" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource30" OnRowDataBound="GridView15_RowDataBound" CssClass="gridview5 table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
+                                                            <Columns>
+                                                                <asp:BoundField DataField="semester" HeaderText="semester" />
+                                                                <asp:TemplateField HeaderText="Me">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="Label37" runat="server" Text='<%# Eval("mySGPA") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Batch SGPA">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="Label38" runat="server" Text='<%# Eval("studentSGPA") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                        <asp:SqlDataSource ID="SqlDataSource30" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="spGetOverallResultsStudentVsMe" SelectCommandType="StoredProcedure">
+                                                            <SelectParameters>
+                                                                <asp:SessionParameter Name="courseID" SessionField="courseID" Type="Int32" />
+                                                                <asp:ControlParameter ControlID="DropDownList10" Name="userID" PropertyName="SelectedValue" Type="Int32" />
+                                                                <asp:ControlParameter ControlID="DropDownList11" Name="studentID" PropertyName="SelectedValue" Type="Int32" />
+                                                            </SelectParameters>
+                                                        </asp:SqlDataSource>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                       <asp:Chart ID="Chart9" runat="server" CssClass="marginleft0" DataSourceID="SqlDataSource30" Style="margin-right: 4px" Width="600px" OnLoad="Chart9_Load" OnPrePaint="Chart9_PrePaint">
+                                                            <Series>
+                                                                <asp:Series ChartType="Line" Name="Series1" BorderWidth="3" IsValueShownAsLabel="True" XValueMember="semester" YValueMembers="mySGPA">
+                                                                </asp:Series>
+                                                                <asp:Series ChartType="Line" Name="Series2" BorderWidth="3" IsValueShownAsLabel="True" XValueMember="semester" YValueMembers="studentSGPA">
+                                                                </asp:Series>
+
+                                                            </Series>
+                                                            <ChartAreas>
+                                                                <asp:ChartArea Name="ChartArea1">
+                                                                </asp:ChartArea>
+                                                            </ChartAreas>
+                                                        </asp:Chart>
+                                                        <br />
+
+                                                        <br />
+                                                    </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td  style="padding-left: 60px;">
+
+                                                     <asp:Label ID="Label47" runat="server" Text="Me"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:Label ID="Label48" runat="server" Text="Batch"></asp:Label>
+
+
+                                                    </td>
+
+                                                </tr>
+                          
+
+                                            </table>
+                                        </div>
+                                </td>
+                            </tr>
+                        </table>
 
                     </asp:View>
                     <asp:View ID="View10" runat="server">

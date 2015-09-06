@@ -218,7 +218,7 @@
                                                         </asp:GridView>
                                                     </td>
                                                     <td>
-                                                        <asp:Chart ID="Chart3" runat="server" CssClass="chart3padding " OnPrePaint="Chart3_PrePaint" Height="244px" Width="292px">
+                                                        <asp:Chart ID="Chart3" runat="server" CssClass="chart3padding " OnPrePaint="Chart3_PrePaint" Height="244px" Width="292px" OnLoad="Chart3_Load">
                                                             <Series>
                                                                 <asp:Series Name="Series1">
                                                                 </asp:Series>
@@ -463,7 +463,7 @@ where Enrollment.moduleCode=@moduleCode and (Student.userID=@student1 or Student
                                                         </asp:SqlDataSource>
                                                     </td>
                                                     <td>
-                                                        <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSource4" Palette="Bright" OnPostPaint="Chart1_PostPaint" OnPrePaint="Chart1_PrePaint" OnPreRender="Chart1_PreRender" Height="241px" Width="292px" CssClass="chart3padding">
+                                                        <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSource4" Palette="Bright" OnPostPaint="Chart1_PostPaint" OnPrePaint="Chart1_PrePaint" OnPreRender="Chart1_PreRender" Height="241px" Width="292px" CssClass="chart3padding" OnLoad="Chart1_Load">
                                                             <Series>
                                                                 <asp:Series Name="Series1" XValueMember="indexNo" YValueMembers="GPA"></asp:Series>
                                                             </Series>
@@ -731,7 +731,7 @@ SELECT DISTINCT Module.name, Module.moduleCode FROM Student INNER JOIN Enrollmen
                                                     </td>
 
                                                     <td>
-                                                        <asp:Chart ID="Chart2" runat="server" DataSourceID="SqlDataSource8" Palette="Bright" OnPrePaint="Chart2_PrePaint" Width="291px" CssClass="chart3padding" Height="243px">
+                                                        <asp:Chart ID="Chart2" runat="server" DataSourceID="SqlDataSource8" Palette="Bright" OnPrePaint="Chart2_PrePaint" Width="291px" CssClass="chart3padding" Height="243px" OnLoad="Chart2_Load">
                                                             <Series>
                                                                 <asp:Series Name="Series1" XValueMember="indexNo" YValueMembers="GPA" ChartArea="ChartArea1"></asp:Series>
                                                             </Series>

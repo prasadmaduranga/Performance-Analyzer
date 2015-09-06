@@ -66,10 +66,19 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
         {
             GridView4.DataBind();
             Chart4.DataBind();
+
+           
             GridView5.DataSource = SqlDataSource11;
             GridView5.DataBind();
 
-      
+            if (!DropDownList7.SelectedValue.Equals("-1"))
+            {
+                Label14.Text = DropDownList7.SelectedItem.Text + " My SGPA: " + ((Label)GridView5.Rows[0].Cells[0].FindControl("Label18")).Text;
+            }
+            else {
+
+                Label14.Text = "No semester selected!";
+            }
         }
 
         protected void GridView4_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -120,11 +129,19 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
 
         protected void GridView5_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+
+                    double val = double.Parse(((Label)e.Row.Cells[1].FindControl("Label18")).Text);
+                    ((Label)e.Row.Cells[1].FindControl("Label18")).Text = Math.Round(val, 2).ToString();
+                }
+            }
+            catch (Exception er)
             {
 
-                double val = double.Parse(((Label)e.Row.Cells[1].FindControl("Label18")).Text);
-                ((Label)e.Row.Cells[1].FindControl("Label18")).Text = Math.Round(val, 2).ToString();
+                ((Label)e.Row.Cells[1].FindControl("Label18")).Text = "No SGPA";
             }
         }
 

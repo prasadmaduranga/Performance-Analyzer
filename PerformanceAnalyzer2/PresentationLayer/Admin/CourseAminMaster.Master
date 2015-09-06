@@ -250,14 +250,14 @@
 
         </div>
         <div class="row">
-            <div class="col-sm-3" style="min-height: 470px;" id="sidenavsm3">
+            <div class="col-sm-3" style="min-height: 460px;" id="sidenavsm3">
                 <div >
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                         <br />
                     </asp:ContentPlaceHolder>
                 </div>
             </div>
-            <div class="col-sm-9" style=" min-height: 470px;">
+            <div class="col-sm-9 divscroll" style=" min-height: 460px;">
                 <div style="">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
                         <p>
@@ -269,9 +269,9 @@
             </div>
 
         </div>
-        <div class="row" style="">
-            <div class="col-sm-12">
-             <footer class="footer-distributed">
+          <div class="row " >
+            <div class="col-sm-12" style="padding:0px">
+                <footer class="footer-distributed">
 
                     <div class="footer-left">
 
@@ -285,14 +285,11 @@
                     <div class="footer-center">
 
                         <div>
-                            <i class="fa fa-map-marker"  style="width:25px;height:25px;"></i>
+                           <%-- <i class="fa fa-map-marker"  style="width:25px;height:25px;"></i>--%>
+                            <asp:Image ID="Image1" Height="42px" Width="75px" ImageUrl="../../Images/unilogo2.png" runat="server" />
                             <p><span>University of Moratuwa</span> Moratuwa, Sri Lanka</p>
                         </div>
 
-                        <div>
-                            <i class="fa fa-phone" style="width:32px;height:32px;" ></i>
-                            <p>+94 72 8178055</p>
-                        </div>
 
                        
 

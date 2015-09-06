@@ -447,7 +447,7 @@ margin:0px;
   margin: 5px;
   text-align: center;
   float: left;
-  opacity: 0.7;
+  opacity: 1;
 
   font-family: 'PT Sans Narrow', sans-serif;
 }
@@ -466,7 +466,7 @@ margin:0px;
   margin: 5px;
   text-align: center;
   float: left;
-  opacity: 0.7;
+  opacity: 1;
 font-size:25pt;
 font-family: 'PT Sans Narrow', sans-serif;
 }
@@ -633,8 +633,8 @@ padding-top:0px;
 }
 .img {
        position: absolute;
-    left: -68px;
-    top: -12px;
+    left: -70px;
+    top: -16px;
     z-index: 2;
         height: 142px;
 }
@@ -645,7 +645,7 @@ padding-top:0px;
     top: 2px;
     z-index: 25;
 }
-#ContentPlaceHolder2_GridView1 > tbody > tr:nth-child(1) > th:nth-child(3) > a:hover,#ContentPlaceHolder2_GridView1 > tbody > tr:nth-child(1) > th > a:hover {
+#ContentPlaceHolder2_GridView1 > tbody > tr:nth-child(1) > th:nth-child(3) > a:hover,#ContentPlaceHolder2_GridView2 > tbody > tr:nth-child(1) > th > a:hover,#ContentPlaceHolder2_GridView1 > tbody > tr:nth-child(1) > th > a:hover {
 
     color:white;
 }
@@ -718,7 +718,7 @@ padding-top:0px;
 
 .col-sm-12 .footer-distributed {
 
-opacity:.4;
+opacity:1;
 height:105px;
 background-color:#191919;
  margin-top: 10px;
@@ -794,10 +794,13 @@ margin-left:50px;
 text-align:center;
 
 }
-.gridview3 > tbody > tr:nth-child(1) > th,#ContentPlaceHolder2_GridView5 > tbody > tr:nth-child(1) > th:nth-child(2),#ContentPlaceHolder2_GridView7 > tbody > tr:nth-child(1) > th {
+.gridview3 > tbody > tr:nth-child(1) > th,#ContentPlaceHolder2_GridView5 > tbody > tr:nth-child(1) > th:nth-child(2),#ContentPlaceHolder2_GridView7 > tbody > tr:nth-child(1) > th,#ContentPlaceHolder2_GridView4_GridView5_0 > tbody > tr:nth-child(1) > th,
+#ContentPlaceHolder2_GridView6 > tbody > tr:nth-child(1) > th,#ContentPlaceHolder2_GridView11 > tbody > tr:nth-child(1) > th{
 text-align:center;
 
 }
+
+#ContentPlaceHolder2_GridView4_GridView5_0 > tbody > tr:nth-child(1) > th
 
 .gridview3 {
 width:800px;
@@ -820,7 +823,10 @@ width:600px;
  
 }
 
+.gridview8{
+    margin-left:50px;
 
+}
 .chartsmall {
 
     width: 400px;
@@ -852,4 +858,50 @@ padding-left:0px;
 }
 .marginleft0 {
 margin-left:0px;
+}
+
+.gridview7 > tbody > tr {
+text-align:left;
+
+}
+.margin110 {
+margin-left:110px;
+max-width:350px;
+
+}
+
+#ContentPlaceHolder2_DetailsView2_Image2 {
+
+margin-left:0px;
+}
+
+
+#form1 > div:nth-child(12) > div > footer > div.footer-right > div {
+margin-top:0px;
+
+}
+#form1 > div:nth-child(11) > div > footer > div.footer-right > div {
+
+margin-top:6px;
+}
+
+
+#form1 > div:nth-child(11) > div > footer {
+
+    height: 80px;
+    margin-bottom: 8px;
+}
+
+#form1 > div:nth-child(11) > .row > div {
+    padding-left:0px;
+    padding-right:0px;
+
+}
+
+
+.divscroll {    
+    min-height: 460px;
+    max-height:543px;
+  
+    overflow: auto;
 }

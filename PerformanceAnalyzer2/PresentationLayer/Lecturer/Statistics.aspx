@@ -568,12 +568,18 @@ FROM            Member INNER JOIN
                                                 <asp:DropDownList ID="DropDownList1" runat="server" AppendDataBoundItems="True" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="moduleCode" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
                                                     <asp:ListItem Text="--Select module--" Value="-1"></asp:ListItem>
                                                 </asp:DropDownList>
-                                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT distinct Semester_Module.moduleCode, Module.name FROM Semester_Module INNER JOIN Semester ON Semester_Module.semesterID = Semester.semesterID INNER JOIN AcedemicYear ON Semester.yearID = AcedemicYear.yearID INNER JOIN Course ON AcedemicYear.courseID = Course.courseID INNER JOIN Module ON Semester_Module.moduleCode = Module.moduleCode WHERE (Course.courseID = @courseID)">
+                                                <%--<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT distinct Semester_Module.moduleCode, Module.name FROM Semester_Module INNER JOIN Semester ON Semester_Module.semesterID = Semester.semesterID INNER JOIN AcedemicYear ON Semester.yearID = AcedemicYear.yearID INNER JOIN Course ON AcedemicYear.courseID = Course.courseID INNER JOIN Module ON Semester_Module.moduleCode = Module.moduleCode WHERE (Course.courseID = @courseID)">
+                                                    <SelectParameters>
+                                                        <asp:SessionParameter Name="courseID" SessionField="statCourseID" />
+                                                    </SelectParameters>
+                                                </asp:SqlDataSource>--%>
+
+                                                  <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT distinct Semester_Module.moduleCode, Module.name FROM Semester_Module INNER JOIN Semester ON Semester_Module.semesterID = Semester.semesterID INNER JOIN AcedemicYear ON Semester.yearID = AcedemicYear.yearID INNER JOIN Course ON AcedemicYear.courseID = Course.courseID INNER JOIN Module ON Semester_Module.moduleCode = Module.moduleCode WHERE (Course.courseID = @courseID)">
                                                     <SelectParameters>
                                                         <asp:SessionParameter Name="courseID" SessionField="statCourseID" />
                                                     </SelectParameters>
                                                 </asp:SqlDataSource>
-
+                                                
                                             </div>
                                         </div>
 

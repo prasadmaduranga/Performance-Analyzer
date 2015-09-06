@@ -5,12 +5,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Windows.Forms.DataVisualization.Charting;
+//using System.Windows.Forms.DataVisualization.Charting;
 using PerformanceAnalyzer2.BusinessLogicLayer;
 using System.Data;
+using System.Drawing;
 using System.Web.UI.DataVisualization.Charting;
-
-
 
 namespace PerformanceAnalyzer2.PresentationLayer.Student
 {
@@ -467,7 +466,12 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
             Chart4.Series["Series1"].Label = "#VALY{#.##}";
             Chart4.Series["Series2"].Label = "#VALY{#.##}";
 
-
+            Chart4.ChartAreas[0].AxisX.Title = "Module";
+            Chart4.ChartAreas[0].AxisX.TitleAlignment = StringAlignment.Near;
+            Chart4.ChartAreas[0].AxisX.TextOrientation = TextOrientation.Horizontal;
+            Chart4.ChartAreas[0].AxisY.Title = "Result";
+            Chart4.ChartAreas[0].AxisY.TitleAlignment = StringAlignment.Near;
+            Chart4.ChartAreas[0].AxisY.TextOrientation = TextOrientation.Rotated90;
         }
 
         protected void Chart4_DataBound(object sender, EventArgs e)
@@ -586,7 +590,12 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
         {
             Chart6.Series["Series1"].Label = "#VALY{#.##}";
             Chart6.Series["Series2"].Label = "#VALY{#.##}";
-
+            Chart6.ChartAreas[0].AxisX.Title = "Module";
+            Chart6.ChartAreas[0].AxisX.TitleAlignment = StringAlignment.Near;
+            Chart6.ChartAreas[0].AxisX.TextOrientation = TextOrientation.Horizontal;
+            Chart6.ChartAreas[0].AxisY.Title = "Result";
+            Chart6.ChartAreas[0].AxisY.TitleAlignment = StringAlignment.Near;
+            Chart6.ChartAreas[0].AxisY.TextOrientation = TextOrientation.Rotated90;
         }
 
         protected void DropDownList8_SelectedIndexChanged(object sender, EventArgs e)
@@ -800,7 +809,12 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
         {
             Chart5.Series["Series1"].Label = "#VALY{#.##}";
             Chart5.Series["Series2"].Label = "#VALY{#.##}";
-
+            Chart5.ChartAreas[0].AxisX.Title = "Module";
+            Chart5.ChartAreas[0].AxisX.TitleAlignment = StringAlignment.Near;
+            Chart5.ChartAreas[0].AxisX.TextOrientation = TextOrientation.Horizontal;
+            Chart5.ChartAreas[0].AxisY.Title = "Result";
+            Chart5.ChartAreas[0].AxisY.TitleAlignment = StringAlignment.Near;
+            Chart5.ChartAreas[0].AxisY.TextOrientation = TextOrientation.Rotated90;
         }
 
         //-------------------------------------------------------------------------------------------------------
@@ -883,6 +897,14 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
 
             Chart7.Series["Series1"].Label = "#VALY{#.##}";
             Chart7.Series["Series2"].Label = "#VALY{#.##}";
+
+
+            Chart7.ChartAreas[0].AxisX.Title = "Semester";
+            Chart7.ChartAreas[0].AxisX.TitleAlignment = StringAlignment.Near;
+            Chart7.ChartAreas[0].AxisX.TextOrientation = TextOrientation.Horizontal;
+            Chart7.ChartAreas[0].AxisY.Title = "SGPA";
+            Chart7.ChartAreas[0].AxisY.TitleAlignment = StringAlignment.Near;
+            Chart7.ChartAreas[0].AxisY.TextOrientation = TextOrientation.Rotated90;
         }
 
         protected void GridView10_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -997,7 +1019,12 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
         {
             Chart8.Series["Series1"].Label = "#VALY{#.##}";
             Chart8.Series["Series2"].Label = "#VALY{#.##}";
-
+            Chart8.ChartAreas[0].AxisX.Title = "Semester";
+            Chart8.ChartAreas[0].AxisX.TitleAlignment = StringAlignment.Near;
+            Chart8.ChartAreas[0].AxisX.TextOrientation = TextOrientation.Horizontal;
+            Chart8.ChartAreas[0].AxisY.Title = "SGPA";
+            Chart8.ChartAreas[0].AxisY.TitleAlignment = StringAlignment.Near;
+            Chart8.ChartAreas[0].AxisY.TextOrientation = TextOrientation.Rotated90;
         }
 
         private void View8_DataBind()
@@ -1133,7 +1160,12 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
         {
             Chart9.Series["Series1"].Label = "#VALY{#.##}";
             Chart9.Series["Series2"].Label = "#VALY{#.##}";
-
+            Chart9.ChartAreas[0].AxisX.Title = "Semester";
+            Chart9.ChartAreas[0].AxisX.TitleAlignment = StringAlignment.Near;
+            Chart9.ChartAreas[0].AxisX.TextOrientation = TextOrientation.Horizontal;
+            Chart9.ChartAreas[0].AxisY.Title = "SGPA";
+            Chart9.ChartAreas[0].AxisY.TitleAlignment = StringAlignment.Near;
+            Chart9.ChartAreas[0].AxisY.TextOrientation = TextOrientation.Rotated90;
         }
 
         private void View9_DataBind()
@@ -1262,6 +1294,36 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
                 Label30.Text = "No results available!";
             }
 
+        }
+
+        protected void Chart3_Load(object sender, EventArgs e)
+        {
+            Chart3.ChartAreas[0].AxisX.Title = "Student Index";
+            Chart3.ChartAreas[0].AxisX.TitleAlignment = StringAlignment.Near;
+            Chart3.ChartAreas[0].AxisX.TextOrientation = TextOrientation.Horizontal;
+            Chart3.ChartAreas[0].AxisY.Title = "GPA";
+            Chart3.ChartAreas[0].AxisY.TitleAlignment = StringAlignment.Near;
+            Chart3.ChartAreas[0].AxisY.TextOrientation = TextOrientation.Rotated90;
+        }
+
+        protected void Chart1_Load(object sender, EventArgs e)
+        {
+            Chart1.ChartAreas[0].AxisX.Title = "Student Index";
+            Chart1.ChartAreas[0].AxisX.TitleAlignment = StringAlignment.Near;
+            Chart1.ChartAreas[0].AxisX.TextOrientation = TextOrientation.Horizontal;
+            Chart1.ChartAreas[0].AxisY.Title = "GPA";
+            Chart1.ChartAreas[0].AxisY.TitleAlignment = StringAlignment.Near;
+            Chart1.ChartAreas[0].AxisY.TextOrientation = TextOrientation.Rotated90;
+        }
+
+        protected void Chart2_Load(object sender, EventArgs e)
+        {
+            Chart2.ChartAreas[0].AxisX.Title = "Student Index";
+            Chart2.ChartAreas[0].AxisX.TitleAlignment = StringAlignment.Near;
+            Chart2.ChartAreas[0].AxisX.TextOrientation = TextOrientation.Horizontal;
+            Chart2.ChartAreas[0].AxisY.Title = "GPA";
+            Chart2.ChartAreas[0].AxisY.TitleAlignment = StringAlignment.Near;
+            Chart2.ChartAreas[0].AxisY.TextOrientation = TextOrientation.Rotated90;
         }
 
         

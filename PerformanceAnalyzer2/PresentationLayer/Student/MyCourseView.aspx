@@ -38,7 +38,7 @@
         <ContentTemplate>
             <asp:MultiView ID="MultiView1" runat="server">
                 <asp:View ID="View1" runat="server">
-                    <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="courseID"  CssClass="table-condensed  table-striped  detailsView" HeaderText="Basic Course Information" HorizontalAlign="Center">
+                    <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="courseID"  CssClass="gridview5  table-condensed  table-striped  detailsView" HeaderText="Basic Course Information" HorizontalAlign="Center" Width="600px">
                         <Fields>
                             <asp:TemplateField HeaderText="Course name">
 
@@ -122,7 +122,7 @@
                 </asp:View>
                 <asp:View ID="View2" runat="server">
 
-                    <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataKeyNames="semesterID" OnDataBinding="GridView4_DataBinding" OnRowDataBound="GridView4_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" HorizontalAlign="Center">
+                    <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataKeyNames="semesterID" OnDataBinding="GridView4_DataBinding" OnRowDataBound="GridView4_RowDataBound" CssClass="gridview3 table table-striped table-hover  table-condensed  gridViewCustom" HorizontalAlign="Center" Width="650px">
                         <Columns>
                             <%-- <asp:BoundField DataField="semesterID" InsertVisible="false" HeaderText="semesterID" SortExpression="semesterID" />--%>
 
@@ -139,29 +139,13 @@
                                     <asp:Label ID="Label1" runat="server" Text='<%# Eval("semesterID") %>'></asp:Label>
                                 </EditItemTemplate>
                                 <ItemTemplate>
-                                    <asp:GridView ID="GridView5" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource10">
+                                    <asp:GridView ID="GridView5" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource10" Width="500px">
                                         <Columns>
                                             <asp:BoundField DataField="moduleCode" HeaderText="moduleCode" SortExpression="moduleCode" />
                                             <asp:BoundField DataField="moduleName" HeaderText="moduleName" SortExpression="moduleName" />
                                             <asp:BoundField DataField="GPA" HeaderText="GPA" SortExpression="GPA" />
                                             <asp:BoundField DataField="credits" HeaderText="credits" SortExpression="credits" />
                                             <asp:BoundField DataField="courseID" InsertVisible="false" Visible="false" HeaderText="courseID" SortExpression="courseID" />
-
-                                            <asp:TemplateField>
-                                                <ItemTemplate>
-                                                    <table style="width: 100%;">
-                                                        <tr>
-                                                            <td>
-                                                                <asp:LinkButton ID="LinkButton1" runat="server">My Results</asp:LinkButton></td>
-                                                            <td>
-                                                                <asp:LinkButton ID="LinkButton2" runat="server">Batch Results</asp:LinkButton></td>
-                                                            <td>
-                                                                <asp:LinkButton ID="LinkButton3" runat="server">Previous Results</asp:LinkButton></td>
-                                                        </tr>
-
-                                                    </table>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
 
                                         </Columns>
                                     </asp:GridView>
@@ -181,7 +165,7 @@
                         <tr>
                             <td>
                                 <div>
-                                    <asp:GridView ID="GridView6" runat="server" AutoGenerateColumns="False" DataKeyNames="userID" DataSourceID="SqlDataSource11" OnSelectedIndexChanged="GridView6_SelectedIndexChanged" AllowPaging="True" PageSize="5" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" OnPageIndexChanging="GridView6_PageIndexChanging">
+                                    <asp:GridView ID="GridView6" runat="server" AutoGenerateColumns="False" DataKeyNames="userID" DataSourceID="SqlDataSource11" OnSelectedIndexChanged="GridView6_SelectedIndexChanged" AllowPaging="True" CssClass="gridview7  table table-striped table-hover  table-condensed  gridViewCustom col-sm-9" GridLines="Horizontal" OnPageIndexChanging="GridView6_PageIndexChanging" Width="450px">
                                         <Columns>
                                             <asp:CommandField ShowSelectButton="True" />
                                             <asp:BoundField DataField="userID" Visible="false" HeaderText="userID" InsertVisible="False" ReadOnly="True" SortExpression="userID" />
@@ -205,30 +189,54 @@
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:BoundField DataField="indexNo" HeaderText="Index No" SortExpression="indexNo" />
-                                            <asp:TemplateField>
-
-                                                <ItemTemplate>
-                                                    <table style="width: 100%;">
-                                                        <tr>
-                                                            <td>&nbsp;</td>
-                                                            <td>
-                                                                <asp:LinkButton ID="LinkButton5" runat="server" CommandArgument='<%# Eval("userID") %>' OnClientClick="document.forms[0].target = '_blank';" OnClick="LinkButton5_Click">Comapare</asp:LinkButton></td>
-
-                                                        </tr>
-
-                                                    </table>
-                                                </ItemTemplate>
-
-                                            </asp:TemplateField>
 
                                         </Columns>
                                     </asp:GridView>
+                                      <asp:DetailsView ID="DetailsView2" runat="server" AutoGenerateRows="False" DataKeyNames="userID" DataSourceID="SqlDataSource12" CssClass="margin110  col-sm-3 table-condensed  table-striped  detailsView" HeaderText="Profile" Width="350px">
+                                        <Fields>
+                                            <asp:TemplateField HeaderText="Profile Picture" SortExpression="imageURL">
+                                                <EditItemTemplate>
+                                                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("imageURL") %>'></asp:TextBox>
+                                                </EditItemTemplate>
+                                                <InsertItemTemplate>
+                                                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("imageURL") %>'></asp:TextBox>
+                                                </InsertItemTemplate>
+                                                <ItemTemplate>
+                                                    <asp:Image ID="Image2" runat="server" Height="100px" Width="100px" ImageUrl='<%# Eval("imageURL") %>' />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:BoundField DataField="userID" Visible="false" HeaderText="userID" InsertVisible="False" ReadOnly="True" SortExpression="userID" />
+                                            <asp:BoundField DataField="userName" HeaderText="Name" SortExpression="userName" />
+                                            <asp:BoundField DataField="indexNo" HeaderText="Index No." SortExpression="indexNo" />
+                                            <asp:BoundField DataField="DateOfBirth" HeaderText="DOB" SortExpression="DOB" />
+                                            <asp:BoundField DataField="description" HeaderText="Description" SortExpression="description" />
+                                            <asp:BoundField DataField="skills" HeaderText="Skills" SortExpression="skills" />
+                                            <asp:BoundField DataField="email" HeaderText="E-mail" SortExpression="email" />
+                                            <asp:BoundField DataField="linkedin" HeaderText="Linkedin" SortExpression="linkedin" />
+                                            <asp:TemplateField HeaderText="Telephone No.">
+                                                <ItemTemplate>
+                                                    <asp:GridView ID="GridView7" runat="server" AutoGenerateColumns="False" DataKeyNames="telephoneNumber,userID" DataSourceID="SqlDataSource13" ShowHeader="False">
+                                                        <Columns>
+                                                            <asp:BoundField DataField="telephoneNumber" HeaderText="telephoneNumber" ReadOnly="True" SortExpression="telephoneNumber" />
+                                                        </Columns>
+                                                    </asp:GridView>
+                                                    <br />
+                                                    <asp:SqlDataSource ID="SqlDataSource13" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT [telephoneNumber], [userID] FROM [TelephoneNumber] WHERE ([userID] = @userID)">
+                                                        <SelectParameters>
+                                                            <asp:ControlParameter ControlID="GridView6" Name="userID" PropertyName="SelectedValue" Type="Int32" />
+                                                        </SelectParameters>
+                                                    </asp:SqlDataSource>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                        </Fields>
+                                    </asp:DetailsView>
                                 </div>
-                            </td>
-                            <td>
+                                </td>
+                            
+                          <%--  <td>
                                 <div>
 
-                                    <asp:DetailsView ID="DetailsView2" runat="server" AutoGenerateRows="False" DataKeyNames="userID" DataSourceID="SqlDataSource12" CssClass="table-condensed  table-striped  detailsView" HeaderText="Profile">
+                                    <asp:DetailsView ID="DetailsView2" runat="server" AutoGenerateRows="False" DataKeyNames="userID" DataSourceID="SqlDataSource12" CssClass="table-condensed  table-striped  detailsView" HeaderText="Profile" Width="300px">
                                         <Fields>
                                             <asp:TemplateField HeaderText="Profile Picture" SortExpression="imageURL">
                                                 <EditItemTemplate>
@@ -267,11 +275,10 @@
                                         </Fields>
                                     </asp:DetailsView>
                                 </div>
-                            </td>
-                        </tr>
-                    </table>
-                    <br />
-                    <asp:SqlDataSource ID="SqlDataSource11" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT Member.userID, Member.userName, Student.indexNo, Member.imageURL FROM Member INNER JOIN Student ON Member.userID = Student.userID
+                            </td>--%>
+                            </tr>
+                        <tr>
+                            <asp:SqlDataSource ID="SqlDataSource11" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT Member.userID, Member.userName, Student.indexNo, Member.imageURL FROM Member INNER JOIN Student ON Member.userID = Student.userID
 where Student.courseID=@courseID">
                         <SelectParameters>
                             <asp:SessionParameter Name="courseID" SessionField="courseID" />
@@ -282,6 +289,20 @@ where Student.courseID=@courseID">
                             <asp:ControlParameter ControlID="GridView6" Name="userID" PropertyName="SelectedValue" />
                         </SelectParameters>
                     </asp:SqlDataSource>
+                        </tr>
+                    </table>
+                    <br />
+                  <%--  <asp:SqlDataSource ID="SqlDataSource11" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT Member.userID, Member.userName, Student.indexNo, Member.imageURL FROM Member INNER JOIN Student ON Member.userID = Student.userID
+where Student.courseID=@courseID">
+                        <SelectParameters>
+                            <asp:SessionParameter Name="courseID" SessionField="courseID" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlDataSource12" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT Member.userID, Member.userName, Member.email, Member.linkedin, Member.imageURL,convert(date, Member.DOB) as DateOfBirth, Student.indexNo, Student.description, Student.skills FROM Member INNER JOIN Student ON Member.userID = Student.userID WHERE (Member.userID = @userID)">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="GridView6" Name="userID" PropertyName="SelectedValue" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>--%>
                     <br />
                 </asp:View>
 

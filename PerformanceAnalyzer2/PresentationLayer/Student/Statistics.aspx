@@ -479,7 +479,7 @@ group by  ResultMapping.result ">
                                                 </tr>
                                                 <tr> 
                                                     <td colspan="2" style="padding-left:40px;">
-                                                        <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="result" DataSourceID="SqlDataSource2" CssClass="gridview3  table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" OnPageIndexChanging="GridView1_PageIndexChanging">
+                                                        <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="result" DataSourceID="SqlDataSource2" CssClass="gridview3  table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" OnPageIndexChanging="GridView1_PageIndexChanging" HorizontalAlign="Center">
                                                             <Columns>
                                                                 <asp:BoundField DataField="indexNo" HeaderText="Index No" SortExpression="indexNo" />
                                                                 <asp:BoundField DataField="userName" HeaderText="Name" SortExpression="userName" />
@@ -1296,8 +1296,8 @@ group by  ResultMapping.result ">
                     </asp:View>
                     <asp:View ID="View5" runat="server">
 
-                        <div class="jumbotron" style="margin-top: 15px; margin-top: 15px; background-color: grey; padding: 10px; background-color: #E8E8E8;">
-                            <h3 style="color: black; opacity: .9;">First Select Filtering Category! </h3>
+                        <div class="jumbotron" style="margin-top: 15px; margin-top: 15px; background-color: #2fa4e7; padding: 10px; background-color: #E8E8E8;">
+                            <h3 style="color: white; opacity: .9;">First Select Filtering Category! </h3>
 
                         </div>
 

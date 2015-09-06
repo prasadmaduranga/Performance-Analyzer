@@ -200,14 +200,14 @@
                                 <div class="panel panel-default" >
                                     <div class="panel-heading">
 
-                                        <asp:Label ID="Label14" runat="server"></asp:Label>
+                                        <asp:Label ID="Label14" runat="server" Text="No semester selected!"></asp:Label>
 
                                     </div>
                                     <div class="panel-body">
                                         <table style="width:820px;">
                                             <tr>
                                                 <td>
-                                                    <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource13" OnRowDataBound="GridView4_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
+                                                    <asp:GridView ID="GridView4" Width="800px" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource13" OnRowDataBound="GridView4_RowDataBound" CssClass="gridview8 gridview3  table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                                         <Columns>
                                                             <asp:BoundField DataField="moduleCode" HeaderText="Module Code" />
                                                             <asp:BoundField DataField="name" HeaderText="Module" />
@@ -231,8 +231,43 @@
                                                         </SelectParameters>
                                                     </asp:SqlDataSource>
                                                 </td>
-                                                <td>
-                                                    <asp:GridView ID="GridView5" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView5_RowDataBound" ShowHeader="False" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
+                                               
+
+                                            </tr>
+                                            <tr>
+                                                <td >
+                                                    <asp:Chart ID="Chart4" runat="server" DataSourceID="SqlDataSource13" OnLoad="Chart4_Load" OnDataBound="Chart4_DataBound" OnPostPaint="Chart4_PostPaint" Width="787px" Height="365px">
+                                                        <Series>
+                                                            <asp:Series Name="Series1" BorderWidth="3" IsValueShownAsLabel="true" ChartType="Line" XValueMember="moduleCode" YValueMembers="myGPA">
+                                                            </asp:Series>
+                                                        </Series>
+
+
+                                                        <ChartAreas>
+                                                            <asp:ChartArea Name="ChartArea1">
+                                                            </asp:ChartArea>
+                                                        </ChartAreas>
+                                                    </asp:Chart>
+                                                    <br />
+
+                                                    <br />
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td >
+
+
+                                                    <asp:Label ID="Label15" runat="server"></asp:Label>
+
+
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                               <td>
+                                                    <asp:GridView ID="GridView5" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView5_RowDataBound" Visible="false" ShowHeader="False" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
                                                         <Columns>
                                                             <asp:BoundField DataField="name" />
                                                             <asp:TemplateField HeaderText="SGPA">
@@ -253,47 +288,7 @@
                                                 </td>
 
                                             </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <asp:Chart ID="Chart4" runat="server" DataSourceID="SqlDataSource13" OnLoad="Chart4_Load" OnDataBound="Chart4_DataBound" OnPostPaint="Chart4_PostPaint" Width="448px">
-                                                        <Series>
-                                                            <asp:Series Name="Series1" BorderWidth="3" IsValueShownAsLabel="true" ChartType="Line" XValueMember="moduleCode" YValueMembers="myGPA">
-                                                            </asp:Series>
-                                                        </Series>
-
-
-                                                        <ChartAreas>
-                                                            <asp:ChartArea Name="ChartArea1">
-                                                            </asp:ChartArea>
-                                                        </ChartAreas>
-                                                    </asp:Chart>
-                                                    <br />
-
-                                                    <br />
-                                                </td>
-
-                                            </tr>
-
-                                            <tr>
-                                                <td colspan="2">
-
-
-                                                    <asp:Label ID="Label15" runat="server"></asp:Label>
-
-
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">&nbsp;</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <br />
-                                                </td>
-
-                                            </tr>
+                                           
                                         </table>
                             </td>
                         </tr>
@@ -392,10 +387,10 @@
 
                                     </div>
                                     <div class="panel-body">
-                                        <table>
+                                        <table style="width:100%;">
                                             <tr>
                                                 <td>
-                                                    <asp:GridView ID="GridView10" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource23" OnRowDataBound="GridView10_RowDataBound" ShowHeader="False" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
+                                                    <asp:GridView ID="GridView10" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource23" OnRowDataBound="GridView10_RowDataBound" ShowHeader="False" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" HorizontalAlign="Center">
                                                         <Columns>
                                                             <asp:BoundField DataField="name" />
                                                             <asp:TemplateField HeaderText="GPA">
@@ -423,7 +418,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <asp:GridView ID="GridView11" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource24" OnRowDataBound="GridView11_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal">
+                                                    <asp:GridView ID="GridView11" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource24" OnRowDataBound="GridView11_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" HorizontalAlign="Center" Width="400px">
                                                         <Columns>
                                                             <asp:BoundField DataField="semester" HeaderText="semester" />
                                                             <asp:TemplateField HeaderText="My SGPA">
@@ -443,8 +438,8 @@
 
                                             </tr>
                                             <tr>
-                                                <td>
-                                                    <asp:Chart ID="Chart7" runat="server" DataSourceID="SqlDataSource24" OnLoad="Chart7_Load" OnPostPaint="Chart7_PostPaint" OnPrePaint="Chart7_PrePaint" Width="526px">
+                                                <td style="padding-left:50px;">
+                                                    <asp:Chart ID="Chart7" runat="server" DataSourceID="SqlDataSource24" OnLoad="Chart7_Load" OnPostPaint="Chart7_PostPaint" OnPrePaint="Chart7_PrePaint" Width="600px" Height="350px">
                                                         <Series>
                                                             <asp:Series ChartType="Line" Name="Series1" BorderWidth="3" IsValueShownAsLabel="True" XValueMember="semester" YValueMembers="mySGPA">
                                                             </asp:Series>

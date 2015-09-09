@@ -713,5 +713,57 @@ namespace PerformanceAnalyzer2
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spGrantCourse", userIDParameter, courseIDParameter);
         }
+    
+        public virtual int validateCourse(string userName)
+        {
+            var userNameParameter = userName != null ?
+                new ObjectParameter("userName", userName) :
+                new ObjectParameter("userName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("validateCourse", userNameParameter);
+        }
+    
+        public virtual int validateUserName(string userName)
+        {
+            var userNameParameter = userName != null ?
+                new ObjectParameter("userName", userName) :
+                new ObjectParameter("userName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("validateUserName", userNameParameter);
+        }
+    
+        public virtual int insertResultByText(string index, string result, string moduleCode)
+        {
+            var indexParameter = index != null ?
+                new ObjectParameter("index", index) :
+                new ObjectParameter("index", typeof(string));
+    
+            var resultParameter = result != null ?
+                new ObjectParameter("result", result) :
+                new ObjectParameter("result", typeof(string));
+    
+            var moduleCodeParameter = moduleCode != null ?
+                new ObjectParameter("moduleCode", moduleCode) :
+                new ObjectParameter("moduleCode", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insertResultByText", indexParameter, resultParameter, moduleCodeParameter);
+        }
+    
+        public virtual int insertResultByText2(string index, string result, string moduleCode)
+        {
+            var indexParameter = index != null ?
+                new ObjectParameter("index", index) :
+                new ObjectParameter("index", typeof(string));
+    
+            var resultParameter = result != null ?
+                new ObjectParameter("result", result) :
+                new ObjectParameter("result", typeof(string));
+    
+            var moduleCodeParameter = moduleCode != null ?
+                new ObjectParameter("moduleCode", moduleCode) :
+                new ObjectParameter("moduleCode", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insertResultByText2", indexParameter, resultParameter, moduleCodeParameter);
+        }
     }
 }

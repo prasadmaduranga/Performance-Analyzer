@@ -14,8 +14,6 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["userID"] = 6;
-            Session["courseID"] = 8;
             if (!IsPostBack) {
                 Load_DetailsView1();
                 MultiView1.ActiveViewIndex = 0;

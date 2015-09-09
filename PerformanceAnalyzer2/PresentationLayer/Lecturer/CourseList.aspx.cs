@@ -13,7 +13,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Lecturer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["userID"] = 263;
+           
             if (!IsPostBack)
             {
                 MultiView1.ActiveViewIndex = 0;

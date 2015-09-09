@@ -12,7 +12,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["userID"] = 1;
+     
             if(!IsPostBack){
               
                 if (Request.QueryString["activeView"] != null)

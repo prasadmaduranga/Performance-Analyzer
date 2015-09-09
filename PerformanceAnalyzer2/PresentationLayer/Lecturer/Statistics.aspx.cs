@@ -17,7 +17,6 @@ namespace PerformanceAnalyzer2.PresentationLayer.Lecturer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["userID"]=4;
             if(!IsPostBack){
          
                 RadioButtonList1.Enabled=false;

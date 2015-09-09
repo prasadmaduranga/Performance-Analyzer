@@ -111,7 +111,7 @@
                                             <table>
                                                 <tr>
                                                     <td colspan="2">
-                                                        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="result" DataSourceID="SqlDataSource2" OnDataBound="GridView1_DataBound" CssClass="gridview3  table table-striped table-hover  table-condensed  gridViewCustom" HorizontalAlign="Center" GridLines="Horizontal" OnPageIndexChanging="GridView1_PageIndexChanging">
+                                                        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="result" DataSourceID="SqlDataSource2" OnDataBound="GridView1_DataBound" CssClass="gridview3  table table-striped table-hover  table-condensed  gridViewCustom" HorizontalAlign="Center" GridLines="Horizontal" OnPageIndexChanging="GridView1_PageIndexChanging" Width="800px">
                                                             <Columns>
                                                                 <asp:BoundField DataField="indexNo" HeaderText="Index No" SortExpression="indexNo" />
                                                                 <asp:BoundField DataField="userName" HeaderText="Name" SortExpression="userName" />
@@ -437,7 +437,7 @@ group by  ResultMapping.result ">
                                             <table>
                                                 <tr>
                                                     <td colspan="2">
-                                                        <asp:GridView ID="GridView5" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource13" OnRowDataBound="GridView5_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom gridview3" GridLines="Horizontal" HorizontalAlign="Center" OnPageIndexChanging="GridView5_PageIndexChanging">
+                                                        <asp:GridView ID="GridView5" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource13" OnRowDataBound="GridView5_RowDataBound" CssClass="table table-striped table-hover  table-condensed  gridViewCustom gridview3" GridLines="Horizontal" HorizontalAlign="Center" OnPageIndexChanging="GridView5_PageIndexChanging" Width="800px">
                                                             <Columns>
                                                                 <asp:BoundField DataField="indexNo" HeaderText="Index No" />
                                                                 <asp:BoundField DataField="name" HeaderText="Name" />
@@ -591,7 +591,7 @@ group by  ResultMapping.result ">
                                             <table>
                                                 <tr>
                                                     <td colspan="2">
-                                                        <asp:GridView ID="GridView3" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource5" OnRowDataBound="GridView3_RowDataBound" CssClass=" gridview3 table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" HorizontalAlign="Center" OnPageIndexChanging="GridView3_PageIndexChanging">
+                                                        <asp:GridView ID="GridView3" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource5" OnRowDataBound="GridView3_RowDataBound" CssClass=" gridview3 table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" HorizontalAlign="Center" OnPageIndexChanging="GridView3_PageIndexChanging" Width="800px">
                                                             <Columns>
                                                                 <asp:BoundField DataField="indexNo" HeaderText="Index No" />
                                                                 <asp:BoundField DataField="name" HeaderText="Name" />
@@ -1074,7 +1074,7 @@ FROM            Member INNER JOIN
                                                                         <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("imageURL") %>'></asp:TextBox>
                                                                     </InsertItemTemplate>
                                                                     <ItemTemplate>
-                                                                        <asp:Image ID="Image1" runat="server" Height="101px" ImageUrl='<%# Eval("imageURL") %>' Width="98px" />
+                                                                        <asp:Image ID="Image1" runat="server" Height="101px" ImageUrl='<%# Eval("imageURL") %>' Width="98px" CssClass="margin0" />
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
                                                                 <asp:BoundField DataField="name" HeaderText="Course" SortExpression="name" />

@@ -13,7 +13,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack) {
-                Session["userID"] =1;
+             
                 DropDownList2.Enabled = false;
                 DropDownList1.DataBind();
 
@@ -74,17 +74,58 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
         {
             int courseID=Convert.ToInt32( DropDownList1.SelectedValue);
 
-            try
+
+            if (RadioButton1.Checked)
             {
-                AdminLogic.createEnrollments(courseID, DropDownList2.SelectedValue);
+                try
+                {
+                    AdminLogic.createEnrollments(courseID, DropDownList2.SelectedValue);
+                }
+                catch (Exception)
+                {
+                    ;
+                }
+                finally
+                {
+                    this.Gridview1_DataBind();
+                }
             }
-            catch (Exception)
-            {
-                ;
-            }
-            finally
-            {
-                this.Gridview1_DataBind();
+            else {
+                try
+                {
+                    AdminLogic.createEnrollments(courseID, DropDownList2.SelectedValue);
+                    //if (!TextBox1.Text.Equals(""))
+                    //{
+                    //    AdminLogic.inputTextStreamResults(courseID, TextBox1.Text, DropDownList2.SelectedValue);
+
+                    //}
+                    string textStream = TextBox1.Text;
+
+                    string[] words = textStream.Split(' ');
+
+                    int count = words.Length;
+
+                    for (int i = 0; i <= count - 2; i++)
+                    {
+                        if (PerformanceAnalyzer2.BusinessLogicLayer.AdminLogic.validateIndex(words[i]) && PerformanceAnalyzer2.BusinessLogicLayer.AdminLogic.validateResult(words[i+1]))
+                        {
+
+                            PerformanceAnalyzerDataContext dbContext = new PerformanceAnalyzerDataContext();
+                            dbContext.insertResultByText2(words[i], words[i + 1], DropDownList2.SelectedValue);
+
+                        }
+                    }
+
+                }
+                catch (Exception)
+                {
+                    ;
+                }
+                finally
+                {
+                    this.Gridview1_DataBind();
+                }
+            
             }
 
         }

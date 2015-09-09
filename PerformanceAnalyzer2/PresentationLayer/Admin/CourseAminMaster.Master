@@ -228,7 +228,7 @@
                             <li><a href="../../PresentationLayer/Admin/NewResult.aspx">New Reslts</a></li>
                             <li><a href="../../PresentationLayer/Admin/NewModule.aspx">Add Module</a></li>
 
-                            <li><a href="#">Notifications</a></li>
+                            <li><a href="../../PresentationLayer/Admin/Notifications.aspx">Notifications</a></li>
                         </ul>
 
 

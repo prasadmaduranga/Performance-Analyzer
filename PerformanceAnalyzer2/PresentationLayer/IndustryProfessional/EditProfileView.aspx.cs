@@ -16,7 +16,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.IndustryProfessional
 
             if (!IsPostBack)
             {
-                Session["userID"] =5;
+               
         
                 DetailsView1.DataBind();
             }

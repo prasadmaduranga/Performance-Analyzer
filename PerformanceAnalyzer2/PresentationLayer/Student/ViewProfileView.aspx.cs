@@ -12,7 +12,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["userID"] = 6;
+           
             DetailsView1.DataSource = PerformanceAnalyzer2.BusinessLogicLayer.StudentLogic.getStudentProfileData(Session["userID"]);
             DetailsView1.DataBind();
 

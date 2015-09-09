@@ -11,7 +11,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["userID"] =3;
+           
             if (!IsPostBack) {
                 GridView1.DataBind();
                 DetailsView1.Visible = false;

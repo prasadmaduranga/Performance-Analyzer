@@ -778,6 +778,16 @@
   <Function Name="getStudentBasicInfoNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="courseID" Type="int" Mode="In" />
   </Function>
+  <Function Name="insertResultByText" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="index" Type="nvarchar" Mode="In" />
+    <Parameter Name="result" Type="nvarchar" Mode="In" />
+    <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="insertResultByText2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="index" Type="nvarchar" Mode="In" />
+    <Parameter Name="result" Type="nvarchar" Mode="In" />
+    <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="sendRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="userID" Type="int" Mode="In" />
     <Parameter Name="courseID" Type="int" Mode="In" />
@@ -970,5 +980,11 @@
     <Parameter Name="userID" Type="int" Mode="In" />
     <Parameter Name="userName" Type="nvarchar" Mode="In" />
     <Parameter Name="indexNo" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="validateCourse" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="validateUserName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userName" Type="nvarchar" Mode="In" />
   </Function>
 </Schema>

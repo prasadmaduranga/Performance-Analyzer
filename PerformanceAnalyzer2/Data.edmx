@@ -783,6 +783,16 @@
         <Function Name="getStudentBasicInfoNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="courseID" Type="int" Mode="In" />
         </Function>
+        <Function Name="insertResultByText" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="index" Type="nvarchar" Mode="In" />
+          <Parameter Name="result" Type="nvarchar" Mode="In" />
+          <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="insertResultByText2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="index" Type="nvarchar" Mode="In" />
+          <Parameter Name="result" Type="nvarchar" Mode="In" />
+          <Parameter Name="moduleCode" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="sendRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userID" Type="int" Mode="In" />
           <Parameter Name="courseID" Type="int" Mode="In" />
@@ -975,6 +985,12 @@
           <Parameter Name="userID" Type="int" Mode="In" />
           <Parameter Name="userName" Type="nvarchar" Mode="In" />
           <Parameter Name="indexNo" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="validateCourse" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="validateUserName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userName" Type="nvarchar" Mode="In" />
         </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -1291,11 +1307,27 @@
           <Parameter Name="courseID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spDeleteMessage">
-            <Parameter Name="userID" Mode="In" Type="Int32" />
+          <Parameter Name="userID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spGrantCourse">
             <Parameter Name="userID" Mode="In" Type="Int32" />
             <Parameter Name="courseID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="validateCourse">
+          <Parameter Name="userName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="validateUserName">
+          <Parameter Name="userName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="insertResultByText">
+            <Parameter Name="index" Mode="In" Type="String" />
+            <Parameter Name="result" Mode="In" Type="String" />
+            <Parameter Name="moduleCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="insertResultByText2">
+            <Parameter Name="index" Mode="In" Type="String" />
+            <Parameter Name="result" Mode="In" Type="String" />
+            <Parameter Name="moduleCode" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="AcedemicYear">
@@ -2521,6 +2553,10 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="spDeleteMessage" FunctionName="PerformanceAnalyzerModel.Store.spDeleteMessage" />
           <FunctionImportMapping FunctionImportName="spGrantCourse" FunctionName="PerformanceAnalyzerModel.Store.spGrantCourse" />
+          <FunctionImportMapping FunctionImportName="validateCourse" FunctionName="PerformanceAnalyzerModel.Store.validateCourse" />
+          <FunctionImportMapping FunctionImportName="validateUserName" FunctionName="PerformanceAnalyzerModel.Store.validateUserName" />
+          <FunctionImportMapping FunctionImportName="insertResultByText" FunctionName="PerformanceAnalyzerModel.Store.insertResultByText" />
+          <FunctionImportMapping FunctionImportName="insertResultByText2" FunctionName="PerformanceAnalyzerModel.Store.insertResultByText2" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

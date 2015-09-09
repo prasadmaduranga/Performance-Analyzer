@@ -479,7 +479,7 @@ group by  ResultMapping.result ">
                                                 </tr>
                                                 <tr> 
                                                     <td colspan="2" style="padding-left:40px;">
-                                                        <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="result" DataSourceID="SqlDataSource2" CssClass="gridview3  table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" OnPageIndexChanging="GridView1_PageIndexChanging" HorizontalAlign="Center">
+                                                        <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="result" DataSourceID="SqlDataSource2" CssClass="gridview3  table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" OnPageIndexChanging="GridView1_PageIndexChanging" HorizontalAlign="Center" Width="800px">
                                                             <Columns>
                                                                 <asp:BoundField DataField="indexNo" HeaderText="Index No" SortExpression="indexNo" />
                                                                 <asp:BoundField DataField="userName" HeaderText="Name" SortExpression="userName" />
@@ -827,7 +827,7 @@ group by  ResultMapping.result ">
                                                 </tr>--%>
                                                 <tr>
                                                     <td colspan="2">
-                                                        <asp:GridView ID="GridView5" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource13" OnRowDataBound="GridView5_RowDataBound" CssClass="gridview3  table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" HorizontalAlign="Center" OnPageIndexChanging="GridView5_PageIndexChanging">
+                                                        <asp:GridView ID="GridView5" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource13" OnRowDataBound="GridView5_RowDataBound" CssClass="gridview3  table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" HorizontalAlign="Center" OnPageIndexChanging="GridView5_PageIndexChanging" Width="800px">
                                                             <Columns>
                                                                 <asp:BoundField DataField="indexNo" HeaderText="Index No" />
                                                                 <asp:BoundField DataField="name" HeaderText="Name" />
@@ -1005,7 +1005,7 @@ group by  ResultMapping.result ">
                                             <table style="width: 100%">
                                                 <tr>
                                                     <td colspan="2">
-                                                        <asp:GridView ID="GridView3" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource5" OnRowDataBound="GridView3_RowDataBound" CssClass="gridview3  table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" HorizontalAlign="Center" OnPageIndexChanging="GridView3_PageIndexChanging">
+                                                        <asp:GridView ID="GridView3" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource5" OnRowDataBound="GridView3_RowDataBound" CssClass="gridview3  table table-striped table-hover  table-condensed  gridViewCustom" GridLines="Horizontal" HorizontalAlign="Center" OnPageIndexChanging="GridView3_PageIndexChanging" Width="800px">
                                                             <Columns>
                                                                 <asp:BoundField DataField="indexNo" HeaderText="Index No" />
                                                                 <asp:BoundField DataField="name" HeaderText="Name" />
@@ -1296,7 +1296,7 @@ group by  ResultMapping.result ">
                     </asp:View>
                     <asp:View ID="View5" runat="server">
 
-                        <div class="jumbotron" style="margin-top: 15px; margin-top: 15px; background-color: #2fa4e7; padding: 10px; background-color: #E8E8E8;">
+                        <div class="jumbotron" style="margin-top: 15px; margin-top: 15px; background-color: #2fa4e7; padding: 10px;">
                             <h3 style="color: white; opacity: .9;">First Select Filtering Category! </h3>
 
                         </div>

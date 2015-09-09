@@ -519,5 +519,9 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="spDeleteMessage" FunctionName="PerformanceAnalyzerModel.Store.spDeleteMessage" />
     <FunctionImportMapping FunctionImportName="spGrantCourse" FunctionName="PerformanceAnalyzerModel.Store.spGrantCourse" />
+    <FunctionImportMapping FunctionImportName="validateCourse" FunctionName="PerformanceAnalyzerModel.Store.validateCourse" />
+    <FunctionImportMapping FunctionImportName="validateUserName" FunctionName="PerformanceAnalyzerModel.Store.validateUserName" />
+    <FunctionImportMapping FunctionImportName="insertResultByText" FunctionName="PerformanceAnalyzerModel.Store.insertResultByText" />
+    <FunctionImportMapping FunctionImportName="insertResultByText2" FunctionName="PerformanceAnalyzerModel.Store.insertResultByText2" />
   </EntityContainerMapping>
 </Mapping>

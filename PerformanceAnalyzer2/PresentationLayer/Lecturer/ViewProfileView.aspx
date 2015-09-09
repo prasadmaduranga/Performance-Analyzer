@@ -30,7 +30,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <p>
 
-        <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" Height="50px" width="400px" CssClass="table-condensed  table-striped  detailsView  gridview" HeaderText="Profile" HorizontalAlign="Center">
+        <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" Height="50px" width="400px" CssClass="table-condensed  table-striped  detailsView  gridview" HeaderText="Profile" HorizontalAlign="Center" DataSourceID="SqlDataSource1">
             <Fields>
                 <asp:TemplateField HeaderText="Profile Picture">
                     <ItemTemplate>
@@ -41,13 +41,15 @@
                 <asp:BoundField DataField="email" HeaderText="E-mail" />
                 <asp:BoundField DataField="linkedin" HeaderText="Linkedin" />
 
-                <asp:BoundField DataField="universityName" HeaderText="University" />
-                <asp:BoundField DataField="facultyName" HeaderText="Faculty" />
-                <asp:BoundField DataField="departmentName" HeaderText="Department" />
-
                 <asp:BoundField DataField="description" HeaderText="Description" />
             </Fields>
         </asp:DetailsView>
+
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT Member.userName, Member.email, Member.linkedin, Member.imageURL, Lecturer.description FROM Member INNER JOIN Lecturer ON Member.userID = Lecturer.userID WHERE (Member.userID = @userID)">
+            <SelectParameters>
+                <asp:SessionParameter Name="userID" SessionField="userID" />
+            </SelectParameters>
+        </asp:SqlDataSource>
 
     </p>
 </asp:Content>

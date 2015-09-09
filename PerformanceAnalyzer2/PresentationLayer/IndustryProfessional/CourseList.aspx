@@ -290,10 +290,10 @@
                                                                     <table>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:LinkButton ID="LinkButton3" runat="server" Text='<%# Eval("requestStatus")+" " %>' OnClick="LinkButton3_Click"></asp:LinkButton>
+                                                                                <asp:LinkButton ID="LinkButton3" runat="server" Text='<%# Eval("requestStatus")+" " %>' ></asp:LinkButton>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:LinkButton ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">| More...</asp:LinkButton>
+                                                                                <asp:LinkButton ID="LinkButton4" runat="server" >| More...</asp:LinkButton>
                                                                             </td>
                                                                         </tr>
                                                                     </table>

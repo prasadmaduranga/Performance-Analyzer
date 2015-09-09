@@ -10,7 +10,13 @@ background-color:white;
 
 
 }
+#ContentPlaceHolder2_DetailsView1_Image1 {
+margin-left:0px;
+margin-top:4px;
+margin-bottom:4px;
 
+
+}
 
 .navbar-default{
    /* -moz-box-shadow: 4px -4px 8px #14aae0;
@@ -25,6 +31,10 @@ background-color:white;
 
 
 
+}
+#statSpecial > div > h3 {
+
+color:black;
 }
 
 @media (min-width: 768px) {
@@ -566,6 +576,12 @@ width:160px;
 background-color:#0179ac;
 
 }
+
+
+#ContentPlaceHolder2_GridView15 > tbody > tr:nth-child(1) > th,#ContentPlaceHolder2_GridView14 > tbody > tr:nth-child(1) > th {
+text-align:center;
+}
+
 #statSpecial #ContentPlaceHolder2_Panel2 {
 margin-bottom:0px;
 border-bottom:0px;
@@ -904,4 +920,9 @@ margin-top:6px;
     max-height:543px;
   
     overflow: auto;
+}
+
+.margin0 {
+
+margin-left:0px;
 }

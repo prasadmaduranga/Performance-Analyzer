@@ -12,8 +12,8 @@ namespace PerformanceAnalyzer2.PresentationLayer.Lecturer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["userID"] = 4;
-            DetailsView1.DataSource = PerformanceAnalyzer2.BusinessLogicLayer.LecturerLogic.getLecturerData(Session["userID"]);
+          
+           // DetailsView1.DataSource = PerformanceAnalyzer2.BusinessLogicLayer.LecturerLogic.getLecturerData(Session["userID"]);
             DetailsView1.DataBind();
 
         }

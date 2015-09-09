@@ -15,7 +15,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Lecturer
         {
             if (!IsPostBack)
             {
-                Session["userID"] =4;
+                
                // DetailsView1.DataSource = AdminLogic.getAdminProfileData(Session["userID"]);
                 DetailsView1.DataBind();
             }

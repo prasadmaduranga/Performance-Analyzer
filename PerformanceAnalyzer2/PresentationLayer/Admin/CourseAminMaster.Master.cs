@@ -11,38 +11,38 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    if (Session["role"].ToString().Equals("CourseAdmin"))
-            //    {
-            //        if (Session["imageURL"] != null)
-            //        {
-            //            ImageButton1.ImageUrl = Session["imageURL"].ToString() ?? "~/Images/Default.jpg";
-            //        }
-            //        else
-            //        {
-            //            ImageButton1.ImageUrl = "~/Images/Default.jpg";
-            //        }
-            //        LinkButton2.Text = " | " + Session["userName"].ToString() + " ";
-            //        LinkButton3.Text = "| Logout";
-            //    }
-            //    else
-            //    {
-            //        Session["userID"] = null;
-            //        Session["userName"] = null;
-            //        Session["role"] = null;
-            //        Session["imageURL"] = null;
-            //        Session["courseID"] = null;
-            //        Response.Redirect("~/Login.aspx");
+            try
+            {
+                if (Session["role"].ToString().Equals("CourseAdmin"))
+                {
+                    if (Session["imageURL"] != null)
+                    {
+                        ImageButton1.ImageUrl = Session["imageURL"].ToString() ?? "~/Images/Default.jpg";
+                    }
+                    else
+                    {
+                        ImageButton1.ImageUrl = "~/Images/Default.jpg";
+                    }
+                    LinkButton2.Text = " | " + Session["userName"].ToString() + " ";
+                    LinkButton3.Text = "| Logout";
+                }
+                else
+                {
+                    Session["userID"] = null;
+                    Session["userName"] = null;
+                    Session["role"] = null;
+                    Session["imageURL"] = null;
+                    Session["courseID"] = null;
+                    Response.Redirect("~/Login.aspx");
 
 
-            //    }
-            //}
-            //catch (Exception er)
-            //{
+                }
+            }
+            catch (Exception er)
+            {
 
-            //    Response.Redirect("~/Login.aspx");
-            //}
+                Response.Redirect("~/Login.aspx");
+            }
 
         }
 

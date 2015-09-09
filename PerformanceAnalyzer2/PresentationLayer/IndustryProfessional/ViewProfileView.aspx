@@ -28,7 +28,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <p>
-        <asp:DetailsView ID="DetailsView1" runat="server" Height="50px"  AutoGenerateRows="False" CssClass="table-condensed  table-striped  detailsView  gridview" width="400px" HeaderText="Profile" HorizontalAlign="Center">
+        <asp:DetailsView ID="DetailsView1" runat="server" Height="50px"  AutoGenerateRows="False" CssClass="table-condensed  table-striped  detailsView  gridview" width="400px" HeaderText="Profile" HorizontalAlign="Center" DataSourceID="SqlDataSource1">
             <Fields>
                 
                 <asp:TemplateField HeaderText="Profile Picture">
@@ -46,6 +46,11 @@
 
         </asp:DetailsView>
         <br />
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PerformanceAnalyzerConnectionString %>" SelectCommand="SELECT Member.userName, Member.email, Member.linkedin, Member.imageURL, IndustryProfessional.companyName, IndustryProfessional.description FROM Member INNER JOIN IndustryProfessional ON Member.userID = IndustryProfessional.userID  where Member.userID=@userID">
+            <SelectParameters>
+                <asp:SessionParameter Name="userID" SessionField="userID" />
+            </SelectParameters>
+        </asp:SqlDataSource>
     </p>
     <p>
     </p>

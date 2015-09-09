@@ -16,10 +16,13 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["userID"] = 1;
+            
 
             if (!IsPostBack)
             {
+                Session["uniID"] = -1;
+                Session["facID"] = -1;
+
                 int activeViewIndexVal = Convert.ToInt32(Request.QueryString["activeView"]);
                 string activeViewIndex = (String)Request.QueryString["activeView"];
                 string initRequest = (String)Request.QueryString["initial"];
@@ -97,13 +100,45 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
 
         protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            Session["uniID"] = Convert.ToInt32(((DropDownList)DetailsView1.Rows[2].Cells[1].FindControl("DropDownList2")).SelectedValue);
+
+            DropDownList dr1 = ((DropDownList)DetailsView1.Rows[2].Cells[1].FindControl("DropDownList3"));
+            DropDownList dr2= ((DropDownList)DetailsView1.Rows[2].Cells[1].FindControl("DropDownList4"));
+
+
+            var firstitem1 = dr1.Items[0];
+            var firstitem2 = dr2.Items[0];
+
+            dr1.Items.Clear();
+            dr2.Items.Clear();
+
+            dr1.Items.Add(firstitem1);
+            dr2.Items.Add(firstitem2);
+
+
             ((DropDownList)DetailsView1.Rows[2].Cells[1].FindControl("DropDownList3")).DataBind();
             ((DropDownList)DetailsView1.Rows[2].Cells[1].FindControl("DropDownList4")).DataBind();
+
+
         }
 
         protected void DropDownList3_SelectedIndexChanged(object sender, EventArgs e)
         {
+            DropDownList dr2 = ((DropDownList)DetailsView1.Rows[2].Cells[1].FindControl("DropDownList4"));
+
+
+            var firstitem2 = dr2.Items[0];
+
+            dr2.Items.Clear();
+
+            dr2.Items.Add(firstitem2);
+
+            Session["facID"] = Convert.ToInt32(((DropDownList)DetailsView1.Rows[2].Cells[1].FindControl("DropDownList3")).SelectedValue);
             ((DropDownList)DetailsView1.Rows[2].Cells[1].FindControl("DropDownList4")).DataBind();
+
+
+        
         }
 
         protected void DetailsView1_ItemInserting(object sender, DetailsViewInsertEventArgs e)
@@ -423,6 +458,23 @@ namespace PerformanceAnalyzer2.PresentationLayer.Admin
             DetailsView2.DataBind();
             UpdatePanel3.Update();
 
+        }
+
+        protected void DetailsView1_ItemCommand(object sender, DetailsViewCommandEventArgs e)
+        {
+        }
+
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            PerformanceAnalyzerDataContext dbcontext = new PerformanceAnalyzerDataContext();
+            int val=dbcontext.validateCourse(args.Value);
+            if (val > 0)
+            {
+                args.IsValid = true;
+            }
+            else {
+                args.IsValid = false;
+            }
         }
     }    
     

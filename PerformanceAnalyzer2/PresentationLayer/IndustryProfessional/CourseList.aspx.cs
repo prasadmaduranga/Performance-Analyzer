@@ -11,7 +11,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.IndustryProfessional
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["userID"] = 263;
+            
             if (!IsPostBack)
             {
                 MultiView1.ActiveViewIndex = 0;
@@ -25,7 +25,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.IndustryProfessional
 
         protected void GridView1_RowCommand2(object sender, GridViewCommandEventArgs e)
         {
-            if (((LinkButton)e.CommandSource).Text.Equals("More..."))
+            if (((LinkButton)e.CommandSource).Text.Equals(" More..."))
             {
                 GridViewRow rowSelect = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
                 int rowindex = rowSelect.RowIndex;
@@ -35,7 +35,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.IndustryProfessional
                 DetailsView1.Visible = true;
 
             }
-            if (((LinkButton)e.CommandSource).Text.Equals("Unfollow"))
+            if (((LinkButton)e.CommandSource).Text.Equals("Unfollow | "))
             {
                 GridViewRow rowSelect = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
                 int rowindex = rowSelect.RowIndex;
@@ -54,12 +54,13 @@ namespace PerformanceAnalyzer2.PresentationLayer.IndustryProfessional
 
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
+           
 
         }
 
         protected void LinkButton4_Click(object sender, EventArgs e)
         {
-
+          
         }
 
         protected void GridView2_RowCommand(object sender, GridViewCommandEventArgs e)

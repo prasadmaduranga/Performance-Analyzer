@@ -14,12 +14,10 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["userID"] = 309;
-            Session["courseID"] = 154;
-            Session["statCourseID"] = 154;
+           
            
             if (!IsPostBack) {
-
+                Session["statCourseID"] = Session["CourseID"];
                 MultiView1.ActiveViewIndex = 4;
 
             }

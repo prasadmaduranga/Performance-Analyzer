@@ -454,9 +454,8 @@
                                                         runat="server" Text="User Name"></asp:Label>
                                         <asp:TextBox ID="TextBox3" placeholder="User Name"
                                                         runat="server"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox3" ErrorMessage="*Required" ForeColor="Red" ValidationGroup="group1"></asp:RequiredFieldValidator>
-                                                
-                                
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3"  Display="Dynamic" runat="server" ControlToValidate="TextBox3" ErrorMessage="*Required" ForeColor="Red" ValidationGroup="group1"></asp:RequiredFieldValidator>
+                                    <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="CustomValidator" ControlToValidate="TextBox3" OnServerValidate="CustomValidator1_ServerValidate" ValidationGroup="group1" ForeColor="Red"></asp:CustomValidator>
                                 </p>
                                 <p> 
 

@@ -229,6 +229,36 @@ namespace PerformanceAnalyzer2
         {
             MultiView1.ActiveViewIndex =0;
         }
+
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            PerformanceAnalyzerDataContext dbcontext = new PerformanceAnalyzerDataContext();
+         int val = dbcontext.validateUserName(args.Value);
+            if (val == 1)
+             {
+                 args.IsValid = true;
+
+             }
+           else {
+
+              args.IsValid = false;
+            }
+        }
+
+        //protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        //{
+        //    PerformanceAnalyzerDataContext dbcontext = new PerformanceAnalyzerDataContext();
+        //    int val = dbcontext.validateUserName(args.Value);
+        //    if (val == 1)
+        //    {
+        //        args.IsValid = true;
+
+        //    }
+        //    else {
+
+        //        args.IsValid = false;
+        //    }
+        //}
     }
 
 }

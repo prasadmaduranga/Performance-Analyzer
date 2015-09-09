@@ -117,7 +117,7 @@ where Course.courseID=@courseID">
                         <div class="col-lg-4">
 
                             <asp:RadioButton ID="RadioButton1" runat="server" Checked="True" GroupName="selectionGroup" Text="Manually" OnCheckedChanged="RadioButton1_CheckedChanged" AutoPostBack="True" />
-                            <asp:RadioButton ID="RadioButton2" runat="server" GroupName="selectionGroup" Text="Using Text Stream" OnCheckedChanged="RadioButton1_CheckedChanged" AutoPostBack="True" />
+                            <asp:RadioButton ID="RadioButton2" runat="server" GroupName="selectionGroup" Text="Using Text Stream" OnCheckedChanged="RadioButton1_CheckedChanged" AutoPostBack="True"  />
 
                         </div>
                     </div>

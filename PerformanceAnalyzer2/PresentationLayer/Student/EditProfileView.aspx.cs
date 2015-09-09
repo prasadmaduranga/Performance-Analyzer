@@ -14,7 +14,7 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
         {
             if (!IsPostBack)
             {
-                Session["userID"] =6;
+             
                // DetailsView1.DataSource = AdminLogic.getAdminProfileData(Session["userID"]);
                 DetailsView1.DataBind();
             }

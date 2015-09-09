@@ -14,7 +14,6 @@ namespace PerformanceAnalyzer2.PresentationLayer.IndustryProfessional
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["userID"] = 4;
             ;
             if (!IsPostBack)
             {

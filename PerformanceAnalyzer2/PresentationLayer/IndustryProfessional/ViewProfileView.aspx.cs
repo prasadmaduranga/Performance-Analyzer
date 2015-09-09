@@ -12,8 +12,8 @@ namespace PerformanceAnalyzer2.PresentationLayer.IndustryProfessional
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["userID"] = 5;
-            DetailsView1.DataSource = PerformanceAnalyzer2.BusinessLogicLayer.IndustryProfessional.getIndustryProfessionalProfileData(Session["userID"]);
+         
+           // DetailsView1.DataSource = PerformanceAnalyzer2.BusinessLogicLayer.IndustryProfessional.getIndustryProfessionalProfileData(Session["userID"]);
             DetailsView1.DataBind();
         }
     }

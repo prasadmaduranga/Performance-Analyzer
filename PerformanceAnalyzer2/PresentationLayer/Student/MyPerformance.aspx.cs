@@ -15,9 +15,6 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
         protected void Page_Load(object sender, EventArgs e)
         {
  
-            Session["courseID"] = 8;
-            Session["userID"] = 6;
-            Session["indexNo"] = "120287D";
            
 
             if (!IsPostBack)
@@ -86,13 +83,22 @@ namespace PerformanceAnalyzer2.PresentationLayer.Student
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
 
-          //      ((Label)e.Row.Cells[3].FindControl("Label1")).Text = StudentLogic.getResultForGPA(double.Parse(((Label)e.Row.Cells[5].FindControl("Label3")).Text));
-                double val = double.Parse(((Label)e.Row.Cells[3].FindControl("Label2")).Text);
-                ((Label)e.Row.Cells[3].FindControl("Label2")).Text = Math.Round(val, 2).ToString();
 
-                string colour = StudentLogic.getCustomColour(float.Parse(((Label)e.Row.Cells[3].FindControl("Label2")).Text));
-                ((TableCell)e.Row.Cells[3]).BackColor = System.Drawing.ColorTranslator.FromHtml(colour);
+                try
+                {
+                    //      ((Label)e.Row.Cells[3].FindControl("Label1")).Text = StudentLogic.getResultForGPA(double.Parse(((Label)e.Row.Cells[5].FindControl("Label3")).Text));
+                    double val = double.Parse(((Label)e.Row.Cells[3].FindControl("Label2")).Text);
+                    ((Label)e.Row.Cells[3].FindControl("Label2")).Text = Math.Round(val, 2).ToString();
 
+                    string colour = StudentLogic.getCustomColour(float.Parse(((Label)e.Row.Cells[3].FindControl("Label2")).Text));
+                    ((TableCell)e.Row.Cells[3]).BackColor = System.Drawing.ColorTranslator.FromHtml(colour);
+
+                }
+                catch (Exception er)
+                {
+                    
+                   
+                }
                 
 
             }
